@@ -27,6 +27,10 @@ SET time_zone = "+00:00";
 -- Table structure for table `blogs`
 --
 
+create database blogstagramdb;
+
+use blogstagramdb;
+
 CREATE TABLE `blogs` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
