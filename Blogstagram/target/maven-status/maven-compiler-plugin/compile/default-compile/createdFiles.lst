@@ -1,1 +1,2 @@
 org\blogstagram\listeners\contextListener.class
+org\blogstagram\register\RegisterServlet.class
