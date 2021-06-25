@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2021 at 07:09 PM
+-- Generation Time: Jun 25, 2021 at 07:12 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -158,6 +158,7 @@ CREATE TABLE `users` (
   `nickname` varchar(255) NOT NULL,
   `role` varchar(10) NOT NULL DEFAULT 'user',
   `email` varchar(255) NOT NULL,
+  `password` varchar(500) NOT NULL,
   `birthday` date NOT NULL,
   `gender` int(11) NOT NULL,
   `privacy` varchar(10) NOT NULL,
