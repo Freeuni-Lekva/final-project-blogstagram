@@ -1,6 +1,7 @@
 package org.blogstagram.listeners;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.blogstagram.dao.UserDAO;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -21,6 +22,9 @@ public class contextListener implements ServletContextListener {
         try {
             Connection dbConnection = source.getConnection();
             servletContextEvent.getServletContext().setAttribute("dbConnection", dbConnection);
+
+            UserDAO userDAO = new UserDAO(dbConnection);
+            servletContextEvent.getServletContext().setAttribute("UserDAO",userDAO);
         } catch (SQLException exception) {
             exception.printStackTrace();
         }

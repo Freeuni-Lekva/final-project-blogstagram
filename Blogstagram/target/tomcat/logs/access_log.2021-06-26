@@ -52,3 +52,17 @@
 0:0:0:0:0:0:0:1 - - [26/Jun/2021:00:17:04 +0400] "GET /register HTTP/1.1" 200 9850 http-bio-8000-exec-1 491
 0:0:0:0:0:0:0:1 - - [26/Jun/2021:00:17:05 +0400] "GET /register HTTP/1.1" 200 9850 http-bio-8000-exec-3 1
 0:0:0:0:0:0:0:1 - - [26/Jun/2021:00:17:06 +0400] "GET /register HTTP/1.1" 200 9850 http-bio-8000-exec-4 0
+0:0:0:0:0:0:0:1 - - [26/Jun/2021:00:17:39 +0400] "GET /register HTTP/1.1" 200 9850 http-bio-8000-exec-1 63
+0:0:0:0:0:0:0:1 - - [26/Jun/2021:00:17:39 +0400] "GET /jsp/register/register.js HTTP/1.1" 200 380 http-bio-8000-exec-3 4
+0:0:0:0:0:0:0:1 - - [26/Jun/2021:00:18:40 +0400] "GET /register HTTP/1.1" 200 9850 http-bio-8000-exec-5 4
+0:0:0:0:0:0:0:1 - - [26/Jun/2021:00:18:40 +0400] "GET /jsp/register/register.js HTTP/1.1" 200 380 http-bio-8000-exec-7 6
+0:0:0:0:0:0:0:1 - - [26/Jun/2021:00:18:54 +0400] "GET /register HTTP/1.1" 200 9850 http-bio-8000-exec-8 4
+0:0:0:0:0:0:0:1 - - [26/Jun/2021:00:18:54 +0400] "GET /jsp/register/register.js HTTP/1.1" 200 426 http-bio-8000-exec-9 2
+0:0:0:0:0:0:0:1 - - [26/Jun/2021:00:20:28 +0400] "GET /register HTTP/1.1" 200 9668 http-bio-8000-exec-1 423
+0:0:0:0:0:0:0:1 - - [26/Jun/2021:00:20:28 +0400] "GET /jsp/register/register.js HTTP/1.1" 304 - http-bio-8000-exec-1 1
+0:0:0:0:0:0:0:1 - - [26/Jun/2021:00:21:19 +0400] "GET /register HTTP/1.1" 200 9668 http-bio-8000-exec-1 5
+0:0:0:0:0:0:0:1 - - [26/Jun/2021:00:21:19 +0400] "GET /jsp/register/register.js HTTP/1.1" 200 433 http-bio-8000-exec-1 4
+0:0:0:0:0:0:0:1 - - [26/Jun/2021:00:21:52 +0400] "GET /register HTTP/1.1" 200 9668 http-bio-8000-exec-1 4
+0:0:0:0:0:0:0:1 - - [26/Jun/2021:00:21:53 +0400] "GET /jsp/register/register.js HTTP/1.1" 200 440 http-bio-8000-exec-1 4
+0:0:0:0:0:0:0:1 - - [26/Jun/2021:00:22:37 +0400] "GET /register HTTP/1.1" 200 9668 http-bio-8000-exec-1 3
+0:0:0:0:0:0:0:1 - - [26/Jun/2021:00:22:37 +0400] "GET /jsp/register/register.js HTTP/1.1" 200 434 http-bio-8000-exec-1 4
