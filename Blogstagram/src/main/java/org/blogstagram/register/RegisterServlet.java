@@ -104,16 +104,15 @@ public class RegisterServlet extends HttpServlet {
             return;
         }
 
-        System.out.println("Success!");
         UserDAO userDAO = getUserDaoFromContext(req);
-
         User user = new User(null,firstname,lastname,nickname,User.DEFAULT_ROLE,email,Integer.parseInt(gender),Integer.parseInt(privacy),Date.valueOf(birthday),
-                                null,null,null,null,null,new Date(System.currentTimeMillis()));
+                                User.DEFAULT_USER_IMAGE_PATH,null,null,null,null,new Date(System.currentTimeMillis()));
+
         String hashedPassword = StringHasher.hashString(password);
         try {
             userDAO.addUser(user,hashedPassword);
             req.getSession().setAttribute("currentUserID",user.getId());
-            System.out.println(user);
+            req.getSession().setAttribute("currentUserNickname",user.getNickname());
             //res.sendRedirect("/user/"+user.getNickname());
         } catch (SQLException exception) {
             exception.printStackTrace();

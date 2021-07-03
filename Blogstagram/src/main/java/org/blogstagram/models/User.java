@@ -22,6 +22,8 @@ public class User {
     public static final String DEFAULT_ROLE = "User";
     public static final String MODERATOR_ROLE = "Moderator";
     public static final String ADMIN_ROLE = "Admin";
+    public static final String DEFAULT_USER_IMAGE_PATH = "/images/defaultUserImage.jpg";
+
 
     public User(Integer id,String firstname, String lastname, String nickname, String role, String email,
                 Integer gender, Integer privacy, Date birthday, String image, String country,

@@ -18,6 +18,9 @@ public class UserDAO {
     }
 
     public User getUserByIdOrNickname(Integer userID,String userNickname) throws SQLException {
+        if(userID == null && userNickname == null)
+            throw new RuntimeException("UserID or UserNickname must be included");
+
         PreparedStatement stm = connection.prepareStatement(GET_USER_BY_ID_QUERY);
         stm.setInt(1,userID);
         stm.setString(2,userNickname);

@@ -1,3 +1,4 @@
+org\blogstagram\logout\LogoutServlet.class
 org\blogstagram\register\RegisterServlet.class
 org\blogstagram\register\RegisterValidator.class
 org\blogstagram\StringHasher.class
