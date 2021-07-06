@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebListener;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import org.blogstagram.dao.SqlFollowDao;
 
 @WebListener
 public class contextListener implements ServletContextListener {
@@ -21,6 +22,10 @@ public class contextListener implements ServletContextListener {
         try {
             Connection dbConnection = source.getConnection();
             servletContextEvent.getServletContext().setAttribute("dbConnection", dbConnection);
+            SqlFollowDao followDao = new SqlFollowDao(dbConnection);
+            followDao.setUserDao(userDao);
+            // set follow request sender to followDao.
+            servletContextEvent.getServletContext().setAttribute("SqlFollowDao", followDao);
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
