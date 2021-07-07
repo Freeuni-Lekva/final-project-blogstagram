@@ -5,23 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d23fff88-d96c-48f2-a7cb-30c07e4c89b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/NotValidUserIdException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Validators/FollowRequestValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Validators/UserIdValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Validators/Validator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/api/FollowApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/api/StatusCodes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/sessionListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/todo.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/HelloServlet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/FollowDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/FollowDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlFollowDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlFollowDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/UserNotRegisteredException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/followResponseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/followResponseServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/followServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/followServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/DirectedFollow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/DirectedFollow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/followServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/followServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/api/FollowApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/api/FollowApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/todo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/todo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

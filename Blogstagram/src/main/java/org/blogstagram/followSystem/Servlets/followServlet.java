@@ -1,6 +1,6 @@
 package org.blogstagram.followSystem.Servlets;
 
-import com.google.gson.JsonObject;
+
 import org.blogstagram.dao.SqlFollowDao;
 import org.blogstagram.errors.DirectionalFollowNotAdded;
 import org.blogstagram.errors.NotLoggedInException;
@@ -8,7 +8,11 @@ import org.blogstagram.errors.NotValidUserIdException;
 import org.blogstagram.followSystem.Validators.FollowRequestValidator;
 import org.blogstagram.followSystem.api.FollowApi;
 import org.blogstagram.followSystem.api.StatusCodes;
+import org.json.JSONObject;
 
+
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,7 +42,8 @@ public class followServlet extends HttpServlet {
         String toIdStr = request.getParameter("to_id");
         String fromIdStr = (String) request.getSession().getAttribute("from_id");
         FollowRequestValidator validator = new FollowRequestValidator(fromIdStr, toIdStr);
-        JsonObject responseJson = new JsonObject();
+        JSONObject responseJson = new JSONObject();
+        int statusCode = 0;
         try {
             if(validator.isFromIdValid() && validator.isToIdValid()){
                 Integer fromId = Integer.parseInt(fromIdStr);
@@ -47,14 +52,16 @@ public class followServlet extends HttpServlet {
                 followApi.registerFollowRequestSender(); // should get nottificatinDao.
                 followApi.setFollowDao(followSystem);
                 if(followApi.alreadyFollowed(fromId, toId)){
-                    followApi.unfollow(fromId, toId);
+                    statusCode = followApi.unfollow(fromId, toId);
                 }else{
-                    followApi.sendFollowRequest(fromId, toId);
+                    statusCode = followApi.sendFollowRequest(fromId, toId);
                 }
             }
         } catch (NotLoggedInException | NullPointerException | NotValidUserIdException | DirectionalFollowNotAdded ex) {
-
-            responseJson.addProperty("status", StatusCodes.error);
+            statusCode = StatusCodes.error;
+            responseJson.append("errorMessage", ex);
+        } finally {
+            responseJson.append("status", statusCode);
             response.getWriter().print(responseJson);
         }
     }

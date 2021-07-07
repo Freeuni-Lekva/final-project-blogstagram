@@ -17,6 +17,13 @@ import java.util.List;
 public class SqlFollowDao implements FollowDao {
     private SqlQueries queries;
     private Connection connection;
+    private UsedDao userDao;
+
+    public void setUserDao(UserDao userDao) {
+        if(userDao == null) throw new NullPointerException("User Dao object can't be null.");
+        this.userDao = userDao;
+    }
+
     public SqlFollowDao(Connection connection){
         if(connection == null)
             return; // return error
@@ -48,7 +55,7 @@ public class SqlFollowDao implements FollowDao {
             stm.close();
             return res.next();
         } catch (InvalidSQLQueryException | SQLException e) {
-            // think what to do with errors.
+
         }
         return false;
     }
@@ -83,7 +90,7 @@ public class SqlFollowDao implements FollowDao {
         Function returns all followers of current user.
      */
     @Override
-    public List<DirectedFollow> selectAllFollowers(Integer id){
+    public List<User> selectAllFollowers(Integer id){
         if(id == null) throw new NullPointerException("User Id can't be null.");
         List <String> select = new ArrayList<>();
         List <String> where = new ArrayList<>();
@@ -92,19 +99,15 @@ public class SqlFollowDao implements FollowDao {
         select.add("to_user_id");
         select.add("created_at");
         where.add("to_user_id");
-        List <DirectedFollow> results = new ArrayList<>();
+        List <User> results = new ArrayList<>();
         try {
             String query = queries.getSelectQuery(select, where);
             PreparedStatement prpStm = connection.prepareStatement(query);
             prpStm.setInt(1, id);
             ResultSet res = prpStm.executeQuery(query);
             while (res.next()){
-                DirectedFollow follow = new DirectedFollow();
-                follow.setId(res.getInt(1));
-                follow.setFromId(res.getInt(2));
-                follow.setToId(res.getInt(3));
-                follow.setCreatedAt(res.getDate(4));
-                results.add(follow);
+                User user = userDao.getUserById(res.getInt(2));
+                results.add(user);
             }
             prpStm.close();
         } catch (InvalidSQLQueryException | SQLException e) {
@@ -113,11 +116,12 @@ public class SqlFollowDao implements FollowDao {
         return results;
     }
 
+
     /*
         Function returns list of users who follow current user.
      */
     @Override
-    public List<DirectedFollow> selectAllFollowings(Integer id){
+    public List <User> selectAllFollowings(Integer id){
         if(id == null) throw new NullPointerException("User id can't be null");
         List <String> select = new ArrayList<>();
         List <String> where = new ArrayList<>();
@@ -126,22 +130,18 @@ public class SqlFollowDao implements FollowDao {
         select.add("to_user_id");
         select.add("created_at");
         where.add("from_user_id");
-        List <DirectedFollow> results = new ArrayList<>();
+        List <User> results = new ArrayList<>();
         try{
             String query = queries.getSelectQuery(select, where);
             PreparedStatement stm = connection.prepareStatement(query);
             stm.setInt(1, id);
             ResultSet followings = stm.executeQuery();
             while(followings.next()){
-                DirectedFollow follow = new DirectedFollow();
-                follow.setId(followings.getInt(1));
-                follow.setFromId(followings.getInt(2));
-                follow.setToId(followings.getInt(3));
-                follow.setCreatedAt(followings.getDate(4));
-                results.add(follow);
+                User user = userDao.getUserById(followings.getInt(3));
+                results.add(user);
             }
         } catch (InvalidSQLQueryException | SQLException e) {
-
+            // add logic
         }
         return results;
     }

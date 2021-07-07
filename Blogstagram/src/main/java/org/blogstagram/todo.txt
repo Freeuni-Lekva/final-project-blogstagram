@@ -7,6 +7,9 @@ ajax requests will be sent and i should write response to print writer.
 
 4)add user readable errors and send then one of them occurs.
 
-5) add checks in getAllFollowers, getAllFollowings and return user info
+5) add checks in getAllFollowers, getAllFollowings and return user info // done
 
 6) send error in json.
+
+7) add status codes to json.
+8) send error

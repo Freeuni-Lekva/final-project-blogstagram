@@ -2,6 +2,8 @@ package org.blogstagram.followSystem.api;
 
 import org.blogstagram.dao.FollowDao;
 import org.blogstagram.errors.DirectionalFollowNotAdded;
+import org.blogstagram.errors.NotValidUserIdException;
+import org.blogstagram.followSystem.Validators.UserIdValidator;
 import org.blogstagram.listeners.followNotificationSender;
 import org.blogstagram.models.DirectedFollow;
 
@@ -20,9 +22,10 @@ public class FollowApi {
         dFollow.setFromId(fromId);
         dFollow.setToId(toId);
         dFollow.setCreatedAt(DirectedFollow.defaultTimeValue);
+        return dFollow;
     }
 
-    public boolean alreadyFollowed(Integer fromId, Integer toId){
+    public boolean alreadyFollowed(Integer fromId, Integer toId) throws NullPointerException{
         DirectedFollow dFollow = initializeDirectedFollowObj(fromId, toId);
         return followDao.doesConnectionExist(dFollow);
     }
@@ -34,36 +37,45 @@ public class FollowApi {
         sends follow notification to user. else if privacy is private it only sends request to user and waits for user response.
      */
 
-    public void sendFollowRequest(Integer fromId, Integer toId) throws DirectionalFollowNotAdded {
+    public int sendFollowRequest(Integer fromId, Integer toId) throws DirectionalFollowNotAdded {
         User user = userDao.getUserByIdOrNickname(toId);
         DirectedFollow dFollow = initializeDirectedFollowObj(fromId, toId);
         if(user.getPrivacy() == "private"){
             sender.sendFollowRequest();
+            return StatusCodes.requestSent;
         }else{
             followDao.addDirectedFollow(dFollow);
             sender.sendFollowNotification();
+            return StatusCodes.followed;
         }
     }
 
-    public void unfollow(Integer fromId, Integer toId){
+    public int unfollow(Integer fromId, Integer toId) { // throw user not
         DirectedFollow dFollow = initializeDirectedFollowObj(fromId, toId);
         followDao.deleteFollow(dFollow);
+        return StatusCodes.unfollowed;
     }
 
     /*
         Function accepts to user's request for follow and adds row to database.
      */
-    public void acceptFollowRequest(Integer fromId, Integer toId) throws DirectionalFollowNotAdded {
+    public int acceptFollowRequest(Integer fromId, Integer toId) throws DirectionalFollowNotAdded {
         DirectedFollow directedFollow = initializeDirectedFollowObj(fromId, toId);
         followDao.addDirectedFollow(directedFollow);
+        return StatusCodes.requestApproved;
     }
 
 
-    
-    List<DirectedFollow> getAllFollowers(Integer id){
+    //user
+    List <User> getAllFollowers(Integer id) throws NotValidUserIdException {
+        UserIdValidator validator = new UserIdValidator();
+        validator.validate(id);
         return followDao.selectAllFollowers(id);
     }
-    List<DirectedFollow> getAllFollowing(Integer id){
+    //user
+    List <User> getAllFollowing(Integer id) throws NotValidUserIdException {
+        UserIdValidator validator = new UserIdValidator();
+        validator.validate(id);
         return followDao.selectAllFollowings(id);
     }
 
