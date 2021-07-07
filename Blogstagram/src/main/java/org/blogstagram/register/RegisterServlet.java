@@ -5,6 +5,7 @@ import org.blogstagram.StringHasher;
 import org.blogstagram.dao.UserDAO;
 import org.blogstagram.errors.VariableError;
 import org.blogstagram.models.User;
+import org.blogstagram.validators.RegisterValidator;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -42,8 +43,8 @@ public class RegisterServlet extends HttpServlet {
         String nickname = req.getParameter("nickname");
         String email = req.getParameter("email");
         String birthday = req.getParameter("birthday");
-        String gender = req.getParameter("gender");
-        String privacy = req.getParameter("privacy");
+        Integer gender = Integer.parseInt(req.getParameter("gender"));
+        Integer privacy = Integer.parseInt(req.getParameter("privacy"));
         String password = req.getParameter("password");
         String repeatPassword = req.getParameter("password_confirmation");
 
@@ -105,7 +106,7 @@ public class RegisterServlet extends HttpServlet {
         }
 
         UserDAO userDAO = getUserDaoFromContext(req);
-        User user = new User(null,firstname,lastname,nickname,User.DEFAULT_ROLE,email,Integer.parseInt(gender),Integer.parseInt(privacy),Date.valueOf(birthday),
+        User user = new User(null,firstname,lastname,nickname,User.DEFAULT_ROLE,email,gender,privacy,Date.valueOf(birthday),
                                 User.DEFAULT_USER_IMAGE_PATH,null,null,null,null,new Date(System.currentTimeMillis()));
 
         String hashedPassword = StringHasher.hashString(password);

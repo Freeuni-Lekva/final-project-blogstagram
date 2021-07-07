@@ -1,8 +1,8 @@
 org\blogstagram\logout\LogoutServlet.class
 org\blogstagram\register\RegisterServlet.class
-org\blogstagram\register\RegisterValidator.class
 org\blogstagram\StringHasher.class
 org\blogstagram\dao\UserDAO.class
 org\blogstagram\models\User.class
 org\blogstagram\listeners\contextListener.class
+org\blogstagram\validators\RegisterValidator.class
 org\blogstagram\errors\VariableError.class

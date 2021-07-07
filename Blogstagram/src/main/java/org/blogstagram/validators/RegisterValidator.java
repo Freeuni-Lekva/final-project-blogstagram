@@ -1,6 +1,7 @@
-package org.blogstagram.register;
+package org.blogstagram.validators;
 
 import org.blogstagram.errors.VariableError;
+import org.blogstagram.models.User;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Connection;
@@ -29,20 +30,13 @@ public class RegisterValidator {
     private final String lastname;
     private final String nickname;
     private final String email;
-    /*
-     *   0 - Male
-     *   1 - Female
-     */
-    private final String gender;
-    /*
-     *  public / private
-     */
-    private final String privacy;
+    private final Integer gender;
+    private final Integer privacy;
     private final String password;
     private final String repeatPassword;
 
 
-    public RegisterValidator(String firstname, String lastname, String nickname, String email, String gender, String privacy, String password, String repeatPassword) {
+    public RegisterValidator(String firstname, String lastname, String nickname, String email, Integer gender, Integer privacy, String password, String repeatPassword) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.nickname = nickname;
@@ -114,9 +108,9 @@ public class RegisterValidator {
         if(!checkStringForIllegalCharacters(nickname))
             errors.add(new VariableError("nickname",ILLEGAL_CHARACTERS_ERROR));
 
-        if(!gender.equals("0") && !gender.equals("1"))
+        if(!gender.equals(User.MALE) && !gender.equals(User.FEMALE))
             errors.add(new VariableError("gender","Gender parameter must be 0 (Male) or 1 (Female)"));
-        if(!privacy.equals("0") && !privacy.equals("0"))
+        if(!privacy.equals(User.PUBLIC) && !privacy.equals(User.PRIVATE))
             errors.add(new VariableError("privacy","Privacy parameter must be 0 (public) or 0 (private)"));
 
         /* EMAIL REGEX */
