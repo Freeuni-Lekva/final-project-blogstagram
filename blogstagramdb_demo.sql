@@ -87,7 +87,8 @@ CREATE TABLE `hashtags` (
 CREATE TABLE `likes` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `blog_id` int(11) NOT NULL,
+  `comment_id` int(11),
+  `blog_id` int(11),
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -212,6 +213,7 @@ ALTER TABLE `hashtags`
 --
 ALTER TABLE `likes`
   ADD PRIMARY KEY (`id`),
+  ADD FOREIGN KEY(`comment_id`) REFERENCES comments(`id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `blog_id` (`blog_id`);
 
