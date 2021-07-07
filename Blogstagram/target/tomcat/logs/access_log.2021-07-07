@@ -11,3 +11,10 @@
 0:0:0:0:0:0:0:1 - - [07/Jul/2021:13:34:55 +0400] "POST /register HTTP/1.1" 200 97 http-bio-8000-exec-9 5
 0:0:0:0:0:0:0:1 - - [07/Jul/2021:13:38:16 +0400] "POST /register HTTP/1.1" 200 - http-bio-8000-exec-1 145
 0:0:0:0:0:0:0:1 - - [07/Jul/2021:13:38:18 +0400] "GET /register HTTP/1.1" 200 14872 http-bio-8000-exec-2 46
+127.0.0.1 - - [07/Jul/2021:17:23:44 +0400] "GET / HTTP/1.1" 404 951 http-bio-8000-exec-1 30
+127.0.0.1 - - [07/Jul/2021:17:23:47 +0400] "GET /register HTTP/1.1" 200 14264 http-bio-8000-exec-4 570
+127.0.0.1 - - [07/Jul/2021:17:24:00 +0400] "POST /register HTTP/1.1" 200 - http-bio-8000-exec-5 47
+127.0.0.1 - - [07/Jul/2021:17:24:03 +0400] "POST /register HTTP/1.1" 200 496 http-bio-8000-exec-6 49
+127.0.0.1 - - [07/Jul/2021:17:24:07 +0400] "GET /register HTTP/1.1" 200 14870 http-bio-8000-exec-7 5
+127.0.0.1 - - [07/Jul/2021:17:24:21 +0400] "POST /logout HTTP/1.1" 302 - http-bio-8000-exec-8 2
+127.0.0.1 - - [07/Jul/2021:17:24:21 +0400] "GET /register HTTP/1.1" 200 14264 http-bio-8000-exec-9 8

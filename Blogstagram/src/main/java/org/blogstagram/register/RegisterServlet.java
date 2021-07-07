@@ -27,7 +27,7 @@ public class RegisterServlet extends HttpServlet {
         return connection;
     }
     private UserDAO getUserDaoFromContext(HttpServletRequest req){
-        UserDAO userDAO = (UserDAO) req.getServletContext().getAttribute("UserDAO");
+        UserDAO userDAO = (UserDAO) req.getSession().getAttribute("UserDAO");
         return userDAO;
     }
 

@@ -22,9 +22,6 @@ public class contextListener implements ServletContextListener {
         try {
             Connection dbConnection = source.getConnection();
             servletContextEvent.getServletContext().setAttribute("dbConnection", dbConnection);
-
-            UserDAO userDAO = new UserDAO(dbConnection);
-            servletContextEvent.getServletContext().setAttribute("UserDAO",userDAO);
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
