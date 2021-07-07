@@ -1,6 +1,7 @@
 package org.blogstagram.listeners;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.blogstagram.dao.UserDAO;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -16,15 +17,18 @@ public class contextListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         source = new BasicDataSource();
         source.setUsername("root");
-        source.setPassword("Arqimede123@"); // local password
+        source.setPassword("rootroot"); // local password
         source.setUrl("jdbc:mysql://localhost:3306/blogstagramdb");
         try {
             Connection dbConnection = source.getConnection();
             servletContextEvent.getServletContext().setAttribute("dbConnection", dbConnection);
+
+            UserDAO UserDAO = new UserDAO(dbConnection);
+            servletContextEvent.getServletContext().setAttribute("UserDAO", UserDAO);
+
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
-
     }
 
     @Override
