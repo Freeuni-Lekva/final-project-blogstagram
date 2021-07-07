@@ -6,8 +6,6 @@ import org.blogstagram.listeners.followNotificationSender;
 import org.blogstagram.models.DirectedFollow;
 import org.blogstagram.sql.FollowQueries;
 import org.blogstagram.sql.SqlQueries;
-
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,10 +15,8 @@ import java.util.List;
 
 
 public class SqlFollowDao implements FollowDao {
-    private Connection connection;
     private SqlQueries queries;
-    private UserDao userDao;
-    private followNotificationSender sender;
+    private Connection connection;
     public SqlFollowDao(Connection connection){
         if(connection == null)
             return; // return error
@@ -28,22 +24,16 @@ public class SqlFollowDao implements FollowDao {
         queries = new FollowQueries();
     }
 
-    public void setUserDao(UserDao userDao){
-        if(userDao == null) return; // error
-        this.userDao = userDao;
-    }
 
-    public void registerFollowRequestSender(followNotificationSender sender){
-        if(sender == null) throw new NullPointerException("Follow request Sender can't be null.");
-        this.sender = sender;
-    }
+
+
+     /*
+        Checks whether user with from id follows user with to id.
+     */
+
     @Override
-    public boolean isAlreadyFollowed(Integer fromId, Integer toId){
-        if(fromId == null){
-            throw new NullPointerException("From id is null.");
-        }else if(toId == null){
-            throw new NullPointerException("To id is null");
-        }
+    public boolean doesConnectionExist(DirectedFollow dFollow){
+        if(dFollow == null) throw new  NullPointerException("Follow Object can't be null.");
         List <String> select = new ArrayList<>();
         List <String> where = new ArrayList<>();
         select.add("id");
@@ -52,8 +42,8 @@ public class SqlFollowDao implements FollowDao {
         try {
             String query = queries.getSelectQuery(select, where);
             PreparedStatement stm = connection.prepareStatement(query);
-            stm.setInt(fromId, 1);
-            stm.setInt(toId, 2);
+            stm.setInt(dFollow.getFromId(), 1);
+            stm.setInt(dFollow.getToId(), 2);
             ResultSet res = stm.executeQuery();
             stm.close();
             return res.next();
@@ -63,23 +53,16 @@ public class SqlFollowDao implements FollowDao {
         return false;
     }
 
-    @Override
-    public void sendFollowRequest(Integer fromId, Integer toId){
-        if(fromId == null) throw new NullPointerException("From id is null.");
-        else if(toId == null) throw new NullPointerException("To id is null");
-        User toUser = userDao.getUserByIdOrNickname(toId, null);
-        if(toUser.getPrivacy() == "private"){
-            sender.sendFollowRequest();
-        }else{
-            addDirectedFollow(fromId, toId);
-            sender.sendFollowNotification();
-        }
-    }
+
+
+
+    /*
+        Function deletes row from table, with current from and to id.
+     */
 
     @Override
-    public void unfollow(Integer fromId, Integer toId){
-        if(fromId == null) throw new NullPointerException("From id is null.");
-        else if(toId == null) throw new NullPointerException("To id is null");
+    public void deleteFollow(DirectedFollow dFollow){
+        if(dFollow == null) throw new NullPointerException("Follow Object can't be null");
         List <String> where = new ArrayList<>();
         where.add("from_used_id");
         where.add("to_user_id");
@@ -88,15 +71,19 @@ public class SqlFollowDao implements FollowDao {
             PreparedStatement stm = connection.prepareStatement(query);
             int changedRows = stm.executeUpdate();
             if(changedRows != 1){
-                // add errors
+                // add errors implement logic
             }
         } catch (InvalidSQLQueryException | SQLException e) {
             e.printStackTrace();
         }
     }
 
+
+    /*
+        Function returns all followers of current user.
+     */
     @Override
-    public List<DirectedFollow> getAllFollowers(Integer id){
+    public List<DirectedFollow> selectAllFollowers(Integer id){
         if(id == null) throw new NullPointerException("User Id can't be null.");
         List <String> select = new ArrayList<>();
         List <String> where = new ArrayList<>();
@@ -126,8 +113,11 @@ public class SqlFollowDao implements FollowDao {
         return results;
     }
 
+    /*
+        Function returns list of users who follow current user.
+     */
     @Override
-    public List<DirectedFollow> getAllFollowing(Integer id){
+    public List<DirectedFollow> selectAllFollowings(Integer id){
         if(id == null) throw new NullPointerException("User id can't be null");
         List <String> select = new ArrayList<>();
         List <String> where = new ArrayList<>();
@@ -156,17 +146,15 @@ public class SqlFollowDao implements FollowDao {
         return results;
     }
 
-    @Override
-    public void sendFollowResponse(Integer fromId, Integer toId) {
-        if(fromId == null) throw new NullPointerException("From id is null.");
-        else if(toId == null) throw new NullPointerException("To id is null");
-        addDirectedFollow(toId, fromId);
-        sender.sendFollowNotification();
-    }
 
-    private void addDirectedFollow(Integer fromId, Integer toId) throws DirectionalFollowNotAdded {
-        if(fromId == null) throw new NullPointerException("From id is null.");
-        else if(toId == null) throw new NullPointerException("To id is null");
+
+
+    /*
+        Function adds directed follow in database, with current from and to user ids.
+     */
+    @Override
+    public void addDirectedFollow(DirectedFollow dFollow) throws DirectionalFollowNotAdded {
+        if(dFollow == null) throw new NullPointerException("User id can't be null");
         List <String> insertFields = new ArrayList<>();
         List <String> values = new ArrayList<>();
         insertFields.add("from_user_id");
@@ -174,8 +162,8 @@ public class SqlFollowDao implements FollowDao {
         try {
             String query = queries.getInsertQuery(insertFields);
             PreparedStatement stm = connection.prepareStatement(query);
-            stm.setInt(1, fromId);
-            stm.setInt(2, toId);
+            stm.setInt(1, dFollow.getFromId());
+            stm.setInt(2, dFollow.getToId());
             int addedRows =  stm.executeUpdate();
             stm.close();
             if(addedRows == 0) throw new DirectionalFollowNotAdded("Directional follow is not added.");

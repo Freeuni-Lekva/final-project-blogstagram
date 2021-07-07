@@ -1,0 +1,12 @@
+1) add follow api class for follow functions and get complexity from FollowDao.  // done
+
+2) add status constants for followed, unfollowed, request send and e.t.c // done
+
+3) add servlets, for follow/unfollow accept/decline getFollowers/geFollowings
+ajax requests will be sent and i should write response to print writer.
+
+4)add user readable errors and send then one of them occurs.
+
+5) add checks in getAllFollowers, getAllFollowings and return user info
+
+6) send error in json.

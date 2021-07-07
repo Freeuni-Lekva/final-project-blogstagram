@@ -7,6 +7,8 @@ public class DirectedFollow {
     private int fromId;
     private int toId;
     private Date createdAt;
+    public static final int NO_ID = -1;
+    public static final Date defaultTimeValue = null;
 
     public int getId() {
         return id;

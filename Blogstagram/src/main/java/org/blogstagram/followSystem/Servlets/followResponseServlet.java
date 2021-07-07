@@ -1,4 +1,4 @@
-package org.blogstagram.followSystem;
+package org.blogstagram.followSystem.Servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +10,8 @@ import java.io.IOException;
 @WebServlet("/followResponse")
 public class followResponseServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //implement logic if response is accept then write follow reqest to database.
+
     }
 }
