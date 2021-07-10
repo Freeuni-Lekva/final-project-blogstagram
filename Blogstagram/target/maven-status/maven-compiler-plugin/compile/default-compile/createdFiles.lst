@@ -5,3 +5,5 @@ org/blogstagram/dao/UserDAO.class
 org/blogstagram/login/LoginValidator.class
 org/blogstagram/models/User.class
 org/blogstagram/StringHasher.class
+org/blogstagram/listeners/sessionListener.class
+org/blogstagram/errors/GeneralError.class

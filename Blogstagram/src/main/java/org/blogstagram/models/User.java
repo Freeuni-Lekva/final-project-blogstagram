@@ -25,6 +25,12 @@ public class User {
     public static final String DEFAULT_USER_IMAGE_PATH = "/images/defaultUserImage.jpg";
 
 
+    public static final Integer MALE = 0;
+    public static final Integer FEMALE = 1;
+    public static final Integer PUBLIC = 0;
+    public static final Integer PRIVATE = 1;
+
+
     public User(Integer id,String firstname, String lastname, String nickname, String role, String email,
                 Integer gender, Integer privacy, Date birthday, String image, String country,
                 String city, String website, String bio, Date createdAt) {
@@ -58,15 +64,21 @@ public class User {
         this.nickname = nickname;
     }
     public void setRole(String role) {
+        if(!role.equals(DEFAULT_ROLE) && !role.equals(MODERATOR_ROLE) && !role.equals(ADMIN_ROLE))
+            throw new IllegalArgumentException("Role must be specific, Default, Moderator or Admin");
         this.role = role;
     }
     public void setEmail(String email) {
         this.email = email;
     }
     public void setGender(Integer gender) {
+        if(!gender.equals(MALE) && !gender.equals(FEMALE))
+            throw new IllegalArgumentException("Gender must be specific, Male or Female");
         this.gender = gender;
     }
     public void setPrivacy(Integer privacy) {
+        if(!privacy.equals(PUBLIC) && !privacy.equals(PRIVATE))
+            throw new IllegalArgumentException("Privacy must be specific, Public or Private");
         this.privacy = privacy;
     }
     public void setBirthday(Date birthday) {

@@ -43,16 +43,15 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
-        UserDAO userDAO = (UserDAO) request.getServletContext().getAttribute("UserDAO");
-        String query = "SELECT id, nickname FROM users WHERE email = ?;";
+        UserDAO userDAO = (UserDAO) request.getSession().getAttribute("UserDAO");
+        String query = "SELECT id FROM users WHERE email = ?;";
         try {
             PreparedStatement statement = dbConnection.prepareStatement(query);
             statement.setString(1, email);
             ResultSet resultSet = statement.executeQuery();
             resultSet.next();
             int id = resultSet.getInt(1);
-            String nickname = resultSet.getString(2);
-            User user = userDAO.getUserByIdOrNickname(id, nickname);
+            User user = userDAO.getUserByID(id);
             request.getSession().setAttribute("currentUserID", user.getId());
             request.getSession().setAttribute("currentUserNickname", user.getNickname());
         } catch (SQLException throwables) {
