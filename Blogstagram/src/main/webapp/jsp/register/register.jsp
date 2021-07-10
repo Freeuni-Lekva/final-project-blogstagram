@@ -196,10 +196,14 @@
                     refreshFieldMessages();
 
                     if(rawResponse.length === 0){
-                        document.getElementById("success").innerText = "You have been registered successfully!";
+                        refreshFieldMessages();
+                        document.getElementById("success").innerText = "You have been registered successfully! You will be redirected to news feed in 5 seconds...";
+                        setTimeout(() => {
+                            window.location.href = "/";
+                        },5000);
                     } else {
                         let errors = JSON.parse(rawResponse);
-                        for(let error of errors){
+                        for(let error of response){
                             let {variableName, errorMessage} = error;
                             let errorID = "error-"+variableName;
                             document.getElementById(errorID).innerText += errorMessage+"\n";

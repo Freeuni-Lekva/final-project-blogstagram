@@ -61,8 +61,6 @@ public class RegisterServlet extends HttpServlet {
             exception.printStackTrace();
         }
 
-        //110011
-
         // If there are any errors, send to client
         if(errors.size() != 0){
             Gson gson = new Gson();
