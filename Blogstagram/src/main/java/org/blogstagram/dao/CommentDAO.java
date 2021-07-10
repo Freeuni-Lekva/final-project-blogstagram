@@ -2,18 +2,17 @@ package org.blogstagram.dao;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 public class CommentDAO{
 
     private static final String SEARCH_COMMENTS_FOR_BLOG = "SELECT * FROM  comments WHERE blog_id = ?";
-    private static final String ADD_NEW_COMMENT = "INSERT INTO comments(id, user_id, blog_id, comment, created_at)" +
-            "VALUES (? ? ? ? ?)";
+    private static final String ADD_NEW_COMMENT = "INSERT INTO comments(id, user_id, blog_id, comment, created_at) VALUES (?,?,?,?,?)";
     private static final String DELETE_COMMENT = "DELETE FROM comments WHERE id = ?";
-    private static final String EDIT_COMMENT = "UPDATE comments SET comment = ? WHERE ID = ?";
-    private static final String SEARCH_USER_LIKES = "SELECT u.firstname, u,lastname, u,nickname, u.image FROM USERS u " +
-            "INNER join LIKES l on (l.user_id = u.id) " +
+    private static final String EDIT_COMMENT = "UPDATE comments SET comment = ? WHERE id = ?";
+    private static final String SEARCH_USER_LIKES = "SELECT u.firstname, u.lastname, u.nickname, u.image FROM users u " +
+            "INNER join likes l on (l.user_id = u.id) " +
             "WHERE l.comment_id = ?";
 
+    private static final String ADD_LIKE = "INSERT INTO likes(user_id, comment_id, created_at) values(?, ?, ?)";
     Connection connection;
 
     public CommentDAO(Connection connection){
@@ -46,8 +45,8 @@ public class CommentDAO{
     // edits comment with comment id and sets updates its comment
     public void editComment(int comment_id, String editedComment) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement(EDIT_COMMENT);
-        preparedStatement.setInt(1, comment_id);
-        preparedStatement.setString(2, editedComment);
+        preparedStatement.setString(1, editedComment);
+        preparedStatement.setInt(2, comment_id);
         int affectedRows = preparedStatement.executeUpdate();
         if(affectedRows == 0) {
             throw new SQLException("Editing comment failed");
@@ -89,6 +88,7 @@ public class CommentDAO{
         List<User> resultList = new ArrayList<>();
         // sql statement
         PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_USER_LIKES);
+        preparedStatement.setInt(1, comment_id);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             String firstName = resultSet.getString(1);
@@ -123,6 +123,23 @@ public class CommentDAO{
     // returns number of users who liked the comment
     public int getNumberOfLikes(int comment_id) throws SQLException {
         return getCommentLikeUsers(comment_id).size();
+    }
+
+    public void likeComment(int comment_id, int user_id) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement(ADD_LIKE, Statement.RETURN_GENERATED_KEYS);
+        ps.setInt(1, user_id);
+        ps.setInt(2, comment_id);
+        ps.setDate(3, new Date(System.currentTimeMillis()));
+        ps.executeUpdate();
+
+    }
+
+    public void unlikeComment(int comment_id, int user_id) throws SQLException {
+        String deleteComment = "DELETE FROM likes WHERE comment_id = ? AND user_id = ?";
+        PreparedStatement ps = connection.prepareStatement(deleteComment);
+        ps.setInt(1, comment_id);
+        ps.setInt(2, user_id);
+        ps.executeUpdate();
     }
 
 }
