@@ -1,11 +1,10 @@
 package org.blogstagram.dao;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 public class CommentDAO{
 
     private static final String SEARCH_COMMENTS_FOR_BLOG = "SELECT * FROM  comments WHERE blog_id = ?";
-    private static final String ADD_NEW_COMMENT = "INSERT INTO comments(id, user_id, blog_id, comment, created_at) VALUES (?,?,?,?,?)";
+    private static final String ADD_NEW_COMMENT = "INSERT INTO comments(user_id, blog_id, comment, created_at) VALUES (?,?,?,?)";
     private static final String DELETE_COMMENT = "DELETE FROM comments WHERE id = ?";
     private static final String EDIT_COMMENT = "UPDATE comments SET comment = ? WHERE id = ?";
     private static final String SEARCH_USER_LIKES = "SELECT u.firstname, u.lastname, u.nickname, u.image FROM users u " +
@@ -57,11 +56,10 @@ public class CommentDAO{
     // adds comment to database
     public void addComment(Comment newComment) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement(ADD_NEW_COMMENT);
-        preparedStatement.setInt(1, newComment.getComment_id());
-        preparedStatement.setInt(2, newComment.getUser_id());
-        preparedStatement.setInt(3, newComment.getBlog_id());
-        preparedStatement.setString(4, newComment.getComment());
-        preparedStatement.setDate(5, newComment.getCommentDate());
+        preparedStatement.setInt(1, newComment.getUser_id());
+        preparedStatement.setInt(2, newComment.getBlog_id());
+        preparedStatement.setString(3, newComment.getComment());
+        preparedStatement.setDate(4, newComment.getCommentDate());
 
         int affectedRows = preparedStatement.executeUpdate();
         if(affectedRows == 0) {
