@@ -202,7 +202,7 @@
                         for(let error of errors){
                             let {variableName, errorMessage} = error;
                             let errorID = "error-"+variableName;
-                            document.getElementById(errorID).innerText = errorMessage+"\n";
+                            document.getElementById(errorID).innerText += errorMessage+"\n";
                             document.getElementById(variableName).classList.add('is-invalid');
                         }
                     }

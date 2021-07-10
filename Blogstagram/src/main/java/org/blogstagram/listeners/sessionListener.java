@@ -14,19 +14,12 @@ public class sessionListener implements HttpSessionListener {
     @Override
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {
         // add Dao objects
-        BasicDataSource source = new BasicDataSource();
-        source.setUsername("root");
-        source.setUrl("jdbc:mysql://localhost:3306/blogstagramdb");
-        try {
-            Connection dbConnection = source.getConnection();
-            /*
-                Add DAO Objects
-             */
-            UserDAO userDAO = new UserDAO(dbConnection);
-            httpSessionEvent.getSession().setAttribute("UserDAO",userDAO);
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        }
+        Connection dbConnection = (Connection) httpSessionEvent.getSession().getServletContext().getAttribute("dbConnection");
+        /*
+            Add DAO Objects
+         */
+        UserDAO userDAO = new UserDAO(dbConnection);
+        httpSessionEvent.getSession().setAttribute("UserDAO",userDAO);
     }
 
     @Override

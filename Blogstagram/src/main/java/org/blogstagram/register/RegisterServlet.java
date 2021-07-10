@@ -3,6 +3,7 @@ package org.blogstagram.register;
 import com.google.gson.Gson;
 import org.blogstagram.StringHasher;
 import org.blogstagram.dao.UserDAO;
+import org.blogstagram.errors.GeneralError;
 import org.blogstagram.errors.VariableError;
 import org.blogstagram.models.User;
 import org.blogstagram.validators.RegisterValidator;
@@ -48,55 +49,19 @@ public class RegisterServlet extends HttpServlet {
         String password = req.getParameter("password");
         String repeatPassword = req.getParameter("password_confirmation");
 
-        RegisterValidator validator = new RegisterValidator(firstname,lastname,nickname,email,gender,privacy,password,repeatPassword);
-        /*
-         *   Error Priority 1:
-         *      If any of necessary variables were not included
-         */
-        List<String> notIncludedVariables = validator.getNotIncludedVariables();
-        if(notIncludedVariables.size() != 0){
-            Gson gson = new Gson();
-            res.getWriter().print(gson.toJson(notIncludedVariables));
-            return;
-        }
-
-        List<VariableError> errors = new ArrayList<>();
-        /*
-         *   Error Priority 2:
-         *      If there are any general information errors, like variable lengths and some variable restrictions
-         */
-        List<VariableError> generalInformationErrors = validator.getGeneralInformationErrors();
-        if(generalInformationErrors.size() != 0){
-            errors.addAll(generalInformationErrors);
-        }
-        /*
-         *  Error Priority 3:
-         *      If the email or nickname is not unique
-         */
         Connection dbconnection = getConnectionFromContext(req);
+
+        RegisterValidator registerValidator = new RegisterValidator(firstname,lastname,nickname,email,gender,privacy,password,repeatPassword,dbconnection);
+
+        List<GeneralError> errors = new ArrayList<>();
         try {
-            if(!validator.isEmailUnique(dbconnection)){
-                errors.add(new VariableError("email","Email is already taken"));
-            }
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        }
-        try {
-            if(!validator.isNicknameUnique(dbconnection)){
-                errors.add(new VariableError("nickname","Nickname is already taken"));
-            }
+            if(!registerValidator.validate())
+                errors = registerValidator.getErrors();
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
 
-        /*
-         *  Error Priority 4:
-         *      If there are any password restriction errors like length and characteristics
-         */
-        List<VariableError> passwordErrors = validator.getPasswordErrors();
-        if(passwordErrors.size() != 0){
-            errors.addAll(passwordErrors);
-        }
+        //110011
 
         // If there are any errors, send to client
         if(errors.size() != 0){

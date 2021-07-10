@@ -1,31 +1,20 @@
 package org.blogstagram.validators;
 
+import org.blogstagram.errors.GeneralError;
 import org.blogstagram.errors.VariableError;
-import org.blogstagram.models.User;
+import org.blogstagram.pairs.StringPair;
 
-import javax.servlet.http.HttpServletRequest;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegisterValidator {
+public class RegisterValidator implements Validator{
 
+    public static final String PASSWORDS_DO_NOT_MATCH_ERROR = "Passwords do not match";
 
-    private static final String LENGTH_ERROR = "Length must be between 2 and 15 characters";
-    private static final String ILLEGAL_CHARACTERS_ERROR = "Should not contain illegal characters";
-    private static final int LOWER_BOUND_LENGTH = 2;
-    private static final int UPPER_BOUND_LENGTH = 15;
-
-    private static final String ILLEGAL_CHARACTERS = "\\/:*?\"<> |~#%&+{}-";
-
-
+    private Connection connection;
     private final String firstname;
     private final String lastname;
     private final String nickname;
@@ -36,7 +25,9 @@ public class RegisterValidator {
     private final String repeatPassword;
 
 
-    public RegisterValidator(String firstname, String lastname, String nickname, String email, Integer gender, Integer privacy, String password, String repeatPassword) {
+    private List<GeneralError> errors;
+
+    public RegisterValidator(String firstname, String lastname, String nickname, String email, Integer gender, Integer privacy, String password, String repeatPassword,Connection connection) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.nickname = nickname;
@@ -45,135 +36,87 @@ public class RegisterValidator {
         this.privacy = privacy;
         this.password = password;
         this.repeatPassword = repeatPassword;
+        this.connection = connection;
+
+        errors = new ArrayList<>();
     }
 
-    private boolean satisfiesLengthRestrictions(String variable){
-        int length = variable.length();
-        if(length < LOWER_BOUND_LENGTH || length > UPPER_BOUND_LENGTH )
-            return false;
-        return true;
-    }
+    @Override
+    public boolean validate() throws SQLException {
+        errors = new ArrayList<>();
 
-    public List<String> getNotIncludedVariables(){
-        List<String> notIncludedVariables = new ArrayList<>();
-        if(firstname == null)
-            notIncludedVariables.add("firstname");
-        if(lastname == null)
-            notIncludedVariables.add("lastname");
-        if(nickname == null)
-            notIncludedVariables.add("nickname");
-        if(email == null)
-            notIncludedVariables.add("email");
-        if(gender == null)
-            notIncludedVariables.add("gender");
-        if(privacy == null)
-            notIncludedVariables.add("privacy");
-        if(password == null)
-            notIncludedVariables.add("password");
-        if(repeatPassword == null)
-            notIncludedVariables.add("repeatPassword");
+        /*
+         *   Error Priority 1:
+         *      If any of necessary variables were not included
+         */
 
-        return notIncludedVariables;
-    }
-    public boolean checkStringForIllegalCharacters(String str){
-        for(int i=0; i<ILLEGAL_CHARACTERS.length();i++){
-            String currentCharacter = Character.toString(ILLEGAL_CHARACTERS.charAt(i));
-            if(str.contains(currentCharacter))
-                return false;
+        /*
+         *   Error Priority 2:
+         *      If there are any general information errors, like variable lengths and some variable restrictions
+         */
+        EmailFormatValidator emailFormatValidator = new EmailFormatValidator(email);
+        if(!emailFormatValidator.validate()){
+            errors.addAll(emailFormatValidator.getErrors());
         }
-        return true;
+        List<StringPair> generalInformationPairs = Arrays.asList(new StringPair("firstname",firstname),new StringPair("lastname",lastname),
+                                                                 new StringPair("nickname",nickname));
+        VariableLengthValidator variableLengthValidator = new VariableLengthValidator(generalInformationPairs);
+        if(!variableLengthValidator.validate()){
+            errors.addAll(variableLengthValidator.getErrors());
+        }
+
+        IllegalCharactersValidator illegalCharactersValidator = new IllegalCharactersValidator(generalInformationPairs);
+        if(!illegalCharactersValidator.validate()){
+            errors.addAll(illegalCharactersValidator.getErrors());
+        }
+
+        GenderValidator genderValidator = new GenderValidator(gender);
+        PrivacyValidator privacyValidator = new PrivacyValidator(privacy);
+        if(!genderValidator.validate())
+            errors.addAll(genderValidator.getErrors());
+        if(!privacyValidator.validate())
+            errors.addAll(privacyValidator.getErrors());
+
+
+        /* Each value must contain at least 1 character */
+        Pattern CP = Pattern.compile("[A-Z]");
+        for(StringPair pair: generalInformationPairs){
+            String value = pair.getValue().toUpperCase();
+            Matcher CM = CP.matcher(value);
+            if(!CM.find()){
+                String key = String.valueOf(pair.getKey().charAt(0)).toUpperCase() + pair.getKey().substring(1);
+                errors.add(new VariableError(pair.getKey(),key + " must contain at least 1 character"));
+            }
+        }
+
+        /*
+         *  Error Priority 3:
+         *      If the email or nickname is not unique
+         */
+        UserUniqueValidator uniquenessValidator = new UserUniqueValidator(email,nickname,connection);
+        if(!uniquenessValidator.validate()){
+            List<GeneralError> uniqueErrors = uniquenessValidator.getErrors();
+            errors.addAll(uniqueErrors);
+        }
+
+        /*
+         *  Error Priority 4:
+         *      If there are any password restriction errors like length and characteristics
+         */
+        PasswordFormatValidator passwordFormatValidator = new PasswordFormatValidator(password);
+        if(!passwordFormatValidator.validate()){
+            List<GeneralError> passwordErrors = passwordFormatValidator.getErrors();
+            errors.addAll(passwordErrors);
+        }
+        if(!password.equals(repeatPassword)){
+            errors.add(new VariableError("password_confirmation",PASSWORDS_DO_NOT_MATCH_ERROR));
+        }
+
+        return errors.size() == 0;
     }
 
-    private List<VariableError> getGeneralInformationLengthErrors(){
-        List<VariableError> errors = new ArrayList<>();
-        if(!satisfiesLengthRestrictions(firstname))
-            errors.add(new VariableError("firstname",LENGTH_ERROR));
-
-        if(!satisfiesLengthRestrictions(lastname))
-            errors.add(new VariableError("lastname",LENGTH_ERROR));
-
-        if(!satisfiesLengthRestrictions(nickname))
-            errors.add(new VariableError("nickname",LENGTH_ERROR));
-
+    @Override
+    public List<GeneralError> getErrors() {
         return errors;
     }
-
-    public List<VariableError> getGeneralInformationErrors(){
-        List<VariableError> errors = getGeneralInformationLengthErrors();
-
-        if(!checkStringForIllegalCharacters(firstname))
-            errors.add(new VariableError("firstname",ILLEGAL_CHARACTERS_ERROR));
-        if(!checkStringForIllegalCharacters(lastname))
-            errors.add(new VariableError("lastname",ILLEGAL_CHARACTERS_ERROR));
-        if(!checkStringForIllegalCharacters(nickname))
-            errors.add(new VariableError("nickname",ILLEGAL_CHARACTERS_ERROR));
-
-        if(!gender.equals(User.MALE) && !gender.equals(User.FEMALE))
-            errors.add(new VariableError("gender","Gender parameter must be 0 (Male) or 1 (Female)"));
-        if(!privacy.equals(User.PUBLIC) && !privacy.equals(User.PRIVATE))
-            errors.add(new VariableError("privacy","Privacy parameter must be 0 (public) or 0 (private)"));
-
-        /* EMAIL REGEX */
-        Pattern EP = Pattern.compile("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
-        Matcher EM = EP.matcher(email);
-        if(!EM.find())
-            errors.add(new VariableError("email","Email syntax is incorrect"));
-
-
-        if(nickname.contains(" "))
-            errors.add(new VariableError("nickname","Nickname must not contain empty space"));
-
-        return errors;
-    }
-
-    public List<VariableError> getPasswordErrors(){
-        List<VariableError> errors = new ArrayList<>();
-
-        // Password length check
-        if(password.length() < 8)
-            errors.add(new VariableError("password","Password length must be at least 8 characters"));
-
-        Pattern UCP = Pattern.compile("[A-Z]");
-        Pattern LCP = Pattern.compile("[a-z]");
-        Pattern DP = Pattern.compile("[0-9]");
-
-        Matcher UCM = UCP.matcher(password);
-        Matcher LCM = LCP.matcher(password);
-        Matcher DM = DP.matcher(password);
-
-        // Passsowrd Upper/Lower Case And Digit Character Check
-        if(!UCM.find())
-            errors.add(new VariableError("password","Password must contain at least one upper case character"));
-        if(!LCM.find())
-            errors.add(new VariableError("password","Password must contain at least one lower case character"));
-        if(!DM.find())
-            errors.add(new VariableError("password","Password must contain at least one digit"));
-
-        // Password and Repeat Password equality check
-        if(!password.equals(repeatPassword))
-            errors.add(new VariableError("password_confirmation","Passwords do not match"));
-
-        return errors;
-    }
-
-    public boolean isEmailUnique(Connection connection) throws SQLException {
-        PreparedStatement stm = connection.prepareStatement("SELECT * FROM users WHERE email = ?");
-        stm.setString(1,email);
-        ResultSet result = stm.executeQuery();
-        int length = 0;
-        while(result.next())
-            length++;
-        return length == 0;
-    }
-    public boolean isNicknameUnique(Connection connection) throws SQLException {
-        PreparedStatement stm = connection.prepareStatement("SELECT * FROM users WHERE nickname = ?");
-        stm.setString(1,nickname);
-        ResultSet result = stm.executeQuery();
-        int length = 0;
-        while(result.next())
-            length++;
-        return length == 0;
-    }
-
-
 }
