@@ -11,7 +11,7 @@
         import java.util.ArrayList;
         import java.util.List;
 
-public class UserExistsValidator {
+public class UserExistsValidator implements Validator{
     private static final String NON_EXISTENT_EMAIL_ERROR = "Email doesn't exist";
     private static final String INCORRECT_PASSWORD_ERROR = "Password is incorrect";
     private static final Integer NO_USER = -1;
@@ -28,11 +28,12 @@ public class UserExistsValidator {
         errors = new ArrayList<>();
     }
 
-
-    public boolean exists() throws SQLException {
+    @Override
+    public boolean validate() throws SQLException {
         EmailExistsValidator emailExistsValidator = new EmailExistsValidator(connection, email);
-        if(!emailExistsValidator.emailExists()) {
-            errors.add(new VariableError("email", NON_EXISTENT_EMAIL_ERROR));
+        errors = new ArrayList<>();
+        if(!emailExistsValidator.validate()) {
+            errors.addAll(emailExistsValidator.getErrors());
             return false;
         }
         String hashCode = StringHasher.hashString(this.password);
@@ -48,7 +49,6 @@ public class UserExistsValidator {
         }
         return true;
     }
-    
 
     public List<GeneralError> getErrors() {
         return errors;

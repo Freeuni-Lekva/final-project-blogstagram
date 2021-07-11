@@ -17,7 +17,7 @@ public class LoginValidator implements Validator {
 
     @Override
     public boolean validate() throws SQLException {
-        return userExists.exists();
+        return userExists.validate();
     }
 
     @Override
