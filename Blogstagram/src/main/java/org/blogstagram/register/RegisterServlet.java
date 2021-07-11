@@ -23,6 +23,14 @@ public class RegisterServlet extends HttpServlet {
 
     private static final String REGISTER_PAGE_PATH = "/jsp/register/register.jsp";
 
+    private boolean isUserLoggedIn(HttpServletRequest req) {
+        Integer userID = (Integer) req.getSession().getAttribute("currentUserID");
+        String nickname = (String) req.getSession().getAttribute("currentUserNickname");
+        if(userID == null || nickname == null)
+            return false;
+        return true;
+    }
+
     private Connection getConnectionFromContext(HttpServletRequest req){
         Connection connection = (Connection)req.getServletContext().getAttribute("dbConnection");
         return connection;
@@ -34,6 +42,10 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        if(isUserLoggedIn(req)) {
+            res.sendRedirect("/");
+            return;
+        }
         req.getRequestDispatcher(REGISTER_PAGE_PATH).forward(req,res);
     }
 

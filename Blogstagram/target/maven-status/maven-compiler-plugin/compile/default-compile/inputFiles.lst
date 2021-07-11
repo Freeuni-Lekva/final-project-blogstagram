@@ -1,21 +1,25 @@
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\register\RegisterServlet.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\IllegalCharactersValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\RegisterValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\errors\VariableError.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\pairs\StringPair.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\pairs\GeneralPair.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\dao\UserDAO.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\StringHasher.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\EmailFormatValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\Validator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\VariableLengthValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\errors\GeneralError.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\PrivacyValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\logout\LogoutServlet.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\UserUniqueValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\models\User.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\listeners\sessionListener.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\GenderValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\PasswordFormatValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\listeners\contextListener.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\pairs\StringKeyPair.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/LoginValidator.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/EmailExistsValidator.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/dao/UserDAO.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/logout/LogoutServlet.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/PrivacyValidator.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/StringHasher.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/pairs/StringPair.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/pairs/GeneralPair.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/RegisterValidator.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/models/User.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/UserUniqueValidator.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/Validator.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/login/LoginServlet.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/VariableLengthValidator.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/register/RegisterServlet.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/EmailFormatValidator.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/listeners/contextListener.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/listeners/sessionListener.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/PasswordFormatValidator.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/errors/GeneralError.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/UserExistsValidator.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/IllegalCharactersValidator.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/GenderValidator.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/pairs/StringKeyPair.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/errors/VariableError.java

@@ -139,7 +139,7 @@
                                     <div class="col-md-4"></div>
                                     <div class="col-md-6">
                                         <button class="btn btn-secondary w-100">
-                                            <a class="text-white" href="#">Already Signed Up? Log In!</a>
+                                            <a class="text-white" href="/login">Already Signed Up? Log In!</a>
                                         </button>
                                     </div>
                                 </div>
