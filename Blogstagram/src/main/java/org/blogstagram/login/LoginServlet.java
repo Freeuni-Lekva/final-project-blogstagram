@@ -2,8 +2,10 @@ package org.blogstagram.login;
 
 import com.google.gson.Gson;
 import org.blogstagram.dao.UserDAO;
+import org.blogstagram.errors.GeneralError;
 import org.blogstagram.errors.VariableError;
 import org.blogstagram.models.User;
+import org.blogstagram.validators.LoginValidator;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -25,33 +27,20 @@ public class LoginServlet extends HttpServlet {
         Connection dbConnection = (Connection) request.getServletContext().getAttribute("dbConnection");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        List<VariableError> errors = new ArrayList<>();
-        LoginValidator validator = new LoginValidator(email, password);
+        LoginValidator validator = new LoginValidator(email, password, dbConnection);
         try {
-            if(!validator.emailExists(dbConnection))
-                errors.add(new VariableError("email", LoginValidator.NON_EXISTENT_EMAIL_ERROR));
-            else if(!validator.passwordMatch(dbConnection)) {
-                errors.add(new VariableError("password", LoginValidator.INCORRECT_PASSWORD_ERROR));
+            if(!validator.validation()) {
+                List<GeneralError> errors = validator.getErrors();
+                Gson gson = new Gson();
+                response.getWriter().print(gson.toJson(errors));
+                return;
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
-        if(errors.size() != 0) {
-            Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(errors));
-            return;
-        }
-
         UserDAO userDAO = (UserDAO) request.getSession().getAttribute("UserDAO");
-        String query = "SELECT id FROM users WHERE email = ?;";
         try {
-            PreparedStatement statement = dbConnection.prepareStatement(query);
-            statement.setString(1, email);
-            ResultSet resultSet = statement.executeQuery();
-            resultSet.next();
-            int id = resultSet.getInt(1);
-            User user = userDAO.getUserByID(id);
+            User user = userDAO.getUserByID(validator.getId());
             request.getSession().setAttribute("currentUserID", user.getId());
             request.getSession().setAttribute("currentUserNickname", user.getNickname());
         } catch (SQLException throwables) {

@@ -1,9 +1,11 @@
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/LoginValidator.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/EmailExistsValidator.java
 /home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/dao/UserDAO.java
 /home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/models/User.java
 /home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/StringHasher.java
 /home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/login/LoginServlet.java
+/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/UserExists.java
 /home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/listeners/contextListener.java
 /home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/listeners/sessionListener.java
-/home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/login/LoginValidator.java
 /home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/errors/VariableError.java
 /home/tazo/workspace/OOP Project/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/errors/GeneralError.java
