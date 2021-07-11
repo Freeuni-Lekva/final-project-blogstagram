@@ -23,6 +23,11 @@ public class LoginServlet extends HttpServlet {
         return connection;
     }
 
+    private UserDAO getUserDaoFromContext(HttpServletRequest req){
+        UserDAO userDAO = (UserDAO) req.getSession().getAttribute("UserDAO");
+        return userDAO;
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/login/login.jsp");
@@ -45,14 +50,14 @@ public class LoginServlet extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-////        UserDAO userDAO = (UserDAO) request.getSession().getAttribute("UserDAO");
-//        try {
-////            User user = userDAO.getUserByID(validator.getUserByEmail());
-//            request.getSession().setAttribute("currentUserID", user.getId());
-//            request.getSession().setAttribute("currentUserNickname", user.getNickname());
-//        } catch (SQLException throwables) {
-//            throwables.printStackTrace();
-//        }
+        UserDAO userDAO = getUserDaoFromContext(request);
+        try {
+            User user = userDAO.getUserByEmail(email);
+            request.getSession().setAttribute("currentUserID", user.getId());
+            request.getSession().setAttribute("currentUserNickname", user.getNickname());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
     }
 }

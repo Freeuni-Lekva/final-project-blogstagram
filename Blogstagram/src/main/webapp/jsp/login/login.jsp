@@ -103,7 +103,7 @@
                 refreshFieldMessages();
                 document.getElementById("success").innerText = "You have been logged in successfully! You will be redirected to news feed in 5 seconds...";
                 setTimeout(() => {
-                    window.location.href = "/";
+                    window.location.href = "/register";
                 },5000);
             } else {
                 let errors = JSON.parse(rawResponse);
