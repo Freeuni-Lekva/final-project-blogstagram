@@ -18,6 +18,14 @@ import java.util.List;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
+    private boolean isUserLoggedIn(HttpServletRequest req) {
+        Integer userID = (Integer) req.getSession().getAttribute("currentUserID");
+        String nickname = (String) req.getSession().getAttribute("currentUserNickname");
+        if(userID == null || nickname == null)
+            return false;
+        return true;
+    }
+
     private Connection getConnectionFromContext(HttpServletRequest req){
         Connection connection = (Connection)req.getServletContext().getAttribute("dbConnection");
         return connection;
@@ -30,6 +38,10 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if(isUserLoggedIn(request)) {
+            response.sendRedirect("/");
+            return;
+        }
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/login/login.jsp");
         requestDispatcher.forward(request, response);
     }

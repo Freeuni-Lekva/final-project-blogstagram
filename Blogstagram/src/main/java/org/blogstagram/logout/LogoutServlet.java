@@ -9,10 +9,21 @@ import java.io.IOException;
 
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+
+    private void removeCurrentUserSession(HttpServletRequest req) {
         req.getSession().setAttribute("currentUserID",null);
         req.getSession().setAttribute("currentUserNickname",null);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        removeCurrentUserSession(req);
+        res.sendRedirect("/register");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+        removeCurrentUserSession(req);
         res.sendRedirect("/register");
     }
 }
