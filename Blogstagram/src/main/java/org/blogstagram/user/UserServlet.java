@@ -18,9 +18,12 @@ public class UserServlet extends HttpServlet {
     private String getPathIdentificator(HttpServletRequest req){
         String pathInfo = req.getPathInfo();
         String[] pathParts = pathInfo.split("/");
-        if(pathParts.length > 1)
-            return
-        return null;
+
+        if(pathParts.length > 1){
+            return null;
+        }
+        String identificator = pathParts[1];
+        return identificator;
     }
 
     @Override
