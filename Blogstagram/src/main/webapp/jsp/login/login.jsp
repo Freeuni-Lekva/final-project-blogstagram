@@ -13,7 +13,8 @@
 </head>
 <body>
 <jsp:include page="/jsp/templates/nav.jsp" />
-<div class="container">
+<div class="container" style="margin-top:124px; margin-bottom:120px; height:423px;" >
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
