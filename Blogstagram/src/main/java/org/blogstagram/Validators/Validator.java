@@ -1,4 +1,4 @@
-package org.blogstagram.followSystem.Validators;
+package org.blogstagram.Validators;
 
 import org.blogstagram.errors.NotValidUserIdException;
 

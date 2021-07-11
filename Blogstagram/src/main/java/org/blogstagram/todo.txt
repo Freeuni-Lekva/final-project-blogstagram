@@ -3,13 +3,13 @@
 2) add status constants for followed, unfollowed, request send and e.t.c // done
 
 3) add servlets, for follow/unfollow accept/decline getFollowers/geFollowings
-ajax requests will be sent and i should write response to print writer.
+ajax requests will be sent and i should write response to print writer. // done
 
-4)add user readable errors and send then one of them occurs.
+4)add user readable errors and send then one of them occurs. ------------ done
 
 5) add checks in getAllFollowers, getAllFollowings and return user info // done
 
-6) send error in json.
+6) send error in json. // done
 
-7) add status codes to json.
-8) send error
+7) add status codes to json. // done
+8) send error // done

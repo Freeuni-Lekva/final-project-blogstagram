@@ -1,9 +1,10 @@
-package org.blogstagram.followSystem.Validators;
+package org.blogstagram.Validators;
 
+import org.blogstagram.dao.UserDAO;
 import org.blogstagram.errors.NotValidUserIdException;
 
 public class UserIdValidator implements Validator {
-    private UserDao userDao;
+    private UserDAO userDao;
 
     public void setUserDao(UserDAO userDao) {
         if (userDao == null) throw new NullPointerException("User dao object can't be null.");
@@ -16,8 +17,8 @@ public class UserIdValidator implements Validator {
         String toIdStr = (String) obj;
         try {
             Integer toId = Integer.parseInt(toIdStr);
-            User toIdUser = userDao.getUserByIdOrNickname(toId, null);
-            if(toIdUser == null) throw new NotValidUserIdException("User id is not registered.");
+            //User toIdUser = userDao.getUserByIdOrNickname(toId, null);
+            //if(toIdUser == null) throw new NotValidUserIdException("User id is not registered.");
         } catch (NumberFormatException ex){
             throw new NotValidUserIdException("User Id should contain only Numbers.");
         }

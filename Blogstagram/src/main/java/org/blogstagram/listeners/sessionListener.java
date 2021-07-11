@@ -1,6 +1,7 @@
 package org.blogstagram.listeners;
 
 import org.blogstagram.dao.SqlFollowDao;
+import org.blogstagram.dao.UserDao;
 
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;

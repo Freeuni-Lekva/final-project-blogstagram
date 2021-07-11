@@ -1,9 +1,11 @@
 package org.blogstagram.dao;
 
+import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.DirectionalFollowNotAdded;
 import org.blogstagram.errors.InvalidSQLQueryException;
 import org.blogstagram.listeners.followNotificationSender;
 import org.blogstagram.models.DirectedFollow;
+import org.blogstagram.models.User;
 import org.blogstagram.sql.FollowQueries;
 import org.blogstagram.sql.SqlQueries;
 import java.sql.Connection;
@@ -15,9 +17,9 @@ import java.util.List;
 
 
 public class SqlFollowDao implements FollowDao {
-    private SqlQueries queries;
-    private Connection connection;
-    private UsedDao userDao;
+    private final SqlQueries queries;
+    private final Connection connection;
+    private UserDao userDao;
 
     public void setUserDao(UserDao userDao) {
         if(userDao == null) throw new NullPointerException("User Dao object can't be null.");
@@ -26,7 +28,7 @@ public class SqlFollowDao implements FollowDao {
 
     public SqlFollowDao(Connection connection){
         if(connection == null)
-            return; // return error
+            throw new NullPointerException("Connection can't be null");
         this.connection = connection;
         queries = new FollowQueries();
     }
@@ -39,7 +41,7 @@ public class SqlFollowDao implements FollowDao {
      */
 
     @Override
-    public boolean doesConnectionExist(DirectedFollow dFollow){
+    public boolean doesConnectionExist(DirectedFollow dFollow) throws DatabaseError {
         if(dFollow == null) throw new  NullPointerException("Follow Object can't be null.");
         List <String> select = new ArrayList<>();
         List <String> where = new ArrayList<>();
@@ -55,9 +57,8 @@ public class SqlFollowDao implements FollowDao {
             stm.close();
             return res.next();
         } catch (InvalidSQLQueryException | SQLException e) {
-
+            throw new DatabaseError("Could't connect to database.");
         }
-        return false;
     }
 
 
@@ -68,7 +69,7 @@ public class SqlFollowDao implements FollowDao {
      */
 
     @Override
-    public void deleteFollow(DirectedFollow dFollow){
+    public void deleteFollow(DirectedFollow dFollow) throws DatabaseError {
         if(dFollow == null) throw new NullPointerException("Follow Object can't be null");
         List <String> where = new ArrayList<>();
         where.add("from_used_id");
@@ -78,10 +79,10 @@ public class SqlFollowDao implements FollowDao {
             PreparedStatement stm = connection.prepareStatement(query);
             int changedRows = stm.executeUpdate();
             if(changedRows != 1){
-                // add errors implement logic
+                throw new DatabaseError("Affected rows must be 1");
             }
         } catch (InvalidSQLQueryException | SQLException e) {
-            e.printStackTrace();
+            throw new DatabaseError("Couldn't connect to database");
         }
     }
 
@@ -90,7 +91,7 @@ public class SqlFollowDao implements FollowDao {
         Function returns all followers of current user.
      */
     @Override
-    public List<User> selectAllFollowers(Integer id){
+    public List<User> selectAllFollowers(Integer id) throws DatabaseError {
         if(id == null) throw new NullPointerException("User Id can't be null.");
         List <String> select = new ArrayList<>();
         List <String> where = new ArrayList<>();
@@ -106,12 +107,12 @@ public class SqlFollowDao implements FollowDao {
             prpStm.setInt(1, id);
             ResultSet res = prpStm.executeQuery(query);
             while (res.next()){
-                User user = userDao.getUserById(res.getInt(2));
-                results.add(user);
+//                User user = userDao.getUserById(res.getInt(2));
+//                results.add(user);
             }
             prpStm.close();
         } catch (InvalidSQLQueryException | SQLException e) {
-            // implement logic
+            throw new DatabaseError("Couldn't connect to database");
         }
         return results;
     }
@@ -121,7 +122,7 @@ public class SqlFollowDao implements FollowDao {
         Function returns list of users who follow current user.
      */
     @Override
-    public List <User> selectAllFollowings(Integer id){
+    public List <User> selectAllFollowings(Integer id) throws DatabaseError {
         if(id == null) throw new NullPointerException("User id can't be null");
         List <String> select = new ArrayList<>();
         List <String> where = new ArrayList<>();
@@ -137,11 +138,11 @@ public class SqlFollowDao implements FollowDao {
             stm.setInt(1, id);
             ResultSet followings = stm.executeQuery();
             while(followings.next()){
-                User user = userDao.getUserById(followings.getInt(3));
-                results.add(user);
+                //User user = userDao.getUserById(followings.getInt(3)); //get user by id
+              //  results.add(user);
             }
         } catch (InvalidSQLQueryException | SQLException e) {
-            // add logic
+            throw new DatabaseError("Couldn't connect to database");
         }
         return results;
     }
@@ -153,10 +154,9 @@ public class SqlFollowDao implements FollowDao {
         Function adds directed follow in database, with current from and to user ids.
      */
     @Override
-    public void addDirectedFollow(DirectedFollow dFollow) throws DirectionalFollowNotAdded {
+    public void addDirectedFollow(DirectedFollow dFollow) throws DirectionalFollowNotAdded, DatabaseError {
         if(dFollow == null) throw new NullPointerException("User id can't be null");
         List <String> insertFields = new ArrayList<>();
-        List <String> values = new ArrayList<>();
         insertFields.add("from_user_id");
         insertFields.add("to_user_id");
         try {
@@ -166,9 +166,9 @@ public class SqlFollowDao implements FollowDao {
             stm.setInt(2, dFollow.getToId());
             int addedRows =  stm.executeUpdate();
             stm.close();
-            if(addedRows == 0) throw new DirectionalFollowNotAdded("Directional follow is not added.");
+            if(addedRows != 1) throw new DirectionalFollowNotAdded("Directional follow is not added.");
         } catch (InvalidSQLQueryException | SQLException e) {
-           //implement
+            throw new DatabaseError("Couldn't connect to database");
         }
 
     }
