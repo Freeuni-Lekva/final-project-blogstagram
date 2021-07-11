@@ -5,7 +5,7 @@ public class StringKeyPair<T> implements GeneralPair{
     private String key;
     private T value;
 
-    private StringKeyPair(String key,T value){
+    public StringKeyPair(String key,T value){
         this.key = key;
         this.value = value;
     }
