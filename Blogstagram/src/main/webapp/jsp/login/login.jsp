@@ -54,6 +54,14 @@
                                 </button>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-6">
+                                <div id="success" class="text-success">
+
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -92,7 +100,11 @@
             refreshFieldMessages();
 
             if(rawResponse.length === 0){
-
+                refreshFieldMessages();
+                document.getElementById("success").innerText = "You have been logged in successfully! You will be redirected to news feed in 5 seconds...";
+                setTimeout(() => {
+                    window.location.href = "/";
+                },5000);
             } else {
                 let errors = JSON.parse(rawResponse);
                 for(let error of errors){
