@@ -2,7 +2,6 @@ package org.blogstagram.sql;
 
 import org.blogstagram.errors.InvalidSQLQueryException;
 
-import javax.swing.plaf.ButtonUI;
 import java.util.List;
 
 public class FollowQueries implements SqlQueries{

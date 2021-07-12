@@ -9,9 +9,6 @@ import org.blogstagram.Validators.UserIdValidator;
 import org.blogstagram.listeners.followNotificationSender;
 import org.blogstagram.models.DirectedFollow;
 import org.blogstagram.models.User;
-
-import org.json.JSONObject;
-
 import java.sql.SQLException;
 import java.util.List;
 
@@ -82,16 +79,10 @@ public class FollowApi {
 
     //user
     public List<User> getAllFollowers(Integer id) throws NotValidUserIdException, DatabaseError {
-        UserIdValidator validator = new UserIdValidator();
-        validator.setUserDao(userDao);
-        validator.validate(id);
         return followDao.selectAllFollowers(id);
     }
     //user
     public List <User> getAllFollowing(Integer id) throws NotValidUserIdException, DatabaseError {
-        UserIdValidator validator = new UserIdValidator();
-        validator.setUserDao(userDao);
-        validator.validate(id);
         return followDao.selectAllFollowings(id);
     }
 
