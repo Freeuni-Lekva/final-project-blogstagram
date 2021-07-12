@@ -50,7 +50,7 @@ public class followServlet extends HttpServlet {
                 Integer fromId = Integer.parseInt(fromIdStr);
                 Integer toId = Integer.parseInt(toIdStr);
                 FollowApi followApi = new FollowApi();
-                followApi.registerFollowRequestSender(null); // should get nottificatinDao.
+                followApi.registerFollowRequestSender(null); // should get notifficationDao.
                 followApi.setFollowDao(followSystem);
                 if(followApi.alreadyFollowed(fromId, toId)){
                     followApi.unfollow(fromId, toId);
