@@ -3,7 +3,6 @@ package org.blogstagram.dao;
 import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.DirectionalFollowNotAdded;
 import org.blogstagram.errors.InvalidSQLQueryException;
-import org.blogstagram.listeners.followNotificationSender;
 import org.blogstagram.models.DirectedFollow;
 import org.blogstagram.models.User;
 import org.blogstagram.sql.FollowQueries;
@@ -19,9 +18,9 @@ import java.util.List;
 public class SqlFollowDao implements FollowDao {
     private final SqlQueries queries;
     private final Connection connection;
-    private UserDao userDao;
+    private UserDAO userDao;
 
-    public void setUserDao(UserDao userDao) {
+    public void setUserDao(UserDAO userDao) {
         if(userDao == null) throw new NullPointerException("User Dao object can't be null.");
         this.userDao = userDao;
     }
@@ -138,8 +137,8 @@ public class SqlFollowDao implements FollowDao {
             stm.setInt(1, id);
             ResultSet followings = stm.executeQuery();
             while(followings.next()){
-                //User user = userDao.getUserById(followings.getInt(3)); //get user by id
-              //  results.add(user);
+                User user = userDao.getUserByID(followings.getInt(3)); //get user by id
+                results.add(user);
             }
         } catch (InvalidSQLQueryException | SQLException e) {
             throw new DatabaseError("Couldn't connect to database");

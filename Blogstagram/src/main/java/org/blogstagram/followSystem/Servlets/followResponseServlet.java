@@ -24,7 +24,7 @@ import java.io.IOException;
 public class followResponseServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //implement logic if response is accept then write follow reqest to database.
+        //implement logic if response is accept then write follow request to database.
         String toIdStr = (String) request.getSession().getAttribute("to_id");
         String fromIdStr = (String) request.getAttribute("from_id");
         Integer toId = Integer.parseInt(toIdStr);

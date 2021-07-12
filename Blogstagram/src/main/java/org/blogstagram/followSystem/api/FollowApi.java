@@ -5,7 +5,6 @@ import org.blogstagram.dao.UserDAO;
 import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.DirectionalFollowNotAdded;
 import org.blogstagram.errors.NotValidUserIdException;
-import org.blogstagram.Validators.UserIdValidator;
 import org.blogstagram.listeners.followNotificationSender;
 import org.blogstagram.models.DirectedFollow;
 import org.blogstagram.models.User;

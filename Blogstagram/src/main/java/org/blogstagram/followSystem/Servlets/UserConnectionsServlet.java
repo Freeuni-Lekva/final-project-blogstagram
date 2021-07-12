@@ -1,6 +1,5 @@
 package org.blogstagram.followSystem.Servlets;
 
-import org.blogstagram.Validators.FollowRequestValidator;
 import org.blogstagram.Validators.UserIdValidator;
 import org.blogstagram.dao.FollowDao;
 import org.blogstagram.dao.SqlFollowDao;
