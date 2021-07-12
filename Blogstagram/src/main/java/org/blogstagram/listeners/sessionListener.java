@@ -1,6 +1,7 @@
 package org.blogstagram.listeners;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.blogstagram.dao.UserDAO;
 
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
@@ -13,8 +14,12 @@ public class sessionListener implements HttpSessionListener {
     @Override
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {
         // add Dao objects
-        Connection connection = (Connection) httpSessionEvent.getSession().getServletContext().getAttribute("dbConnection");
-
+        Connection dbConnection = (Connection) httpSessionEvent.getSession().getServletContext().getAttribute("dbConnection");
+        /*
+            Add DAO Objects
+         */
+        UserDAO userDAO = new UserDAO(dbConnection);
+        httpSessionEvent.getSession().setAttribute("UserDAO",userDAO);
     }
 
     @Override
