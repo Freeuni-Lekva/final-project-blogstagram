@@ -14,7 +14,7 @@ public class Comment {
     // comment creation date
     private Date comment_creation_date;
 
-    public Comment(int comment_id, int user_id, int blog_id, String comment, Date comment_creation_date){
+    public Comment(int user_id, int blog_id, String comment, Date comment_creation_date){
         this.comment_id = comment_id;
         this.user_id = user_id;
         this.blog_id = blog_id;
@@ -42,6 +42,9 @@ public class Comment {
         return comment;
     }
 
+    public void setComment_id(int comment_id){
+        this.comment_id = comment_id;
+    }
 
 }
 

@@ -1,6 +1,11 @@
 package org.blogstagram.dao;
+import org.blogstagram.models.Comment;
+import org.blogstagram.models.User;
+
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
+
 public class CommentDAO{
 
     private static final String SEARCH_COMMENTS_FOR_BLOG = "SELECT * FROM  comments WHERE blog_id = ?";
@@ -10,8 +15,11 @@ public class CommentDAO{
     private static final String SEARCH_USER_LIKES = "SELECT u.firstname, u.lastname, u.nickname, u.image FROM users u " +
             "INNER join likes l on (l.user_id = u.id) " +
             "WHERE l.comment_id = ?";
-
+    private static final String COMMENT_LIKED_QUERY = "SELECT * from likes where comment_id = ? and user_id = ?";
     private static final String ADD_LIKE = "INSERT INTO likes(user_id, comment_id, created_at) values(?, ?, ?)";
+    private static final String COMMENT_EXISTS = "SELECT * FROM comments WHERE id = ?";
+    private static final String DELETE_LIKE = "DELETE FROM likes WHERE comment_id = ? AND user_id = ?";
+
     Connection connection;
 
     public CommentDAO(Connection connection){
@@ -35,7 +43,9 @@ public class CommentDAO{
             int blog_id = resultSet.getInt(3);
             String comment = resultSet.getString(4);
             Date comment_creation_date = resultSet.getDate(5);
-            blogComments.add(new Comment(comment_id, user_id, blog_id, comment, comment_creation_date));
+            Comment newComm = new Comment(user_id, blog_id, comment, comment_creation_date);
+            newComm.setComment_id(comment_id);
+            blogComments.add(newComm);
         }
         return blogComments;
     }
@@ -128,16 +138,35 @@ public class CommentDAO{
         ps.setInt(1, user_id);
         ps.setInt(2, comment_id);
         ps.setDate(3, new Date(System.currentTimeMillis()));
-        ps.executeUpdate();
-
+        int numRows = ps.executeUpdate();
+        if(numRows == 0){
+            throw new SQLException("Liking comment failed");
+        }
     }
 
     public void unlikeComment(int comment_id, int user_id) throws SQLException {
-        String deleteComment = "DELETE FROM likes WHERE comment_id = ? AND user_id = ?";
-        PreparedStatement ps = connection.prepareStatement(deleteComment);
+        PreparedStatement ps = connection.prepareStatement(DELETE_LIKE);
         ps.setInt(1, comment_id);
         ps.setInt(2, user_id);
-        ps.executeUpdate();
+        int numRows = ps.executeUpdate();
+        if(numRows == 0){
+            throw new SQLException("Unliking comment failed");
+        }
+    }
+
+    public boolean commentIsLiked(int comment_id, int user_id) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement(COMMENT_LIKED_QUERY);
+        ps.setInt(1, comment_id);
+        ps.setInt(2, user_id);
+        ResultSet rs = ps.executeQuery();
+        return rs.next();
+    }
+
+    public boolean commentExists(int comment_id) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement(COMMENT_EXISTS);
+        ps.setInt(1, comment_id);
+        ResultSet rs = ps.executeQuery();
+        return rs.next();
     }
 
 }
