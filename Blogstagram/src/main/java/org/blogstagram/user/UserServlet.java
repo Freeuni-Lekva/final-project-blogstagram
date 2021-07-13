@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.Path;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -22,7 +21,7 @@ public class UserServlet extends HttpServlet {
     public static final String FOLLOWERS_URL_IDENTIFICATOR = "followers";
 
     /*
-     * URL : /user/identificator
+     * URL : /user/userIdentificator/followingIdentificator
      */
     private StringPair getPathIdentificator(HttpServletRequest req){
         String pathInfo = req.getPathInfo();

@@ -5,13 +5,11 @@
 <%
     User user = (User)request.getAttribute("User");
     String currentUserNickname = (String)request.getSession().getAttribute("currentUserNickname");
-    boolean isCurrentUser = currentUserNickname != null && (currentUserNickname.equals(user.getNickname()));
     boolean isUserLoggedIn = (currentUserNickname != null);
 %>
 <html>
     <head>
         <title>Blogstagram</title>
-
 
         <jsp:include page="/jsp/templates/bootstrap.jsp" />
         <!-- Link for icons -->
