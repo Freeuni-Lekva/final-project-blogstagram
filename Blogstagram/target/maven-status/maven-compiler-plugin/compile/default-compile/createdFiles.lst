@@ -1,5 +1,6 @@
 org\blogstagram\validators\PasswordFormatValidator.class
 org\blogstagram\validators\LoginValidator.class
+org\blogstagram\user\UserServlet.class
 org\blogstagram\login\LoginServlet.class
 org\blogstagram\validators\VariableLengthValidator.class
 org\blogstagram\validators\IllegalCharactersValidator.class
