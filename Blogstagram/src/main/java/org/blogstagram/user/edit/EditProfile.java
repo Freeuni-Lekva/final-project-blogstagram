@@ -25,7 +25,7 @@ public class EditProfile {
 
     private static final String DEFAULT_PROFILE_PICTURE_NAME = "profile.jpg";
 
-    private static UserDAO getUserDaoFromContext(HttpServletRequest req){
+    private static UserDAO getUserDaoFromSession(HttpServletRequest req){
         UserDAO userDAO = (UserDAO) req.getSession().getAttribute("UserDAO");
         return userDAO;
     }
@@ -37,7 +37,7 @@ public class EditProfile {
 
     public static void editGeneral(HttpServletRequest req,HttpServletResponse res) throws IOException {
 
-        UserDAO userDAO = getUserDaoFromContext(req);
+        UserDAO userDAO = getUserDaoFromSession(req);
         Connection connection = getConnectionFromContext(req);
 
         Integer userID = (Integer)req.getSession().getAttribute("currentUserID");
@@ -98,7 +98,7 @@ public class EditProfile {
 
     }
     public static void editPicture(HttpServletRequest req,HttpServletResponse res, String uploadPath) throws IOException, ServletException, SQLException {
-        UserDAO userDAO = getUserDaoFromContext(req);
+        UserDAO userDAO = getUserDaoFromSession(req);
 
         String nickname = (String)req.getSession().getAttribute("currentUserNickname");
 
@@ -115,7 +115,7 @@ public class EditProfile {
         res.sendRedirect("/edit/profile");
     }
     public static void editPassword(HttpServletRequest req, HttpServletResponse res) throws IOException {
-        UserDAO userDAO = getUserDaoFromContext(req);
+        UserDAO userDAO = getUserDaoFromSession(req);
         Connection connection = getConnectionFromContext(req);
 
         Integer userID = (Integer)req.getSession().getAttribute("currentUserID");
