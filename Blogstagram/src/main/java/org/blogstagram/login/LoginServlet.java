@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
         return connection;
     }
 
-    private UserDAO getUserDaoFromContext(HttpServletRequest req){
+    private UserDAO getUserDaoFromSession(HttpServletRequest req){
         UserDAO userDAO = (UserDAO) req.getSession().getAttribute("UserDAO");
         return userDAO;
     }
@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        UserDAO userDAO = getUserDaoFromContext(request);
+        UserDAO userDAO = getUserDaoFromSession(request);
         try {
             User user = userDAO.getUserByEmail(email);
             request.getSession().setAttribute("currentUserID", user.getId());

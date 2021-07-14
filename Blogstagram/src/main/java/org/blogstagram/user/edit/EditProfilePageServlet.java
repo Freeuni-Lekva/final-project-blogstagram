@@ -43,7 +43,7 @@ public class EditProfilePageServlet extends HttpServlet {
             return false;
         return true;
     }
-    private UserDAO getUserDaoFromContext(HttpServletRequest req){
+    private UserDAO getUserDaoFromSession(HttpServletRequest req){
         UserDAO userDAO = (UserDAO) req.getSession().getAttribute("UserDAO");
         return userDAO;
     }
@@ -63,7 +63,7 @@ public class EditProfilePageServlet extends HttpServlet {
         }
 
         String currentUserNickname = (String)req.getSession().getAttribute("currentUserNickname");
-        UserDAO userDAO = getUserDaoFromContext(req);
+        UserDAO userDAO = getUserDaoFromSession(req);
 
         User user = null;
         try {
