@@ -1,6 +1,6 @@
 package org.blogstagram.followSystem.Servlets;
 
-import org.blogstagram.Validators.FollowRequestValidator;
+import org.blogstagram.validators.FollowRequestValidator;
 import org.blogstagram.dao.FollowDao;
 import org.blogstagram.dao.SqlFollowDao;
 import org.blogstagram.dao.UserDAO;
@@ -8,11 +8,10 @@ import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.DirectionalFollowNotAdded;
 import org.blogstagram.errors.NotLoggedInException;
 import org.blogstagram.errors.NotValidUserIdException;
-import org.blogstagram.followSystem.api.FollowApi;
 import org.blogstagram.followSystem.api.ResponseJson;
 import org.blogstagram.followSystem.api.StatusCodes;
 import org.json.JSONObject;
-
+import org.blogstagram.followSystem.api.FollowApi;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,7 +39,7 @@ public class followResponseServlet extends HttpServlet {
         String fromIdStr = (String) request.getAttribute("from_id");
         Integer toId = Integer.parseInt(toIdStr);
         Integer fromId = Integer.parseInt(fromIdStr);
-        UserDAO userDao = (UserDAO) request.getServletContext().getAttribute("UserDao");
+        UserDAO userDao = (UserDAO) request.getSession().getAttribute("UserDAO");
         FollowRequestValidator validator = new FollowRequestValidator();
         validator.setUserDao(userDao);
         FollowDao followDao = (SqlFollowDao) request.getServletContext().getAttribute("SqlFollowDao");

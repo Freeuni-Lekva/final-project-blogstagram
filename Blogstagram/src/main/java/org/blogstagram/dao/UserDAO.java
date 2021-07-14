@@ -12,18 +12,25 @@ public class UserDAO {
     private static final String UPDATE_USER_GENERAL_INFO_QUERY = "UPDATE users SET firstname,lastname,nickname, role,email,birthday,gender,privacy,country,city,website,bio WHERE id = ?";
 
     private static final String GET_USER_BY_ID_QUERY = "SELECT id,firstname,lastname,nickname,role,email,birthday,gender,privacy,image,country,city,website,bio,created_at " +
-            "FROM users WHERE id = ? OR nickname = ?";
+            "FROM users WHERE id = ? OR nickname = ? OR email = ?";
+
+    private static final String USER_KEYS_NULL_ERROR = "UserID or UserNickname or UserEmail must be included";
+    private static final Integer NO_USER_ID = -1;
+
     public UserDAO(Connection connection){
         this.connection = connection;
     }
 
-    private User getUserByIdOrNickname(Integer userID,String userNickname) throws SQLException {
-        if(userID == null && userNickname == null)
-            throw new RuntimeException("UserID or UserNickname must be included");
+    private User getUser(Integer userID,String userNickname, String userEmail) throws SQLException {
+        if(userID == null && userNickname == null && userEmail == null)
+            throw new RuntimeException(USER_KEYS_NULL_ERROR);
 
         PreparedStatement stm = connection.prepareStatement(GET_USER_BY_ID_QUERY);
+        if(userID == null)
+            userID = NO_USER_ID;
         stm.setInt(1,userID);
         stm.setString(2,userNickname);
+        stm.setString(3, userEmail);
         ResultSet result = stm.executeQuery();
         if(result.next()){
             Integer id = result.getInt(1);
@@ -49,10 +56,13 @@ public class UserDAO {
         return null;
     }
     public User getUserByID(Integer userID) throws SQLException {
-        return getUserByIdOrNickname(userID,null);
+        return getUser(userID,null, null);
     }
     public User getUserByNickname(String userNickname) throws SQLException {
-        return getUserByIdOrNickname(null,userNickname);
+        return getUser(null,userNickname, null);
+    }
+    public User getUserByEmail(String email) throws SQLException {
+        return getUser(null, null, email);
     }
 
     public void addUser(User user,String password) throws SQLException {
@@ -85,9 +95,9 @@ public class UserDAO {
         else
             throw new SQLException("Creating user failed, ID generation failed");
     }
-    private void updateUserGeneralInfo(Integer userID,String userNickname) throws SQLException {
+    private void updateUserGeneralInfo(Integer userID,String userNickname, String userEmail) throws SQLException {
 
-        User user = getUserByIdOrNickname(userID,userNickname);
+        User user = getUser(userID,userNickname,userEmail);
 
         if(user.getId() == null)
             throw new RuntimeException("User with ID " + user.getId() + " Does Not Exists");
@@ -109,10 +119,13 @@ public class UserDAO {
         stm.executeUpdate();
     }
     public void updateUserGeneralInfoByID(Integer userID) throws SQLException {
-        updateUserGeneralInfo(userID,null);
+        updateUserGeneralInfo(userID,null, null);
     }
     public void updateUserGeneralInfoByNickname(String userNickname) throws SQLException {
-        updateUserGeneralInfo(null,userNickname);
+        updateUserGeneralInfo(null,userNickname, null);
+    }
+    public void updateUserGeneralInfoByEmail(String email) throws SQLException {
+        updateUserGeneralInfo(null, null, email);
     }
 
     private void updateUserPassword(Integer userID,String userNickname,String password){

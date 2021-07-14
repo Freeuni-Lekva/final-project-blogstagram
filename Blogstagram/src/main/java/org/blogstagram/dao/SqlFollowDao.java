@@ -57,7 +57,6 @@ public class SqlFollowDao implements FollowDao {
             stm.close();
             return result;
         } catch (InvalidSQLQueryException | SQLException e) {
-            System.out.println(e);
             throw new DatabaseError("Could't connect to database.");
         }
     }
@@ -108,7 +107,6 @@ public class SqlFollowDao implements FollowDao {
             String query = queries.getSelectQuery(select, where);
             PreparedStatement prpStm = connection.prepareStatement(query);
             prpStm.setInt(1, id);
-            System.out.println(prpStm);
             ResultSet res = prpStm.executeQuery();
             while (res.next()){
                 User user = userDao.getUserByID(res.getInt(2));
@@ -116,7 +114,6 @@ public class SqlFollowDao implements FollowDao {
             }
             prpStm.close();
         } catch (InvalidSQLQueryException | SQLException e) {
-            System.out.println(e.toString());
             throw new DatabaseError("Couldn't connect to database");
         }
         return results;

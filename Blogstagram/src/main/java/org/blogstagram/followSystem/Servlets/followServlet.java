@@ -8,14 +8,12 @@ import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.DirectionalFollowNotAdded;
 import org.blogstagram.errors.NotLoggedInException;
 import org.blogstagram.errors.NotValidUserIdException;
-import org.blogstagram.Validators.FollowRequestValidator;
+import org.blogstagram.validators.FollowRequestValidator;
 import org.blogstagram.followSystem.api.FollowApi;
 import org.blogstagram.followSystem.api.ResponseJson;
 import org.blogstagram.followSystem.api.StatusCodes;
 import org.json.JSONObject;
 
-import javax.jms.Session;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 
@@ -50,9 +48,8 @@ public class followServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         SqlFollowDao followSystem = (SqlFollowDao) session.getAttribute("SqlFollowDao");
-        UserDAO userDao = (UserDAO) request.getSession().getAttribute("userDao");
+        UserDAO userDao = (UserDAO) request.getSession().getAttribute("UserDAO");
         String toIdStr = request.getParameter("to_id");
-        System.out.println(toIdStr);
         String fromIdStr = (String) request.getSession().getAttribute("from_id");
         FollowRequestValidator validator = new FollowRequestValidator();
         validator.setUserDao(userDao);
@@ -63,7 +60,6 @@ public class followServlet extends HttpServlet {
                 Integer fromId = Integer.parseInt(fromIdStr);
                 Integer toId = Integer.parseInt(toIdStr);
                 FollowApi followApi = initializeFollowApi(followSystem, userDao);
-                System.out.println("here");
                 int condition = followApi.alreadyFollowed(fromId, toId);
 
                 if(condition == StatusCodes.followed){

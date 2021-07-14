@@ -1,9 +1,6 @@
 package org.blogstagram.listeners;
 
 import org.apache.commons.dbcp2.BasicDataSource;
-import org.blogstagram.dao.UserDAO;
-import org.blogstagram.models.User;
-
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;

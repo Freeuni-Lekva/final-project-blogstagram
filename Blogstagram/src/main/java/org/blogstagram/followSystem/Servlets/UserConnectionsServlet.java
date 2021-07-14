@@ -1,7 +1,6 @@
 package org.blogstagram.followSystem.Servlets;
 
-import org.blogstagram.Validators.GetUserConnectionsValidator;
-import org.blogstagram.Validators.UserIdValidator;
+import org.blogstagram.validators.GetUserConnectionsValidator;
 import org.blogstagram.dao.FollowDao;
 import org.blogstagram.dao.SqlFollowDao;
 import org.blogstagram.dao.UserDAO;
@@ -44,10 +43,8 @@ public class UserConnectionsServlet extends HttpServlet {
         String toIdStr =  request.getParameter("to_id");
         String fromIdStr = (String) request.getSession().getAttribute("currentUserId");
         String requestType = request.getParameter("requestType");
-        System.out.println(requestType);
-        System.out.println(toIdStr);
         FollowDao followDao = (SqlFollowDao) request.getSession().getAttribute("SqlFollowDao");
-        UserDAO userDao = (UserDAO) request.getSession().getAttribute("userDao");
+        UserDAO userDao = (UserDAO) request.getSession().getAttribute("UserDAO");
         JSONObject responseJson = ResponseJson.initResponseJson();
         int statusCode = 0;
 

@@ -1,6 +1,6 @@
 package org.blogstagram.followSystem.api;
 
-import org.blogstagram.Validators.UserIdValidator;
+import org.blogstagram.validators.UserIdValidator;
 import org.blogstagram.dao.FollowDao;
 import org.blogstagram.dao.UserDAO;
 import org.blogstagram.errors.DatabaseError;
@@ -9,6 +9,8 @@ import org.blogstagram.errors.NotValidUserIdException;
 import org.blogstagram.listeners.followNotificationSender;
 import org.blogstagram.models.DirectedFollow;
 import org.blogstagram.models.User;
+import org.blogstagram.validators.UserIdValidator;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -63,7 +65,6 @@ public class FollowApi {
            DirectedFollow dFollow = initializeDirectedFollowObj(fromId, toId);
            if(user.getPrivacy().equals(User.PRIVATE)){ // add if private account -----------
               // sender.sendFollowRequest();
-               System.out.println("sdsdsdsd");
                return StatusCodes.requestSent;
            }else{
                followDao.addDirectedFollow(dFollow);
