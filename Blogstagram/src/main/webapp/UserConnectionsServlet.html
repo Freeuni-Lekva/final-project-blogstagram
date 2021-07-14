@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<form id = "test" action = "/UserConnections" method = "get" >
+    <input id = "Followers" value = "getFollowers" type = "submit" formmethod="get">
+    <input id = "Followings"  value = "getFollowings" type = "submit" formmethod="get">
+</form>
+
+<script>
+    let form = document.getElementById("test");
+    let to_id = 2;
+    let requestType = "Followers";
+    console.log("here");
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log("In here");
+        $.get("/UserConnections", {
+            to_id, requestType
+        }).then(e => {
+            console.log(JSON.parse(e));
+        }).catch(err => {
+            console.log(err);
+        });
+    });
+</script>
+
+</body>
+</html>

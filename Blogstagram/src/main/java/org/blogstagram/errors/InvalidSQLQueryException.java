@@ -1,7 +1,7 @@
 package org.blogstagram.errors;
 
 public class InvalidSQLQueryException extends Throwable {
-    private String message;
+    private final String message;
     public InvalidSQLQueryException(String message) {
         this.message = message;
     }

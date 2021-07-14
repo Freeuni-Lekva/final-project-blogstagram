@@ -50,12 +50,14 @@ public class SqlFollowDao implements FollowDao {
         try {
             String query = queries.getSelectQuery(select, where);
             PreparedStatement stm = connection.prepareStatement(query);
-            stm.setInt(dFollow.getFromId(), 1);
-            stm.setInt(dFollow.getToId(), 2);
+            stm.setInt(1, dFollow.getFromId());
+            stm.setInt(2, dFollow.getToId());
             ResultSet res = stm.executeQuery();
+            boolean result = res.next();
             stm.close();
-            return res.next();
+            return result;
         } catch (InvalidSQLQueryException | SQLException e) {
+            System.out.println(e);
             throw new DatabaseError("Could't connect to database.");
         }
     }
@@ -71,11 +73,13 @@ public class SqlFollowDao implements FollowDao {
     public void deleteFollow(DirectedFollow dFollow) throws DatabaseError {
         if(dFollow == null) throw new NullPointerException("Follow Object can't be null");
         List <String> where = new ArrayList<>();
-        where.add("from_used_id");
+        where.add("from_user_id");
         where.add("to_user_id");
         try {
             String query = queries.getDeleteQuery(where);
             PreparedStatement stm = connection.prepareStatement(query);
+            stm.setInt(1, dFollow.getFromId());
+            stm.setInt(2, dFollow.getToId());
             int changedRows = stm.executeUpdate();
             if(changedRows != 1){
                 throw new DatabaseError("Affected rows must be 1");
@@ -104,13 +108,15 @@ public class SqlFollowDao implements FollowDao {
             String query = queries.getSelectQuery(select, where);
             PreparedStatement prpStm = connection.prepareStatement(query);
             prpStm.setInt(1, id);
-            ResultSet res = prpStm.executeQuery(query);
+            System.out.println(prpStm);
+            ResultSet res = prpStm.executeQuery();
             while (res.next()){
-//                User user = userDao.getUserById(res.getInt(2));
-//                results.add(user);
+                User user = userDao.getUserByID(res.getInt(2));
+                results.add(user);
             }
             prpStm.close();
         } catch (InvalidSQLQueryException | SQLException e) {
+            System.out.println(e.toString());
             throw new DatabaseError("Couldn't connect to database");
         }
         return results;
@@ -167,6 +173,7 @@ public class SqlFollowDao implements FollowDao {
             stm.close();
             if(addedRows != 1) throw new DirectionalFollowNotAdded("Directional follow is not added.");
         } catch (InvalidSQLQueryException | SQLException e) {
+            System.out.println(e);
             throw new DatabaseError("Couldn't connect to database");
         }
 

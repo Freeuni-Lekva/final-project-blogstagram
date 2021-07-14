@@ -1,6 +1,7 @@
 org\blogstagram\errors\NotValidUserIdException.class
 org\blogstagram\followSystem\Servlets\followResponseServlet.class
 org\blogstagram\listeners\followNotificationSender.class
+org\blogstagram\Validators\GetUserConnectionsValidator.class
 org\blogstagram\errors\DatabaseError.class
 org\blogstagram\followSystem\api\StatusCodes.class
 org\blogstagram\sql\FollowQueries.class

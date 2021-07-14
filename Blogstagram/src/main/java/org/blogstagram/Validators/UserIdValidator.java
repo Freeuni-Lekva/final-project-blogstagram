@@ -1,7 +1,11 @@
 package org.blogstagram.Validators;
 
 import org.blogstagram.dao.UserDAO;
+import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.NotValidUserIdException;
+import org.blogstagram.models.User;
+
+import java.sql.SQLException;
 
 public class UserIdValidator implements Validator {
     private UserDAO userDao;
@@ -12,15 +16,19 @@ public class UserIdValidator implements Validator {
     }
 
     @Override
-    public boolean validate(Object obj) throws NotValidUserIdException, NullPointerException {
+    public boolean validate(Object obj) throws NotValidUserIdException, NullPointerException, DatabaseError {
         if(userDao == null) throw new NullPointerException("User dao object can't be null.");
-        String toIdStr = (String) obj;
+
         try {
-            Integer toId = Integer.parseInt(toIdStr);
-            //User toIdUser = userDao.getUserByIdOrNickname(toId, null);
-            //if(toIdUser == null) throw new NotValidUserIdException("User id is not registered.");
+            Integer toId;
+            if(obj instanceof String)  toId = Integer.parseInt((String)obj);
+            else toId = (Integer) obj;
+            User toIdUser = userDao.getUserByID(toId);
+            if(toIdUser == null) throw new NotValidUserIdException("User id is not registered.");
         } catch (NumberFormatException ex){
             throw new NotValidUserIdException("User Id should contain only Numbers.");
+        } catch (SQLException ex){
+            throw new DatabaseError("Can't accses database");
         }
         return true;
     }

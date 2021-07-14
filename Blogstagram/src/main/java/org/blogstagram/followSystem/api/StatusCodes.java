@@ -13,6 +13,7 @@ public class  StatusCodes {
     public static final int gotAllFollowings = 5;
     public static final int requestApproved = 6;
     public static final int requestDeclined = 7;
+    public static final int notFollowed = 8;
     public static final int error = -1;
     // -----
     private static final String followMsg = "Follow request Success";

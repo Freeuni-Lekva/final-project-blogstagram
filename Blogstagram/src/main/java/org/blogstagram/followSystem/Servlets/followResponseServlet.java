@@ -22,9 +22,20 @@ import java.io.IOException;
 
 @WebServlet("/followResponse")
 public class followResponseServlet extends HttpServlet {
+
+    private FollowApi initializeFollowApi(FollowDao followDao, UserDAO userDAO){
+        FollowApi api = new FollowApi();
+        api.setFollowDao(followDao);
+        api.setUserDao(userDAO);
+      //  api.registerFollowRequestSender(null); // notifications
+        return api;
+    }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //implement logic if response is accept then write follow request to database.
+        // add logic if notification is sent then add follow.  ............................. important
+        // add logic to validate request.
         String toIdStr = (String) request.getSession().getAttribute("to_id");
         String fromIdStr = (String) request.getAttribute("from_id");
         Integer toId = Integer.parseInt(toIdStr);
@@ -34,18 +45,15 @@ public class followResponseServlet extends HttpServlet {
         validator.setUserDao(userDao);
         FollowDao followDao = (SqlFollowDao) request.getServletContext().getAttribute("SqlFollowDao");
         JSONObject responseJson = ResponseJson.initResponseJson();
+        int statusCode = 0;
         try {
             if(validator.isLoggedIn(toIdStr) && validator.isIdValid(fromIdStr)){
                 if(request.getParameter("Accept") != null){
-                    FollowApi api = new FollowApi();
-                    api.setFollowDao(followDao);
-                    api.setUserDao(userDao);
-                    api.registerFollowRequestSender(null); // notifications
-                    api.acceptFollowRequest(fromId, toId);
-                    responseJson.append("status", StatusCodes.requestApproved);
+                    FollowApi api = initializeFollowApi(followDao, userDao);
+                    statusCode = api.acceptFollowRequest(fromId, toId);
                 }else if(request.getParameter("Decline") != null){
                     // decline  so it must be forwarded to notification api.
-                    responseJson.append("status", StatusCodes.requestDeclined);
+                    statusCode = StatusCodes.requestDeclined;
                 }else{
                     throw new IllegalAccessException("Illegal request.");
                 }
@@ -53,9 +61,10 @@ public class followResponseServlet extends HttpServlet {
             }
         } catch (NotValidUserIdException | DirectionalFollowNotAdded | DatabaseError |
                 NotLoggedInException | IllegalAccessException  e) {
-            responseJson.append("status", StatusCodes.error);
+            statusCode = StatusCodes.error;
             responseJson.append("errorMessage", e.toString());
         } finally {
+            responseJson.append("status", statusCode);
             response.getWriter().print(responseJson);
         }
     }

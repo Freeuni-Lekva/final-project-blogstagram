@@ -1,7 +1,7 @@
 package org.blogstagram.errors;
 
 public class DatabaseError extends Throwable {
-    private String message;
+    private final String message;
     public DatabaseError(String message) {
         this.message = message;
     }

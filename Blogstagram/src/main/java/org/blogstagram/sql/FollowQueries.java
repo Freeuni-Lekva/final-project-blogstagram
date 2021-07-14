@@ -13,10 +13,9 @@ public class FollowQueries implements SqlQueries{
     private void addWhereClause(StringBuilder builder, List <String> whereClause){
         builder.append("WHERE");
         for(int i = 0; i < whereClause.size() - 1; i++){
-            builder.append(" ").append(whereClause.get(i)).append(" = ?,");
+            builder.append(" ").append(whereClause.get(i)).append(" = ? and");
         }
-        builder.append(whereClause.get(whereClause.size() - 1)).append(" = ?");
-
+        builder.append(" ").append(whereClause.get(whereClause.size() - 1)).append(" = ?");
     }
 
     @Override
@@ -26,8 +25,9 @@ public class FollowQueries implements SqlQueries{
         StringBuilder builder = new StringBuilder();
         builder.append("SELECT");
         for(int i = 0; i < selectFields.size() - 1; i++){
-            builder.append(" ").append(selectFields.get(i)).append(", ");
+            builder.append(" ").append(selectFields.get(i)).append(",");
         }
+        builder.append(" ");
         builder.append(selectFields.get(selectFields.size() - 1));
         builder.append(System.lineSeparator());
         builder.append("FROM follows");

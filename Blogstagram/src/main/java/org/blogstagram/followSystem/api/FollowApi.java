@@ -1,5 +1,6 @@
 package org.blogstagram.followSystem.api;
 
+import org.blogstagram.Validators.UserIdValidator;
 import org.blogstagram.dao.FollowDao;
 import org.blogstagram.dao.UserDAO;
 import org.blogstagram.errors.DatabaseError;
@@ -13,6 +14,9 @@ import java.util.List;
 
 
 public class FollowApi {
+
+
+
 
     private FollowDao followDao;
     private UserDAO userDao;
@@ -33,9 +37,16 @@ public class FollowApi {
         return dFollow;
     }
 
-    public boolean alreadyFollowed(Integer fromId, Integer toId) throws NullPointerException, DatabaseError {
+    public int alreadyFollowed(Integer fromId, Integer toId) throws NullPointerException, DatabaseError {
         DirectedFollow dFollow = initializeDirectedFollowObj(fromId, toId);
-        return followDao.doesConnectionExist(dFollow);
+        boolean isConnection = followDao.doesConnectionExist(dFollow);
+        if(isConnection){
+            return StatusCodes.followed;
+        } else {
+            //check in the notification table
+            //if(is notification) return StatusCodes.requestSent;
+            return StatusCodes.notFollowed;
+        }
     }
 
 
@@ -45,15 +56,19 @@ public class FollowApi {
         sends follow notification to user. else if privacy is private it only sends request to user and waits for user response.
      */
 
-    public void sendFollowRequest(Integer fromId, Integer toId) throws DirectionalFollowNotAdded, DatabaseError {
+    public Integer sendFollowRequest(Integer fromId, Integer toId) throws DirectionalFollowNotAdded, DatabaseError {
+
         try {
            User user = userDao.getUserByID(toId);
            DirectedFollow dFollow = initializeDirectedFollowObj(fromId, toId);
            if(user.getPrivacy().equals(User.PRIVATE)){ // add if private account -----------
-               sender.sendFollowRequest();
+              // sender.sendFollowRequest();
+               System.out.println("sdsdsdsd");
+               return StatusCodes.requestSent;
            }else{
                followDao.addDirectedFollow(dFollow);
-               sender.sendFollowNotification();
+               //sender.sendFollowNotification();
+               return StatusCodes.followed;
             }
         } catch (SQLException exception) {
             throw new DatabaseError("Can't find user id.");
@@ -61,18 +76,20 @@ public class FollowApi {
 
     }
 
-    public void unfollow(Integer fromId, Integer toId) throws DatabaseError { // throw user not
+    public Integer unfollow(Integer fromId, Integer toId) throws DatabaseError { // throw user not
         DirectedFollow dFollow = initializeDirectedFollowObj(fromId, toId);
         followDao.deleteFollow(dFollow);
+        return StatusCodes.unfollowed;
     }
 
     /*
         Function accepts to user's request for follow and adds row to database.
      */
-    public void acceptFollowRequest(Integer fromId, Integer toId) throws DirectionalFollowNotAdded, DatabaseError {
+    public Integer acceptFollowRequest(Integer fromId, Integer toId) throws DirectionalFollowNotAdded, DatabaseError {
         DirectedFollow directedFollow = initializeDirectedFollowObj(fromId, toId);
         followDao.addDirectedFollow(directedFollow);
         sender.sendFollowNotification();
+        return StatusCodes.requestApproved;
     }
 
 
@@ -108,6 +125,19 @@ public class FollowApi {
         this.sender = sender;
     }
 
+    public Integer getFollowersCount(Integer id) throws NotValidUserIdException, DatabaseError {
+        UserIdValidator validator = new UserIdValidator();
+        validator.setUserDao(userDao);
+        if(validator.validate(id)){ return getAllFollowers(id).size(); }
+        return 0;
+    }
+
+    public Integer getFollowingCount(Integer id) throws DatabaseError, NotValidUserIdException {
+        UserIdValidator validator = new UserIdValidator();
+        validator.setUserDao(userDao);
+        if(validator.validate(id)){ return getAllFollowing(id).size(); }
+        return 0;
+    }
 
 
 

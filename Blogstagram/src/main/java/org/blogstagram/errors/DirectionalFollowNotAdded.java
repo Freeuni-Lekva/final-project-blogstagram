@@ -1,7 +1,7 @@
 package org.blogstagram.errors;
 
 public class DirectionalFollowNotAdded extends Throwable{
-    private String message;
+    private final String message;
     public DirectionalFollowNotAdded(String message){
         this.message = message;
     }

@@ -1,5 +1,6 @@
 package org.blogstagram.followSystem.Servlets;
 
+import org.blogstagram.Validators.GetUserConnectionsValidator;
 import org.blogstagram.Validators.UserIdValidator;
 import org.blogstagram.dao.FollowDao;
 import org.blogstagram.dao.SqlFollowDao;
@@ -24,38 +25,58 @@ import java.util.List;
 public class UserConnectionsServlet extends HttpServlet {
     private static final String GETFOLLOWERS = "Followers";
     private static final String GETFOLLOWINGS = "Followings";
+
+
+
+    private FollowApi initializeFollowApi(FollowDao followDao, UserDAO userDAO){
+        FollowApi api = new FollowApi();
+        api.setFollowDao(followDao);
+        api.setUserDao(userDAO);
+       // api.registerFollowRequestSender(null); // notifications
+        return api;
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String idStr = (String) request.getSession().getAttribute("to_id");
-        Integer id = Integer.parseInt(idStr);
-        FollowDao followDao = (SqlFollowDao) request.getServletContext().getAttribute("SqlFollowDao");
-        UserDAO userDao = (UserDAO) request.getServletContext().getAttribute("UserDao");
+        //delete
+        request.getSession().setAttribute("currentUserId", "2");
+
+        String toIdStr =  request.getParameter("to_id");
+        String fromIdStr = (String) request.getSession().getAttribute("currentUserId");
+        String requestType = request.getParameter("requestType");
+        System.out.println(requestType);
+        System.out.println(toIdStr);
+        FollowDao followDao = (SqlFollowDao) request.getSession().getAttribute("SqlFollowDao");
+        UserDAO userDao = (UserDAO) request.getSession().getAttribute("userDao");
         JSONObject responseJson = ResponseJson.initResponseJson();
-        UserIdValidator validator = new UserIdValidator();
-        validator.setUserDao(userDao);
-        String requestType = (String) request.getSession().getAttribute("requestType");
+        int statusCode = 0;
+
         try {
-            if(validator.validate(id)){
-                FollowApi api = new FollowApi();
-                api.setUserDao(userDao);
-                api.registerFollowRequestSender(null); // notifications
-                api.setFollowDao(followDao);
-                List <User> responseLst = null;
+            FollowApi followApi = initializeFollowApi(followDao, userDao);
+            GetUserConnectionsValidator validator = new GetUserConnectionsValidator();
+            validator.setUserDao(userDao);
+            validator.setApi(followApi);
+            if(validator.validateRequest(fromIdStr, toIdStr)){
+                Integer toId = Integer.parseInt(toIdStr);
+                List <User> responseLst;
+
                 if(requestType.equals(GETFOLLOWERS)){
-                    responseLst = api.getAllFollowers(id);
-                    responseJson.append("status", StatusCodes.gotAllFollowers);
+                    responseLst = followApi.getAllFollowers(toId);
+                    statusCode = StatusCodes.gotAllFollowers;
                 } else if(requestType.equals(GETFOLLOWINGS)){
-                    responseLst = api.getAllFollowing(id);
-                    responseJson.append("status", StatusCodes.gotAllFollowings);
+                    responseLst = followApi.getAllFollowing(toId);
+                    statusCode = StatusCodes.gotAllFollowings;
                 } else {
                     throw new IllegalAccessException("Illegal Request.");
                 }
                 responseJson.append("responseList", responseLst);
             }
         } catch (NotValidUserIdException | DatabaseError | IllegalAccessException e) {
-            responseJson.append("status", StatusCodes.error);
+            statusCode = StatusCodes.error;
+            responseJson.append("responseList", null);
             responseJson.append("errorMessage", e.toString());
         } finally {
+            responseJson.append("status", statusCode);
             response.getWriter().print(responseJson);
         }
     }

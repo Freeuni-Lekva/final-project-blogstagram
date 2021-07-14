@@ -1,15 +1,11 @@
-1) add follow api class for follow functions and get complexity from FollowDao.  // done
+ბიჭო, რამდენიმე რაღაცა არის ცოტა გადასაცვლელი, ისე სტრუქტურა და dependencies მომწონს შენი დაწერილი ლოგიკის.
 
-2) add status constants for followed, unfollowed, request send and e.t.c // done
+მოკლედ, იუზერების ფეიჯზე მე მჭირდება სამნაირი სტატუსი:
 
-3) add servlets, for follow/unfollow accept/decline getFollowers/geFollowings
-ajax requests will be sent and i should write response to print writer. // done
+მე ვაფოლოვებ თუ არა იუზერს (unfollow ღილაკი დარენდერდეს თუ არა)
+თუ არ ვაფოლოვებ, ორ ნაწილად იხლიჩება:
+2.1) რექუესთი მაქვს თუ არა გაგზავნილი ფოლოუვის(requested ღილაკი)
+2.2) თუ არ მაქვს რექუესთი გაგზავნილი(follow ღილაკი)
+პლიუს, იუზერი ვის აფოლოვებს ან ვინ აფოლოვებს, მაგის გაგება მხოლოდ შესულ იუზერს არ უნდა შეეძლოს. ანუ API ისე რო გადააკეთო, რომ ამ ორ ინფორმაციას იმ შემთხვევაში მაძლევდეს, თუ იუზერი ფაბლიქია ან მე მყავს დაფოლოვებული(ანუ თუ ფრაივათია)
 
-4)add user readable errors and send then one of them occurs. ------------ done
-
-5) add checks in getAllFollowers, getAllFollowings and return user info // done
-
-6) send error in json. // done
-
-7) add status codes to json. // done
-8) send error // done
+და კიდევ ორი ფუნქცია იმისთვის, რომ followerCount და followingCount რომ გამოვიყენო იუზერის ფეიჯზე დასარენდერებლად. ეს ორი ფუნქცია ყველასთვის მისაწავდომი იქნება --- done

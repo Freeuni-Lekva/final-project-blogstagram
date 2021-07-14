@@ -1,7 +1,7 @@
 package org.blogstagram.errors;
 
 public class NotValidUserIdException extends Throwable{
-    private String msg;
+    private final String msg;
     public NotValidUserIdException(String message) {
         msg = message;
     }
