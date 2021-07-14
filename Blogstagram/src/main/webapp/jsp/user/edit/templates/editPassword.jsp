@@ -101,7 +101,6 @@
                         if(errors.status === 'status incorrect'){
                             console.log("Wrong status for editing profile");
                         } else {
-                            console.log(errors)
                             for(let error of errors){
 
                                 let {variableName, errorMessage} = error;

@@ -10,7 +10,7 @@
 <%
     User user = (User)request.getAttribute("CurrentUser");
 %>
-<form>
+<form id="edit-picture-form">
     <div class="container text-center">
         <img id="upload-picture-file" src="<%= user.getImage() %>" style="width: 200px; height: 200px; margin: 15px; border-radius:50%"/>
     </div>
@@ -29,6 +29,6 @@
             const pictureFile = e.target.files[0];
             const pictureSource = URL.createObjectURL(pictureFile);
             document.getElementById("upload-picture-file").setAttribute("src",pictureSource);
-        })
+        });
     })
 </script>

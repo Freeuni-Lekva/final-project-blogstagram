@@ -8,41 +8,47 @@ import org.blogstagram.pairs.StringPair;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegisterValidator implements Validator{
+public class EditGeneralValidator implements Validator{
 
-    public static final String PASSWORDS_DO_NOT_MATCH_ERROR = "Passwords do not match";
+    public static final String BIO_ERROR = "Bio shouldn't be longer than 255 symbols";
 
     private Connection connection;
+    private final Integer userID;
     private final String firstname;
     private final String lastname;
     private final String nickname;
     private final String email;
     private final Integer gender;
     private final Integer privacy;
-    private final String password;
-    private final String repeatPassword;
-
+    private final String country;
+    private final String city;
+    private final String website;
+    private final String bio;
 
     private List<GeneralError> errors;
 
-    public RegisterValidator(String firstname, String lastname, String nickname, String email, Integer gender, Integer privacy, String password, String repeatPassword,Connection connection) {
+    public EditGeneralValidator(Integer userID,String firstname, String lastname, String nickname, String email, Integer gender, Integer privacy, String country, String city,String website,String bio,Connection connection){
         if(connection == null)
             throw new IllegalArgumentException("Connection must not be null");
 
+        this.userID = userID;
         this.firstname = firstname;
         this.lastname = lastname;
         this.nickname = nickname;
         this.email = email;
         this.gender = gender;
         this.privacy = privacy;
-        this.password = password;
-        this.repeatPassword = repeatPassword;
+        this.country = country;
+        this.city = city;
+        this.website = website;
+        this.bio = bio;
         this.connection = connection;
-
         errors = new ArrayList<>();
     }
 
@@ -50,13 +56,9 @@ public class RegisterValidator implements Validator{
     public boolean validate() throws SQLException {
         errors = new ArrayList<>();
 
-        /*
-         *   Error Priority 1:
-         *      If any of necessary variables were not included
-         */
         List<GeneralPair> pairs = Arrays.asList(new StringPair("firstname",firstname),new StringPair("lastname",lastname),
                 new StringPair("nickname",nickname),new StringPair("email",email),new StringKeyPair<Integer>("gender",gender),
-                new StringKeyPair<Integer>("privacy",privacy),new StringPair("password",password),new StringPair("password_confirmation",repeatPassword));
+                new StringKeyPair<Integer>("privacy",privacy));
         for(GeneralPair pair: pairs){
             String key = (String)pair.getKey();
             Object value = pair.getValue();
@@ -77,7 +79,7 @@ public class RegisterValidator implements Validator{
             errors.addAll(emailFormatValidator.getErrors());
         }
         List<StringPair> generalInformationPairs = Arrays.asList(new StringPair("firstname",firstname),new StringPair("lastname",lastname),
-                                                                 new StringPair("nickname",nickname));
+                new StringPair("nickname",nickname));
         VariableLengthValidator variableLengthValidator = new VariableLengthValidator(generalInformationPairs);
         if(!variableLengthValidator.validate()){
             errors.addAll(variableLengthValidator.getErrors());
@@ -111,23 +113,14 @@ public class RegisterValidator implements Validator{
          *  Error Priority 3:
          *      If the email or nickname is not unique
          */
-        UserUniqueValidator uniquenessValidator = new UserUniqueValidator(-1,email,nickname,connection);
+        UserUniqueValidator uniquenessValidator = new UserUniqueValidator(userID,email,nickname,connection);
         if(!uniquenessValidator.validate()){
             List<GeneralError> uniqueErrors = uniquenessValidator.getErrors();
             errors.addAll(uniqueErrors);
         }
 
-        /*
-         *  Error Priority 4:
-         *      If there are any password restriction errors like length and characteristics
-         */
-        PasswordFormatValidator passwordFormatValidator = new PasswordFormatValidator(password);
-        if(!passwordFormatValidator.validate()){
-            List<GeneralError> passwordErrors = passwordFormatValidator.getErrors();
-            errors.addAll(passwordErrors);
-        }
-        if(!password.equals(repeatPassword)){
-            errors.add(new VariableError("password_confirmation",PASSWORDS_DO_NOT_MATCH_ERROR));
+        if(bio != null && bio.length() > 255){
+            errors.add(new VariableError("bio",BIO_ERROR));
         }
 
         return errors.size() == 0;

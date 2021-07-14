@@ -3,6 +3,7 @@ org\blogstagram\validators\LoginValidator.class
 org\blogstagram\login\LoginServlet.class
 org\blogstagram\validators\VariableLengthValidator.class
 org\blogstagram\validators\IllegalCharactersValidator.class
+org\blogstagram\validators\EditGeneralValidator.class
 org\blogstagram\errors\GeneralError.class
 org\blogstagram\errors\VariableError.class
 org\blogstagram\validators\PrivacyValidator.class

@@ -5,6 +5,7 @@ import org.blogstagram.StringHasher;
 import org.blogstagram.dao.UserDAO;
 import org.blogstagram.errors.GeneralError;
 import org.blogstagram.models.User;
+import org.blogstagram.validators.EditGeneralValidator;
 import org.blogstagram.validators.EditPasswordValidator;
 
 import javax.servlet.ServletException;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -82,6 +84,8 @@ public class EditProfilePageServlet extends HttpServlet {
         String status = req.getParameter("status");
 
         UserDAO userDAO = getUserDaoFromContext(req);
+        Connection connection = getConnectionFromContext(req);
+
 
         if(!isStatusCorrect(status)){
             Gson gson = new Gson();
@@ -90,6 +94,62 @@ public class EditProfilePageServlet extends HttpServlet {
         }
 
         if(status.equals(editStatuses[0])){
+            Integer userID = (Integer)req.getSession().getAttribute("currentUserID");
+
+            String firstname = req.getParameter("firstname");
+            String lastname = req.getParameter("lastname");
+            String nickname = req.getParameter("nickname");
+            String email = req.getParameter("email");
+            String birthday = req.getParameter("birthday");
+            Integer gender = Integer.parseInt(req.getParameter("gender"));
+            Integer privacy = Integer.parseInt(req.getParameter("privacy"));
+            String country = req.getParameter("country");
+            String city = req.getParameter("city");
+            String website = req.getParameter("website");
+            String bio = req.getParameter("bio");
+
+            List<GeneralError> errors = new ArrayList<>();
+            EditGeneralValidator editGeneralValidator = new EditGeneralValidator(userID,firstname,lastname,nickname,email,gender,privacy,country,city,website,bio
+            ,connection);
+
+            try {
+                if(!editGeneralValidator.validate()){
+                    errors = editGeneralValidator.getErrors();
+                }
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+
+            User newUser = null;
+            if(errors.size() != 0){
+                Gson gson = new Gson();
+                res.getWriter().print(gson.toJson(errors));
+                return;
+            }
+            try {
+                newUser = userDAO.getUserByID(userID);
+                newUser.setFirstname(firstname);
+                newUser.setLastname(lastname);
+                newUser.setNickname(nickname);
+                newUser.setEmail(email);
+                newUser.setBirthday(Date.valueOf(birthday));
+                newUser.setGender(gender);
+                newUser.setPrivacy(privacy);
+                newUser.setCountry(country);
+                newUser.setCity(city);
+                newUser.setWebsite(website);
+                newUser.setBio(bio);
+
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+            try {
+                userDAO.updateUserGeneralInfoByID(userID,newUser);
+                req.getSession().setAttribute("currentUserNickname",nickname);
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+
 
         } else if(status.equals(editStatuses[1])){
             /*
@@ -104,7 +164,6 @@ public class EditProfilePageServlet extends HttpServlet {
             String new_password = req.getParameter("new_password");
             String new_password_confirmation = req.getParameter("new_password_confirmation");
 
-            Connection connection = getConnectionFromContext(req);
 
             List<GeneralError> errors = new ArrayList<>();
             EditPasswordValidator editPasswordValidator = new EditPasswordValidator(userID,old_password,new_password,new_password_confirmation,connection);
