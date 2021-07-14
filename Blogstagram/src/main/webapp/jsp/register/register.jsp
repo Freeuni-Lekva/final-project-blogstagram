@@ -203,7 +203,7 @@
                         },5000);
                     } else {
                         let errors = JSON.parse(rawResponse);
-                        for(let error of response){
+                        for(let error of errors){
                             let {variableName, errorMessage} = error;
                             let errorID = "error-"+variableName;
                             document.getElementById(errorID).innerText += errorMessage+"\n";

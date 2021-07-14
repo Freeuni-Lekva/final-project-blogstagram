@@ -11,7 +11,9 @@ public class UserDAO {
                                                               "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String UPDATE_USER_GENERAL_INFO_QUERY = "UPDATE users SET firstname,lastname,nickname, role,email,birthday,gender,privacy,country,city,website,bio WHERE id = ?";
 
-    private static final String GET_USER_BY_ID_QUERY = "SELECT id,firstname,lastname,nickname,role,email,birthday,gender,privacy,image,country,city,website,bio,created_at " +
+    private static final String UPDATE_USER_PASSWORD_QUERY = "UPDATE users SET password = ? WHERE id = ? OR email = ? OR nickname = ?";
+
+    private static final String GET_USER_QUERY = "SELECT id,firstname,lastname,nickname,role,email,birthday,gender,privacy,image,country,city,website,bio,created_at " +
                                                               "FROM users WHERE id = ? OR nickname = ? OR email = ?";
 
     private static final String USER_KEYS_NULL_ERROR = "UserID or UserNickname or UserEmail must be included";
@@ -25,7 +27,7 @@ public class UserDAO {
         if(userID == null && userNickname == null && userEmail == null)
             throw new RuntimeException(USER_KEYS_NULL_ERROR);
 
-        PreparedStatement stm = connection.prepareStatement(GET_USER_BY_ID_QUERY);
+        PreparedStatement stm = connection.prepareStatement(GET_USER_QUERY);
         if(userID == null)
             userID = NO_USER_ID;
         stm.setInt(1,userID);
@@ -49,7 +51,7 @@ public class UserDAO {
             String bio = result.getString(14);
             Date createdAt = result.getDate(15);
 
-            User user = new User(userID,firstname,lastname,nickname,role,email,gender,privacy,birthday,image,country,city,website,bio,createdAt);
+            User user = new User(id,firstname,lastname,nickname,role,email,gender,privacy,birthday,image,country,city,website,bio,createdAt);
             return user;
         }
 
@@ -128,19 +130,38 @@ public class UserDAO {
         updateUserGeneralInfo(null, null, email);
     }
 
-    private void updateUserPassword(Integer userID,String userNickname,String password){
+    private void updateUserPassword(Integer userID,String userNickname,String userEmail,String password) throws SQLException {
         /*
 
                 Must Be Implemented
 
          */
+        if(userID == null && userNickname == null && userEmail == null)
+            throw new RuntimeException(USER_KEYS_NULL_ERROR);
+
+        if(userID == null)
+            userID = NO_USER_ID;
+
+        PreparedStatement stm = connection.prepareStatement(UPDATE_USER_PASSWORD_QUERY);
+        stm.setString(1,password);
+        stm.setInt(2,userID);
+        stm.setString(3,userEmail);
+        stm.setString(4,userNickname);
+
+        int affectedRows = stm.executeUpdate();
+        if(affectedRows == 0)
+            throw new SQLException("Creating user failed, could not insert in database");
+
     }
 
-    public void updateUserPasswordByID(Integer userID,String password){
-        updateUserPassword(userID,null,password);
+    public void updateUserPasswordByID(Integer userID,String password) throws SQLException {
+        updateUserPassword(userID,null,null,password);
     }
-    public void updateUserPasswordByNickname(String userNickname,String password){
-        updateUserPassword(null,userNickname,password);
+    public void updateUserPasswordByNickname(String userNickname,String password) throws SQLException {
+        updateUserPassword(null,userNickname,null,password);
+    }
+    public void updateUserPasswordByEmail(String userEmail,String password) throws SQLException {
+        updateUserPassword(null,null,userEmail,password);
     }
 
     private void updateUserImage(Integer userID,String userNickname,String image){
