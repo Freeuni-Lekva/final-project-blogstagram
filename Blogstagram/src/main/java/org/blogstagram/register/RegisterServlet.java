@@ -35,7 +35,7 @@ public class RegisterServlet extends HttpServlet {
         Connection connection = (Connection)req.getServletContext().getAttribute("dbConnection");
         return connection;
     }
-    private UserDAO getUserDaoFromContext(HttpServletRequest req){
+    private UserDAO getUserDaoFromSession(HttpServletRequest req){
         UserDAO userDAO = (UserDAO) req.getSession().getAttribute("UserDAO");
         return userDAO;
     }
@@ -80,7 +80,7 @@ public class RegisterServlet extends HttpServlet {
             return;
         }
 
-        UserDAO userDAO = getUserDaoFromContext(req);
+        UserDAO userDAO = getUserDaoFromSession(req);
         User user = new User(null,firstname,lastname,nickname,User.DEFAULT_ROLE,email,gender,privacy,Date.valueOf(birthday),
                                 User.DEFAULT_USER_IMAGE_PATH,null,null,null,null,new Date(System.currentTimeMillis()));
 
