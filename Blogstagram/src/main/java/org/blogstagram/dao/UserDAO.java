@@ -12,6 +12,8 @@ public class UserDAO {
     private static final String UPDATE_USER_GENERAL_INFO_QUERY = "UPDATE users SET firstname = ?,lastname = ?,nickname = ?,users.role = ?,email = ?,birthday = ?,gender = ?,privacy = ?,country = ?,city = ?,website = ?,bio = ? " +
                                                                     "WHERE id = ? OR nickname = ? OR email = ?";
 
+    private static final String UPDATE_USER_PICTURE_QUERY = "UPDATE users SET image = ? WHERE id = ? OR nickname = ? OR email = ?";
+
     private static final String UPDATE_USER_PASSWORD_QUERY = "UPDATE users SET password = ? WHERE id = ? OR email = ? OR nickname = ?";
 
     private static final String GET_USER_QUERY = "SELECT id,firstname,lastname,nickname,users.role,email,birthday,gender,privacy,image,country,city,website,bio,created_at " +
@@ -153,7 +155,7 @@ public class UserDAO {
 
         int affectedRows = stm.executeUpdate();
         if(affectedRows == 0)
-            throw new SQLException("Creating user failed, could not insert in database");
+            throw new SQLException("Updating user failed, could not update in database");
 
     }
 
@@ -167,18 +169,35 @@ public class UserDAO {
         updateUserPassword(null,null,userEmail,password);
     }
 
-    private void updateUserImage(Integer userID,String userNickname,String image){
+    private void updateUserImage(Integer userID,String userNickname,String userEmail,String image) throws SQLException {
         /*
 
                 Must Be Implemented
 
          */
+        if(userID == null && userNickname == null && userEmail == null)
+            throw new RuntimeException(USER_KEYS_NULL_ERROR);
+        if(userID == null)
+            userID = NO_USER_ID;
+
+        PreparedStatement stm = connection.prepareStatement(UPDATE_USER_PICTURE_QUERY);
+        stm.setString(1,image);
+        stm.setInt(2,userID);
+        stm.setString(3,userNickname);
+        stm.setString(4,userEmail);
+
+        int affectedRows = stm.executeUpdate();
+        if(affectedRows == 0)
+            throw new SQLException("Updating user failed, could not update in database");
     }
-    public void updateUserImageByID(Integer userID,String image){
-        updateUserImage(userID,null,image);
+    public void updateUserImageByID(Integer userID,String image) throws SQLException {
+        updateUserImage(userID,null,null,image);
     }
-    public void updateUserImageByNickname(String userNickname,String image){
-        updateUserImage(null,userNickname,image);
+    public void updateUserImageByNickname(String userNickname,String image) throws SQLException {
+        updateUserImage(null,userNickname,null,image);
+    }
+    public void updateUserImageByEmail(String userEmail,String image) throws SQLException {
+        updateUserImage(null,null,userEmail,image);
     }
 
 }

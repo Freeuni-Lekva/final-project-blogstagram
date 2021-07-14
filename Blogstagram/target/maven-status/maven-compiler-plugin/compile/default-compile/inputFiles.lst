@@ -1,5 +1,6 @@
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\IllegalCharactersValidator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\pairs\StringPair.java
+C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\NewPasswordDifferentValidator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\Validator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\errors\GeneralError.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\PrivacyValidator.java
@@ -8,8 +9,10 @@ C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\bl
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\login\LoginServlet.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\UserUniqueValidator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\CheckUserPasswordValidator.java
+C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\user\edit\EditProfile.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\GenderValidator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\PasswordFormatValidator.java
+C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\EditGeneralValidator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\register\RegisterServlet.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\RegisterValidator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\errors\VariableError.java
