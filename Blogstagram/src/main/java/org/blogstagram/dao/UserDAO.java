@@ -8,11 +8,11 @@ public class UserDAO {
     Connection connection;
 
     private static final String ADD_USER_QUERY = "INSERT INTO users(firstname,lastname,nickname, role,email,password,birthday,gender,privacy,image,country,city,website,bio) " +
-                                                              "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String UPDATE_USER_GENERAL_INFO_QUERY = "UPDATE users SET firstname,lastname,nickname, role,email,birthday,gender,privacy,country,city,website,bio WHERE id = ?";
 
     private static final String GET_USER_BY_ID_QUERY = "SELECT id,firstname,lastname,nickname,role,email,birthday,gender,privacy,image,country,city,website,bio,created_at " +
-                                                              "FROM users WHERE id = ? OR nickname = ? OR email = ?";
+            "FROM users WHERE id = ? OR nickname = ? OR email = ?";
 
     private static final String USER_KEYS_NULL_ERROR = "UserID or UserNickname or UserEmail must be included";
     private static final Integer NO_USER_ID = -1;
@@ -130,9 +130,7 @@ public class UserDAO {
 
     private void updateUserPassword(Integer userID,String userNickname,String password){
         /*
-
                 Must Be Implemented
-
          */
     }
 
@@ -145,9 +143,7 @@ public class UserDAO {
 
     private void updateUserImage(Integer userID,String userNickname,String image){
         /*
-
                 Must Be Implemented
-
          */
     }
     public void updateUserImageByID(Integer userID,String image){

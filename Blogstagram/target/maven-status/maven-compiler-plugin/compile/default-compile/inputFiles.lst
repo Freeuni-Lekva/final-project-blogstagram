@@ -1,25 +1,46 @@
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\IllegalCharactersValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\pairs\StringPair.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\Validator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\errors\GeneralError.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\PrivacyValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\logout\LogoutServlet.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\LoginValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\login\LoginServlet.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\UserUniqueValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\GenderValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\PasswordFormatValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\register\RegisterServlet.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\RegisterValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\errors\VariableError.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\pairs\GeneralPair.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\EmailExistsValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\dao\UserDAO.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\StringHasher.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\EmailFormatValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\VariableLengthValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\UserExistsValidator.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\models\User.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\listeners\sessionListener.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\listeners\contextListener.java
-C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\pairs\StringKeyPair.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\sql\FollowQueries.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\dao\UserDAO.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\listeners\sessionListener.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\register\RegisterServlet.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\UserIdValidator.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\models\DirectedFollow.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\UserUniqueValidator.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\followSystem\Servlets\followServlet.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\models\User.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\followSystem\api\ResponseJson.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\errors\InvalidSQLQueryException.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\dao\FollowDao.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\followSystem\Servlets\followResponseServlet.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\followValidator.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\GetUserConnectionsValidator.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\errors\GeneralError.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\pairs\StringPair.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\FollowRequestValidator.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\Validator.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\PasswordFormatValidator.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\errors\NotLoggedInException.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\UserExistsValidator.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\listeners\contextListener.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\followSystem\api\StatusCodes.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\errors\VariableError.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\pairs\GeneralPair.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\followSystem\Servlets\UserConnectionsServlet.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\dao\SqlFollowDao.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\followSystem\api\FollowApi.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\EmailFormatValidator.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\PrivacyValidator.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\pairs\StringKeyPair.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\VariableLengthValidator.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\sql\SqlQueries.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\errors\DirectionalFollowNotAdded.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\errors\DatabaseError.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\LoginValidator.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\GenderValidator.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\logout\LogoutServlet.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\IllegalCharactersValidator.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\listeners\followNotificationSender.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\EmailExistsValidator.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\RegisterValidator.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\login\LoginServlet.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\StringHasher.java
+C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\errors\NotValidUserIdException.java

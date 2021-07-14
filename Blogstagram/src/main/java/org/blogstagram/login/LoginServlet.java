@@ -3,7 +3,6 @@ package org.blogstagram.login;
 import com.google.gson.Gson;
 import org.blogstagram.dao.UserDAO;
 import org.blogstagram.errors.GeneralError;
-import org.blogstagram.errors.VariableError;
 import org.blogstagram.models.User;
 import org.blogstagram.validators.LoginValidator;
 
@@ -12,7 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/login")
@@ -31,7 +29,7 @@ public class LoginServlet extends HttpServlet {
         return connection;
     }
 
-    private UserDAO getUserDaoFromContext(HttpServletRequest req){
+    private UserDAO getUserDaoFromSession(HttpServletRequest req){
         UserDAO userDAO = (UserDAO) req.getSession().getAttribute("UserDAO");
         return userDAO;
     }
@@ -62,7 +60,7 @@ public class LoginServlet extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        UserDAO userDAO = getUserDaoFromContext(request);
+        UserDAO userDAO = getUserDaoFromSession(request);
         try {
             User user = userDAO.getUserByEmail(email);
             request.getSession().setAttribute("currentUserID", user.getId());
