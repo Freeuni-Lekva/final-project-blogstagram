@@ -29,16 +29,16 @@
 
     <% if(country != null) { %>
         <span class="font-italic">Country:</span>
-        <span class="font-weight-light"><%= country %>></span><br/>
+        <span class="font-weight-light"><%= country %></span><br/>
     <% } %>
 
     <% if(city != null) { %>
         <span class="font-italic">City:</span>
-        <span class="font-weight-light"><%= city %>></span><br/>
+        <span class="font-weight-light"><%= city %></span><br/>
     <% } %>
 
     <% if(website != null) { %>
         <span class="font-italic">Website:</span>
-        <span class="font-weight-light"><%= website %>></span><br/>
+        <span class="font-weight-light"><%= website %></span><br/>
     <% } %>
 </div>

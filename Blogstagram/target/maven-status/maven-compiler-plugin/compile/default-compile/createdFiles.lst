@@ -1,10 +1,7 @@
 org\blogstagram\validators\PasswordFormatValidator.class
 org\blogstagram\validators\LoginValidator.class
-<<<<<<< HEAD
-org\blogstagram\user\edit\EditProfile.class
-=======
 org\blogstagram\user\UserServlet.class
->>>>>>> UserPages
+org\blogstagram\user\edit\EditProfile.class
 org\blogstagram\login\LoginServlet.class
 org\blogstagram\validators\VariableLengthValidator.class
 org\blogstagram\validators\IllegalCharactersValidator.class

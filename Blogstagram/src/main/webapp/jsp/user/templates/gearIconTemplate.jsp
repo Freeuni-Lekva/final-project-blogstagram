@@ -37,7 +37,7 @@
                     <button type="button" class="btn btn-outline-danger btn-block my-2">Report</button>
                 </a>
                 <% } else { %>
-                <a href="#" class="modal-link">
+                <a href="/edit/profile" class="modal-link">
                     <button type="button" class="btn btn-outline-info btn-block my-2">Edit Profile</button>
                 </a>
                 <a href="/logout" class="modal-link">

@@ -57,7 +57,7 @@
                         <div class="form-group row">
                             <div class="col-md-4"></div>
                             <div class="col-md-6">
-                                <div id="success" class="alert alert-success">
+                                <div id="success" class="text-success text-center">
                                 </div>
                             </div>
                         </div>
