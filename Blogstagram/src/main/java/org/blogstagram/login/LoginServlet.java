@@ -3,7 +3,6 @@ package org.blogstagram.login;
 import com.google.gson.Gson;
 import org.blogstagram.dao.UserDAO;
 import org.blogstagram.errors.GeneralError;
-import org.blogstagram.errors.VariableError;
 import org.blogstagram.models.User;
 import org.blogstagram.validators.LoginValidator;
 
@@ -12,7 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/login")

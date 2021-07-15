@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import org.blogstagram.StringHasher;
 import org.blogstagram.dao.UserDAO;
 import org.blogstagram.errors.GeneralError;
-import org.blogstagram.errors.VariableError;
 import org.blogstagram.models.User;
 import org.blogstagram.validators.RegisterValidator;
 

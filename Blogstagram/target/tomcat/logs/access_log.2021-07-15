@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+0:0:0:0:0:0:0:1 - - [15/Jul/2021:00:01:16 +0400] "GET / HTTP/1.1" 404 951 http-bio-8000-exec-1 26
+0:0:0:0:0:0:0:1 - - [15/Jul/2021:00:01:19 +0400] "POST /followSystem HTTP/1.1" 200 195 http-bio-8000-exec-3 248
+0:0:0:0:0:0:0:1 - - [15/Jul/2021:00:03:26 +0400] "GET / HTTP/1.1" 404 951 http-bio-8000-exec-1 26
+0:0:0:0:0:0:0:1 - - [15/Jul/2021:00:03:34 +0400] "POST /followSystem HTTP/1.1" 200 195 http-bio-8000-exec-3 50
+0:0:0:0:0:0:0:1 - - [15/Jul/2021:00:05:45 +0400] "GET / HTTP/1.1" 404 951 http-bio-8000-exec-1 25
+0:0:0:0:0:0:0:1 - - [15/Jul/2021:00:05:54 +0400] "GET /UserConnectionsServlet.html HTTP/1.1" 200 950 http-bio-8000-exec-3 14
+0:0:0:0:0:0:0:1 - - [15/Jul/2021:00:05:56 +0400] "GET /UserConnections?to_id=2&requestType=Followers HTTP/1.1" 500 1750 http-bio-8000-exec-4 18
+0:0:0:0:0:0:0:1 - - [15/Jul/2021:00:06:24 +0400] "GET / HTTP/1.1" 404 951 http-bio-8000-exec-1 27
+0:0:0:0:0:0:0:1 - - [15/Jul/2021:00:06:31 +0400] "GET /UserConnections?to_id=2&requestType=Followers HTTP/1.1" 500 1750 http-bio-8000-exec-3 18
+0:0:0:0:0:0:0:1 - - [15/Jul/2021:00:07:32 +0400] "GET / HTTP/1.1" 404 951 http-bio-8000-exec-1 26
+0:0:0:0:0:0:0:1 - - [15/Jul/2021:00:07:39 +0400] "GET /UserConnections?to_id=2&requestType=Followers HTTP/1.1" 200 448 http-bio-8000-exec-3 53
+=======
 0:0:0:0:0:0:0:1 - - [15/Jul/2021:00:11:49 +0400] "GET / HTTP/1.1" 404 951 http-bio-8000-exec-1 48
 0:0:0:0:0:0:0:1 - - [15/Jul/2021:00:11:54 +0400] "GET /login HTTP/1.1" 200 8356 http-bio-8000-exec-3 1285
 0:0:0:0:0:0:0:1 - - [15/Jul/2021:00:11:59 +0400] "POST /login HTTP/1.1" 200 - http-bio-8000-exec-4 93
@@ -88,3 +101,4 @@
 0:0:0:0:0:0:0:1 - - [15/Jul/2021:18:08:09 +0400] "GET /user/el.diablos HTTP/1.1" 200 11400 http-bio-8000-exec-4 8
 0:0:0:0:0:0:0:1 - - [15/Jul/2021:18:08:41 +0400] "GET /user/el.diablos HTTP/1.1" 200 11400 http-bio-8000-exec-4 7
 0:0:0:0:0:0:0:1 - - [15/Jul/2021:18:08:41 +0400] "GET /images/el.diablos/profile.jpg HTTP/1.1" 304 - http-bio-8000-exec-4 1
+>>>>>>> UserPages

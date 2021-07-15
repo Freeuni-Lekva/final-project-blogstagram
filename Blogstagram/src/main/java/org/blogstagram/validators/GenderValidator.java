@@ -1,6 +1,4 @@
 package org.blogstagram.validators;
-
-import com.sun.tools.javac.jvm.Gen;
 import org.blogstagram.errors.GeneralError;
 import org.blogstagram.errors.VariableError;
 import org.blogstagram.models.User;

@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmailExistsValidator implements Validator{
+public class EmailExistsValidator implements org.blogstagram.validators.Validator {
     private static final int EMAIL_EXISTS = 1;
     private final Connection connection;
     private final String email;
