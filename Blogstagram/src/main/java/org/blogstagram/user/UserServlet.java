@@ -1,6 +1,10 @@
 package org.blogstagram.user;
 
+import org.blogstagram.dao.SqlFollowDao;
 import org.blogstagram.dao.UserDAO;
+import org.blogstagram.errors.DatabaseError;
+import org.blogstagram.errors.NotValidUserIdException;
+import org.blogstagram.followSystem.api.FollowApi;
 import org.blogstagram.models.User;
 import org.blogstagram.pairs.StringPair;
 
@@ -46,6 +50,11 @@ public class UserServlet extends HttpServlet {
         return userDAO;
     }
 
+    private SqlFollowDao getSqlFollowDAO(HttpServletRequest req){
+        SqlFollowDao followDAO = (SqlFollowDao) req.getSession().getAttribute("SqlFollowDao");
+        return followDAO;
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         StringPair urlPair = getPathIdentificator(req);
@@ -59,6 +68,12 @@ public class UserServlet extends HttpServlet {
         String userIdentificator = urlPair.getKey();
         String followIdentificator = urlPair.getValue();
         UserDAO userDAO = getUserDAO(req);
+
+        SqlFollowDao followDAO = getSqlFollowDAO(req);
+        followDAO.setUserDao(userDAO);
+        FollowApi followApi = new FollowApi();
+        followApi.setFollowDao(followDAO);
+        followApi.setUserDao(userDAO);
 
         if(followIdentificator == null){
             /*
@@ -93,9 +108,23 @@ public class UserServlet extends HttpServlet {
             /*
              *   Logic for getting current user blogs, blogs count, followers count, following count, follow status
              */
+            Integer followersCount = null;
+            Integer followingCount = null;
+            try {
+                Integer userID = user.getId();
+                followersCount = followApi.getFollowersCount(userID);
+                followingCount = followApi.getFollowingCount(userID);
+            } catch (NotValidUserIdException e) {
+                e.printStackTrace();
+            } catch (DatabaseError databaseError) {
+                databaseError.printStackTrace();
+            }
+
 
             /* ------------------------- */
             req.setAttribute("User",user);
+            req.setAttribute("FollowingCount",followingCount);
+            req.setAttribute("FollowersCount",followersCount);
             req.getRequestDispatcher(USER_PAGE_PATH).forward(req,res);
             return;
         }

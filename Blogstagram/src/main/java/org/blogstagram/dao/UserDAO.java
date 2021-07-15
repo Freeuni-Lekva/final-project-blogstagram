@@ -7,14 +7,7 @@ import java.sql.*;
 public class UserDAO {
     Connection connection;
 
-<<<<<<< HEAD
-    private static final String ADD_USER_QUERY = "INSERT INTO users(firstname,lastname,nickname, role,email,password,birthday,gender,privacy,image,country,city,website,bio) " +
-            "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    private static final String UPDATE_USER_GENERAL_INFO_QUERY = "UPDATE users SET firstname,lastname,nickname, role,email,birthday,gender,privacy,country,city,website,bio WHERE id = ?";
 
-    private static final String GET_USER_BY_ID_QUERY = "SELECT id,firstname,lastname,nickname,role,email,birthday,gender,privacy,image,country,city,website,bio,created_at " +
-            "FROM users WHERE id = ? OR nickname = ? OR email = ?";
-=======
     private static final String ADD_USER_QUERY = "INSERT INTO users(firstname,lastname,nickname,users.role,email,password,birthday,gender,privacy,image,country,city,website,bio) " +
                                                               "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String UPDATE_USER_GENERAL_INFO_QUERY = "UPDATE users SET firstname = ?,lastname = ?,nickname = ?,users.role = ?,email = ?,birthday = ?,gender = ?,privacy = ?,country = ?,city = ?,website = ?,bio = ? " +
@@ -26,7 +19,6 @@ public class UserDAO {
 
     private static final String GET_USER_QUERY = "SELECT id,firstname,lastname,nickname,users.role,email,birthday,gender,privacy,image,country,city,website,bio,created_at " +
                                                               "FROM users WHERE id = ? OR nickname = ? OR email = ?";
->>>>>>> UserPages
 
     private static final String USER_KEYS_NULL_ERROR = "UserID or UserNickname or UserEmail must be included";
     private static final Integer NO_USER_ID = -1;
@@ -149,12 +141,7 @@ public class UserDAO {
         updateUserGeneralInfo(null, null, email,user);
     }
 
-<<<<<<< HEAD
-    private void updateUserPassword(Integer userID,String userNickname,String password){
-        /*
-                Must Be Implemented
-         */
-=======
+
     private void updateUserPassword(Integer userID,String userNickname,String userEmail,String password) throws SQLException {
         if(userID == null && userNickname == null && userEmail == null)
             throw new RuntimeException(USER_KEYS_NULL_ERROR);
@@ -172,7 +159,6 @@ public class UserDAO {
         if(affectedRows == 0)
             throw new SQLException("Updating user failed, could not update in database");
 
->>>>>>> UserPages
     }
 
     public void updateUserPasswordByID(Integer userID,String password) throws SQLException {

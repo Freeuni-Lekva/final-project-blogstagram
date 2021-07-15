@@ -61,10 +61,10 @@
                         <span class="font-weight-bold mr-1">100</span>blogs
                     </div>
                     <div class="col-4 border text-center p-2">
-                        <span class="font-weight-bold mr-1">199</span><a href="#" class="text-dark">followers</a>
+                        <span class="font-weight-bold mr-1"><%= request.getAttribute("FollowersCount") %></span><a href="#" class="text-dark">followers</a>
                     </div>
                     <div class="col-4 border text-center p-2">
-                        <span class="font-weight-bold mr-1">200</span><a href="#" class="text-dark">following</a>
+                        <span class="font-weight-bold mr-1"><%= request.getAttribute("FollowingCount") %></span><a href="#" class="text-dark">following</a>
                     </div>
                 </div>
             </div>
