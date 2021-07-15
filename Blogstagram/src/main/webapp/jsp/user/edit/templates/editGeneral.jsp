@@ -124,7 +124,7 @@
     <div class="container text-center">
         <button type="submit" class="btn btn-primary">Save Changes</button>
     </div>
-    <div id="generalSuccess" class="text-success">
+    <div id="generalSuccess" class="text-success text-center">
 
     </div>
 </form>

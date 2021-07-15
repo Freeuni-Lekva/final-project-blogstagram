@@ -48,7 +48,7 @@
     <div class="container text-center">
         <button type="submit" class="btn btn-primary">Save Changes</button>
     </div>
-    <div id="passwordSuccess" class="text-success">
+    <div id="passwordSuccess" class="text-success text-center">
 
     </div>
     <script>
