@@ -1,5 +1,6 @@
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\IllegalCharactersValidator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\pairs\StringPair.java
+C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\NewPasswordDifferentValidator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\Validator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\errors\GeneralError.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\PrivacyValidator.java
@@ -7,8 +8,11 @@ C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\bl
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\LoginValidator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\login\LoginServlet.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\UserUniqueValidator.java
+C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\CheckUserPasswordValidator.java
+C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\user\edit\EditProfile.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\GenderValidator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\PasswordFormatValidator.java
+C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\EditGeneralValidator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\register\RegisterServlet.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\RegisterValidator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\errors\VariableError.java
@@ -18,9 +22,14 @@ C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\bl
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\StringHasher.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\EmailFormatValidator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\VariableLengthValidator.java
+<<<<<<< HEAD
+C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\EditPasswordValidator.java
+=======
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\user\UserServlet.java
+>>>>>>> UserPages
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\UserExistsValidator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\models\User.java
+C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\user\edit\EditProfilePageServlet.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\listeners\sessionListener.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\listeners\contextListener.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\pairs\StringKeyPair.java

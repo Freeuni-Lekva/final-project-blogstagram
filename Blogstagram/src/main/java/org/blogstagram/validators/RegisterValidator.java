@@ -111,7 +111,7 @@ public class RegisterValidator implements Validator{
          *  Error Priority 3:
          *      If the email or nickname is not unique
          */
-        UserUniqueValidator uniquenessValidator = new UserUniqueValidator(email,nickname,connection);
+        UserUniqueValidator uniquenessValidator = new UserUniqueValidator(-1,email,nickname,connection);
         if(!uniquenessValidator.validate()){
             List<GeneralError> uniqueErrors = uniquenessValidator.getErrors();
             errors.addAll(uniqueErrors);
