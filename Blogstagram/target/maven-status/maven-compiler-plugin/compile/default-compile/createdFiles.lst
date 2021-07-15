@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 org\blogstagram\errors\NotValidUserIdException.class
 org\blogstagram\followSystem\Servlets\followResponseServlet.class
 org\blogstagram\listeners\followNotificationSender.class
@@ -6,6 +7,16 @@ org\blogstagram\Validators\EmailFormatValidator.class
 org\blogstagram\login\LoginServlet.class
 org\blogstagram\errors\DatabaseError.class
 org\blogstagram\followSystem\api\StatusCodes.class
+=======
+org\blogstagram\validators\PasswordFormatValidator.class
+org\blogstagram\validators\LoginValidator.class
+org\blogstagram\user\UserServlet.class
+org\blogstagram\user\edit\EditProfile.class
+org\blogstagram\login\LoginServlet.class
+org\blogstagram\validators\VariableLengthValidator.class
+org\blogstagram\validators\IllegalCharactersValidator.class
+org\blogstagram\validators\EditGeneralValidator.class
+>>>>>>> UserPages
 org\blogstagram\errors\GeneralError.class
 org\blogstagram\errors\VariableError.class
 org\blogstagram\sql\FollowQueries.class
@@ -15,12 +26,18 @@ org\blogstagram\Validators\RegisterValidator.class
 org\blogstagram\listeners\sessionListener.class
 org\blogstagram\errors\NotLoggedInException.class
 org\blogstagram\models\User.class
+<<<<<<< HEAD
 org\blogstagram\Validators\FollowRequestValidator.class
 org\blogstagram\listeners\contextListener.class
 org\blogstagram\models\DirectedFollow.class
 org\blogstagram\Validators\EmailExistsValidator.class
 org\blogstagram\Validators\LoginValidator.class
 org\blogstagram\dao\SqlFollowDao.class
+=======
+org\blogstagram\user\edit\EditProfilePageServlet.class
+org\blogstagram\listeners\contextListener.class
+org\blogstagram\validators\CheckUserPasswordValidator.class
+>>>>>>> UserPages
 org\blogstagram\pairs\StringKeyPair.class
 org\blogstagram\Validators\IllegalCharactersValidator.class
 org\blogstagram\errors\InvalidSQLQueryException.class
@@ -32,15 +49,26 @@ org\blogstagram\followSystem\Servlets\UserConnectionsServlet.class
 org\blogstagram\register\RegisterServlet.class
 org\blogstagram\StringHasher.class
 org\blogstagram\dao\UserDAO.class
+<<<<<<< HEAD
 org\blogstagram\Validators\VariableLengthValidator.class
 org\blogstagram\Validators\UserUniqueValidator.class
 org\blogstagram\Validators\Validator.class
 org\blogstagram\followSystem\Servlets\followServlet.class
+=======
+org\blogstagram\validators\EmailFormatValidator.class
+org\blogstagram\validators\NewPasswordDifferentValidator.class
+org\blogstagram\validators\UserUniqueValidator.class
+>>>>>>> UserPages
 org\blogstagram\logout\LogoutServlet.class
 org\blogstagram\pairs\StringPair.class
+<<<<<<< HEAD
 org\blogstagram\Validators\PrivacyValidator.class
 org\blogstagram\Validators\UserIdValidator.class
 org\blogstagram\Validators\GenderValidator.class
 org\blogstagram\Validators\followValidator.class
 org\blogstagram\Validators\PasswordFormatValidator.class
 org\blogstagram\Validators\UserExistsValidator.class
+=======
+org\blogstagram\validators\EditPasswordValidator.class
+org\blogstagram\validators\RegisterValidator.class
+>>>>>>> UserPages
