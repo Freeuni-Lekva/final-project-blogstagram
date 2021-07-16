@@ -368,9 +368,7 @@ ALTER TABLE `report_categories`
   ADD CONSTRAINT `report_categories_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `report_category_list` (`id`) ON DELETE CASCADE;
 COMMIT;
 
-create table follows_test_t like follows;
-
-
+CREATE TABLE `follows_test_t` LIKE `follows`;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
