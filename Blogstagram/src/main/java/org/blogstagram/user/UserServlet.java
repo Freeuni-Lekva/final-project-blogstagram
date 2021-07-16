@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -135,6 +136,8 @@ public class UserServlet extends HttpServlet {
             Integer followStatus = null;
             /* BLOGS COUNT */
             /* BLOGS */
+            Integer blogsCount = 0;
+            List<Object> blogs = new ArrayList<>();
 
             try {
                 if(currentUserID != null)
@@ -155,6 +158,8 @@ public class UserServlet extends HttpServlet {
             req.setAttribute("User",user);
             req.setAttribute("FollowingCount",followingCount);
             req.setAttribute("FollowersCount",followersCount);
+            req.setAttribute("BlogsCount",blogsCount);
+            req.setAttribute("Blogs",blogs);
             req.setAttribute("FollowStatus",followStatus);
             req.getRequestDispatcher(USER_PAGE_PATH).forward(req,res);
             return;

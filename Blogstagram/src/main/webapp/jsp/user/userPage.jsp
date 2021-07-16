@@ -58,7 +58,7 @@
             <div class="container border-dark border-left border-bottom border-right" style="width:80%;">
                 <div class="row">
                     <div class="col-4 border text-center p-2">
-                        <span class="font-weight-bold mr-1">100</span>blogs
+                        <span class="font-weight-bold mr-1"><%= request.getAttribute("BlogsCount") %></span>blogs
                     </div>
                     <div class="col-4 border text-center p-2">
                         <span class="font-weight-bold mr-1" id="followers-count"><%= request.getAttribute("FollowersCount") %></span>
@@ -74,56 +74,7 @@
 
         <!-- Bio Template -->
         <jsp:include page="/jsp/user/templates/userBioTemplate.jsp" />
-
-        <div class="container my-5">
-            <div class="container border" style="width:80%;">
-                <div class="container-fluid d-flex flex-wrap">
-                    <div class="card bg-light blog-card">
-                        <div class="card-body text-center">
-                            <p class="card-text">
-                                <span class="text-info font-weight-bold">Some text inside the sixth card</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card bg-light blog-card">
-                        <div class="card-body text-center">
-                            <p class="card-text">
-                                <span class="text-info font-weight-bold">Some text inside the sixth card</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card bg-light blog-card">
-                        <div class="card-body text-center">
-                            <p class="card-text">
-                                <span class="text-info font-weight-bold">Some text inside the sixth card</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card bg-light blog-card">
-                        <div class="card-body text-center">
-                            <p class="card-text">
-                                <span class="text-info font-weight-bold">Some text inside the sixth card</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card bg-light blog-card">
-                        <div class="card-body text-center">
-                            <p class="card-text">
-                                <span class="text-info font-weight-bold">Some text inside the sixth card</span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card bg-light blog-card">
-                        <div class="card-body text-center">
-                            <p class="card-text">
-                                <span class="text-info font-weight-bold">Some text inside the sixth card</span>
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+        <jsp:include page="/jsp/user/templates/blogsTemplate.jsp" />
 
         <jsp:include page="/jsp/templates/footer.jsp" />
     </body>

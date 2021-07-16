@@ -62,6 +62,10 @@
                             followButton.innerText = "Follow"
                             followersTag.innerText = (Number(followersTag.innerText)-1);
                             break;
+                        case 3:
+                            followButton.className = "btn btn-outline-dark";
+                            followButton.innerText = "Request sent";
+                            break;
                         default:
                             console.log("Unknown status");
                     }
