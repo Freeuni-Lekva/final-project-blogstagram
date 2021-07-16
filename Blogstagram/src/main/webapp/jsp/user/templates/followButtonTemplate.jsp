@@ -30,6 +30,10 @@
                 <button id="follow-form-submission-button" type="submit" class="btn btn-outline-dark" >Following</button>
         <% } %>
     </form>
+<% } else if(isCurrentUser && isUserLoggedIn){ %>
+    <a href="/edit/profile">
+        <button type="button" class="btn btn-outline-primary">Edit profile</button>
+    </a>
 <% } %>
 
 <script>

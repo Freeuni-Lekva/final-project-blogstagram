@@ -18,12 +18,12 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         removeCurrentUserSession(req);
-        res.sendRedirect("/register");
+        res.sendRedirect("/login");
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
         removeCurrentUserSession(req);
-        res.sendRedirect("/register");
+        res.sendRedirect("/login");
     }
 }
