@@ -64,7 +64,7 @@ public class FollowApi {
            User user = userDao.getUserByID(toId);
            DirectedFollow dFollow = initializeDirectedFollowObj(fromId, toId);
            if(user.getPrivacy().equals(User.PRIVATE)){ // add if private account -----------
-              // sender.sendFollowRequest();
+          // send follow request
                return StatusCodes.requestSent;
            }else{
                followDao.addDirectedFollow(dFollow);
