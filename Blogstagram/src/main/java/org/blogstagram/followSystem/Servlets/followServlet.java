@@ -41,8 +41,6 @@ public class followServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // delete
-        request.getSession().setAttribute("from_id", "1");
 
         // check how to secure ajax requests.
 
@@ -50,7 +48,7 @@ public class followServlet extends HttpServlet {
         SqlFollowDao followSystem = (SqlFollowDao) session.getAttribute("SqlFollowDao");
         UserDAO userDao = (UserDAO) request.getSession().getAttribute("UserDAO");
         String toIdStr = request.getParameter("to_id");
-        String fromIdStr = (String) request.getSession().getAttribute("from_id");
+        String fromIdStr = String.valueOf((Integer) request.getSession().getAttribute("currentUserID"));
         FollowRequestValidator validator = new FollowRequestValidator();
         validator.setUserDao(userDao);
         JSONObject responseJson = ResponseJson.initResponseJson();
