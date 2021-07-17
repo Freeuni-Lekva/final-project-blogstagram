@@ -3,6 +3,8 @@ package org.blogstagram.models;
 import java.sql.Date;
 
 public class Comment {
+    // before data base gives comment unique auto incremented id
+    public static final int NO_ID = -1;
     // unique comment id
     private int comment_id;
     // unique user id who posted comment
@@ -15,7 +17,7 @@ public class Comment {
     private Date comment_creation_date;
 
     public Comment(int user_id, int blog_id, String comment, Date comment_creation_date){
-        this.comment_id = comment_id;
+        this.comment_id = NO_ID;
         this.user_id = user_id;
         this.blog_id = blog_id;
         this.comment = comment;

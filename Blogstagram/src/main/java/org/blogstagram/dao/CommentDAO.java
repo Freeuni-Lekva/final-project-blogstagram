@@ -19,7 +19,7 @@ public class CommentDAO{
     private static final String ADD_LIKE = "INSERT INTO likes(user_id, comment_id, created_at) values(?, ?, ?)";
     private static final String COMMENT_EXISTS = "SELECT * FROM comments WHERE id = ?";
     private static final String DELETE_LIKE = "DELETE FROM likes WHERE comment_id = ? AND user_id = ?";
-
+    private static final String BLOG_EXISTS = "SELECT * FROM blogs where id = ?";
     Connection connection;
 
     public CommentDAO(Connection connection){
@@ -165,6 +165,13 @@ public class CommentDAO{
     public boolean commentExists(int comment_id) throws SQLException {
         PreparedStatement ps = connection.prepareStatement(COMMENT_EXISTS);
         ps.setInt(1, comment_id);
+        ResultSet rs = ps.executeQuery();
+        return rs.next();
+    }
+
+    public boolean blogExists(int blog_id) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement(BLOG_EXISTS);
+        ps.setInt(1, blog_id);
         ResultSet rs = ps.executeQuery();
         return rs.next();
     }

@@ -2,8 +2,12 @@ package org.blogstagram.servlets;
 
 import com.google.gson.Gson;
 import org.blogstagram.Validators.CommentLikeValidator;
+import org.blogstagram.Validators.UserIdValidator;
 import org.blogstagram.dao.CommentDAO;
+import org.blogstagram.dao.UserDAO;
+import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.GeneralError;
+import org.blogstagram.errors.NotValidUserIdException;
 import org.blogstagram.errors.VariableError;
 
 import javax.servlet.ServletContext;
@@ -23,22 +27,24 @@ public class CommentLikeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         ServletContext context = request.getServletContext();
         CommentDAO commentDAO = (CommentDAO)context.getAttribute("CommentDAO");
+        UserDAO userDao = (UserDAO)context.getAttribute("UserDao");
 
         CommentLikeValidator val = new CommentLikeValidator();
         val.setCommentDAO(commentDAO);
+        UserIdValidator userVal = new UserIdValidator();
+        userVal.setUserDao(userDao);
 
         String comment_id = request.getParameter("comment_id");
-        String user_id = (String) request.getAttribute("currentUserID");
+        String user_id = (String) request.getSession().getAttribute("currentUserID");
         List<GeneralError> errorList = new ArrayList<>();
-
         String requestType = request.getParameter("Like");
 
         try{
             // if comment is not liked and user wants to like
-            if(!val.validate(comment_id, user_id) && requestType.equals("Like")){
+            if(userVal.validate(user_id) && !val.validate(comment_id, user_id) && requestType.equals("Like")){
                 commentDAO.likeComment( Integer.parseInt(comment_id), Integer.parseInt(user_id));
             // if comment is liked and user wants to unlike
-            }else if(val.validate(comment_id, user_id) && requestType.equals("Unlike")){
+            }else if(userVal.validate(user_id) && val.validate(comment_id, user_id) && requestType.equals("Unlike")){
                 commentDAO.unlikeComment(Integer.parseInt(comment_id), Integer.parseInt(user_id));
                 System.out.println("Comment was unliked");
             }else{
@@ -46,12 +52,16 @@ public class CommentLikeServlet extends HttpServlet {
                 if(val.validate(comment_id, user_id) && requestType.equals("Like")){
                     VariableError varError = new VariableError("CommentLike", "Can not like already liked comment");
                     errorList.add(varError);
-
+                    Gson gson = new Gson();
+                    response.getWriter().print(gson.toJson(errorList));
+                }else if(!userVal.validate(user_id)){
+                    VariableError varError = new VariableError("CommentLike", "User ID trying to like is not valid");
+                    errorList.add(varError);
                     Gson gson = new Gson();
                     response.getWriter().print(gson.toJson(errorList));
                 }
             }
-        } catch (SQLException throwables) {
+        } catch (SQLException | DatabaseError | NotValidUserIdException throwables) {
             throwables.printStackTrace();
         }
 
