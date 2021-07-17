@@ -8,6 +8,10 @@ C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\bl
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\dao\FollowDao.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\FollowRequestValidator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\PrivacyValidator.java
+<<<<<<< HEAD
+=======
+C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\currentUser\CurrentUserServlet.java
+>>>>>>> 739b439cd374154d74643e8afbbe73a0c49f94b8
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\LoginValidator.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\sql\SqlQueries.java
 C:\Users\Gigi\Desktop\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\validators\UserUniqueValidator.java
