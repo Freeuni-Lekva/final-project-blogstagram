@@ -18,7 +18,10 @@ org\blogstagram\StringHasher.class
 org\blogstagram\Validators\EditGeneralValidator.class
 org\blogstagram\Validators\UserUniqueValidator.class
 org\blogstagram\Validators\Validator.class
+<<<<<<< HEAD
 org\blogstagram\currentUser\CurrentUserServlet.class
+=======
+>>>>>>> master
 org\blogstagram\logout\LogoutServlet.class
 org\blogstagram\pairs\StringPair.class
 org\blogstagram\Validators\PrivacyValidator.class
