@@ -166,7 +166,7 @@ CREATE TABLE `users` (
   `password` varchar(500) NOT NULL,
   `birthday` date NOT NULL,
   `gender` int(11) NOT NULL,
-  `privacy` varchar(10) NOT NULL,
+  `privacy` int(11) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
   `country` varchar(255) DEFAULT NULL,
   `city` varchar(255) DEFAULT NULL,
