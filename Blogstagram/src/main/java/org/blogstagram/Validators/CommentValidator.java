@@ -18,7 +18,7 @@ public class CommentValidator implements Validator{
     }
 
     public boolean commentDeleteValidator(Object obj) throws SQLException {
-        int comment_id = Integer.parseInt((String)obj);
+        int comment_id = (int)obj;
         return commentDAO.commentExists(comment_id);
     }
 

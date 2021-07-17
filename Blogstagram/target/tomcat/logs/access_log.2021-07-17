@@ -1,0 +1,4 @@
+0:0:0:0:0:0:0:1 - - [17/Jul/2021:14:25:58 +0400] "GET /favicon.ico HTTP/1.1" 200 51 http-bio-8000-exec-1 702
+0:0:0:0:0:0:0:1 - - [17/Jul/2021:14:26:01 +0400] "GET /favicon.ico HTTP/1.1" 200 51 http-bio-8000-exec-3 3
+0:0:0:0:0:0:0:1 - - [17/Jul/2021:14:26:10 +0400] "POST /commentServlet HTTP/1.1" 200 - http-bio-8000-exec-4 381
+0:0:0:0:0:0:0:1 - - [17/Jul/2021:14:26:10 +0400] "GET /favicon.ico HTTP/1.1" 200 51 http-bio-8000-exec-5 2

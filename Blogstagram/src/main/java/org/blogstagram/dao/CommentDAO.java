@@ -84,7 +84,7 @@ public class CommentDAO{
         preparedStatement.setInt(1, comment_id);
 
         int affectedRows = preparedStatement.executeUpdate();
-        if(affectedRows == 0) {
+        if(affectedRows != 1) {
             throw new SQLException("Deleting comment failed");
         }
     }
@@ -149,7 +149,7 @@ public class CommentDAO{
         ps.setInt(1, comment_id);
         ps.setInt(2, user_id);
         int numRows = ps.executeUpdate();
-        if(numRows == 0){
+        if(numRows != 0){
             throw new SQLException("Unliking comment failed");
         }
     }

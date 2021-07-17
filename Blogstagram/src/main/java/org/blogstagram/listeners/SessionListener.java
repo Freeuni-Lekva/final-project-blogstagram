@@ -14,9 +14,9 @@ public class SessionListener implements HttpSessionListener {
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {
         Connection dbConnection = (Connection) httpSessionEvent.getSession().getServletContext().getAttribute("dbConnection");
         UserDAO userDao = (UserDAO) httpSessionEvent.getSession().getServletContext().getAttribute("UserDao");
-        SqlFollowDao followDao = new SqlFollowDao(dbConnection);
-        followDao.setUserDao(userDAO);
-        httpSessionEvent.getSession().setAttribute("followDao", followDao);
+//        SqlFollowDao followDao = new SqlFollowDao(dbConnection);
+//        followDao.setUserDao(userDAO);
+//        httpSessionEvent.getSession().setAttribute("followDao", followDao);
         CommentDAO commentDAO = new CommentDAO(dbConnection);
         httpSessionEvent.getSession().getServletContext().setAttribute("CommentDAO", commentDAO);
 

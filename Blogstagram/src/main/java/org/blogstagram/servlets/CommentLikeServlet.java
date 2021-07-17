@@ -30,6 +30,7 @@ public class CommentLikeServlet extends HttpServlet {
         String comment_id = request.getParameter("comment_id");
         String user_id = (String) request.getAttribute("currentUserID");
         List<GeneralError> errorList = new ArrayList<>();
+
         String requestType = request.getParameter("Like");
 
         try{
@@ -39,6 +40,7 @@ public class CommentLikeServlet extends HttpServlet {
             // if comment is liked and user wants to unlike
             }else if(val.validate(comment_id, user_id) && requestType.equals("Unlike")){
                 commentDAO.unlikeComment(Integer.parseInt(comment_id), Integer.parseInt(user_id));
+                System.out.println("Comment was unliked");
             }else{
                 // if comment is liked and user wants to like again
                 if(val.validate(comment_id, user_id) && requestType.equals("Like")){

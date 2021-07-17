@@ -24,26 +24,31 @@ public class CommentServlet extends HttpServlet {
         ServletContext context = request.getServletContext();
 
         String requestType = request.getParameter("CommentAction");
-        String user_id = (String) request.getAttribute("currentUserID");
+        String user_id = "11";//(String) request.getAttribute("currentUserID");
         String blog_id = request.getParameter("blog_id");
         // if user wants to add comment, string keeps comment text
         // if he wants to delete comment it keeps comment id
         String comment = request.getParameter("Comment");
-        int comment_id = Integer.parseInt(request.getParameter("Comment_id"));
-
+        int comment_id;
+        if (!request.getParameter("comment_id").equals("")){
+            comment_id = Integer.parseInt(request.getParameter("comment_id"));
+        }else{
+            comment_id = -1;
+        }
         CommentDAO commentDAO = (CommentDAO)context.getAttribute("CommentDAO");
         CommentValidator commValidator = new CommentValidator();
         commValidator.setCommentDAO(commentDAO);
 
         List<VariableError> errorList = new ArrayList<>();
-
         try {
             if(requestType.equals("AddComment") && commValidator.validate(comment)){
                 Comment newComment = new Comment(Integer.parseInt(user_id), Integer.parseInt(blog_id),
                         comment, new Date(System.currentTimeMillis()));
                 commentDAO.addComment(newComment);
-            }else if(requestType.equals("DeleteComment") && commValidator.commentDeleteValidator(comment_id)){
-                commentDAO.deleteComment(Integer.parseInt(comment));
+            }else if(requestType.equals("DeleteComment") && commValidator.commentDeleteValidator(comment_id)) {
+                commentDAO.deleteComment(comment_id);
+            }else if(requestType.equals("EditComment") && commValidator.commentDeleteValidator(comment_id)){
+                commentDAO.editComment(comment_id, comment);
             }else{
                 VariableError varError = new VariableError("Comment System", "comment not valid");
                 errorList.add(varError);
