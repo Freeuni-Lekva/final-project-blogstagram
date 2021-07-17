@@ -7,6 +7,7 @@ import java.sql.*;
 public class UserDAO {
     Connection connection;
 
+
     private static final String ADD_USER_QUERY = "INSERT INTO users(firstname,lastname,nickname,users.role,email,password,birthday,gender,privacy,image,country,city,website,bio) " +
                                                               "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String UPDATE_USER_GENERAL_INFO_QUERY = "UPDATE users SET firstname = ?,lastname = ?,nickname = ?,users.role = ?,email = ?,birthday = ?,gender = ?,privacy = ?,country = ?,city = ?,website = ?,bio = ? " +
