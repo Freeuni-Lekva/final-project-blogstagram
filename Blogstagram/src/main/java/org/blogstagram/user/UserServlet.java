@@ -83,11 +83,17 @@ public class UserServlet extends HttpServlet {
     }
 
     private boolean canFollowListBeShown(Integer currentUserID,User user,FollowApi followApi) throws DatabaseError {
+        // If user is private
         if(user.getPrivacy().equals(User.PUBLIC))
             return true;
+        //If user is ME
+        if(user.getId().equals(currentUserID))
+            return true;
+        //If user is private and I am not logged in
         if(user.getPrivacy().equals(User.PRIVATE) && currentUserID == null)
             return false;
 
+        //If user is private, I am logged in and i am following
         return followApi.alreadyFollowed(currentUserID,user.getId()) == StatusCodes.followed;
     }
 
@@ -95,9 +101,6 @@ public class UserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         StringPair urlPair = getPathIdentificator(req);
         if(urlPair == null){
-            /*
-             * Incorrect URL
-             */
             res.sendError(res.SC_NOT_FOUND);
             return;
         }
@@ -141,7 +144,7 @@ public class UserServlet extends HttpServlet {
 
             try {
                 if(currentUserID != null)
-                    followStatus = (currentUserID.equals(user.getId())) ? (null) :  (followApi.alreadyFollowed(currentUserID,user.getId()));
+                    followStatus = (currentUserID.equals(user.getId())) ? (-1) :  (followApi.alreadyFollowed(currentUserID,user.getId()));
             } catch (DatabaseError databaseError) {
                 databaseError.printStackTrace();
             }

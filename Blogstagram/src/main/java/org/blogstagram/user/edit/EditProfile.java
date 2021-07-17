@@ -50,9 +50,17 @@ public class EditProfile {
         Integer gender = Integer.parseInt(req.getParameter("gender"));
         Integer privacy = Integer.parseInt(req.getParameter("privacy"));
         String country = req.getParameter("country");
+        if(country.equals(""))
+            country = null;
         String city = req.getParameter("city");
+        if(city.equals(""))
+            city = null;
         String website = req.getParameter("website");
+        if(website.equals(""))
+            website = null;
         String bio = req.getParameter("bio");
+        if(bio.equals(""))
+            bio = null;
 
         List<GeneralError> errors = new ArrayList<>();
         EditGeneralValidator editGeneralValidator = new EditGeneralValidator(userID,firstname,lastname,nickname,email,gender,privacy,country,city,website,bio

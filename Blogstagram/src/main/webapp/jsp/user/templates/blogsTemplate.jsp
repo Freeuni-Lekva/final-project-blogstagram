@@ -13,7 +13,7 @@
     User user = (User)request.getAttribute("User");
     List<Object> blogs = (List<Object>)request.getAttribute("Blogs");
     Integer status = (Integer)request.getAttribute("FollowStatus");
-    boolean canBlogsBeShown = (user.getPrivacy().equals(User.PUBLIC) || status.equals(StatusCodes.followed));
+    boolean canBlogsBeShown = (user.getPrivacy().equals(User.PUBLIC) || (status != null && status.equals(StatusCodes.followed)) || (status != null && status == -1));
 %>
 <div class="container my-5">
     <div class="container border" style="width:80%;">
