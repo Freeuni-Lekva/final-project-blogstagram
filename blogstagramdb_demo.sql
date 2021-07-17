@@ -1,3 +1,4 @@
+
 -- phpMyAdmin SQL Dump
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
@@ -198,7 +199,7 @@ ALTER TABLE `comments`
 -- Indexes for table `follows`
 --
 ALTER TABLE `follows`
-  ADD PRIMARY KEY(`id`)
+  ADD PRIMARY KEY(`id`),
   ADD KEY `from_user_id` (`from_user_id`),
   ADD KEY `to_user_id` (`to_user_id`);
 
@@ -214,7 +215,7 @@ ALTER TABLE `hashtags`
 --
 ALTER TABLE `likes`
   ADD PRIMARY KEY (`id`),
-  ADD FOREIGN KEY(`comment_id`) REFERENCES comments(`id`),
+  ADD KEY (`comment_id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `blog_id` (`blog_id`);
 
@@ -351,8 +352,8 @@ ALTER TABLE `hashtags`
 --
 ALTER TABLE `likes`
   ADD CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`id`) ON DELETE CASCADE;
-
+  ADD CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `likes_ibfk_3` FOREIGN KEY (`comment_id`) REFERENCES `comments` (`id`) ON DELETE CASCADE;
 --
 -- Constraints for table `reports`
 --
