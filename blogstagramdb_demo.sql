@@ -198,6 +198,7 @@ ALTER TABLE `comments`
 -- Indexes for table `follows`
 --
 ALTER TABLE `follows`
+  ADD PRIMARY KEY(`id`)
   ADD KEY `from_user_id` (`from_user_id`),
   ADD KEY `to_user_id` (`to_user_id`);
 
