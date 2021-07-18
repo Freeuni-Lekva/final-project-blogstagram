@@ -13,10 +13,12 @@ public class SessionListener implements HttpSessionListener {
     @Override
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {
         Connection dbConnection = (Connection) httpSessionEvent.getSession().getServletContext().getAttribute("dbConnection");
-        UserDAO userDao = (UserDAO) httpSessionEvent.getSession().getServletContext().getAttribute("UserDao");
+        UserDAO userDao = new UserDAO(dbConnection);
 //        SqlFollowDao followDao = new SqlFollowDao(dbConnection);
-//        followDao.setUserDao(userDAO);
-//        httpSessionEvent.getSession().setAttribute("followDao", followDao);
+//        followDao.setUserDao(userDao);
+//        // set follow request sender to followDao. when implemented
+//        httpSessionEvent.getSession().setAttribute("SqlFollowDao", followDao);
+        httpSessionEvent.getSession().setAttribute("UserDAO", userDao);
         CommentDAO commentDAO = new CommentDAO(dbConnection);
         httpSessionEvent.getSession().getServletContext().setAttribute("CommentDAO", commentDAO);
 

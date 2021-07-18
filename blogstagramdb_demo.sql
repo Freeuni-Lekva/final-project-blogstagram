@@ -166,7 +166,7 @@ CREATE TABLE `users` (
   `password` varchar(500) NOT NULL,
   `birthday` date NOT NULL,
   `gender` int(11) NOT NULL,
-  `privacy` varchar(10) NOT NULL,
+  `privacy` int(11) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
   `country` varchar(255) DEFAULT NULL,
   `city` varchar(255) DEFAULT NULL,
@@ -198,6 +198,7 @@ ALTER TABLE `comments`
 -- Indexes for table `follows`
 --
 ALTER TABLE `follows`
+  ADD PRIMARY KEY(`id`),
   ADD KEY `from_user_id` (`from_user_id`),
   ADD KEY `to_user_id` (`to_user_id`);
 
@@ -213,7 +214,7 @@ ALTER TABLE `hashtags`
 --
 ALTER TABLE `likes`
   ADD PRIMARY KEY (`id`),
-  ADD FOREIGN KEY(`comment_id`) REFERENCES comments(`id`),
+  ADD KEY (`comment_id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `blog_id` (`blog_id`);
 
@@ -350,8 +351,8 @@ ALTER TABLE `hashtags`
 --
 ALTER TABLE `likes`
   ADD CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`id`) ON DELETE CASCADE;
-
+  ADD CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `likes_ibfk_3` FOREIGN KEY (`comment_id`) REFERENCES `comments` (`id`) ON DELETE CASCADE;
 --
 -- Constraints for table `reports`
 --
@@ -368,6 +369,7 @@ ALTER TABLE `report_categories`
   ADD CONSTRAINT `report_categories_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `report_category_list` (`id`) ON DELETE CASCADE;
 COMMIT;
 
+CREATE TABLE `follows_test_t` LIKE `follows`;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

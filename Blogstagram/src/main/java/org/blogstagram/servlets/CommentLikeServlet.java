@@ -27,18 +27,21 @@ public class CommentLikeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         ServletContext context = request.getServletContext();
         CommentDAO commentDAO = (CommentDAO)context.getAttribute("CommentDAO");
-        UserDAO userDao = (UserDAO)context.getAttribute("UserDao");
-
+        UserDAO userDao = (UserDAO)request.getSession().getAttribute("UserDAO");
         CommentLikeValidator val = new CommentLikeValidator();
         val.setCommentDAO(commentDAO);
         UserIdValidator userVal = new UserIdValidator();
         userVal.setUserDao(userDao);
-
+        if(userDao == null || commentDAO == null){
+            System.out.println("user dao is null");
+        }else{
+            System.out.println("user dao is not null");
+        }
         String comment_id = request.getParameter("comment_id");
-        String user_id = (String) request.getSession().getAttribute("currentUserID");
+        System.out.println(comment_id);
+        String user_id = "11";//(String) request.getSession().getAttribute("currentUserID");
         List<GeneralError> errorList = new ArrayList<>();
         String requestType = request.getParameter("Like");
-
         try{
             // if comment is not liked and user wants to like
             if(userVal.validate(user_id) && !val.validate(comment_id, user_id) && requestType.equals("Like")){
