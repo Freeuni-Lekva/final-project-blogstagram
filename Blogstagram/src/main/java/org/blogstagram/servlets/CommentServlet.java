@@ -27,7 +27,7 @@ public class CommentServlet extends HttpServlet {
         ServletContext context = request.getServletContext();
         UserDAO userDao = (UserDAO)request.getSession().getAttribute("UserDAO");
         String requestType = request.getParameter("CommentAction");
-        String user_id = "11";//(String) request.getSession().getAttribute("currentUserID");
+        String user_id = (String) request.getSession().getAttribute("currentUserID");
         String blog_id = request.getParameter("blog_id");
         // if user wants to add comment, string keeps comment text
         // if he wants to delete comment it keeps comment id

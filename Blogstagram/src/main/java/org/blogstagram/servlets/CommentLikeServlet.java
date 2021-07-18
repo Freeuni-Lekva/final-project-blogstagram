@@ -39,7 +39,7 @@ public class CommentLikeServlet extends HttpServlet {
         }
         String comment_id = request.getParameter("comment_id");
         System.out.println(comment_id);
-        String user_id = "11";//(String) request.getSession().getAttribute("currentUserID");
+        String user_id = (String) request.getSession().getAttribute("currentUserID");
         List<GeneralError> errorList = new ArrayList<>();
         String requestType = request.getParameter("Like");
         try{
