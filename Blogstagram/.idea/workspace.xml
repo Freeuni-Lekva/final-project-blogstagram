@@ -6,11 +6,34 @@
   <component name="ChangeListManager">
     <list default="true" id="d23fff88-d96c-48f2-a7cb-30c07e4c89b9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlFollowDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlFollowDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/api/FollowApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/api/FollowApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystemTests/FollowDaoTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystemTests/FollowDaoTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystemTests/TestFollowQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystemTests/TestFollowQueries.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/sessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/sessionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/FollowQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/FollowQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/dao/SqlFollowDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/dao/SqlFollowDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/api/FollowApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/api/FollowApi.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystemTests/FollowDaoTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystemTests/FollowDaoTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystemTests/TestFollowQueries.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystemTests/TestFollowQueries.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/contextListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/contextListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/sessionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/sessionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/sql/FollowQueries.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/sql/FollowQueries.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/errors/custom404error_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/errors/custom404error_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/login/login_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/login/login_jsp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/login/login_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/login/login_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/register/register_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/register/register_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/bootstrap_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/bootstrap_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/footer_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/footer_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/nav_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/nav_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/followButtonTemplate_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/followButtonTemplate_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/gearIconTemplate_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/gearIconTemplate_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/userBioTemplate_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/userBioTemplate_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/userGeneralInfoTemplate_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/userGeneralInfoTemplate_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/userPage_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/userPage_jsp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,8 +87,8 @@
       <recent name="org.blogstagram.errors" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FollowApiTests">
-    <configuration name="DirectedFollowTests.testDirectedFollow2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.FollowDaoTests">
+    <configuration name="FollowDaoTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Blogstagram" />
       <extension name="coverage">
         <pattern>
@@ -74,29 +97,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.followSystemTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.followSystemTests.DirectedFollowTests" />
-      <option name="METHOD_NAME" value="testDirectedFollow2" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FollowApiTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Blogstagram" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.blogstagram.followSystemTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.blogstagram.followSystemTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.followSystemTests.FollowApiTests" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.followSystemTests.FollowDaoTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FollowApiTests.testFollowApi1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FollowDaoTests.testFollowDao10" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Blogstagram" />
       <extension name="coverage">
         <pattern>
@@ -104,16 +111,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="PACKAGE_NAME" value="org.blogstagram.followSystemTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.followSystemTests.FollowApiTests" />
-      <option name="METHOD_NAME" value="testFollowApi1" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.followSystemTests.FollowDaoTests" />
+      <option name="METHOD_NAME" value="testFollowDao10" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FollowApiTests.testFollowApi7" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FollowDaoTests.testFollowDao11" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Blogstagram" />
       <extension name="coverage">
         <pattern>
@@ -122,14 +128,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.followSystemTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.followSystemTests.FollowApiTests" />
-      <option name="METHOD_NAME" value="testFollowApi7" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.followSystemTests.FollowDaoTests" />
+      <option name="METHOD_NAME" value="testFollowDao11" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FollowApiTests.testFollowApi8" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FollowDaoTests.testFollowDao9" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Blogstagram" />
       <extension name="coverage">
         <pattern>
@@ -138,8 +144,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.followSystemTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.followSystemTests.FollowApiTests" />
-      <option name="METHOD_NAME" value="testFollowApi8" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.followSystemTests.FollowDaoTests" />
+      <option name="METHOD_NAME" value="testFollowDao9" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FollowDaoTests.testFollowDap10" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Blogstagram" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.blogstagram.followSystemTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.blogstagram.followSystemTests" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.followSystemTests.FollowDaoTests" />
+      <option name="METHOD_NAME" value="testFollowDap10" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -171,20 +193,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JUnit.DirectedFollowTests.testDirectedFollow2" />
-      <item itemvalue="JUnit.FollowApiTests.testFollowApi1" />
-      <item itemvalue="JUnit.FollowApiTests.testFollowApi7" />
-      <item itemvalue="JUnit.FollowApiTests.testFollowApi8" />
+      <item itemvalue="JUnit.FollowDaoTests.testFollowDao9" />
+      <item itemvalue="JUnit.FollowDaoTests.testFollowDap10" />
+      <item itemvalue="JUnit.FollowDaoTests.testFollowDao11" />
       <item itemvalue="Maven.Blogstagram [tomcat7:run]" />
-      <item itemvalue="JUnit.FollowApiTests" />
+      <item itemvalue="JUnit.FollowDaoTests" />
+      <item itemvalue="JUnit.FollowDaoTests.testFollowDao10" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FollowApiTests" />
-        <item itemvalue="JUnit.FollowApiTests.testFollowApi1" />
-        <item itemvalue="JUnit.DirectedFollowTests.testDirectedFollow2" />
-        <item itemvalue="JUnit.FollowApiTests.testFollowApi8" />
-        <item itemvalue="JUnit.FollowApiTests.testFollowApi7" />
+        <item itemvalue="JUnit.FollowDaoTests" />
+        <item itemvalue="JUnit.FollowDaoTests.testFollowDao11" />
+        <item itemvalue="JUnit.FollowDaoTests.testFollowDao10" />
+        <item itemvalue="JUnit.FollowDaoTests.testFollowDap10" />
+        <item itemvalue="JUnit.FollowDaoTests.testFollowDao9" />
       </list>
     </recent_temporary>
   </component>

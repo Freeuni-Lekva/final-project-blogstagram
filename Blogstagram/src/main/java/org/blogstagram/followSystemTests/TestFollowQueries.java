@@ -1,12 +1,17 @@
 package org.blogstagram.followSystemTests;
+import org.blogstagram.dao.SqlFollowDao;
 import org.blogstagram.errors.InvalidSQLQueryException;
 import org.blogstagram.sql.FollowQueries;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import javax.inject.Inject;
 import java.util.*;
 
 import static org.junit.Assert.*;
@@ -14,21 +19,12 @@ import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestFollowQueries {
-    @Spy
-    private FollowQueries queries;
 
+    FollowQueries queries;
 
-    @Test
-    public void testFollowQueries1() {
-        assertNotNull(queries);
-        try {
-            verify(queries, never()).getDeleteQuery(new ArrayList<String>());
-            verify(queries, never()).getUpdateQuery(new ArrayList<String>(), new ArrayList<String>());
-            verify(queries, never()).getSelectQuery(new ArrayList<String>(), new ArrayList<String>());
-            verify(queries, never()).getInsertQuery(new ArrayList<String>());
-        } catch (InvalidSQLQueryException e) {
-            e.printStackTrace();
-        }
+    @Before
+    public void init(){
+        queries = new FollowQueries(SqlFollowDao.TEST);
     }
 
 
@@ -39,8 +35,7 @@ public class TestFollowQueries {
         List <String> whereClause = Arrays.asList("id", "created_at");
         try {
             String query = queries.getSelectQuery(selectClause, whereClause);
-            assertEquals("select id, from_user_id, to_user_id\r\nfrom follows\r\nwhere id = ? and created_at = ?;", query.toLowerCase(Locale.ROOT));
-            verify(queries, times(1)).getSelectQuery(selectClause, whereClause);
+            assertEquals("select id, from_user_id, to_user_id\r\nfrom follows_test_t \r\nwhere id = ? and created_at = ?;", query.toLowerCase(Locale.ROOT));
         } catch (InvalidSQLQueryException e) {
             e.printStackTrace();
         }
@@ -53,7 +48,7 @@ public class TestFollowQueries {
         List <String> whereClause = Arrays.asList("id", "from_user_id", "to_user_id", "created_at");
         try {
             String query = queries.getDeleteQuery(whereClause);
-            assertEquals("delete from follows where id = ? and from_user_id = ? and to_user_id = ? and created_at = ?;", query.toLowerCase(Locale.ROOT));
+            assertEquals("delete from follows_test_t where id = ? and from_user_id = ? and to_user_id = ? and created_at = ?;", query.toLowerCase(Locale.ROOT));
         } catch (InvalidSQLQueryException e) {
             e.printStackTrace();
         }
@@ -76,8 +71,7 @@ public class TestFollowQueries {
         List <String> insertClause = Arrays.asList("id", "to_user_id", "from_user_id", "created_at");
         try {
             String query = queries.getInsertQuery(insertClause);
-            assertEquals("insert into follows (id, to_user_id, from_user_id, created_at)values(?, ?, ?, ?);", query.toLowerCase(Locale.ROOT));
-            verify(queries, times(1)).getInsertQuery(insertClause);
+            assertEquals("insert into follows_test_t (id, to_user_id, from_user_id, created_at)values(?, ?, ?, ?);", query.toLowerCase(Locale.ROOT));
         } catch (InvalidSQLQueryException e) {
             e.printStackTrace();
         }
@@ -89,11 +83,6 @@ public class TestFollowQueries {
         final List <String> selectQueries = Collections.emptyList();
         final List <String> whereClause = Collections.singletonList("id");
         assertThrows(InvalidSQLQueryException.class, () -> queries.getSelectQuery(selectQueries, whereClause));
-        try {
-            verify(queries, times(1)).getSelectQuery(selectQueries, whereClause);
-        } catch (InvalidSQLQueryException e) {
-            e.printStackTrace();
-        }
     }
 
 
@@ -103,11 +92,6 @@ public class TestFollowQueries {
 
         List <String> insertFields = Collections.emptyList();
         assertThrows(InvalidSQLQueryException.class, () -> queries.getInsertQuery(insertFields));
-        try {
-            verify(queries, times(1)).getInsertQuery(insertFields);
-        } catch (InvalidSQLQueryException e) {
-            e.printStackTrace();
-        }
     }
 
     @Test
@@ -115,11 +99,6 @@ public class TestFollowQueries {
         assertNotNull(queries);
         List <String> whereClause = Collections.emptyList();
         assertThrows(InvalidSQLQueryException.class, () -> queries.getDeleteQuery(whereClause));
-        try {
-            verify(queries, times(1)).getDeleteQuery(whereClause);
-        } catch (InvalidSQLQueryException e) {
-            e.printStackTrace();
-        }
     }
 
     @Test
@@ -128,8 +107,7 @@ public class TestFollowQueries {
         List <String> selectClause = Arrays.asList("id", "from_user_id", "to_user_id");
         try {
             String query = queries.getSelectQuery(selectClause, whereClause);
-            verify(queries, times(1)).getSelectQuery(Mockito.anyList(), Mockito.anyList());
-            assertEquals("select id, from_user_id, to_user_id\r\nfrom follows\r\n;", query.toLowerCase(Locale.ROOT));
+            assertEquals("select id, from_user_id, to_user_id\r\nfrom follows_test_t \r\n;", query.toLowerCase(Locale.ROOT));
         } catch (InvalidSQLQueryException e) {
             e.printStackTrace();
         }
