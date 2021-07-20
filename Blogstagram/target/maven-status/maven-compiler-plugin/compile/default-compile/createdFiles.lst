@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> master
 org\blogstagram\errors\NotValidUserIdException.class
 org\blogstagram\followSystem\Servlets\followResponseServlet.class
 org\blogstagram\login\LoginServlet.class
@@ -51,3 +56,7 @@ org\blogstagram\Validators\EditPasswordValidator.class
 org\blogstagram\Validators\followValidator.class
 org\blogstagram\Validators\PasswordFormatValidator.class
 org\blogstagram\Validators\UserExistsValidator.class
+<<<<<<< HEAD
+=======
+>>>>>>> 4db8802d5525cd7c7073e1acd5f333e3f8113607
+>>>>>>> master
