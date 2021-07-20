@@ -41,7 +41,7 @@ public class FollowApiTests {
         BasicDataSource source = new BasicDataSource();
         source.setUsername("root");
         source.setUrl("jdbc:mysql://localhost:3306/blogstagramdb");
-        source.setPassword(""); // local passsword
+        source.setPassword("Arqimede123@"); // local passsword
         connection = source.getConnection();
     }
 
