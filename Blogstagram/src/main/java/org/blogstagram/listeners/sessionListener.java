@@ -21,6 +21,8 @@ public class sessionListener implements HttpSessionListener {
         // set follow request sender to followDao. when implemented
         httpSessionEvent.getSession().setAttribute("SqlFollowDao", followDao);
         httpSessionEvent.getSession().setAttribute("UserDAO", userDao);
+        CommentDAO commentDAO = new CommentDAO(dbConnection);
+        httpSessionEvent.getSession().getServletContext().setAttribute("CommentDAO", commentDAO);
 
     }
 
