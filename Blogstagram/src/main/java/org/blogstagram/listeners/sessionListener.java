@@ -1,6 +1,7 @@
 package org.blogstagram.listeners;
 
 
+import org.blogstagram.dao.CommentDAO;
 import org.blogstagram.dao.SqlFollowDao;
 import org.blogstagram.dao.UserDAO;
 
