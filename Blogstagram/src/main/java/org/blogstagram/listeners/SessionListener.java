@@ -12,7 +12,7 @@ import java.sql.Connection;
 
 
 @WebListener
-public class sessionListener implements HttpSessionListener {
+public class SessionListener implements HttpSessionListener {
     @Override
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {
         Connection dbConnection = (Connection) httpSessionEvent.getSession().getServletContext().getAttribute("dbConnection");

@@ -1,8 +1,8 @@
 package org.blogstagram.servlets;
 
 import com.google.gson.Gson;
-import org.blogstagram.Validators.CommentLikeValidator;
-import org.blogstagram.Validators.UserIdValidator;
+import org.blogstagram.validators.CommentLikeValidator;
+import org.blogstagram.validators.UserIdValidator;
 import org.blogstagram.dao.CommentDAO;
 import org.blogstagram.dao.UserDAO;
 import org.blogstagram.errors.DatabaseError;

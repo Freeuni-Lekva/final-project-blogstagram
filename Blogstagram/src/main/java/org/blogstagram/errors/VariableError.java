@@ -8,12 +8,16 @@ public class VariableError implements GeneralError {
     public String getVariableName() {
         return variableName;
     }
+    public void setVariableName(String variableName){
+        this.variableName = variableName;
+    }
 
 
     public VariableError(String variableName, String errorMessage) {
         this.variableName = variableName;
         this.errorMessage = errorMessage;
     }
+
 
     @Override
     public String toString(){
