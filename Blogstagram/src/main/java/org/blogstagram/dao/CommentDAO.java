@@ -15,11 +15,8 @@ public class CommentDAO{
     private static final String SEARCH_USER_LIKES = "SELECT u.firstname, u.lastname, u.nickname, u.image FROM users u " +
             "INNER join likes l on (l.user_id = u.id) " +
             "WHERE l.comment_id = ?";
-    private static final String COMMENT_LIKED_QUERY = "SELECT * from likes where comment_id = ? and user_id = ?";
     private static final String ADD_LIKE = "INSERT INTO likes(user_id, comment_id, created_at) values(?, ?, ?)";
-    private static final String COMMENT_EXISTS = "SELECT * FROM comments WHERE id = ?";
     private static final String DELETE_LIKE = "DELETE FROM likes WHERE comment_id = ? AND user_id = ?";
-    private static final String BLOG_EXISTS = "SELECT * FROM blogs where id = ?";
     Connection connection;
 
     public CommentDAO(Connection connection){
@@ -64,8 +61,8 @@ public class CommentDAO{
 
     // receives comment object in parameters
     // adds comment to database
-    public void addComment(Comment newComment) throws SQLException {
-        PreparedStatement preparedStatement = connection.prepareStatement(ADD_NEW_COMMENT);
+    public Comment addComment(Comment newComment) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement(ADD_NEW_COMMENT,Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setInt(1, newComment.getUser_id());
         preparedStatement.setInt(2, newComment.getBlog_id());
         preparedStatement.setString(3, newComment.getComment());
@@ -75,12 +72,20 @@ public class CommentDAO{
         if(affectedRows == 0) {
             throw new SQLException("Adding comment failed");
         }
+
+        ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+        if(generatedKeys.next()){
+            newComment.setComment_id(generatedKeys.getInt(1));
+        }else {
+            throw new SQLException("Creating user failed, ID generation failed");
+        }
+        return newComment;
     }
 
     // receives comment id in parameters
     // deletes comment with comment id
     public void deleteComment(int comment_id) throws SQLException {
-        PreparedStatement preparedStatement = connection.prepareStatement(DELETE_COMMENT);
+        PreparedStatement preparedStatement = connection.prepareStatement(DELETE_COMMENT );
         preparedStatement.setInt(1, comment_id);
 
         int affectedRows = preparedStatement.executeUpdate();
@@ -153,27 +158,4 @@ public class CommentDAO{
             throw new SQLException("Unliking comment failed");
         }
     }
-
-    public boolean commentIsLiked(int comment_id, int user_id) throws SQLException {
-        PreparedStatement ps = connection.prepareStatement(COMMENT_LIKED_QUERY);
-        ps.setInt(1, comment_id);
-        ps.setInt(2, user_id);
-        ResultSet rs = ps.executeQuery();
-        return rs.next();
-    }
-
-    public boolean commentExists(int comment_id) throws SQLException {
-        PreparedStatement ps = connection.prepareStatement(COMMENT_EXISTS);
-        ps.setInt(1, comment_id);
-        ResultSet rs = ps.executeQuery();
-        return rs.next();
-    }
-
-    public boolean blogExists(int blog_id) throws SQLException {
-        PreparedStatement ps = connection.prepareStatement(BLOG_EXISTS);
-        ps.setInt(1, blog_id);
-        ResultSet rs = ps.executeQuery();
-        return rs.next();
-    }
-
 }

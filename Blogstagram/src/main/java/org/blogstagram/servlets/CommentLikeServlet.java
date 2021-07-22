@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,31 +26,31 @@ public class CommentLikeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String user_id = (String) request.getSession().getAttribute("currentUserID");
+        if(user_id == null){
+            response.sendError(response.SC_UNAUTHORIZED);
+            return;
+        }
+        Connection connection = (Connection) request.getServletContext().getAttribute("dbConnection");
         ServletContext context = request.getServletContext();
         CommentDAO commentDAO = (CommentDAO)context.getAttribute("CommentDAO");
         UserDAO userDao = (UserDAO)request.getSession().getAttribute("UserDAO");
+
         CommentLikeValidator val = new CommentLikeValidator();
-        val.setCommentDAO(commentDAO);
+        val.setConnection(connection);
         UserIdValidator userVal = new UserIdValidator();
         userVal.setUserDao(userDao);
-        if(userDao == null || commentDAO == null){
-            System.out.println("user dao is null");
-        }else{
-            System.out.println("user dao is not null");
-        }
+
         String comment_id = request.getParameter("comment_id");
-        System.out.println(comment_id);
-        String user_id = (String) request.getSession().getAttribute("currentUserID");
         List<GeneralError> errorList = new ArrayList<>();
         String requestType = request.getParameter("Like");
         try{
             // if comment is not liked and user wants to like
             if(userVal.validate(user_id) && !val.validate(comment_id, user_id) && requestType.equals("Like")){
                 commentDAO.likeComment( Integer.parseInt(comment_id), Integer.parseInt(user_id));
-            // if comment is liked and user wants to unlike
+                // if comment is liked and user wants to unlike
             }else if(userVal.validate(user_id) && val.validate(comment_id, user_id) && requestType.equals("Unlike")){
                 commentDAO.unlikeComment(Integer.parseInt(comment_id), Integer.parseInt(user_id));
-                System.out.println("Comment was unliked");
             }else{
                 // if comment is liked and user wants to like again
                 if(val.validate(comment_id, user_id) && requestType.equals("Like")){

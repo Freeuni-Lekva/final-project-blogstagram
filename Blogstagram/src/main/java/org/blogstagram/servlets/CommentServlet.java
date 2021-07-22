@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -24,10 +25,15 @@ public class CommentServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)  throws IOException {
+        String user_id = (String) request.getSession().getAttribute("currentUserID");
+        if(user_id == null){
+            response.sendError(response.SC_UNAUTHORIZED);
+            return;
+        }
         ServletContext context = request.getServletContext();
+        Connection connection = (Connection) context.getAttribute("dbConnection");
         UserDAO userDao = (UserDAO)request.getSession().getAttribute("UserDAO");
         String requestType = request.getParameter("CommentAction");
-        String user_id = (String) request.getSession().getAttribute("currentUserID");
         String blog_id = request.getParameter("blog_id");
         // if user wants to add comment, string keeps comment text
         // if he wants to delete comment it keeps comment id
@@ -36,34 +42,34 @@ public class CommentServlet extends HttpServlet {
         if (!request.getParameter("comment_id").equals("")){
             comment_id = Integer.parseInt(request.getParameter("comment_id"));
         }else{
-            comment_id = Comment.NO_ID;
+            response.sendError(response.SC_UNAUTHORIZED);
+            return;
         }
         CommentDAO commentDAO = (CommentDAO)context.getAttribute("CommentDAO");
         BlogExistsValidator blogValidator = new BlogExistsValidator();
-        blogValidator.setCommentDAO(commentDAO);
+        blogValidator.setConnection(connection);
         UserIdValidator userVal = new UserIdValidator();
         userVal.setUserDao(userDao);
 
         List<VariableError> errorList = new ArrayList<>();
         try {
-            if(userVal.validate(user_id) && requestType.equals("AddComment") && blogValidator.validate(blog_id)){
+            if(userVal.validate(user_id) && requestType.equals("AddComment") && blogValidator.validate(blog_id,"")){
                 CommentAddValidator commAddValidator = new CommentAddValidator();
-                commAddValidator.setCommentDAO(commentDAO);
-                if(commAddValidator.validate(comment)) {
+                if(commAddValidator.validate(comment, "")) {
                     Comment newComment = new Comment(Integer.parseInt(user_id), Integer.parseInt(blog_id),
                             comment, new Date(System.currentTimeMillis()));
                     commentDAO.addComment(newComment);
                 }
-            }else if(userVal.validate(user_id) && requestType.equals("DeleteComment") && blogValidator.validate(blog_id)) {
+            }else if(userVal.validate(user_id) && requestType.equals("DeleteComment") && blogValidator.validate(blog_id,"")) {
                 CommentDeleteValidator commDeleteValidator = new CommentDeleteValidator();
-                commDeleteValidator.setCommentDAO(commentDAO);
-                if(commDeleteValidator.validate(comment_id)) {
+                commDeleteValidator.setConnection(connection);
+                if(commDeleteValidator.validate(comment_id, user_id)) {
                     commentDAO.deleteComment(comment_id);
                 }
-            }else if(userVal.validate(user_id) && requestType.equals("EditComment") && blogValidator.validate(blog_id)){
+            }else if(userVal.validate(user_id) && requestType.equals("EditComment") && blogValidator.validate(blog_id,"")){
                 CommentExistsValidator commExistsValidator = new CommentExistsValidator();
-                commExistsValidator.setCommentDAO(commentDAO);
-                if(commExistsValidator.validate(comment_id)){
+                commExistsValidator.setConnection(connection);
+                if(commExistsValidator.validate(comment_id, user_id)){
                     commentDAO.editComment(comment_id, comment);
                 }
             }else{
