@@ -10,4 +10,8 @@ public class NotValidUserIdException extends Throwable{
     public String toString() {
         return msg;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master

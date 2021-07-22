@@ -1,3 +1,26 @@
+<<<<<<< HEAD
+org/blogstagram/Validators/followValidator.class
+org/blogstagram/servlets/CommentLikeServlet.class
+org/blogstagram/dao/CommentDAO.class
+org/blogstagram/Validators/CommentDeleteValidator.class
+org/blogstagram/Validators/CommentExistsValidator.class
+org/blogstagram/Validators/CommentLikeValidator.class
+org/blogstagram/errors/NotValidUserIdException.class
+org/blogstagram/servlets/CommentServlet.class
+org/blogstagram/Validators/BlogExistsValidator.class
+org/blogstagram/dao/UserDAO.class
+org/blogstagram/models/User.class
+org/blogstagram/HelloServlet.class
+org/blogstagram/Validators/CommentAddValidator.class
+org/blogstagram/errors/GeneralError.class
+org/blogstagram/models/Comment.class
+org/blogstagram/errors/DatabaseError.class
+org/blogstagram/listeners/contextListener.class
+org/blogstagram/Validators/UserIdValidator.class
+org/blogstagram/errors/VariableError.class
+org/blogstagram/listeners/SessionListener.class
+org/blogstagram/Validators/CommentSystemValidator.class
+=======
 org/blogstagram/followSystem/Servlets/followServlet.class
 org/blogstagram/validators/UserExistsValidator.class
 org/blogstagram/validators/IllegalCharactersValidator.class
@@ -52,3 +75,4 @@ org/blogstagram/dao/FollowDao.class
 org/blogstagram/validators/CheckUserPasswordValidator.class
 org/blogstagram/validators/PasswordFormatValidator.class
 org/blogstagram/listeners/sessionListener.class
+>>>>>>> master
