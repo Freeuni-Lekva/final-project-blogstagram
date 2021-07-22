@@ -29,8 +29,5 @@ public class VariableError implements GeneralError {
     public String getErrorMessage() {
         return errorMessage;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> master
+

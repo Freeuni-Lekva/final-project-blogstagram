@@ -25,6 +25,11 @@ public class CommentLikeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String user_id = (String) request.getSession().getAttribute("currentUserID");
+        if(user_id == null){
+            response.sendError(response.SC_UNAUTHORIZED);
+            return;
+        }
         ServletContext context = request.getServletContext();
         CommentDAO commentDAO = (CommentDAO)context.getAttribute("CommentDAO");
         UserDAO userDao = (UserDAO)request.getSession().getAttribute("UserDAO");
@@ -32,14 +37,8 @@ public class CommentLikeServlet extends HttpServlet {
         val.setCommentDAO(commentDAO);
         UserIdValidator userVal = new UserIdValidator();
         userVal.setUserDao(userDao);
-        if(userDao == null || commentDAO == null){
-            System.out.println("user dao is null");
-        }else{
-            System.out.println("user dao is not null");
-        }
         String comment_id = request.getParameter("comment_id");
         System.out.println(comment_id);
-        String user_id = (String) request.getSession().getAttribute("currentUserID");
         List<GeneralError> errorList = new ArrayList<>();
         String requestType = request.getParameter("Like");
         try{
