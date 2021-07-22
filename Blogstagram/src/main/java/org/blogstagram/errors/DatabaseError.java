@@ -10,8 +10,4 @@ public class DatabaseError extends Throwable {
     public String toString() {
         return message;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> master
