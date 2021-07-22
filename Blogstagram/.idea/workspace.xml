@@ -4,22 +4,57 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="d23fff88-d96c-48f2-a7cb-30c07e4c89b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/junit_junit_4_13_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/commons-dbcp2-2.8.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/commons-logging-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/commons-pool2-2.9.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/mysql-connector-java-8.0.25.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/HelloServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/HelloServlet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/Validators/GetUserConnectionsValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/UserConnectionsServlet.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/testFollowResponseServlet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/Validators/FollowRequestValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/Validators/FollowRequestValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/Validators/UserIdValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/Validators/UserIdValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/Validators/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/Validators/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlFollowDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlFollowDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/DatabaseError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/DatabaseError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/DirectionalFollowNotAdded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/DirectionalFollowNotAdded.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/InvalidSQLQueryException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/InvalidSQLQueryException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/NotLoggedInException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/NotLoggedInException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/NotValidUserIdException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/NotValidUserIdException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/UserConnectionsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/UserConnectionsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/followResponseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/followResponseServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/followServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/followServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/api/FollowApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/api/FollowApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/api/StatusCodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/api/StatusCodes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/sessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/sessionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/FollowQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/FollowQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/todo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/todo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/HelloServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/UnitTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/FollowRequestValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/FollowRequestValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/UserIdValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/UserIdValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/Validator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/Validator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/dao/SqlFollowDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/dao/SqlFollowDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/DatabaseError.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/DatabaseError.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/DirectionalFollowNotAdded.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/DirectionalFollowNotAdded.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/InvalidSQLQueryException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/InvalidSQLQueryException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/NotLoggedInException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/NotLoggedInException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/NotValidUserIdException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/NotValidUserIdException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/Servlets/UserConnectionsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/Servlets/UserConnectionsServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/Servlets/followResponseServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/Servlets/followResponseServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/Servlets/followServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/Servlets/followServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/api/FollowApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/api/FollowApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/api/StatusCodes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/api/StatusCodes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/sessionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/sessionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/models/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/sql/FollowQueries.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/sql/FollowQueries.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2021-06-25" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2021-06-25" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/hello_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/hello_jsp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../blogstagramdb_demo.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../blogstagramdb_demo.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2021-07-13" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2021-07-13" afterDir="false" />
     </list>
+=======
+    <list default="true" id="d23fff88-d96c-48f2-a7cb-30c07e4c89b9" name="Default Changelist" comment="" />
+>>>>>>> master
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,12 +63,23 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="HTML File" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1uQrEC42AETEqA8fBcXsgVVGv4n" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -42,10 +88,21 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.42879257" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.blogstagram.errors" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Blogstagram [tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
@@ -95,5 +152,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

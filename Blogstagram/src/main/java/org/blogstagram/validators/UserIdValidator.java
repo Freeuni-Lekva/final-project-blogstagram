@@ -28,7 +28,7 @@ public class UserIdValidator implements followValidator {
         } catch (NumberFormatException ex){
             throw new NotValidUserIdException("User Id should contain only Numbers.");
         } catch (SQLException ex){
-            throw new DatabaseError("Can't access database");
+            throw new DatabaseError("Can't accses database");
         }
         return true;
     }
