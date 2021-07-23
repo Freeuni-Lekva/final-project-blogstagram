@@ -59,12 +59,12 @@ public class FollowApi {
      */
 
     public Integer sendFollowRequest(Integer fromId, Integer toId) throws DirectionalFollowNotAdded, DatabaseError {
-
+        if(fromId == toId) throw new DirectionalFollowNotAdded("From and To id can't be the same.");
         try {
            User user = userDao.getUserByID(toId);
            DirectedFollow dFollow = initializeDirectedFollowObj(fromId, toId);
            if(user.getPrivacy().equals(User.PRIVATE)){ // add if private account -----------
-              // sender.sendFollowRequest();
+          // send follow request
                return StatusCodes.requestSent;
            }else{
                followDao.addDirectedFollow(dFollow);

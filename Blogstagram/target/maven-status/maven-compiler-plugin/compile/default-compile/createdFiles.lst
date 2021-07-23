@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 org\blogstagram\errors\NotValidUserIdException.class
 org\blogstagram\followSystem\Servlets\followResponseServlet.class
@@ -122,3 +123,5 @@ org/blogstagram/validators/CheckUserPasswordValidator.class
 org/blogstagram/validators/PasswordFormatValidator.class
 org/blogstagram/listeners/sessionListener.class
 >>>>>>> 9cec297603a698aea64483043bb279a1b34166ee
+=======
+>>>>>>> followTests
