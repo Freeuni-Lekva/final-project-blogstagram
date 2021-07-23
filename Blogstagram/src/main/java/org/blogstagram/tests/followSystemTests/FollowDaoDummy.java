@@ -1,4 +1,4 @@
-package org.blogstagram.followSystemTests;
+package org.blogstagram.tests.followSystemTests;
 
 import org.blogstagram.dao.FollowDao;
 import org.blogstagram.errors.DatabaseError;
@@ -7,7 +7,6 @@ import org.blogstagram.models.DirectedFollow;
 import org.blogstagram.models.User;
 
 import java.util.*;
-import java.util.function.Consumer;
 
 public class FollowDaoDummy implements FollowDao {
 

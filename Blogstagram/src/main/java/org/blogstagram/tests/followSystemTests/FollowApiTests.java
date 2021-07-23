@@ -1,8 +1,7 @@
-package org.blogstagram.followSystemTests;
+package org.blogstagram.tests.followSystemTests;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.blogstagram.dao.FollowDao;
-import org.blogstagram.dao.SqlFollowDao;
 import org.blogstagram.dao.UserDAO;
 import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.DirectionalFollowNotAdded;
@@ -14,21 +13,16 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import org.mockito.Mockito;
-
 import org.mockito.junit.MockitoJUnitRunner;
 import org.blogstagram.followSystem.api.FollowApi;
 
-import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.times;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FollowApiTests {

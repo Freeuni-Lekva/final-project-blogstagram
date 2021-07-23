@@ -5,62 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d23fff88-d96c-48f2-a7cb-30c07e4c89b9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/StringHasher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/CheckUserPasswordValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/EditGeneralValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/EditPasswordValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/EmailExistsValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/EmailFormatValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/FollowRequestValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/GenderValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/GetUserConnectionsValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/IllegalCharactersValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/LoginValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/NewPasswordDifferentValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/PasswordFormatValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/PrivacyValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/UserExistsValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/UserIdValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/Validator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/VariableLengthValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/followValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/dao/FollowDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/dao/SqlFollowDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/dao/UserDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/DatabaseError.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/DirectionalFollowNotAdded.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/GeneralError.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/InvalidSQLQueryException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/NotLoggedInException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/NotValidUserIdException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/VariableError.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/Servlets/UserConnectionsServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/Servlets/followResponseServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/Servlets/followServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/api/FollowApi.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/api/ResponseJson.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/api/StatusCodes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/contextListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/followNotificationSender.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/sessionListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/login/LoginServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/logout/LogoutServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/models/DirectedFollow.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/models/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/pairs/GeneralPair.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/pairs/StringKeyPair.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/pairs/StringPair.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/register/RegisterServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/sql/FollowQueries.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/sql/SqlQueries.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/user/UserServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/user/edit/EditProfile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/user/edit/EditProfilePageServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/validators/RegisterValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/validators/UserUniqueValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystemTests/DirectedFollowTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/followSystemTests/DirectedFollowTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystemTests/FollowApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/followSystemTests/FollowApiTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystemTests/FollowDaoDummy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/followSystemTests/FollowDaoDummy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystemTests/FollowDaoTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/followSystemTests/FollowDaoTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystemTests/TestFollowQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/followSystemTests/TestFollowQueries.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,12 +70,12 @@
       <module name="Blogstagram" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.blogstagram.followSystemTests.*" />
+          <option name="PATTERN" value="org.blogstagram.tests.followSystemTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.blogstagram.followSystemTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.followSystemTests.DirectedFollowTests" />
+      <option name="PACKAGE_NAME" value="org.blogstagram.tests.followSystemTests" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.followSystemTests.DirectedFollowTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -134,12 +85,12 @@
       <module name="Blogstagram" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.blogstagram.followSystemTests.*" />
+          <option name="PATTERN" value="org.blogstagram.tests.followSystemTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.blogstagram.followSystemTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.followSystemTests.FollowApiTests" />
+      <option name="PACKAGE_NAME" value="org.blogstagram.tests.followSystemTests" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.followSystemTests.FollowApiTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -149,7 +100,7 @@
       <module name="Blogstagram" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.blogstagram.followSystemTests.*" />
+          <option name="PATTERN" value="org.blogstagram.tests.followSystemTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -164,7 +115,7 @@
       <module name="Blogstagram" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.blogstagram.followSystemTests.*" />
+          <option name="PATTERN" value="org.blogstagram.tests.followSystemTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -180,12 +131,12 @@
       <module name="Blogstagram" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.blogstagram.followSystemTests.*" />
+          <option name="PATTERN" value="org.blogstagram.tests.followSystemTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.blogstagram.followSystemTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.followSystemTests.TestFollowQueries" />
+      <option name="PACKAGE_NAME" value="org.blogstagram.tests.followSystemTests" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.followSystemTests.TestFollowQueries" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -217,11 +168,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JUnit.FollowDaoTests.testFollowDao11" />
-      <item itemvalue="JUnit.FollowDaoTests" />
-      <item itemvalue="JUnit.FollowApiTests" />
-      <item itemvalue="JUnit.TestFollowQueries" />
       <item itemvalue="JUnit.DirectedFollowTests" />
+      <item itemvalue="JUnit.FollowApiTests" />
+      <item itemvalue="JUnit.FollowDaoTests" />
+      <item itemvalue="JUnit.FollowDaoTests.testFollowDao11" />
+      <item itemvalue="JUnit.TestFollowQueries" />
       <item itemvalue="Maven.Blogstagram [tomcat7:run]" />
     </list>
     <recent_temporary>

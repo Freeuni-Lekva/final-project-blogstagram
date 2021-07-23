@@ -2,11 +2,13 @@ org\blogstagram\errors\NotValidUserIdException.class
 org\blogstagram\followSystem\Servlets\followResponseServlet.class
 org\blogstagram\login\LoginServlet.class
 org\blogstagram\errors\DatabaseError.class
+org\blogstagram\tests\followSystemTests\FollowApiTests.class
 org\blogstagram\Validators\CheckUserPasswordValidator.class
 org\blogstagram\sql\FollowQueries.class
 org\blogstagram\sql\SqlQueries.class
 org\blogstagram\followSystem\api\FollowApi.class
 org\blogstagram\errors\NotLoggedInException.class
+org\blogstagram\tests\followSystemTests\TestFollowQueries.class
 org\blogstagram\user\edit\EditProfilePageServlet.class
 org\blogstagram\listeners\contextListener.class
 org\blogstagram\Validators\IllegalCharactersValidator.class
@@ -18,6 +20,7 @@ org\blogstagram\StringHasher.class
 org\blogstagram\Validators\EditGeneralValidator.class
 org\blogstagram\Validators\UserUniqueValidator.class
 org\blogstagram\Validators\Validator.class
+org\blogstagram\tests\followSystemTests\FollowDaoTests.class
 org\blogstagram\logout\LogoutServlet.class
 org\blogstagram\pairs\StringPair.class
 org\blogstagram\Validators\PrivacyValidator.class
@@ -45,9 +48,11 @@ org\blogstagram\followSystem\api\ResponseJson.class
 org\blogstagram\Validators\NewPasswordDifferentValidator.class
 org\blogstagram\followSystem\Servlets\UserConnectionsServlet.class
 org\blogstagram\dao\UserDAO.class
+org\blogstagram\tests\followSystemTests\DirectedFollowTests.class
 org\blogstagram\Validators\VariableLengthValidator.class
 org\blogstagram\followSystem\Servlets\followServlet.class
 org\blogstagram\Validators\EditPasswordValidator.class
+org\blogstagram\tests\followSystemTests\FollowDaoDummy.class
 org\blogstagram\Validators\followValidator.class
 org\blogstagram\Validators\PasswordFormatValidator.class
 org\blogstagram\Validators\UserExistsValidator.class

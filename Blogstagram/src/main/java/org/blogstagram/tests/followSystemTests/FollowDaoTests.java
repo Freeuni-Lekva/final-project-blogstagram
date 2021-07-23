@@ -1,4 +1,4 @@
-package org.blogstagram.followSystemTests;
+package org.blogstagram.tests.followSystemTests;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.blogstagram.dao.SqlFollowDao;

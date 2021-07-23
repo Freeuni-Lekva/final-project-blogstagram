@@ -1,8 +1,7 @@
-package org.blogstagram.followSystemTests;
+package org.blogstagram.tests.followSystemTests;
 
 
 import org.blogstagram.models.DirectedFollow;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.*;
