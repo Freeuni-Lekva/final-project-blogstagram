@@ -25,7 +25,7 @@ public class CommentServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)  throws IOException {
-        String user_id = (String) request.getSession().getAttribute("currentUserID");
+        String user_id = "11";//(String) request.getSession().getAttribute("currentUserID");
         if(user_id == null){
             response.sendError(response.SC_UNAUTHORIZED);
             return;
@@ -35,15 +35,12 @@ public class CommentServlet extends HttpServlet {
         UserDAO userDao = (UserDAO)request.getSession().getAttribute("UserDAO");
         String requestType = request.getParameter("CommentAction");
         String blog_id = request.getParameter("blog_id");
-        // if user wants to add comment, string keeps comment text
-        // if he wants to delete comment it keeps comment id
         String comment = request.getParameter("Comment");
         int comment_id;
         if (!request.getParameter("comment_id").equals("")){
             comment_id = Integer.parseInt(request.getParameter("comment_id"));
         }else{
-            response.sendError(response.SC_UNAUTHORIZED);
-            return;
+            comment_id = -1;
         }
         CommentDAO commentDAO = (CommentDAO)context.getAttribute("CommentDAO");
         BlogExistsValidator blogValidator = new BlogExistsValidator();
@@ -65,24 +62,31 @@ public class CommentServlet extends HttpServlet {
                 commDeleteValidator.setConnection(connection);
                 if(commDeleteValidator.validate(comment_id, user_id)) {
                     commentDAO.deleteComment(comment_id);
+                }else{
+                    VariableError varError = new VariableError("Comment System", "can not delete comment of different user");
+                    errorList.add(varError);
                 }
             }else if(userVal.validate(user_id) && requestType.equals("EditComment") && blogValidator.validate(blog_id,"")){
                 CommentExistsValidator commExistsValidator = new CommentExistsValidator();
                 commExistsValidator.setConnection(connection);
                 if(commExistsValidator.validate(comment_id, user_id)){
                     commentDAO.editComment(comment_id, comment);
+                }else{
+                    VariableError varError = new VariableError("Comment System", "can not edit comment of different user");
+                    errorList.add(varError);
                 }
             }else{
-                VariableError varError = new VariableError("Comment System", "comment not valid");
+                VariableError varError = new VariableError("Comment System", "comment action not valid");
                 errorList.add(varError);
-
-                Gson gson = new Gson();
-                response.getWriter().print(gson.toJson(errorList));
             }
         } catch (SQLException | DatabaseError | NotValidUserIdException throwables) {
             throwables.printStackTrace();
         }
 
+        if(errorList.size() != 0) {
+            Gson gson = new Gson();
+            response.getWriter().print(gson.toJson(errorList));
+        }
     }
 
     @Override

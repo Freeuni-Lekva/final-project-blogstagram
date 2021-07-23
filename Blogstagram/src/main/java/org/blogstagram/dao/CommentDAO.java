@@ -154,7 +154,7 @@ public class CommentDAO{
         ps.setInt(1, comment_id);
         ps.setInt(2, user_id);
         int numRows = ps.executeUpdate();
-        if(numRows != 0){
+        if(numRows != 1){
             throw new SQLException("Unliking comment failed");
         }
     }

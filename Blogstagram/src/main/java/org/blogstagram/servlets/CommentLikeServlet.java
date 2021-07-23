@@ -26,7 +26,7 @@ public class CommentLikeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String user_id = (String) request.getSession().getAttribute("currentUserID");
+        String user_id = "11";//(String) request.getSession().getAttribute("currentUserID");
         if(user_id == null){
             response.sendError(response.SC_UNAUTHORIZED);
             return;
@@ -53,22 +53,25 @@ public class CommentLikeServlet extends HttpServlet {
                 commentDAO.unlikeComment(Integer.parseInt(comment_id), Integer.parseInt(user_id));
             }else{
                 // if comment is liked and user wants to like again
-                if(val.validate(comment_id, user_id) && requestType.equals("Like")){
+                if(val.validate(comment_id, user_id) && requestType.equals("Like")) {
                     VariableError varError = new VariableError("CommentLike", "Can not like already liked comment");
                     errorList.add(varError);
-                    Gson gson = new Gson();
-                    response.getWriter().print(gson.toJson(errorList));
+                }else if(!val.validate(comment_id, user_id) && requestType.equals("Unlike")){
+                    VariableError varError = new VariableError("CommentLike", "Can not unlike non liked comment");
+                    errorList.add(varError);
                 }else if(!userVal.validate(user_id)){
                     VariableError varError = new VariableError("CommentLike", "User ID trying to like is not valid");
                     errorList.add(varError);
-                    Gson gson = new Gson();
-                    response.getWriter().print(gson.toJson(errorList));
                 }
             }
         } catch (SQLException | DatabaseError | NotValidUserIdException throwables) {
             throwables.printStackTrace();
         }
 
+        if(errorList.size() != 0) {
+            Gson gson = new Gson();
+            response.getWriter().print(gson.toJson(errorList));
+        }
     }
 
     @Override
