@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
 org\blogstagram\errors\NotValidUserIdException.class
 org\blogstagram\followSystem\Servlets\followResponseServlet.class
 org\blogstagram\login\LoginServlet.class
@@ -55,8 +52,6 @@ org\blogstagram\Validators\EditPasswordValidator.class
 org\blogstagram\Validators\followValidator.class
 org\blogstagram\Validators\PasswordFormatValidator.class
 org\blogstagram\Validators\UserExistsValidator.class
->>>>>>> 4db8802d5525cd7c7073e1acd5f333e3f8113607
-=======
 org/blogstagram/followSystem/Servlets/followServlet.class
 org/blogstagram/servlets/CommentLikeServlet.class
 org/blogstagram/validators/UserExistsValidator.class
@@ -122,6 +117,4 @@ org/blogstagram/dao/FollowDao.class
 org/blogstagram/validators/CheckUserPasswordValidator.class
 org/blogstagram/validators/PasswordFormatValidator.class
 org/blogstagram/listeners/sessionListener.class
->>>>>>> 9cec297603a698aea64483043bb279a1b34166ee
-=======
->>>>>>> followTests
+

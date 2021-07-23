@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/servlets/CommentLikeServlet.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/StringHasher.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/servlets/CommentServlet.java
@@ -64,7 +64,6 @@
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/sql/FollowQueries.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/listeners/contextListener.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/EmailFormatValidator.java
-=======
 C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\sql\FollowQueries.java
 C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\dao\UserDAO.java
 C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\listeners\sessionListener.java
@@ -123,4 +122,3 @@ C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blo
 C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\user\edit\EditProfilePageServlet.java
 C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\login\LoginServlet.java
 C:\Users\user\Desktop\fourth semester\finalProject\final-project-blogstagram\Blogstagram\src\main\java\org\blogstagram\errors\NotValidUserIdException.java
->>>>>>> followTests
