@@ -10,12 +10,13 @@ import org.blogstagram.models.User;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.function.ThrowingRunnable;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+
 
 import static org.junit.Assert.*;
 
@@ -25,7 +26,7 @@ public class FollowDaoTests {
         BasicDataSource source = new BasicDataSource();
         source.setUsername("root");
         source.setUrl("jdbc:mysql://localhost:3306/blogstagramdb");
-        source.setPassword("Arqimede123@"); // local passsword
+        source.setPassword(""); // local passsword
         try {
             connection = source.getConnection();
             userDao = new UserDAO(connection);
@@ -48,7 +49,12 @@ public class FollowDaoTests {
 
     @Test
     public void testFollowDao1(){
-        assertThrows(NullPointerException.class, () -> followDao.addDirectedFollow(null));
+        assertThrows(NullPointerException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                followDao.addDirectedFollow(null);
+            }
+        });
     }
 
     @Test
@@ -76,7 +82,12 @@ public class FollowDaoTests {
 
     @Test
     public void testFollowDao4(){
-        assertThrows(NullPointerException.class, () -> followDao.doesConnectionExist(null));
+        assertThrows(NullPointerException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                followDao.doesConnectionExist(null);
+            }
+        });
     }
 
     @Test
@@ -143,12 +154,22 @@ public class FollowDaoTests {
         int toId = 21;
         directedFollow.setToId(toId);
         directedFollow.setFromId(fromId);
-        assertThrows(DatabaseError.class, () -> followDao.deleteFollow(directedFollow));
+        assertThrows(DatabaseError.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                followDao.deleteFollow(directedFollow);
+            }
+        });
     }
 
     @Test
     public void testFollowDap9(){
-        assertThrows(NullPointerException.class, () -> followDao.deleteFollow(null));
+        assertThrows(NullPointerException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                followDao.deleteFollow(null);
+            }
+        });
     }
 
     @Test
@@ -165,14 +186,14 @@ public class FollowDaoTests {
             }
         }
 
-        List<User> expected = IntStream.range(1, 11).mapToObj(id -> {
+        List<User> expected = new ArrayList<>();
+        for(int k = 1; k < 11; k++){
             try {
-                return userDao.getUserByID(id);
+                expected.add(userDao.getUserByID(k));
             } catch (SQLException exception) {
                 exception.printStackTrace();
             }
-            return null;
-        }).collect(Collectors.toList());
+        }
 
         try {
             List <User> actual = followDao.selectAllFollowings(20);
@@ -211,14 +232,14 @@ public class FollowDaoTests {
             }
         }
 
-        List <User> expected = IntStream.range(1, 11).mapToObj((elem) -> {
+        List<User> expected = new ArrayList<>();
+        for(int k = 1; k < 11; k++) {
             try {
-                return userDao.getUserByID(elem);
+                expected.add(userDao.getUserByID(k));
             } catch (SQLException exception) {
                 exception.printStackTrace();
             }
-            return null;
-        }).collect(Collectors.toList());
+        }
 
         List <User> actual = null;
         try {

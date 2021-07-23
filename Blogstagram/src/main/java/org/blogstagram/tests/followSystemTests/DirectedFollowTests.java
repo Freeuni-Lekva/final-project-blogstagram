@@ -45,7 +45,7 @@ public class DirectedFollowTests {
         assertEquals(currentDate, directedFollow.getCreatedAt());
         Date newDate = new Date();
         directedFollow.setCreatedAt(newDate);
-        verify(directedFollow, times(2)).setCreatedAt(Mockito.any());
+        verify(directedFollow, times(2)).setCreatedAt((Date) Mockito.any());
         assertEquals(newDate, directedFollow.getCreatedAt());
     }
 

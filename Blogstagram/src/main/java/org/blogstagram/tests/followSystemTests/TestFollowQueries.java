@@ -4,6 +4,7 @@ import org.blogstagram.errors.InvalidSQLQueryException;
 import org.blogstagram.sql.FollowQueries;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.function.ThrowingRunnable;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -76,7 +77,12 @@ public class TestFollowQueries {
         assertNotNull(queries);
         final List <String> selectQueries = Collections.emptyList();
         final List <String> whereClause = Collections.singletonList("id");
-        assertThrows(InvalidSQLQueryException.class, () -> queries.getSelectQuery(selectQueries, whereClause));
+        assertThrows(InvalidSQLQueryException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                queries.getSelectQuery(selectQueries, whereClause);
+            }
+        });
     }
 
 
@@ -84,15 +90,25 @@ public class TestFollowQueries {
     public void testFollowQueries7() {
         assertNotNull(queries);
 
-        List <String> insertFields = Collections.emptyList();
-        assertThrows(InvalidSQLQueryException.class, () -> queries.getInsertQuery(insertFields));
+        final List <String> insertFields = Collections.emptyList();
+        assertThrows(InvalidSQLQueryException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                queries.getInsertQuery(insertFields);
+            }
+        });
     }
 
     @Test
     public void testFollowQueries8(){
         assertNotNull(queries);
-        List <String> whereClause = Collections.emptyList();
-        assertThrows(InvalidSQLQueryException.class, () -> queries.getDeleteQuery(whereClause));
+        final List <String> whereClause = Collections.emptyList();
+        assertThrows(InvalidSQLQueryException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                queries.getDeleteQuery(whereClause);
+            }
+        });
     }
 
     @Test

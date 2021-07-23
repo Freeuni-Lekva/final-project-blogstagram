@@ -11,6 +11,7 @@ import org.blogstagram.models.User;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.function.ThrowingRunnable;
 import org.junit.runner.RunWith;
 
 import org.mockito.junit.MockitoJUnitRunner;
@@ -35,7 +36,7 @@ public class FollowApiTests {
         BasicDataSource source = new BasicDataSource();
         source.setUsername("root");
         source.setUrl("jdbc:mysql://localhost:3306/blogstagramdb");
-        source.setPassword("Arqimede123@"); // local passsword
+        source.setPassword(""); // local passsword
         connection = source.getConnection();
     }
 
@@ -179,7 +180,12 @@ public class FollowApiTests {
             assertEquals(StatusCodes.followed, res);
             res = followApi.unfollow(1, 2);
             assertEquals(StatusCodes.unfollowed, res);
-            assertThrows(DatabaseError.class, () -> followApi.unfollow(1, 2));
+            assertThrows(DatabaseError.class, new ThrowingRunnable() {
+                @Override
+                public void run() throws Throwable {
+                    followApi.unfollow(1, 2);
+                }
+            });
         }  catch (DatabaseError | DirectionalFollowNotAdded  e){
             e.printStackTrace();
         }

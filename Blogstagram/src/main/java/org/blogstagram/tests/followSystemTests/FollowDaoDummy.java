@@ -59,9 +59,11 @@ public class FollowDaoDummy implements FollowDao {
     public List<User> selectAllFollowers(Integer id) throws DatabaseError {
         if(!followers.containsKey(id)) return null;
         Set <Integer> followingsSet = followers.get(id);
-        List <User> result = new ArrayList<>();
-        followingsSet.forEach(elem -> result.add(new User(elem, null, null, null, null, null, null,
-                null, null, null, null, null, null, null, null)));
+        final List <User> result = new ArrayList<>();
+        for(Integer currentId : followingsSet) {
+            result.add(new User(currentId, null, null, null, null, null, null,
+                    null, null, null, null, null, null, null, null));
+        }
         return result;
     }
 
@@ -69,9 +71,11 @@ public class FollowDaoDummy implements FollowDao {
     public List<User> selectAllFollowings(Integer id) throws DatabaseError {
         if(!followings.containsKey(id)) return null;
         Set <Integer> followersSet = followings.get(id);
-        List <User> result = new ArrayList<>();
-        followersSet.forEach(elem -> result.add(new User(elem, null, null, null, null, null, null,
-                null, null, null, null, null, null, null, null)));
+        final List <User> result = new ArrayList<>();
+        for(Integer currentId : followersSet){
+            result.add(new User(currentId, null, null, null, null, null, null,
+                        null, null, null, null, null, null, null, null));
+        }
         return result;
     }
 }
