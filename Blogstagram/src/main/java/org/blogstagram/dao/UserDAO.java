@@ -7,17 +7,18 @@ import java.sql.*;
 public class UserDAO {
     Connection connection;
 
+
     private static final String ADD_USER_QUERY = "INSERT INTO users(firstname,lastname,nickname,users.role,email,password,birthday,gender,privacy,image,country,city,website,bio) " +
-                                                              "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                                                                "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String UPDATE_USER_GENERAL_INFO_QUERY = "UPDATE users SET firstname = ?,lastname = ?,nickname = ?,users.role = ?,email = ?,birthday = ?,gender = ?,privacy = ?,country = ?,city = ?,website = ?,bio = ? " +
-                                                                    "WHERE id = ? OR nickname = ? OR email = ?";
+            "WHERE id = ? OR nickname = ? OR email = ?";
 
     private static final String UPDATE_USER_PICTURE_QUERY = "UPDATE users SET image = ? WHERE id = ? OR nickname = ? OR email = ?";
 
     private static final String UPDATE_USER_PASSWORD_QUERY = "UPDATE users SET password = ? WHERE id = ? OR email = ? OR nickname = ?";
 
     private static final String GET_USER_QUERY = "SELECT id,firstname,lastname,nickname,users.role,email,birthday,gender,privacy,image,country,city,website,bio,created_at " +
-                                                              "FROM users WHERE id = ? OR nickname = ? OR email = ?";
+            "FROM users WHERE id = ? OR nickname = ? OR email = ?";
 
     private static final String USER_KEYS_NULL_ERROR = "UserID or UserNickname or UserEmail must be included";
     private static final Integer NO_USER_ID = -1;

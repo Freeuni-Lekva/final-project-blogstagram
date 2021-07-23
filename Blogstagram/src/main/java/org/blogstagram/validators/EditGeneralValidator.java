@@ -56,9 +56,22 @@ public class EditGeneralValidator implements Validator{
     public boolean validate() throws SQLException {
         errors = new ArrayList<>();
 
-        List<GeneralPair> pairs = Arrays.asList(new StringPair("firstname",firstname),new StringPair("lastname",lastname),
-                new StringPair("nickname",nickname),new StringPair("email",email),new StringKeyPair<Integer>("gender",gender),
-                new StringKeyPair<Integer>("privacy",privacy));
+        List<GeneralPair> pairs = new ArrayList<>();
+        pairs.add(new StringPair("firstname",firstname));
+        pairs.add(new StringPair("lastname",lastname));
+        pairs.add(new StringPair("nickname",nickname));
+        pairs.add(new StringPair("email",email));
+        pairs.add(new StringKeyPair<Integer>("gender",gender));
+        pairs.add(new StringKeyPair<Integer>("privacy",privacy));
+        if(country != null)
+            pairs.add(new StringPair("country",country));
+        if(city != null)
+            pairs.add(new StringPair("city",city));
+        if(website != null)
+            pairs.add(new StringPair("website",website));
+        if(bio != null)
+            pairs.add(new StringPair("bio",bio));
+
         for(GeneralPair pair: pairs){
             String key = (String)pair.getKey();
             Object value = pair.getValue();
