@@ -25,7 +25,6 @@
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/register/RegisterServlet.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/dao/UserDAO.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/logout/LogoutServlet.java
-/home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/listeners/sessionListener.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/user/edit/EditProfilePageServlet.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/EditGeneralValidator.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/errors/DirectionalFollowNotAdded.java

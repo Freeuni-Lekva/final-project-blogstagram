@@ -62,4 +62,3 @@ org/blogstagram/validators/EditGeneralValidator.class
 org/blogstagram/dao/FollowDao.class
 org/blogstagram/validators/CheckUserPasswordValidator.class
 org/blogstagram/validators/PasswordFormatValidator.class
-org/blogstagram/listeners/sessionListener.class
