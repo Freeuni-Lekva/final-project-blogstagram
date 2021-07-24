@@ -4,54 +4,93 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d23fff88-d96c-48f2-a7cb-30c07e4c89b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/Validators/GetUserConnectionsValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/UserConnectionsServlet.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/testFollowResponseServlet.html" afterDir="false" />
+    <list default="true" id="02b4ded1-edb2-4c54-9799-4cfc70fa5d07" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/followSystemTests/DirectedFollowTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/followSystemTests/FollowApiTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/followSystemTests/FollowDaoDummy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/followSystemTests/FollowDaoTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/followSystemTests/TestFollowQueries.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/CheckUserPasswordValidator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/EditGeneralValidator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/EditPasswordValidator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/NewPasswordDifferentValidator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/followSystemTests/DirectedFollowTests.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/followSystemTests/FollowApiTests$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/followSystemTests/FollowApiTests.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/followSystemTests/FollowDaoDummy.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/followSystemTests/FollowDaoTests$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/followSystemTests/FollowDaoTests$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/followSystemTests/FollowDaoTests$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/followSystemTests/FollowDaoTests$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/followSystemTests/FollowDaoTests.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/followSystemTests/TestFollowQueries$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/followSystemTests/TestFollowQueries$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/followSystemTests/TestFollowQueries$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/followSystemTests/TestFollowQueries.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2021-07-16" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2021-07-20" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2021-07-23" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/Validators/FollowRequestValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/Validators/FollowRequestValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/Validators/UserIdValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/Validators/UserIdValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/Validators/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/Validators/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlFollowDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlFollowDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/DatabaseError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/DatabaseError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/DirectionalFollowNotAdded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/DirectionalFollowNotAdded.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/InvalidSQLQueryException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/InvalidSQLQueryException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/NotLoggedInException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/NotLoggedInException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/NotValidUserIdException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/NotValidUserIdException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/UserConnectionsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/UserConnectionsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/followResponseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/followResponseServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/followServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/followServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/api/FollowApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/api/FollowApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/api/StatusCodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/api/StatusCodes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/sessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/sessionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/SessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/SessionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/DirectedFollow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/DirectedFollow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/FollowQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/FollowQueries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/todo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/todo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/HelloServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/UnitTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/StringHasher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/StringHasher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/EmailExistsValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/EmailExistsValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/EmailFormatValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/EmailFormatValidator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/FollowRequestValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/FollowRequestValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/GenderValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/GenderValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/GetUserConnectionsValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/GetUserConnectionsValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/IllegalCharactersValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/IllegalCharactersValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/LoginValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/LoginValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/PasswordFormatValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/PasswordFormatValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/PrivacyValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/PrivacyValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/UserExistsValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/UserExistsValidator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/UserIdValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/UserIdValidator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/Validator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/Validator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/VariableLengthValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/VariableLengthValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/followValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/Validators/followValidator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/dao/SqlFollowDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/dao/SqlFollowDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/DatabaseError.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/DatabaseError.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/DirectionalFollowNotAdded.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/DirectionalFollowNotAdded.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/InvalidSQLQueryException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/InvalidSQLQueryException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/NotLoggedInException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/NotLoggedInException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/NotValidUserIdException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/errors/NotValidUserIdException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/dao/UserDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/Servlets/UserConnectionsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/Servlets/UserConnectionsServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/Servlets/followResponseServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/Servlets/followResponseServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/Servlets/followServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/Servlets/followServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/api/FollowApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/api/FollowApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/api/StatusCodes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/followSystem/api/StatusCodes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/sessionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/sessionListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/models/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/SessionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/SessionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/contextListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/contextListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/login/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/login/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/logout/LogoutServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/logout/LogoutServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/models/DirectedFollow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/models/DirectedFollow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/register/RegisterServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/register/RegisterServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/sql/FollowQueries.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/sql/FollowQueries.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/user/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/user/UserServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/user/edit/EditProfile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/user/edit/EditProfile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/user/edit/EditProfilePageServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/user/edit/EditProfilePageServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/validators/CheckUserPasswordValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/validators/CheckUserPasswordValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/validators/EditGeneralValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/validators/EditGeneralValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/validators/EditPasswordValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/validators/EditPasswordValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/validators/NewPasswordDifferentValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/validators/NewPasswordDifferentValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/validators/RegisterValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/validators/RegisterValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/validators/UserUniqueValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/validators/UserUniqueValidator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2021-07-13" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2021-07-13" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2021-07-15" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2021-07-15" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/errors/custom404error_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/errors/custom404error_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/login/login_jsp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/login/login_jsp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/login/login_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/login/login_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/register/register_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/register/register_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/bootstrap_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/bootstrap_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/footer_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/footer_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/nav_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/nav_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/followButtonTemplate_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/followButtonTemplate_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/gearIconTemplate_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/gearIconTemplate_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/userBioTemplate_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/userBioTemplate_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/userGeneralInfoTemplate_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/userGeneralInfoTemplate_jsp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/userPage_jsp.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/userPage_jsp.java" afterDir="false" />
     </list>
-
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,7 +170,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d23fff88-d96c-48f2-a7cb-30c07e4c89b9" name="Default Changelist" comment="" />
+      <changelist id="02b4ded1-edb2-4c54-9799-4cfc70fa5d07" name="Default Changelist" comment="" />
       <created>1624608543602</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
