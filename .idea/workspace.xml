@@ -33,6 +33,7 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1unZmCgAu16jAZqSZLBsVPcWj5P" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -60,7 +61,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Blogstagram" type="MavenRunConfiguration" factoryName="Maven">
+    <configuration name="Blogstagram [tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
         <option name="myRunnerSettings" />
@@ -83,9 +84,7 @@
           </MavenRunnerParameters>
         </option>
       </MavenSettings>
-      <method v="2">
-        <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/Blogstagram/pom.xml" goal="clean" />
-      </method>
+      <method v="2" />
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
