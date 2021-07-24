@@ -26,7 +26,7 @@ public class CommentLikeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String user_id = "11";//(String) request.getSession().getAttribute("currentUserID");
+        String user_id = (String) request.getSession().getAttribute("currentUserID");
         if(user_id == null){
             response.sendError(response.SC_UNAUTHORIZED);
             return;

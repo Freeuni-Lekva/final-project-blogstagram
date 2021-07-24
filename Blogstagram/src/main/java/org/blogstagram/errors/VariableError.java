@@ -31,4 +31,7 @@ public class VariableError implements GeneralError {
     }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
