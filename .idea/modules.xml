@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/final-project-blogstagram.iml" filepath="$PROJECT_DIR$/.idea/final-project-blogstagram.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Blogstagram/Blogstagram.iml" filepath="$PROJECT_DIR$/Blogstagram/Blogstagram.iml" />
       <module fileurl="file://$PROJECT_DIR$/Blogstagram/untitled.iml" filepath="$PROJECT_DIR$/Blogstagram/untitled.iml" />
     </modules>
   </component>
