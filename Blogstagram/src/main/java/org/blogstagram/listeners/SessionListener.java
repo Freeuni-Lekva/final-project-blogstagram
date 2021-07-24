@@ -10,8 +10,6 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 import java.sql.Connection;
 
-import static org.blogstagram.dao.SqlFollowDao.REAL;
-
 
 @WebListener
 public class SessionListener implements HttpSessionListener {
