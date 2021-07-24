@@ -1,0 +1,11 @@
+implement blog api
+
+
+Sqlblogdao implements blogdao interface
+sqlblogdao -
+addblog
+removeblog
+getModerators
+editBlog
+getBlogsOfuser(id)
+getBlog(id)

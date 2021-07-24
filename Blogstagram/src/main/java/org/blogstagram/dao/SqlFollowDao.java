@@ -19,17 +19,22 @@ public class SqlFollowDao implements FollowDao {
     private final SqlQueries queries;
     private final Connection connection;
     private UserDAO userDao;
+    public static final int TEST = 0;
+    public static final int REAL = 1;
 
     public void setUserDao(UserDAO userDao) {
         if(userDao == null) throw new NullPointerException("User Dao object can't be null.");
         this.userDao = userDao;
     }
 
-    public SqlFollowDao(Connection connection){
+    public SqlFollowDao(Connection connection, int usePurpose){
         if(connection == null)
             throw new NullPointerException("Connection can't be null");
+        if(usePurpose != TEST && usePurpose != REAL){
+            throw new IllegalArgumentException("use purpose must be TEST OR REAL implementation.");
+        }
         this.connection = connection;
-        queries = new FollowQueries();
+        queries = new FollowQueries(usePurpose);
     }
 
 
@@ -162,7 +167,7 @@ public class SqlFollowDao implements FollowDao {
         insertFields.add("from_user_id");
         insertFields.add("to_user_id");
         try {
-            String query = queries.getInsertQuery(insertFields);
+            String query = queries.getInsertQuery(insertFields, 1);
             PreparedStatement stm = connection.prepareStatement(query);
             stm.setInt(1, dFollow.getFromId());
             stm.setInt(2, dFollow.getToId());
@@ -170,7 +175,6 @@ public class SqlFollowDao implements FollowDao {
             stm.close();
             if(addedRows != 1) throw new DirectionalFollowNotAdded("Directional follow is not added.");
         } catch (InvalidSQLQueryException | SQLException e) {
-            System.out.println(e);
             throw new DatabaseError("Couldn't connect to database");
         }
 
