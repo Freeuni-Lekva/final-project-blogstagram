@@ -24,7 +24,6 @@ public class contextListener implements ServletContextListener {
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
-
     }
 
     @Override

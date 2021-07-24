@@ -30,4 +30,3 @@ public class VariableError implements GeneralError {
         return errorMessage;
     }
 }
-

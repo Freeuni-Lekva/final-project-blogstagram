@@ -12,7 +12,6 @@ public class UserDAO {
                                                                 "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String UPDATE_USER_GENERAL_INFO_QUERY = "UPDATE users SET firstname = ?,lastname = ?,nickname = ?,users.role = ?,email = ?,birthday = ?,gender = ?,privacy = ?,country = ?,city = ?,website = ?,bio = ? " +
             "WHERE id = ? OR nickname = ? OR email = ?";
-
     private static final String UPDATE_USER_PICTURE_QUERY = "UPDATE users SET image = ? WHERE id = ? OR nickname = ? OR email = ?";
 
     private static final String UPDATE_USER_PASSWORD_QUERY = "UPDATE users SET password = ? WHERE id = ? OR email = ? OR nickname = ?";
