@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 import java.sql.Connection;
 
+import static org.blogstagram.dao.SqlFollowDao.REAL;
+
 
 @WebListener
 public class SessionListener implements HttpSessionListener {
@@ -17,7 +19,7 @@ public class SessionListener implements HttpSessionListener {
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {
         Connection dbConnection = (Connection) httpSessionEvent.getSession().getServletContext().getAttribute("dbConnection");
         UserDAO userDao = new UserDAO(dbConnection);
-        SqlFollowDao followDao = new SqlFollowDao(dbConnection);
+        SqlFollowDao followDao = new SqlFollowDao(dbConnection, SqlFollowDao.REAL);
         followDao.setUserDao(userDao);
         // set follow request sender to followDao. when implemented
         httpSessionEvent.getSession().setAttribute("SqlFollowDao", followDao);
