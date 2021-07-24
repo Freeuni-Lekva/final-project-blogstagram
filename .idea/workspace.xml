@@ -60,7 +60,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserUniqueValidatorTest">
+  <component name="RunManager" selected="JUnit.PasswordFormatValidatorTest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -102,6 +102,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PasswordFormatValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Blogstagram" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.blogstagram.tests.ValidatorsTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.blogstagram.tests.ValidatorsTests" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.PasswordFormatValidatorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PrivacyValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Blogstagram" />
       <extension name="coverage">
@@ -127,21 +142,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.tests.ValidatorsTests" />
       <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.UserUniqueValidatorTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VariableLengthValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Blogstagram" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.blogstagram.tests.ValidatorsTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.blogstagram.tests.ValidatorsTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.VariableLengthValidatorTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -174,11 +174,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PasswordFormatValidatorTest" />
         <item itemvalue="JUnit.UserUniqueValidatorTest" />
         <item itemvalue="JUnit.GenderValidatorTest" />
         <item itemvalue="JUnit.PrivacyValidatorTest" />
         <item itemvalue="JUnit.IllegalCharactersValidatorTest" />
-        <item itemvalue="JUnit.VariableLengthValidatorTest" />
       </list>
     </recent_temporary>
   </component>
