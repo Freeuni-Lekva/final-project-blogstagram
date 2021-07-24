@@ -1,10 +1,19 @@
 package org.blogstagram.sql;
 
+import org.blogstagram.dao.SqlFollowDao;
 import org.blogstagram.errors.InvalidSQLQueryException;
 
 import java.util.List;
 
 public class FollowQueries implements SqlQueries{
+    private final String tableName;
+    public FollowQueries(int purpose){
+        if(purpose == SqlFollowDao.REAL) tableName = "follows";
+        else if(purpose == SqlFollowDao.TEST) tableName = "follows_test_t";
+        else throw new IllegalArgumentException("purpose must be test or real");
+    }
+
+
     @Override
     public String getUpdateQuery(List<String> updateFields, List<String> whereClause) {
         return null;
@@ -30,7 +39,7 @@ public class FollowQueries implements SqlQueries{
         builder.append(" ");
         builder.append(selectFields.get(selectFields.size() - 1));
         builder.append(System.lineSeparator());
-        builder.append("FROM follows");
+        builder.append("FROM " + tableName + " ");
         builder.append(System.lineSeparator());
         if(whereClause.size() != 0)
             addWhereClause(builder, whereClause);
@@ -43,7 +52,7 @@ public class FollowQueries implements SqlQueries{
         if(whereClause.size() == 0)
             throw new InvalidSQLQueryException("Query can't be generated.");
         StringBuilder builder = new StringBuilder();
-        builder.append("DELETE from follows ");
+        builder.append("DELETE from " + tableName + " ");
         addWhereClause(builder, whereClause);
         builder.append(";");
         return builder.toString();
@@ -54,7 +63,7 @@ public class FollowQueries implements SqlQueries{
         if(insertFields.size() == 0)
             throw new InvalidSQLQueryException("Query can't be generated.");
         StringBuilder builder = new StringBuilder();
-        builder.append("INSERT INTO follows (");
+        builder.append("INSERT INTO " + tableName +  " (");
         for(int k = 0; k < insertFields.size() - 1; k++){
             builder.append(insertFields.get(k)).append(", ");
         }
