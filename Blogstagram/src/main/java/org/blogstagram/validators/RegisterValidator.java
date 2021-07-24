@@ -97,7 +97,7 @@ public class RegisterValidator implements Validator{
 
 
         /* Each value must contain at least 1 character */
-        Pattern CP = Pattern.compile("[A-Z]");
+        Pattern CP = Pattern.compile("[a-zA-Z]+");
         for(StringPair pair: generalInformationPairs){
             String value = pair.getValue().toUpperCase();
             Matcher CM = CP.matcher(value);
