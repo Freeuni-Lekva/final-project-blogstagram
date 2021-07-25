@@ -22,23 +22,25 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
     public static final int TEST = 0;
     public static final int REAL = 1;
     private final SqlQueries blogQueries;
-    private final BlogModeratorDao moderatorDao;
+    private final SqlBlogModeratorDao moderatorDao;
     private final Connection connection;
     private final List <Edit> editable;
+    private UserDAO userDAO;
 
 
 
-
-    public SqlBlogDAO(Connection connection, int usePurpose){
+    public SqlBlogDAO(Connection connection, UserDAO userDAO, int usePurpose){
         if(connection == null)
             throw new NullPointerException("Connection object can't be null.");
-        else if(usePurpose == TEST || usePurpose == REAL){
+        else if(usePurpose != TEST && usePurpose != REAL){
             throw new IllegalArgumentException("Use purpose must be Test or real");
         }
 
         this.connection = connection;
         blogQueries = new BlogQueries(usePurpose);
+        this.userDAO = userDAO;
         moderatorDao = new SqlBlogModeratorDao(connection);
+        moderatorDao.setUserDao(userDAO);
         editable = Arrays.asList(new EditTitle(this), new EditContent(this), new EditModerators(this));
     }
 

@@ -68,9 +68,9 @@ public abstract class SqlQueries {
         for(int k = 0; k < insertFields.size() - 1; k++){
             builder.append(insertFields.get(k)).append(", ");
         }
-        builder.append(insertFields.get(insertFields.size() - 1)).append(")");
+        builder.append(insertFields.get(insertFields.size() - 1)).append(")").append("VALUES");
         for(int j = 0; j < numRows; j++) {
-            builder.append("VALUES");
+
             builder.append("(");
             for (int k = 0; k < insertFields.size() - 1; k++) {
                 builder.append("?").append(", ");

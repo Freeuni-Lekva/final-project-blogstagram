@@ -56,14 +56,16 @@ public class SqlBlogModeratorDao implements BlogModeratorDao{
         int paramIndex = 1;
         try {
             PreparedStatement prpStm = connection.prepareStatement(query);
+            System.out.println(moderators.size());
             for (User moderator : moderators) {
                 prpStm.setInt(paramIndex++, blogId);
                 prpStm.setInt(paramIndex++, moderator.getId());
             }
+            System.out.println(prpStm);
             int affectedRows = prpStm.executeUpdate();
             assertEquals(affectedRows, moderators.size());
         } catch (SQLException exception) {
-            throw new DatabaseError("Query can't be generated.");
+            throw new DatabaseError("Can't Connect to database.");
         }
 
     }
