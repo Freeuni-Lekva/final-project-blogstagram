@@ -19,7 +19,7 @@ public class UserSearchAPI {
                         "firstname LIKE ? OR lastname LIKE ? \n" +
                         "OR nickname LIKE ? OR CONCAT(firstname,' ',lastname) LIKE ?);";
 
-    public static final String ALL_QUERY = "SELECT id,firstname,lastname,nickname,image,users.role FROM users WHERE users.role != "+User.ADMIN_ROLE+";";
+    public static final String ALL_QUERY = "SELECT id,firstname,lastname,nickname,image,users.role FROM users WHERE users.role != \'"+User.ADMIN_ROLE+"\';";
 
     public UserSearchAPI(Connection connection){
         this.connection = connection;
