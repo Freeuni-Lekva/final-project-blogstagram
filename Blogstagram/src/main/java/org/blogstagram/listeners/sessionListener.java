@@ -2,6 +2,7 @@ package org.blogstagram.listeners;
 
 
 import org.blogstagram.dao.CommentDAO;
+import org.blogstagram.dao.SqlBlogDAO;
 import org.blogstagram.dao.SqlFollowDao;
 import org.blogstagram.dao.UserDAO;
 
@@ -19,6 +20,7 @@ public class sessionListener implements HttpSessionListener {
         UserDAO userDao = new UserDAO(dbConnection);
         SqlFollowDao followDao = new SqlFollowDao(dbConnection, SqlFollowDao.REAL);
         followDao.setUserDao(userDao);
+        SqlBlogDAO blogDAO = new SqlBlogDAO(dbConnection, SqlBlogDAO.REAL);
         // set follow request sender to followDao. when implemented
         httpSessionEvent.getSession().setAttribute("SqlFollowDao", followDao);
         httpSessionEvent.getSession().setAttribute("UserDAO", userDao);

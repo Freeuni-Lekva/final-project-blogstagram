@@ -1,5 +1,6 @@
 package org.blogstagram.dao;
 
+import org.blogstagram.blogs.edit.*;
 import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.InvalidSQLQueryException;
 import org.blogstagram.models.Blog;
@@ -13,16 +14,17 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class SqlBlogDAO implements BlogDAO{
+public class SqlBlogDAO implements BlogDAO, EditBlog {
     public static final int TEST = 0;
     public static final int REAL = 1;
     private final SqlQueries blogQueries;
     private final BlogModeratorDao moderatorDao;
     private final Connection connection;
-
+    private final List <Edit> editable;
 
 
 
@@ -37,6 +39,7 @@ public class SqlBlogDAO implements BlogDAO{
         this.connection = connection;
         blogQueries = new BlogQueries(usePurpose);
         moderatorDao = new SqlBlogModeratorDao(connection);
+        editable = Arrays.asList(new EditTitle(this), new EditContent(this), new EditModerators(this));
     }
 
 
@@ -63,12 +66,20 @@ public class SqlBlogDAO implements BlogDAO{
     }
 
     @Override
-    public void removeBlog(Blog blog) {
-        //String query =
+    public void removeBlog(Blog blog) throws InvalidSQLQueryException, DatabaseError {
+        String removeBlogQuery = blogQueries.getDeleteQuery(Collections.singletonList("blog_id"));
+        try {
+            PreparedStatement prpStm = connection.prepareStatement(removeBlogQuery);
+            prpStm.setInt(1, blog.getId());
+            int affectedRows = prpStm.executeUpdate();
+            assertEquals(affectedRows, 1);
+        } catch (SQLException exception) {
+            throw new DatabaseError("Can't connect to database");
+        }
     }
 
     @Override
-    public List<User> getModerators(int blogId) throws InvalidSQLQueryException, DatabaseError {
+    public List <User> getModerators(int blogId) throws InvalidSQLQueryException, DatabaseError {
         return moderatorDao.getModerators(blogId);
     }
 
@@ -85,12 +96,24 @@ public class SqlBlogDAO implements BlogDAO{
 
 
     @Override
-    public void editBlog(Blog blog) {
-        // implement
+    public void editBlog(Blog blog) throws InvalidSQLQueryException, DatabaseError {
+        Blog currentBlog = getBlog(blog.getId());
+        for(Edit edit : editable){
+            if(edit.mustEdit(blog, currentBlog)) edit.edit(blog, currentBlog);
+        }
+    }
+
+    private void initBlogObject(Blog blog, ResultSet resultSet) throws SQLException, DatabaseError, InvalidSQLQueryException {
+        blog.setId(resultSet.getInt(1));
+        blog.setUser_id(resultSet.getInt(2));
+        blog.setTitle(resultSet.getString(3));
+        blog.setContent(resultSet.getString(4));
+        blog.setCreated_at(resultSet.getDate(5));
+        blog.setBlogModerators(moderatorDao.getModerators(blog.getId()));
     }
 
     @Override
-    public List<Blog> getBlogsOfUser(int user_id) throws DatabaseError, InvalidSQLQueryException {
+    public List <Blog> getBlogsOfUser(int user_id) throws DatabaseError, InvalidSQLQueryException {
         String query = blogQueries.getSelectQuery(Arrays.asList("id", "user_id", "title", "content", "created_At"),
                 Collections.singletonList("user_id"));
         try {
@@ -100,11 +123,7 @@ public class SqlBlogDAO implements BlogDAO{
             ResultSet resultSet = prpStm.executeQuery();
             while(resultSet.next()){
                 Blog blog = new Blog();
-                blog.setId(resultSet.getInt(1));
-                blog.setUser_id(resultSet.getInt(2));
-                blog.setTitle(resultSet.getString(3));
-                blog.setContent(resultSet.getString(4));
-                blog.setCreated_at(resultSet.getDate(5));
+                initBlogObject(blog, resultSet);
                 blogs.add(blog);
             }
             return blogs;
@@ -123,12 +142,7 @@ public class SqlBlogDAO implements BlogDAO{
             prpStm.setInt(1, id);
             ResultSet resultSet = prpStm.executeQuery();
             assertTrue(resultSet.next());
-            blog.setId(resultSet.getInt(1));
-            blog.setUser_id(resultSet.getInt(2));
-            blog.setTitle(resultSet.getString(3));
-            blog.setContent(resultSet.getString(4));
-            blog.setCreated_at(resultSet.getDate(5));
-            blog.setBlogModerators(getModerators(blog.getId()));
+            initBlogObject(blog, resultSet);
             return blog;
         } catch (SQLException | DatabaseError exception) {
             exception.printStackTrace();
@@ -145,4 +159,38 @@ public class SqlBlogDAO implements BlogDAO{
     public int getAmountOfBlogsByUser(int id) throws DatabaseError, InvalidSQLQueryException {
         return getBlogsOfUser(id).size();
     }
+
+    @Override
+    public void editTitle(int blogId, String newTitle) throws DatabaseError, InvalidSQLQueryException {
+        String query = blogQueries.getUpdateQuery(Collections.singletonList("title"), Collections.singletonList("blog_id"));
+        try {
+            PreparedStatement prpStm = connection.prepareStatement(query);
+            prpStm.setInt(1, blogId);
+            prpStm.setString(2, newTitle);
+            int affectedRows = prpStm.executeUpdate();
+            assertEquals(affectedRows, 1);
+        } catch (SQLException exception) {
+            throw new DatabaseError("Can't Connect to database");
+        }
+    }
+
+    @Override
+    public void editContent(int blogId, String newContent) throws InvalidSQLQueryException, DatabaseError {
+        String query = blogQueries.getUpdateQuery(Collections.singletonList("content"), Collections.singletonList("blog_id"));
+        try {
+            PreparedStatement prpStm = connection.prepareStatement(query);
+            prpStm.setInt(1, blogId);
+            prpStm.setString(2, newContent);
+            int affectedRows = prpStm.executeUpdate();
+            assertEquals(affectedRows, 1);
+        } catch (SQLException exception) {
+            throw new DatabaseError("Can't Connect to database");
+        }
+    }
+
+    @Override
+    public void editModerators(Blog blog, List<User> newModerators) throws DatabaseError, InvalidSQLQueryException {
+        moderatorDao.editModerators(blog, newModerators);
+    }
+
 }

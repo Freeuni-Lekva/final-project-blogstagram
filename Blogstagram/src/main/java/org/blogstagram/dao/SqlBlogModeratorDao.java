@@ -2,6 +2,7 @@ package org.blogstagram.dao;
 
 import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.InvalidSQLQueryException;
+import org.blogstagram.models.Blog;
 import org.blogstagram.models.User;
 import org.blogstagram.sql.BlogModeratorQueries;
 import org.blogstagram.sql.SqlQueries;
@@ -10,10 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -83,5 +81,17 @@ public class SqlBlogModeratorDao implements BlogModeratorDao{
                 exception.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void editModerators(Blog blog, List<User> newModerators) throws InvalidSQLQueryException, DatabaseError {
+        Set<User> add = new HashSet<>(newModerators);
+        Set <User> remove = new HashSet<>(blog.getBlogModerators());
+        Set <User> intersection = new HashSet<>(add);
+        intersection.retainAll(remove);
+        add.removeAll(intersection);
+        remove.removeAll(intersection);
+        removeModerators(blog.getId(), new ArrayList<>(remove));
+        addModerators(blog.getId(), new ArrayList<>(add));
     }
 }
