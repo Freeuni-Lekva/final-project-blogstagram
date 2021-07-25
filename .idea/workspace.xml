@@ -60,7 +60,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.NewPasswordDifferentValidatorTest">
+  <component name="RunManager" selected="JUnit.EditPasswordValidatorTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -89,7 +89,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GenderValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EditPasswordValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Blogstagram" />
       <extension name="coverage">
         <pattern>
@@ -98,7 +98,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.tests.ValidatorsTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.GenderValidatorTest" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.EditPasswordValidatorTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -176,11 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EditPasswordValidatorTest" />
         <item itemvalue="JUnit.NewPasswordDifferentValidatorTest" />
         <item itemvalue="JUnit.CheckUserPasswordValidatorTest" />
         <item itemvalue="JUnit.PasswordFormatValidatorTest" />
         <item itemvalue="JUnit.UserUniqueValidatorTest" />
-        <item itemvalue="JUnit.GenderValidatorTest" />
       </list>
     </recent_temporary>
   </component>
