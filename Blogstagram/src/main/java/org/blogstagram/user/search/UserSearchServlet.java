@@ -25,7 +25,6 @@ public class UserSearchServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String query = req.getParameter("query");
-        System.out.println(query);
         UserSearchAPI userSearchAPI = new UserSearchAPI(getConnectionFromContext(req));
 
         Gson gson = new Gson();
