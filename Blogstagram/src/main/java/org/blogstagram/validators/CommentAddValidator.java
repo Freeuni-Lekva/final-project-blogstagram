@@ -5,10 +5,8 @@ import org.blogstagram.dao.CommentDAO;
 import java.sql.SQLException;
 
 public class CommentAddValidator implements CommentSystemValidator{
-    CommentDAO commentDAO;
-
     @Override
-    public boolean validate(Object obj) throws SQLException {
+    public boolean validate(Object obj, Object obj1) throws SQLException {
         String comment = (String) obj;
         if(comment.length() > 600 || comment.length() == 0){
             return false;
@@ -16,8 +14,4 @@ public class CommentAddValidator implements CommentSystemValidator{
         return true;
     }
 
-    public void setCommentDAO(CommentDAO commentDAO) {
-
-        this.commentDAO = commentDAO;
-    }
 }
