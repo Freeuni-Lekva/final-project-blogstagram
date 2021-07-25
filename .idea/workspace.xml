@@ -60,7 +60,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CheckUserPasswordValidatorTest">
+  <component name="RunManager" selected="JUnit.NewPasswordDifferentValidatorTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -104,6 +104,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NewPasswordDifferentValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Blogstagram" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.blogstagram.tests.ValidatorsTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.blogstagram.tests.ValidatorsTests" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.NewPasswordDifferentValidatorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PasswordFormatValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Blogstagram" />
       <extension name="coverage">
@@ -114,21 +129,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.tests.ValidatorsTests" />
       <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.PasswordFormatValidatorTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PrivacyValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Blogstagram" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.blogstagram.tests.ValidatorsTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.blogstagram.tests.ValidatorsTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.PrivacyValidatorTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -176,11 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NewPasswordDifferentValidatorTest" />
         <item itemvalue="JUnit.CheckUserPasswordValidatorTest" />
         <item itemvalue="JUnit.PasswordFormatValidatorTest" />
         <item itemvalue="JUnit.UserUniqueValidatorTest" />
         <item itemvalue="JUnit.GenderValidatorTest" />
-        <item itemvalue="JUnit.PrivacyValidatorTest" />
       </list>
     </recent_temporary>
   </component>
