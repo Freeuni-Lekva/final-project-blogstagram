@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<form id = "test" action = "/followSystem" method = "post">
+    <input type = "submit" id = "Follow" value = "Follow/unfollow">
+</form>
+
+<script>
+        console.log("here");
+        let form = document.getElementById("test");
+        let to_id = 3;
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            $.post("/followSystem", {
+                to_id
+            }).then(rawResponse => {
+            console.log(JSON.parse(rawResponse));
+        }).catch(error => {
+            console.log(error);
+        });
+
+    });
+
+
+    </script>
+</body>
+</html>

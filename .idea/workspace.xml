@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2dd6a10e-f2ca-496e-8f8a-91d308f21f11" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/Blogstagram.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/Blogstagram.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/listeners/SessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/listeners/SessionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/untitled.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/untitled.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +40,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/validators" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -56,11 +56,11 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn compile" />
-      <command value="mvn install" />
       <command value="mvn clean" />
+      <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.EditPasswordValidatorTest">
+  <component name="RunManager" selected="JUnit.CommentLikeValidatorTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -74,8 +74,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CheckUserPasswordValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Blogstagram" />
+    <configuration name="BlogExistsValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="untitled" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.blogstagram.tests.ValidatorsTests.*" />
@@ -83,14 +83,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.tests.ValidatorsTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.CheckUserPasswordValidatorTest" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.BlogExistsValidatorTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EditPasswordValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Blogstagram" />
+    <configuration name="CommentAddValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="untitled" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.blogstagram.tests.ValidatorsTests.*" />
@@ -98,14 +98,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.tests.ValidatorsTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.EditPasswordValidatorTest" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.CommentAddValidatorTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NewPasswordDifferentValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Blogstagram" />
+    <configuration name="CommentDeleteValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="untitled" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.blogstagram.tests.ValidatorsTests.*" />
@@ -113,14 +113,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.tests.ValidatorsTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.NewPasswordDifferentValidatorTest" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.CommentDeleteValidatorTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PasswordFormatValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Blogstagram" />
+    <configuration name="CommentExistsValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="untitled" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.blogstagram.tests.ValidatorsTests.*" />
@@ -128,14 +128,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.tests.ValidatorsTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.PasswordFormatValidatorTest" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.CommentExistsValidatorTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserUniqueValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Blogstagram" />
+    <configuration name="CommentLikeValidatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="untitled" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.blogstagram.tests.ValidatorsTests.*" />
@@ -143,7 +143,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.tests.ValidatorsTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.UserUniqueValidatorTest" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.ValidatorsTests.CommentLikeValidatorTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -176,11 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.EditPasswordValidatorTest" />
-        <item itemvalue="JUnit.NewPasswordDifferentValidatorTest" />
-        <item itemvalue="JUnit.CheckUserPasswordValidatorTest" />
-        <item itemvalue="JUnit.PasswordFormatValidatorTest" />
-        <item itemvalue="JUnit.UserUniqueValidatorTest" />
+        <item itemvalue="JUnit.CommentLikeValidatorTest" />
+        <item itemvalue="JUnit.CommentAddValidatorTest" />
+        <item itemvalue="JUnit.CommentDeleteValidatorTest" />
+        <item itemvalue="JUnit.CommentExistsValidatorTest" />
+        <item itemvalue="JUnit.BlogExistsValidatorTest" />
       </list>
     </recent_temporary>
   </component>
