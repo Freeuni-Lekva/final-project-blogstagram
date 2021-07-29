@@ -5,13 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02b4ded1-edb2-4c54-9799-4cfc70fa5d07" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/api/BlogStatusCodes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/edit/EditHashtags.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/HashTagDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlHashTagDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/HashTag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/HashTagQueries.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogContentValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogIdValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogModeratorsValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogTitleValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/EditRequestValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/RemoveRequestValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/getBlogRequestValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/edit/EditBlog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/edit/EditBlog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/servlets/BlogServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/servlets/BlogServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/servlets/addBlogServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/servlets/addBlogServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/BlogDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/BlogDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlBlogDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlBlogDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlBlogModeratorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlBlogModeratorDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/SessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/SessionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/SqlQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/SqlQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/Blog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/Blog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/BlogModeratorQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/BlogModeratorQueries.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

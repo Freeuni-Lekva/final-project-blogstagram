@@ -12,9 +12,29 @@ public class Blog {
     private Date createdAt;
     public static final int NO_BLOG_ID = -1;
     private List <User> blogModerators;
+    private List <HashTag> hashTagList;
+
+    public List<HashTag> getHashTagList() {
+        return hashTagList;
+    }
+
+    public void setHashTagList(List<HashTag> hashTagList) {
+        if(hashTagList == null)
+            throw new NullPointerException("hash tag list can't be null");
+        this.hashTagList = hashTagList;
+    }
 
     public Blog(){
         id = NO_BLOG_ID;
+    }
+
+    public Blog(final Blog other){
+        setId(other.getId());
+        setUser_id(other.getUser_id());
+        setTitle(other.getTitle());
+        setContent(other.getContent());
+        setBlogModerators(other.getBlogModerators());
+        setCreated_at(other.getCreated_at());
     }
 
     public int getId() {
@@ -72,6 +92,7 @@ public class Blog {
             throw new NullPointerException("Moderators list can't be null");
         this.blogModerators = blogModerators;
     }
+
 
 
 }

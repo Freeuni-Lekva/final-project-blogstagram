@@ -1,11 +1,14 @@
 package org.blogstagram.dao;
 
+import com.sun.org.apache.regexp.internal.RE;
 import org.blogstagram.errors.DatabaseError;
+import org.blogstagram.errors.GeneralError;
 import org.blogstagram.errors.InvalidSQLQueryException;
 import org.blogstagram.models.Blog;
 import org.blogstagram.models.User;
 import org.blogstagram.sql.BlogModeratorQueries;
 import org.blogstagram.sql.SqlQueries;
+import org.blogstagram.validators.BlogIdValidator;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,12 +23,13 @@ public class SqlBlogModeratorDao implements BlogModeratorDao{
     private final SqlQueries moderatorQueries;
     private final Connection connection;
     private UserDAO userDao;
-
+    public static final int TEST = 0;
+    public static final int REAL = 1;
 
     public SqlBlogModeratorDao(Connection connection) {
         if(connection == null) throw new IllegalArgumentException("Connection is null.");
         this.connection = connection;
-        moderatorQueries = new BlogModeratorQueries();
+        moderatorQueries = new BlogModeratorQueries(REAL);
     }
 
     public void setUserDao(UserDAO userDao){
@@ -36,8 +40,8 @@ public class SqlBlogModeratorDao implements BlogModeratorDao{
 
     @Override
     public List<User> getModerators(int blogId) throws InvalidSQLQueryException, DatabaseError {
-        String query = moderatorQueries.getSelectQuery(Collections.singletonList("user_id"), Collections.singletonList("blog_id"));
         try {
+            String query = moderatorQueries.getSelectQuery(Collections.singletonList("user_id"), Collections.singletonList("blog_id"));
             PreparedStatement prpStm = connection.prepareStatement(query);
             prpStm.setInt(1, blogId);
             List <User> result = new ArrayList<>();
@@ -56,12 +60,13 @@ public class SqlBlogModeratorDao implements BlogModeratorDao{
         int paramIndex = 1;
         try {
             PreparedStatement prpStm = connection.prepareStatement(query);
-            System.out.println(moderators.size());
+            //System.out.println(moderators.size());
+            int id = 1;
             for (User moderator : moderators) {
+                prpStm.setInt(paramIndex++, id++);
                 prpStm.setInt(paramIndex++, blogId);
                 prpStm.setInt(paramIndex++, moderator.getId());
             }
-            System.out.println(prpStm);
             int affectedRows = prpStm.executeUpdate();
             assertEquals(affectedRows, moderators.size());
         } catch (SQLException exception) {

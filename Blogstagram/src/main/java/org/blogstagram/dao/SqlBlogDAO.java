@@ -4,6 +4,7 @@ import org.blogstagram.blogs.edit.*;
 import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.InvalidSQLQueryException;
 import org.blogstagram.models.Blog;
+import org.blogstagram.models.HashTag;
 import org.blogstagram.models.User;
 import org.blogstagram.sql.BlogQueries;
 import org.blogstagram.sql.SqlQueries;
@@ -25,6 +26,7 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
     private final SqlBlogModeratorDao moderatorDao;
     private final Connection connection;
     private final List <Edit> editable;
+    private final SqlHashTagDao hashTagDao;
     private UserDAO userDAO;
 
 
@@ -41,7 +43,9 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
         this.userDAO = userDAO;
         moderatorDao = new SqlBlogModeratorDao(connection);
         moderatorDao.setUserDao(userDAO);
-        editable = Arrays.asList(new EditTitle(this), new EditContent(this), new EditModerators(this));
+        hashTagDao = new SqlHashTagDao(connection);
+        editable = Arrays.asList(new EditTitle(this), new EditContent(this),
+                new EditModerators(this), new EditHashtags(this));
     }
 
 
@@ -60,7 +64,8 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
             assertEquals(1, affectedRows);
             assertTrue(keys.next());
             newBlog.setId(keys.getInt(1));
-            moderatorDao.addModerators(newBlog.getId(), newBlog.getBlogModerators());
+            addModerators(newBlog.getId(), newBlog.getBlogModerators());
+            addHashtags(newBlog.getId(), newBlog.getHashTagList());
         } catch (SQLException exception) {
             throw new DatabaseError("Can't Connect to Database");
         }
@@ -75,6 +80,8 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
             prpStm.setInt(1, blog.getId());
             int affectedRows = prpStm.executeUpdate();
             assertEquals(affectedRows, 1);
+            removeModerators(blog.getId(), blog.getBlogModerators());
+            removeHashtags(blog.getId(), blog.getHashTagList());
         } catch (SQLException exception) {
             throw new DatabaseError("Can't connect to database");
         }
@@ -112,6 +119,7 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
         blog.setContent(resultSet.getString(4));
         blog.setCreated_at(resultSet.getDate(5));
         blog.setBlogModerators(moderatorDao.getModerators(blog.getId()));
+        blog.setHashTagList(hashTagDao.getHashTags(blog.getId()));
     }
 
     @Override
@@ -135,7 +143,7 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
     }
 
     @Override
-    public Blog getBlog(int id) throws InvalidSQLQueryException {
+    public Blog getBlog(int id) throws InvalidSQLQueryException, DatabaseError {
         Blog blog = new Blog();
         String query = blogQueries.getSelectQuery(Arrays.asList("id", "user_id", "title", "content", "created_at"),
                 Collections.singletonList("id"));
@@ -146,20 +154,30 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
             assertTrue(resultSet.next());
             initBlogObject(blog, resultSet);
             return blog;
-        } catch (SQLException | DatabaseError exception) {
+        } catch (SQLException exception) {
             exception.printStackTrace();
         }
         return null;
     }
 
     @Override
-    public boolean blogExists(int id) throws InvalidSQLQueryException {
-        return getBlog(id) != null;
+    public boolean blogExists(int blogId) throws InvalidSQLQueryException, DatabaseError {
+        return getBlog(blogId) != null;
     }
 
     @Override
     public int getAmountOfBlogsByUser(int id) throws DatabaseError, InvalidSQLQueryException {
         return getBlogsOfUser(id).size();
+    }
+
+    @Override
+    public void addHashtags(int blogId, List <HashTag> hashTags) throws DatabaseError, InvalidSQLQueryException {
+        hashTagDao.addHashTags(blogId, hashTags);
+    }
+
+    @Override
+    public void removeHashtags(int blogId, List<HashTag> hashTags) throws DatabaseError, InvalidSQLQueryException {
+        hashTagDao.removeHashTags(blogId, hashTags);
     }
 
     @Override
@@ -193,6 +211,11 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
     @Override
     public void editModerators(Blog blog, List<User> newModerators) throws DatabaseError, InvalidSQLQueryException {
         moderatorDao.editModerators(blog, newModerators);
+    }
+
+    @Override
+    public void editHashTags(Blog blog, List<HashTag> newHashTags) throws DatabaseError, InvalidSQLQueryException {
+        hashTagDao.editHashTags(blog, newHashTags);
     }
 
 }
