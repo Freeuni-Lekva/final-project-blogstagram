@@ -362,7 +362,7 @@ ALTER TABLE `hashtags`
   ADD CONSTRAINT `hashtags_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`id`) ON DELETE CASCADE;
   
 ALTER TABLE `blog_moderators`
-  ADD CONSTRAINT `blogs_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `blog_moderators_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
  
 --
