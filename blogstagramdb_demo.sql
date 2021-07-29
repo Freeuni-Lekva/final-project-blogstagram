@@ -73,6 +73,13 @@ CREATE TABLE `follows` (
 -- Table structure for table `hashtags`
 --
 
+
+CREATE TABLE `blog_moderators` (
+  `id` int(11) NOT NULL,
+  `blog_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 CREATE TABLE `hashtags` (
   `id` int(11) NOT NULL,
   `blog_id` int(11) NOT NULL,
@@ -203,6 +210,10 @@ ALTER TABLE `follows`
   ADD KEY `from_user_id` (`from_user_id`),
   ADD KEY `to_user_id` (`to_user_id`);
 
+ALTER TABLE `blog_moderators`
+  ADD PRIMARY KEY (`id`)
+  ADD KEY (`blog_id`)
+  ADD KEY (`user_id`)
 --
 -- Indexes for table `hashtags`
 --
@@ -280,6 +291,9 @@ ALTER TABLE `follows`
 --
 ALTER TABLE `hashtags`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  
+ALTER TABLE `blog_moderators`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `likes`
@@ -346,7 +360,11 @@ ALTER TABLE `follows`
 --
 ALTER TABLE `hashtags`
   ADD CONSTRAINT `hashtags_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`id`) ON DELETE CASCADE;
-
+  
+ALTER TABLE `blog_moderators`
+  ADD CONSTRAINT `blogs_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+ 
 --
 -- Constraints for table `likes`
 --
