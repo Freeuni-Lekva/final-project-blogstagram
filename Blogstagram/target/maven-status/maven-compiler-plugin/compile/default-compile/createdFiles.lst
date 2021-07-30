@@ -10,7 +10,9 @@ org/blogstagram/validators/GenderValidator.class
 org/blogstagram/validators/BlogExistsValidator.class
 org/blogstagram/validators/PrivacyValidator.class
 org/blogstagram/tests/commentDAOTests/CommentTests.class
+org/blogstagram/tests/commentDAOTests/CommentTests$1.class
 org/blogstagram/models/Comment.class
+org/blogstagram/tests/commentDAOTests/CommentTests$7.class
 org/blogstagram/errors/NotLoggedInException.class
 org/blogstagram/validators/Validator.class
 org/blogstagram/errors/VariableError.class
@@ -18,10 +20,12 @@ org/blogstagram/tests/followSystemTests/FollowDaoTests$1.class
 org/blogstagram/validators/NewPasswordDifferentValidator.class
 org/blogstagram/validators/RegisterValidator.class
 org/blogstagram/validators/CommentSystemValidator.class
+org/blogstagram/tests/commentDAOTests/CommentTests$4.class
 org/blogstagram/user/edit/EditProfile.class
 org/blogstagram/validators/CommentExistsValidator.class
 org/blogstagram/dao/CommentDAO.class
 org/blogstagram/validators/UserUniqueValidator.class
+org/blogstagram/tests/commentDAOTests/CommentTests$3.class
 org/blogstagram/tests/followSystemTests/FollowApiTests$1.class
 org/blogstagram/models/DirectedFollow.class
 org/blogstagram/followSystem/Servlets/UserConnectionsServlet.class
@@ -35,13 +39,16 @@ org/blogstagram/login/LoginServlet.class
 org/blogstagram/tests/followSystemTests/FollowDaoDummy.class
 org/blogstagram/tests/commentDAOTests/prepareData.class
 org/blogstagram/listeners/SessionListener.class
+org/blogstagram/tests/commentDAOTests/CommentTests$10.class
 org/blogstagram/sql/FollowQueries.class
 org/blogstagram/followSystem/Servlets/followResponseServlet.class
 org/blogstagram/followSystem/api/StatusCodes.class
 org/blogstagram/errors/NotValidUserIdException.class
 org/blogstagram/tests/followSystemTests/FollowDaoTests$3.class
 org/blogstagram/validators/EditPasswordValidator.class
+org/blogstagram/tests/commentDAOTests/CommentTests$2.class
 org/blogstagram/logout/LogoutServlet.class
+org/blogstagram/tests/commentDAOTests/CommentTests$6.class
 org/blogstagram/register/RegisterServlet.class
 org/blogstagram/pairs/StringPair.class
 org/blogstagram/validators/UserIdValidator.class
@@ -51,6 +58,7 @@ org/blogstagram/pairs/GeneralPair.class
 org/blogstagram/pairs/StringKeyPair.class
 org/blogstagram/validators/FollowRequestValidator.class
 org/blogstagram/followSystem/api/ResponseJson.class
+org/blogstagram/tests/commentDAOTests/CommentTests$9.class
 org/blogstagram/sql/SqlQueries.class
 org/blogstagram/user/edit/EditProfilePageServlet.class
 org/blogstagram/tests/followSystemTests/TestFollowQueries$1.class
@@ -60,6 +68,7 @@ org/blogstagram/validators/EmailFormatValidator.class
 org/blogstagram/validators/LoginValidator.class
 org/blogstagram/user/UserServlet.class
 org/blogstagram/validators/GetUserConnectionsValidator.class
+org/blogstagram/tests/commentDAOTests/CommentTests$5.class
 org/blogstagram/validators/followValidator.class
 org/blogstagram/followSystem/api/FollowApi.class
 org/blogstagram/models/User.class
@@ -75,5 +84,6 @@ org/blogstagram/listeners/contextListener.class
 org/blogstagram/currentUser/CurrentUserServlet.class
 org/blogstagram/validators/EditGeneralValidator.class
 org/blogstagram/dao/FollowDao.class
+org/blogstagram/tests/commentDAOTests/CommentTests$8.class
 org/blogstagram/validators/CheckUserPasswordValidator.class
 org/blogstagram/validators/PasswordFormatValidator.class

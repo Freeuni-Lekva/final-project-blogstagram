@@ -6,12 +6,15 @@ import org.blogstagram.dao.CommentDAO;
 import org.blogstagram.models.Comment;
 import org.blogstagram.models.User;
 import org.junit.Test;
+import org.junit.function.ThrowingRunnable;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+
+import static org.junit.Assert.assertThrows;
 
 public class CommentTests extends TestCase {
 
@@ -28,7 +31,7 @@ public class CommentTests extends TestCase {
     protected void setUp() throws Exception {
         BasicDataSource source = new BasicDataSource();
         source.setUsername("root");
-        source.setPassword("lukitoclasher"); // local password
+        source.setPassword(""); // local password
         source.setUrl("jdbc:mysql://localhost:3306/blogstagramdb_test");
         try {
             this.connection = source.getConnection();
@@ -225,9 +228,111 @@ public class CommentTests extends TestCase {
         }
     }
 
+    @Test
+    public void testEditCommentException1() throws SQLException {
+        final int comment_id = pd.addDummyComment(users[0].getId(), blog_ids[2]);
+        assertThrows(SQLException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                commentDAO.unlikeComment(comment_id + 1, users[0].getId());
+            }
+        });
+    }
 
+    @Test
+    public void testEditCommentException2() throws SQLException {
+        assertThrows(SQLException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                commentDAO.unlikeComment(-1, users[0].getId());
+            }
+        });
+    }
 
+    @Test
+    public void testEditCommentException3() throws SQLException {
+        final int comment_id = pd.addDummyComment(users[0].getId(), blog_ids[2]);
+        assertThrows(SQLException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                commentDAO.unlikeComment(comment_id + 1, -1);
+            }
+        });
+    }
 
+    @Test
+    public void testAddCommentException1() throws SQLException {
+        assertThrows(SQLException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                pd.addDummyComment(-1, blog_ids[2]);
+            }
+        });
+    }
+
+    @Test
+    public void testAddCommentException2() throws SQLException {
+        assertThrows(SQLException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                pd.addDummyComment(users[0].getId(), -1);
+            }
+        });
+    }
+
+    @Test
+    public void testDeleteCommentException1() throws SQLException {
+        final int comment_id = pd.addDummyComment(users[0].getId(), blog_ids[2]);
+        commentDAO.deleteComment(comment_id);
+        assertThrows(SQLException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                commentDAO.deleteComment(comment_id);
+            }
+        });
+    }
+
+    @Test
+    public void testDeleteCommentException2() throws SQLException {
+        assertThrows(SQLException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                commentDAO.deleteComment(-1);
+            }
+        });
+    }
+
+    @Test
+    public void testLikeCommentException1() throws SQLException {
+        assertThrows(SQLException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                commentDAO.likeComment(-1, users[0].getId());
+            }
+        });
+    }
+
+    @Test
+    public void testLikeCommentException2() throws SQLException {
+        final int comment_id = pd.addDummyComment(users[0].getId(), blog_ids[2]);
+        assertThrows(SQLException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                commentDAO.likeComment(comment_id + 1, users[0].getId());
+            }
+        });
+    }
+
+    @Test
+    public void testUnlikeCommentException2() throws SQLException {
+        final int comment_id = pd.addDummyComment(users[0].getId(), blog_ids[2]);
+        assertThrows(SQLException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                commentDAO.unlikeComment(comment_id, users[0].getId());
+            }
+        });
+    }
 
 
 }
