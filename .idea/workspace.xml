@@ -5,10 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2dd6a10e-f2ca-496e-8f8a-91d308f21f11" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/Blogstagram.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/Blogstagram.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/listeners/SessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/listeners/SessionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/untitled.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/untitled.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/listeners/contextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/listeners/contextListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/CheckUserPasswordValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/EditGeneralValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/EditPasswordValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/EmailExistsValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/EmailFormatValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/FollowRequestValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/GenderValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/GetUserConnectionsValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/IllegalCharactersValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/LoginValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/NewPasswordDifferentValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/PasswordFormatValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/PrivacyValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/UserExistsValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/UserIdValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/Validator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/VariableLengthValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/Validators/followValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/listeners/contextListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/listeners/contextListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/conf/logging.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/conf/tomcat-users.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/conf/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/logs/access_log.2021-07-15" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/logs/access_log.2021-07-16" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/logs/access_log.2021-07-20" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/logs/access_log.2021-07-23" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/logs/access_log.2021-07-24" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/errors/custom404error_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/login/login_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/login/login_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/register/register_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/bootstrap_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/footer_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/nav_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/followButtonTemplate_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/gearIconTemplate_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/userBioTemplate_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/userGeneralInfoTemplate_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/userPage_jsp.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +82,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/validators" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -56,11 +99,42 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn compile" />
-      <command value="mvn install" />
       <command value="mvn clean" />
+      <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.CommentTests">
+    <configuration name="CommentTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="untitled" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.blogstagram.tests.commentDAOTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.blogstagram.tests.commentDAOTests" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.commentDAOTests.CommentTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentTests.testLikeCommentCyclic" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="untitled" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.blogstagram.tests.commentDAOTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.blogstagram.tests.commentDAOTests" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.commentDAOTests.CommentTests" />
+      <option name="METHOD_NAME" value="testLikeCommentCyclic" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Blogstagram [tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -86,6 +160,12 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CommentTests" />
+        <item itemvalue="JUnit.CommentTests.testLikeCommentCyclic" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -113,5 +193,10 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/final_project_blogstagram$CommentTests.ic" NAME="CommentTests Coverage Results" MODIFIED="1627673947943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.blogstagram.tests.commentDAOTests.*</FILTER>
+    </SUITE>
   </component>
 </project>
