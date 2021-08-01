@@ -92,8 +92,9 @@ public class EditProfilePageServlet extends HttpServlet {
         }
 
         if(status.equals(editStatuses[0])){
-            EditProfile.editGeneral(req,res);
-
+            String nickname = (String)req.getSession().getAttribute("currentUserNickname");
+            String uploadPath = getServletContext().getRealPath("") + File.separator + "images" + File.separator;
+            EditProfile.editGeneral(req,res,uploadPath);
         } else if(status.equals(editStatuses[1])){
             /*
              * Logic for picture edit

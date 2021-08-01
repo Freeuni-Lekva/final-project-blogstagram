@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -22,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EditProfile {
-
     private static final String DEFAULT_PROFILE_PICTURE_NAME = "profile.jpg";
 
     private static UserDAO getUserDaoFromSession(HttpServletRequest req){
@@ -35,7 +36,7 @@ public class EditProfile {
     }
 
 
-    public static void editGeneral(HttpServletRequest req,HttpServletResponse res) throws IOException {
+    public static void editGeneral(HttpServletRequest req,HttpServletResponse res,String uploadPath) throws IOException {
 
         UserDAO userDAO = getUserDaoFromSession(req);
         Connection connection = getConnectionFromContext(req);
@@ -74,6 +75,7 @@ public class EditProfile {
             exception.printStackTrace();
         }
 
+
         User newUser = null;
         if(errors.size() != 0){
             Gson gson = new Gson();
@@ -97,12 +99,35 @@ public class EditProfile {
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
+
+        String oldNickname = (String)req.getSession().getAttribute("currentUserNickname");
         try {
             userDAO.updateUserGeneralInfoByID(userID,newUser);
             req.getSession().setAttribute("currentUserNickname",nickname);
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
+
+        if(!oldNickname.equals(newUser.getNickname())){
+            String oldPath = uploadPath + oldNickname;
+            String newPath = uploadPath + newUser.getNickname();
+
+            File sourceFile = new File(oldPath);
+            if(!sourceFile.exists())
+                return;
+            File destFile = new File(newPath);
+
+            String sqlPath = "/images/"+newUser.getNickname()+"/"+DEFAULT_PROFILE_PICTURE_NAME;
+
+            try{
+                userDAO.updateUserImageByNickname(newUser.getNickname(),sqlPath);
+            } catch(SQLException exception){
+                exception.printStackTrace();
+            }
+            Files.move(sourceFile.toPath(),destFile.toPath(),StandardCopyOption.REPLACE_EXISTING);
+        }
+
+
 
     }
     public static void editPicture(HttpServletRequest req,HttpServletResponse res, String uploadPath) throws IOException, ServletException, SQLException {
