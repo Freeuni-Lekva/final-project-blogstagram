@@ -6,13 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2dd6a10e-f2ca-496e-8f8a-91d308f21f11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/tests/commentDAOTests/CommentTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/tests/commentDAOTests/CommentTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/tests/commentDAOTests/prepareData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/tests/commentDAOTests/prepareData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blogstagram/target/Blogstagram.war" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/Blogstagram.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/CommentTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/CommentTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/prepareData.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/prepareData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/tests/commentDAOTests/CommentTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/tests/commentDAOTests/CommentTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/tests/commentDAOTests/prepareData.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/tests/commentDAOTests/prepareData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/listeners/contextListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/listeners/contextListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/listeners/contextListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/listeners/contextListener.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,11 +69,16 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.blogstagram.tests.commentDAOTests.*" />
+          <option name="ENABLED" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="org.blogstagram.dao.CommentDAO" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.tests.commentDAOTests" />
       <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.commentDAOTests.CommentTests" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -171,6 +173,14 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="JUnit.CommentTests" />
+      <item itemvalue="JUnit.CommentTests.testEditCommentException" />
+      <item itemvalue="JUnit.CommentTests.testLikeCommentCyclic" />
+      <item itemvalue="JUnit.CommentTests.testLikeCommentException2" />
+      <item itemvalue="JUnit.CommentTests.testUnlikeCommentException2" />
+      <item itemvalue="Maven.Blogstagram [tomcat7:run]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.CommentTests" />
@@ -209,8 +219,8 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/final_project_blogstagram$CommentTests.ic" NAME="CommentTests Coverage Results" MODIFIED="1627673947943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>org.blogstagram.tests.commentDAOTests.*</FILTER>
+    <SUITE FILE_PATH="coverage/final_project_blogstagram$CommentTests.ic" NAME="CommentTests Coverage Results" MODIFIED="1627757207608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.blogstagram.dao.CommentDAO</FILTER>
     </SUITE>
   </component>
 </project>

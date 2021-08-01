@@ -12,7 +12,7 @@ import java.util.Random;
 public class prepareData {
     private Connection connection;
     private UserDAO userDAO;
-    private Random random = new Random();
+    private Random random;
     private CommentDAO commentDAO;
     private static final String EMPTY_LIKES = "DELETE FROM likes";
     private static final String EMPTY_COMMENTS = "DELETE FROM comments";
@@ -22,9 +22,9 @@ public class prepareData {
 
 
     public User[] users;
-    public int [] blog_ids;
 
     public prepareData(Connection connection){
+        random = new Random();
         this.connection = connection;
         userDAO = new UserDAO(connection);
         commentDAO = new CommentDAO(connection);
