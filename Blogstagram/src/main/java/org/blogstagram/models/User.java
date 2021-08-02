@@ -158,13 +158,13 @@ public class User {
         stringBuilder.append(role + "\n");
         stringBuilder.append(String.valueOf(gender) + "\n");
         stringBuilder.append(String.valueOf(privacy) + "\n");
-        stringBuilder.append(birthday.toString() + "\n");
+        stringBuilder.append((birthday != null) ? birthday.toString() : "null" + "\n");
         stringBuilder.append(image + "\n");
         stringBuilder.append(country + "\n");
         stringBuilder.append(city + "\n");
         stringBuilder.append(website + "\n");
         stringBuilder.append(bio + "\n");
-        stringBuilder.append(createdAt.toString() + "\n");
+        stringBuilder.append((createdAt != null) ? createdAt.toString() : "null" + "\n");
 
         return stringBuilder.toString();
     }

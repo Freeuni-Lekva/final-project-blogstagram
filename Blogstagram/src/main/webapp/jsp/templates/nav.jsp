@@ -26,6 +26,8 @@
                 <a class="nav-link" href="#">Blogs</a>
             </li>
 
+            <jsp:include page="searchModal.jsp" />
+
             <% if(currentUserNickname == null) { %>
                 <li class="nav-item">
                     <a class="nav-link" href="/login">Login</a>
