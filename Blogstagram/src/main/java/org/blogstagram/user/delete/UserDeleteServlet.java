@@ -64,6 +64,12 @@ public class UserDeleteServlet extends HttpServlet {
         }
         try {
             userDAO.deleteUserByID(deleteUserID);
+            res.getWriter().print((new Gson()).toJson("{success: true}"));
+
+            if(currentUserID == deleteUserID){
+                req.getSession().setAttribute("currentUserID",null);
+                req.getSession().setAttribute("currentUserNickname",null);
+            }
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
