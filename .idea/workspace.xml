@@ -221,11 +221,95 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn compile" />
-      <command value="mvn install" />
       <command value="mvn clean" />
+      <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Maven.Blogstagram [tomcat7:run]">
+    <configuration name="CommentTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="untitled" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.blogstagram.tests.commentDAOTests.*" />
+          <option name="ENABLED" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="org.blogstagram.dao.CommentDAO" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.blogstagram.tests.commentDAOTests" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.commentDAOTests.CommentTests" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentTests.testEditCommentException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="untitled" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.blogstagram.tests.commentDAOTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.blogstagram.tests.commentDAOTests" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.commentDAOTests.CommentTests" />
+      <option name="METHOD_NAME" value="testEditCommentException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentTests.testLikeCommentCyclic" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="untitled" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.blogstagram.tests.commentDAOTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.blogstagram.tests.commentDAOTests" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.commentDAOTests.CommentTests" />
+      <option name="METHOD_NAME" value="testLikeCommentCyclic" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentTests.testLikeCommentException2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="untitled" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.blogstagram.tests.commentDAOTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.blogstagram.tests.commentDAOTests" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.commentDAOTests.CommentTests" />
+      <option name="METHOD_NAME" value="testLikeCommentException2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentTests.testUnlikeCommentException2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="untitled" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.blogstagram.tests.commentDAOTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.blogstagram.tests.commentDAOTests" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.commentDAOTests.CommentTests" />
+      <option name="METHOD_NAME" value="testUnlikeCommentException2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Blogstagram [tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -251,6 +335,23 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="JUnit.CommentTests" />
+      <item itemvalue="JUnit.CommentTests.testEditCommentException" />
+      <item itemvalue="JUnit.CommentTests.testLikeCommentCyclic" />
+      <item itemvalue="JUnit.CommentTests.testLikeCommentException2" />
+      <item itemvalue="JUnit.CommentTests.testUnlikeCommentException2" />
+      <item itemvalue="Maven.Blogstagram [tomcat7:run]" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CommentTests" />
+        <item itemvalue="JUnit.CommentTests.testLikeCommentException2" />
+        <item itemvalue="JUnit.CommentTests.testUnlikeCommentException2" />
+        <item itemvalue="JUnit.CommentTests.testEditCommentException" />
+        <item itemvalue="JUnit.CommentTests.testLikeCommentCyclic" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -282,5 +383,10 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/final_project_blogstagram$CommentTests.ic" NAME="CommentTests Coverage Results" MODIFIED="1627757207608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.blogstagram.dao.CommentDAO</FILTER>
+    </SUITE>
   </component>
 </project>
