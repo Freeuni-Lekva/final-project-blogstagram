@@ -156,8 +156,8 @@ public class User {
         stringBuilder.append(lastname + "\n");
         stringBuilder.append(nickname + "\n");
         stringBuilder.append(role + "\n");
-        stringBuilder.append(String.valueOf(gender) + "\n");
-        stringBuilder.append(String.valueOf(privacy) + "\n");
+        stringBuilder.append(gender + "\n");
+        stringBuilder.append(privacy + "\n");
         stringBuilder.append(birthday.toString() + "\n");
         stringBuilder.append(image + "\n");
         stringBuilder.append(country + "\n");

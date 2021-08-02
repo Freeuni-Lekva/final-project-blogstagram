@@ -1,6 +1,4 @@
 package org.blogstagram.validators;
-
-import org.blogstagram.dao.BlogDAO;
 import org.blogstagram.dao.UserDAO;
 import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.followSystem.api.FollowApi;
@@ -26,7 +24,7 @@ public class getBlogRequestValidator {
         this.followApi = followApi;
     }
 
-    public void setUserid(int userid) {
+    public void setUserid(Integer userid) {
         this.userid = userid;
     }
 
@@ -35,13 +33,14 @@ public class getBlogRequestValidator {
     }
 
     public boolean shouldBeShown() throws DatabaseError {
-        if(currentBlog.getUser_id() == userid) return true;
+
         try {
             User account = userDAO.getUserByID(currentBlog.getUser_id());
             if(account == null) return false;
-            if(account.getPrivacy().equals(User.PUBLIC)) return true;
+            else if(account.getPrivacy().equals(User.PUBLIC)) return true;
+            else if(userid == null) return false;
+            else if(currentBlog.getUser_id() == userid) return true;
 
-            if(userid == null) return false;
 
             User visitor = userDAO.getUserByID(userid);
 

@@ -13,14 +13,17 @@ import java.util.TreeSet;
 public class BlogModeratorsValidator implements Validator{
     private final List <User> moderators;
     private final List <GeneralError> errors;
+    private final Integer creatorId;
 
-    public BlogModeratorsValidator(List <User> moderators){
+    public BlogModeratorsValidator(List <User> moderators, int creatorId){
         this.moderators = moderators;
         this.errors = new ArrayList<>();
+        this.creatorId = creatorId;
     }
 
     @Override
     public boolean validate() throws SQLException {
+        System.out.println("creator:" + creatorId);
         if(moderators == null) {
             errors.add(new VariableError("", ""));
             return false;
@@ -36,6 +39,10 @@ public class BlogModeratorsValidator implements Validator{
            else{
                if(used.contains(moderator.getId())) {
                    errors.add(new VariableError("User", "Blog moderators list must be unique."));
+                   return false;
+               }
+               else if(moderator.getId().equals(creatorId)){
+                   errors.add(new VariableError("userId", "Blog creator can't be moderator"));
                    return false;
                }
                used.add(moderator.getId());

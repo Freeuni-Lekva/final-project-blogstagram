@@ -1,10 +1,8 @@
 package org.blogstagram.validators;
 
 import org.blogstagram.dao.SqlBlogDAO;
-import org.blogstagram.errors.DatabaseError;
-import org.blogstagram.errors.GeneralError;
-import org.blogstagram.errors.InvalidSQLQueryException;
-import org.blogstagram.errors.VariableError;
+import org.blogstagram.dao.UserDAO;
+import org.blogstagram.errors.*;
 import org.blogstagram.models.Blog;
 import org.blogstagram.models.User;
 
@@ -13,22 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EditRequestValidator implements Validator {
-    private Integer currentUserId;
-    private Integer blogId;
-    private SqlBlogDAO blogDao;
-    private List <GeneralError> errors;
+    private final Integer currentUserId;
+    private final Integer blogId;
+    private final SqlBlogDAO blogDao;
+    private final List <GeneralError> errors;
 
-    public EditRequestValidator(Integer currentUserId, int blogId) {
+    public EditRequestValidator(Integer currentUserId, int blogId, SqlBlogDAO blogDAO) {
         this.currentUserId = currentUserId;
         this.blogId = blogId;
+        this.blogDao = blogDAO;
         errors = new ArrayList<>();
     }
 
-    public void setBlogDao(SqlBlogDAO blogDao) {
-        if(blogDao == null)
-            errors.add(new VariableError("blogDao", "Blog dao object can't be null!"));
-        this.blogDao = blogDao;
-    }
 
     @Override
     public boolean validate() throws SQLException {
@@ -40,10 +34,10 @@ public class EditRequestValidator implements Validator {
             for (User blogModerator : blogModerators) {
                 if (blogModerator.getId().equals(currentUserId)) return true;
             }
-            errors.add(new VariableError("user id", "user id must be one of moderators, or author og this blog"));
+            errors.add(new VariableError("user id", "user id must be one of moderators, or author of this blog"));
             return false;
         } catch (InvalidSQLQueryException | DatabaseError e) {
-            errors.add(new VariableError("Blog", "Blog id must be valid"));
+            errors.add(new VariableError("Blog", e.getMessage()));
             return false;
         }
     }

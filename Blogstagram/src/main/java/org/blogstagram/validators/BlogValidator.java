@@ -14,7 +14,6 @@ public class BlogValidator implements Validator {
     private final SqlBlogDAO blogDAO;
 
 
-
     public BlogValidator(Blog blog, SqlBlogDAO blogDAO){
         if(blog == null) throw new NullPointerException("blog object can't be null.");
         if(blogDAO == null) throw new NullPointerException("BlogDao object can't be null.");
@@ -25,8 +24,11 @@ public class BlogValidator implements Validator {
 
     @Override
     public boolean validate() throws SQLException {
-        List <Validator> validators = Arrays.asList(new BlogIdValidator(currentBlog.getId(), blogDAO), new BlogTitleValidator(currentBlog.getTitle()), new BlogContentValidator(currentBlog.getContent()),
-                new BlogModeratorsValidator(currentBlog.getBlogModerators()));
+        List <Validator> validators = new ArrayList<>();
+        validators.add(new BlogIdValidator(currentBlog.getId(), blogDAO));
+        validators.add(new BlogTitleValidator(currentBlog.getTitle()));
+        validators.add(new BlogContentValidator(currentBlog.getContent()));
+        validators.add(new BlogModeratorsValidator(currentBlog.getBlogModerators(), currentBlog.getUser_id()));
         boolean result = true;
         for(Validator validator : validators){
             result = result && validator.validate();

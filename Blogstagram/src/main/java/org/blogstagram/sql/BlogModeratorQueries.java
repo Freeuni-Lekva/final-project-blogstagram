@@ -4,8 +4,8 @@ import org.blogstagram.dao.BlogModeratorDao;
 import org.blogstagram.dao.SqlBlogModeratorDao;
 
 public class BlogModeratorQueries extends SqlQueries {
-    private static String REALTABLE = "blog_moderators";
-    private static String TESTTABLE = "";
+    private static final String REALTABLE = "blog_moderators";
+    private static final String TESTTABLE = "";
 
     public BlogModeratorQueries(int usePurpose){
         if(usePurpose == SqlBlogModeratorDao.REAL) {

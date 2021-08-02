@@ -3,11 +3,13 @@ package org.blogstagram.dao;
 import org.blogstagram.blogs.edit.*;
 import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.InvalidSQLQueryException;
+import org.blogstagram.errors.NotValidUserIdException;
 import org.blogstagram.models.Blog;
 import org.blogstagram.models.HashTag;
 import org.blogstagram.models.User;
 import org.blogstagram.sql.BlogQueries;
 import org.blogstagram.sql.SqlQueries;
+import org.blogstagram.validators.UserIdValidator;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -27,7 +29,7 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
     private final Connection connection;
     private final List <Edit> editable;
     private final SqlHashTagDao hashTagDao;
-    private UserDAO userDAO;
+    private final UserDAO userDAO;
 
 
 
@@ -44,15 +46,20 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
         moderatorDao = new SqlBlogModeratorDao(connection);
         moderatorDao.setUserDao(userDAO);
         hashTagDao = new SqlHashTagDao(connection);
-        editable = Arrays.asList(new EditTitle(this), new EditContent(this),
-                new EditModerators(this), new EditHashtags(this));
+        editable = new ArrayList<>();
+        editable.add(new EditTitle(this));
+        editable.add(new EditContent(this));
+        editable.add(new EditModerators(this));
+        editable.add(new EditHashtags(this));
     }
 
 
+    /*
+        addes new blog in database
+     */
+
     @Override
     public void addBlog(Blog newBlog) throws InvalidSQLQueryException, DatabaseError {
-        // implement validating logic
-
         String addBlogQuery = blogQueries.getInsertQuery(Arrays.asList("user_id", "title", "content"), 1);
         try {
             PreparedStatement prpStm = connection.prepareStatement(addBlogQuery, Statement.RETURN_GENERATED_KEYS);
@@ -72,46 +79,67 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
 
     }
 
+    /*
+        removes blog from database
+     */
     @Override
     public void removeBlog(Blog blog) throws InvalidSQLQueryException, DatabaseError {
-        String removeBlogQuery = blogQueries.getDeleteQuery(Collections.singletonList("blog_id"));
+        String removeBlogQuery = blogQueries.getDeleteQuery(Collections.singletonList("id"));
         try {
+            System.out.println(removeBlogQuery);
             PreparedStatement prpStm = connection.prepareStatement(removeBlogQuery);
             prpStm.setInt(1, blog.getId());
             int affectedRows = prpStm.executeUpdate();
             assertEquals(affectedRows, 1);
-            removeModerators(blog.getId(), blog.getBlogModerators());
-            removeHashtags(blog.getId(), blog.getHashTagList());
         } catch (SQLException exception) {
             throw new DatabaseError("Can't connect to database");
         }
     }
 
+
+    /*
+        returns list of moderators, users whitch have permision to change blog.
+     */
     @Override
     public List <User> getModerators(int blogId) throws InvalidSQLQueryException, DatabaseError {
         return moderatorDao.getModerators(blogId);
     }
 
+
+    /*
+        takes list of users, who is moderator of current blogId and deletes them from moderators table.
+     */
     @Override
     public void removeModerators(int blogId, List<User> moderators) throws InvalidSQLQueryException {
         moderatorDao.removeModerators(blogId, moderators);
     }
 
-
+    /*
+        add's moderators in the moderators table, so users can change blog info.
+     */
     @Override
     public void addModerators(int blogId, List<User> moderators) throws InvalidSQLQueryException, DatabaseError {
         moderatorDao.addModerators(blogId, moderators);
     }
 
-
+    /*
+        Function for changing blog Info, it checks if current blog info changed, and if this condition is true then changes it.
+     */
     @Override
     public void editBlog(Blog blog) throws InvalidSQLQueryException, DatabaseError {
         Blog currentBlog = getBlog(blog.getId());
-        for(Edit edit : editable){
-            if(edit.mustEdit(blog, currentBlog)) edit.edit(blog, currentBlog);
+        int current = 0;
+        for(; current < editable.size(); current++){
+            Edit edit = editable.get(current);
+            if(edit.mustEdit(blog, currentBlog)){
+                edit.edit(blog, currentBlog);
+            }
         }
     }
 
+    /*
+        private function for intializing blog object.
+     */
     private void initBlogObject(Blog blog, ResultSet resultSet) throws SQLException, DatabaseError, InvalidSQLQueryException {
         blog.setId(resultSet.getInt(1));
         blog.setUser_id(resultSet.getInt(2));
@@ -122,6 +150,9 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
         blog.setHashTagList(hashTagDao.getHashTags(blog.getId()));
     }
 
+    /*
+        returns blogs which was created from user whose id is user_id
+     */
     @Override
     public List <Blog> getBlogsOfUser(int user_id) throws DatabaseError, InvalidSQLQueryException {
         String query = blogQueries.getSelectQuery(Arrays.asList("id", "user_id", "title", "content", "created_At"),
@@ -142,65 +173,93 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
         }
     }
 
+    /*
+        returns blog with id blog id.
+     */
     @Override
     public Blog getBlog(int id) throws InvalidSQLQueryException, DatabaseError {
-        Blog blog = new Blog();
-        String query = blogQueries.getSelectQuery(Arrays.asList("id", "user_id", "title", "content", "created_at"),
-                Collections.singletonList("id"));
-        try {
-            PreparedStatement prpStm = connection.prepareStatement(query);
-            prpStm.setInt(1, id);
-            ResultSet resultSet = prpStm.executeQuery();
-            assertTrue(resultSet.next());
-            initBlogObject(blog, resultSet);
-            return blog;
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        }
+            Blog blog = new Blog();
+            String query = blogQueries.getSelectQuery(Arrays.asList("id", "user_id", "title", "content", "created_at"),
+                    Collections.singletonList("id"));
+            try {
+                PreparedStatement prpStm = connection.prepareStatement(query);
+                prpStm.setInt(1, id);
+                ResultSet resultSet = prpStm.executeQuery();
+                assertTrue(resultSet.next());
+                initBlogObject(blog, resultSet);
+                return blog;
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+            }
         return null;
     }
 
+    /*
+        checks if blog with id blogID exists
+     */
     @Override
     public boolean blogExists(int blogId) throws InvalidSQLQueryException, DatabaseError {
         return getBlog(blogId) != null;
     }
 
+    /*
+        returns amount of blogs which was created by user who has given id.
+     */
     @Override
     public int getAmountOfBlogsByUser(int id) throws DatabaseError, InvalidSQLQueryException {
         return getBlogsOfUser(id).size();
     }
 
+    /*
+        adds hashtags hooked on this blog.
+     */
     @Override
     public void addHashtags(int blogId, List <HashTag> hashTags) throws DatabaseError, InvalidSQLQueryException {
         hashTagDao.addHashTags(blogId, hashTags);
     }
 
+    /*
+        removes hashtags from hashtags table.
+     */
     @Override
     public void removeHashtags(int blogId, List<HashTag> hashTags) throws DatabaseError, InvalidSQLQueryException {
         hashTagDao.removeHashTags(blogId, hashTags);
     }
 
+    // EditBlog interface
+
+
+
+    /*
+        Function updates title of current Blog.
+     */
     @Override
     public void editTitle(int blogId, String newTitle) throws DatabaseError, InvalidSQLQueryException {
-        String query = blogQueries.getUpdateQuery(Collections.singletonList("title"), Collections.singletonList("blog_id"));
+        System.out.println("sdasd");
+        String query = blogQueries.getUpdateQuery(Collections.singletonList("title"), Collections.singletonList("id"));
         try {
             PreparedStatement prpStm = connection.prepareStatement(query);
-            prpStm.setInt(1, blogId);
-            prpStm.setString(2, newTitle);
+            prpStm.setString(1, newTitle);
+            prpStm.setInt(2, blogId);
+            System.out.println(prpStm);
             int affectedRows = prpStm.executeUpdate();
             assertEquals(affectedRows, 1);
+
         } catch (SQLException exception) {
             throw new DatabaseError("Can't Connect to database");
         }
     }
 
+    /*
+        Function updates Content of current blog.
+     */
     @Override
     public void editContent(int blogId, String newContent) throws InvalidSQLQueryException, DatabaseError {
-        String query = blogQueries.getUpdateQuery(Collections.singletonList("content"), Collections.singletonList("blog_id"));
+        String query = blogQueries.getUpdateQuery(Collections.singletonList("content"), Collections.singletonList("id"));
         try {
             PreparedStatement prpStm = connection.prepareStatement(query);
-            prpStm.setInt(1, blogId);
-            prpStm.setString(2, newContent);
+            prpStm.setString(1, newContent);
+            prpStm.setInt(2, blogId);
             int affectedRows = prpStm.executeUpdate();
             assertEquals(affectedRows, 1);
         } catch (SQLException exception) {
@@ -208,11 +267,17 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
         }
     }
 
+    /*
+        Function edits list of moderators.
+     */
     @Override
     public void editModerators(Blog blog, List<User> newModerators) throws DatabaseError, InvalidSQLQueryException {
         moderatorDao.editModerators(blog, newModerators);
     }
 
+    /*
+        Function edits list of hashtags.
+     */
     @Override
     public void editHashTags(Blog blog, List<HashTag> newHashTags) throws DatabaseError, InvalidSQLQueryException {
         hashTagDao.editHashTags(blog, newHashTags);

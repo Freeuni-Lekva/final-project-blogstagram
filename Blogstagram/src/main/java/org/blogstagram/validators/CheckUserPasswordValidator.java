@@ -16,9 +16,9 @@ public class CheckUserPasswordValidator implements Validator{
     public static final String CHECK_USER_WITH_ID_AND_PASSWORD_QUERY = "SELECT * FROM users WHERE id = ? AND password = ?";
     public static final String PASSWORD_NOT_CORRECT_ERROR = "Old password is incorrect";
 
-    private String password;
-    private Integer userID;
-    private Connection connection;
+    private final String password;
+    private final Integer userID;
+    private final Connection connection;
     private List<GeneralError> errors;
 
 

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface Validator {
     // Sets the errors
-    public boolean validate() throws SQLException;
+    boolean validate() throws SQLException;
 
-    public List<GeneralError> getErrors();
+    List<GeneralError> getErrors();
 }

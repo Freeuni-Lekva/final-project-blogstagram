@@ -2,6 +2,7 @@ package org.blogstagram.dao;
 
 import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.InvalidSQLQueryException;
+import org.blogstagram.errors.NotValidUserIdException;
 import org.blogstagram.models.Blog;
 import org.blogstagram.models.HashTag;
 import org.blogstagram.models.User;

@@ -3,7 +3,7 @@ package org.blogstagram.errors;
 public class VariableError implements GeneralError {
 
     private String variableName;
-    private String errorMessage;
+    private final String errorMessage;
 
     public String getVariableName() {
         return variableName;

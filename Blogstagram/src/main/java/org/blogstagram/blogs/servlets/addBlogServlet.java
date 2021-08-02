@@ -52,7 +52,7 @@ public class addBlogServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getSession().setAttribute("currentUserId", 1);
+        request.getSession().setAttribute("currentUserId", 5);
 
         // session
         HttpSession session = getSession(request);
@@ -82,15 +82,18 @@ public class addBlogServlet extends HttpServlet {
             newBlog.setTitle(title);
             newBlog.setContent(content);
             newBlog.setBlogModerators(moderators);
+            newBlog.setHashTagList(hashTags);
             BlogValidator validator = new BlogValidator(newBlog, blogDAO);
             try {
                 validator.validate();
                 List <GeneralError> errors = validator.getErrors();
                 if(errors.size() != 0){
+                    responseJson.append("status", BlogStatusCodes.error);
                     response.getWriter().print(errors);
                     return;
                 }
                 blogDAO.addBlog(newBlog);
+                responseJson.append("status", BlogStatusCodes.ADDED);
             } catch (InvalidSQLQueryException | DatabaseError | SQLException e) {
                 responseJson.append("status", BlogStatusCodes.error);
             } finally {

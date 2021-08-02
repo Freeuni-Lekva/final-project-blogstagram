@@ -1,13 +1,12 @@
 package org.blogstagram.blogs.servlets;
 
+import com.google.gson.JsonObject;
 import org.blogstagram.blogs.api.BlogStatusCodes;
 import org.blogstagram.dao.BlogDAO;
 import org.blogstagram.dao.SqlBlogDAO;
 import org.blogstagram.dao.SqlFollowDao;
 import org.blogstagram.dao.UserDAO;
-import org.blogstagram.errors.DatabaseError;
-import org.blogstagram.errors.GeneralError;
-import org.blogstagram.errors.InvalidSQLQueryException;
+import org.blogstagram.errors.*;
 import org.blogstagram.followSystem.api.FollowApi;
 import org.blogstagram.models.Blog;
 import org.blogstagram.models.HashTag;
@@ -33,7 +32,7 @@ import org.json.JSONObject;
 @WebServlet("/blog/*")
 public class BlogServlet extends HttpServlet {
 
-    private static String BLOGPAGE = "blog";
+    private final static String BLOGPAGE = "blogPage.jsp";
     private static final String TITLE = "title";
     private static final String CONTENT = "content";
     private static final String MODERATORS = "moderators";
@@ -61,16 +60,13 @@ public class BlogServlet extends HttpServlet {
         return validator;
     }
 
-    private List<User> getModerators(HttpServletRequest request, UserDAO userDAO){
+    private List<User> getModerators(JSONObject json, UserDAO userDAO){
         List <User> moderators = new ArrayList<>();
-        String moderatorsList = request.getParameter("moderators");
-        final JSONObject object = new JSONObject(moderatorsList);
-        final JSONArray moderatorArray = object.getJSONArray("users");
+        final JSONArray moderatorArray = json.getJSONArray("moderators");
         for(int k = 0; k < moderatorArray.length(); k++){
             final JSONObject moderatorJson = moderatorArray.getJSONObject(k);
             try {
                 User moderator = userDAO.getUserByNickname(moderatorJson.getString("nickname"));
-
                 moderators.add(moderator);
             } catch (SQLException exception) {
                 exception.printStackTrace();
@@ -85,23 +81,26 @@ public class BlogServlet extends HttpServlet {
         if(pathInfo == null)
             return null;
         String[] pathParts = pathInfo.split("/");
+
         if(pathParts.length > 3)
             return null;
-
         String blogIdentificator = pathParts[1];
         String type = null;
         if(pathParts.length > 2){
             type = pathParts[2];
         }
 
-
         return new StringPair(blogIdentificator, type);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        request.getSession().setAttribute("currentUserId", 1);
+
+
         StringPair pair = getPathIdentificator(request);
-        if(pair == null || pair.getKey().equals(Blog.NO_BLOG_ID)) {
+        if(pair == null || pair.getKey() == null) {
             response.sendError(response.SC_NOT_FOUND);
             return;
         }
@@ -109,7 +108,7 @@ public class BlogServlet extends HttpServlet {
         HttpSession session = getSession(request);
 
         //blog and current user id
-        Integer currentUserId = (Integer)  session.getAttribute("currentUserId");
+        Integer currentUserId = (Integer) session.getAttribute("currentUserId");
         Integer blogId = Integer.parseInt(pair.getKey());
 
         // edited content
@@ -144,7 +143,7 @@ public class BlogServlet extends HttpServlet {
             Validator validator = null;
             Blog current = blogDAO.getBlog(blogId);
             if(operationType.equals(EDIT)) {
-                validator = new EditRequestValidator(currentUserId, blogId);
+                validator = new EditRequestValidator(currentUserId, blogId, blogDAO);
                 validator.validate();
                 List <GeneralError> errs = validator.getErrors();
                 if(errs.size() != 0){
@@ -152,10 +151,17 @@ public class BlogServlet extends HttpServlet {
                     return;
                 }
                 Blog editedBlog = getEdittedContent(edited, current, request, userDAO);
+                Validator blogValidator = new BlogValidator(editedBlog, blogDAO);
+                blogValidator.validate();
+                List <GeneralError> blogErrs = blogValidator.getErrors();
+                if(blogErrs.size() != 0){
+                    response.getWriter().print(blogErrs);
+                    return;
+                }
                 blogDAO.editBlog(editedBlog);
                 responseJson.append("status", BlogStatusCodes.EDITED);
             } else if(operationType.equals(REMOVE)) {
-                validator = new RemoveRequestValidator(blogId, currentUserId);
+                validator = new RemoveRequestValidator(blogId, currentUserId, blogDAO, userDAO);
                 validator.validate();
                 List <GeneralError> errs = validator.getErrors();
                 if(errs.size() != 0){
@@ -169,6 +175,7 @@ public class BlogServlet extends HttpServlet {
                 response.sendError(response.SC_NOT_FOUND);
             }
         } catch (InvalidSQLQueryException | DatabaseError | SQLException e) {
+            responseJson.append("message", e);
             responseJson.append("status", BlogStatusCodes.error);
         } finally {
             response.getWriter().print(responseJson);
@@ -185,29 +192,28 @@ public class BlogServlet extends HttpServlet {
         return edited;
     }
 
-    private void editField(Blog edited, String next, JSONObject json, HttpServletRequest request, UserDAO userDAO) {
-        switch (next) {
+    private void editField(Blog edited, String field, JSONObject json, HttpServletRequest request, UserDAO userDAO) {
+        switch (field) {
             case TITLE:
-                edited.setTitle(json.getString(next));
+                edited.setTitle(json.getString(field));
                 break;
             case CONTENT:
-                edited.setContent(json.getString("content"));
+                edited.setContent(json.getString(field));
                 break;
             case MODERATORS:
-                edited.setBlogModerators(getModerators(request, userDAO));
+                edited.setBlogModerators(getModerators(json, userDAO));
                 break;
             case HASHTAGS:
-                edited.setHashTagList(getHashTags(request, edited.getId()));
+                edited.setHashTagList(getHashTags(json, edited.getId()));
+                break;
             default:
-                throw new UnsupportedOperationException("field " + next + " is not Blog field");
+                throw new UnsupportedOperationException("field " + field + " is not Blog field");
         }
     }
 
-    private List<HashTag> getHashTags(HttpServletRequest request, int blogId) {
-        String hashTags = request.getParameter("hashtags");
+    private List<HashTag> getHashTags(JSONObject json, int blogId) {
         List <HashTag> hashTagList = new ArrayList<>();
-        JSONObject json = new JSONObject(hashTags);
-        JSONArray hashTagArr = json.getJSONArray("hashTags");
+        JSONArray hashTagArr = json.getJSONArray("hashtags");
         for(int k = 0; k < hashTagArr.length(); k++){
             HashTag newHashTag = new HashTag(hashTagArr.getJSONObject(k).getString("hashtag"));
             hashTagList.add(newHashTag);
@@ -217,8 +223,9 @@ public class BlogServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
            StringPair urlPair = getPathIdentificator(request);
-           if(urlPair == null || urlPair.getValue() == null){
+           if(urlPair == null || urlPair.getKey() == null || urlPair.getValue() != null){
                response.sendError(response.SC_NOT_FOUND);
                return;
            }
@@ -229,7 +236,6 @@ public class BlogServlet extends HttpServlet {
            // user and blog id's
            Integer currentUserId = (Integer) session.getAttribute("currentUserId");
            int blogId = Integer.parseInt(urlPair.getKey());
-
 
            // dao objects and followApi
            UserDAO userDAO = (UserDAO) session.getAttribute("UserDAO");
@@ -247,7 +253,6 @@ public class BlogServlet extends HttpServlet {
             if(errors.size() != 0){
                 responseJson.append("status", BlogStatusCodes.error);
                 response.getWriter().print(errors);
-                response.getWriter().print(responseJson);
                 response.sendError(response.SC_NOT_FOUND);
                 return;
             }
@@ -257,8 +262,8 @@ public class BlogServlet extends HttpServlet {
             if(validator.shouldBeShown()){
                 responseJson.append("status", BlogStatusCodes.SHOW);
                 response.getWriter().print(currentBlog);
-                response.getWriter().print(responseJson);
-                request.getRequestDispatcher(BLOGPAGE).forward(request, response);
+               // response.getWriter().print(responseJson);
+                //request.getRequestDispatcher(BLOGPAGE).forward(request, response);
             } else {
                 responseJson.append("status", BlogStatusCodes.NOTSHOW);
                 response.getWriter().print(responseJson);

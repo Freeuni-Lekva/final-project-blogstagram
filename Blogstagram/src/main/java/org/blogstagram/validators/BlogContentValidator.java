@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BlogContentValidator implements Validator{
-    private static final int CONTENT_MIN_LENGTH = 50;
+    private static final int CONTENT_MIN_LENGTH = 10;
     private static final int CONTENT_MAX_LENGTH = 1000;
     private final String content;
     private final List <GeneralError> errors;
@@ -24,8 +24,8 @@ public class BlogContentValidator implements Validator{
             errors.add(new VariableError("content", "content can't be null"));
             return false;
         }
-        if(content.length() >= CONTENT_MIN_LENGTH && content.length() <= CONTENT_MAX_LENGTH) {
-            errors.add(new VariableError("content", "Content's length must be between " + "[" + CONTENT_MIN_LENGTH + ", " + CONTENT_MAX_LENGTH + "]"));
+        if(content.length() < CONTENT_MIN_LENGTH || content.length() > CONTENT_MAX_LENGTH) {
+            errors.add(new VariableError("content", "Content's length must be between " + "[" + CONTENT_MIN_LENGTH + ", " + CONTENT_MAX_LENGTH + "] symbols."));
             return false;
         }
         return true;

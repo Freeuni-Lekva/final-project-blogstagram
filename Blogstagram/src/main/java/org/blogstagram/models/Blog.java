@@ -14,15 +14,7 @@ public class Blog {
     private List <User> blogModerators;
     private List <HashTag> hashTagList;
 
-    public List<HashTag> getHashTagList() {
-        return hashTagList;
-    }
 
-    public void setHashTagList(List<HashTag> hashTagList) {
-        if(hashTagList == null)
-            throw new NullPointerException("hash tag list can't be null");
-        this.hashTagList = hashTagList;
-    }
 
     public Blog(){
         id = NO_BLOG_ID;
@@ -35,6 +27,7 @@ public class Blog {
         setContent(other.getContent());
         setBlogModerators(other.getBlogModerators());
         setCreated_at(other.getCreated_at());
+        setHashTagList(other.getHashTagList());
     }
 
     public int getId() {
@@ -73,6 +66,17 @@ public class Blog {
         this.content = content;
     }
 
+    public List<HashTag> getHashTagList() {
+        return hashTagList;
+    }
+
+    public void setHashTagList(List<HashTag> hashTagList) {
+        if(hashTagList == null)
+            throw new NullPointerException("hash tag list can't be null");
+        this.hashTagList = hashTagList;
+    }
+
+
     public Date getCreated_at() {
         return createdAt;
     }
@@ -92,7 +96,5 @@ public class Blog {
             throw new NullPointerException("Moderators list can't be null");
         this.blogModerators = blogModerators;
     }
-
-
 
 }

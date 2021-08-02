@@ -55,18 +55,18 @@ public class SqlBlogModeratorDao implements BlogModeratorDao{
         }
     }
 
+
     public void addModerators(int blogId, List <User> moderators) throws InvalidSQLQueryException, DatabaseError {
         String query = moderatorQueries.getInsertQuery(Arrays.asList("blog_id", "user_id"), moderators.size());
         int paramIndex = 1;
         try {
             PreparedStatement prpStm = connection.prepareStatement(query);
-            //System.out.println(moderators.size());
-            int id = 1;
+
             for (User moderator : moderators) {
-                prpStm.setInt(paramIndex++, id++);
                 prpStm.setInt(paramIndex++, blogId);
                 prpStm.setInt(paramIndex++, moderator.getId());
             }
+
             int affectedRows = prpStm.executeUpdate();
             assertEquals(affectedRows, moderators.size());
         } catch (SQLException exception) {
@@ -78,9 +78,10 @@ public class SqlBlogModeratorDao implements BlogModeratorDao{
     @Override
     public void removeModerators(int blogId, List<User> moderators) throws InvalidSQLQueryException {
         for (User moderator : moderators) {
-            String query = moderatorQueries.getDeleteQuery(Collections.singletonList("user_id"));
+            String query = moderatorQueries.getDeleteQuery(Arrays.asList("user_id", "blog_id"));
             try {
                 PreparedStatement prpStm = connection.prepareStatement(query);
+                prpStm.setInt(2, blogId);
                 prpStm.setInt(1, moderator.getId());
                 int affectedRows = prpStm.executeUpdate();
                 assertEquals(1, affectedRows);

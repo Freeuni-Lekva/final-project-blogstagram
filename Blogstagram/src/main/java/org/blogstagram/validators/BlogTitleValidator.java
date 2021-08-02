@@ -26,8 +26,9 @@ public class BlogTitleValidator implements Validator{
             list.add(new VariableError("title", "Blog Title can't be null."));
             return false;
         }
-        if(list.size() > TITLE_MAX || list.size() < TITLE_MIN) {
-            list.add(new VariableError("title", "Blog Title must be between [" + TITLE_MIN + ", " + TITLE_MIN + "] symbols." ));
+
+        if(title.length() > TITLE_MAX || title.length() < TITLE_MIN) {
+            list.add(new VariableError("title", "Blog Title must be between [" + TITLE_MIN + ", " + TITLE_MAX + "] symbols." ));
             return false;
         }
         return true;

@@ -26,9 +26,10 @@ public abstract class SqlQueries {
          for(int k = 0; k < updateFields.size() - 1; k++){
              builder.append(updateFields.get(k)).append(" = ?, ");
          }
-         builder.append(updateFields.get(updateFields.size() - 1)).append(" = ?;");
+         if(updateFields.size() > 0)builder.append(updateFields.get(updateFields.size() - 1)).append(" = ?");
          if(whereClause.size() != 0)
              addWhereClause(builder, whereClause);
+         builder.append(";");
          return builder.toString();
     }
 
@@ -61,7 +62,7 @@ public abstract class SqlQueries {
     }
 
     public String getInsertQuery(List<String> insertFields, int numRows) throws InvalidSQLQueryException{
-        if(insertFields.size() == 0)
+        if(insertFields.size() == 0 || numRows == 0)
             throw new InvalidSQLQueryException("Query can't be generated.");
         StringBuilder builder = new StringBuilder();
         builder.append("INSERT INTO ").append(tableName).append(" (");

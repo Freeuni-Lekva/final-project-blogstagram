@@ -24,7 +24,7 @@ public class SqlHashTagDao implements HashTagDao {
     private final SqlQueries hashTagQueries;
     public static final int TEST = 0;
     public static final int REAL = 1;
-    private Connection connection;
+    private final Connection connection;
     public SqlHashTagDao(Connection connection) {
         if(connection == null) throw new NullPointerException("Connection object can;t be null.");
         hashTagQueries = new HashTagQueries(REAL);
@@ -37,15 +37,16 @@ public class SqlHashTagDao implements HashTagDao {
         PreparedStatement prpStm = null;
         try {
             prpStm = connection.prepareStatement(query);
-
-        int paramterIndex = 1;
-        for(HashTag hashTag : hashTags){
-            prpStm.setInt(paramterIndex++, hashTag.getBlogId());
-            prpStm.setString(paramterIndex++, hashTag.getHashTag());
-        }
-        int affectedRows = prpStm.executeUpdate();
-        assertEquals(affectedRows, hashTags.size());
+            int paramterIndex = 1;
+            for(HashTag hashTag : hashTags){
+                prpStm.setInt(paramterIndex++, blogId);
+                prpStm.setString(paramterIndex++, hashTag.getHashTag());
+            }
+            System.out.println(query);
+            int affectedRows = prpStm.executeUpdate();
+            assertEquals(affectedRows, hashTags.size());
         } catch (SQLException exception) {
+            System.out.println(exception);
             throw new DatabaseError("Can't Connect to database");
         }
     }
