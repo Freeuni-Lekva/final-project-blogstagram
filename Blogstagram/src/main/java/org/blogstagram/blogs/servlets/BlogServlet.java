@@ -32,7 +32,7 @@ import org.json.JSONObject;
 @WebServlet("/blog/*")
 public class BlogServlet extends HttpServlet {
 
-    private final static String BLOGPAGE = "blogPage.jsp";
+    private final static String BLOGPAGE = "/jsp/blog/blogPage.jsp";
     private static final String TITLE = "title";
     private static final String CONTENT = "content";
     private static final String MODERATORS = "moderators";
@@ -261,9 +261,9 @@ public class BlogServlet extends HttpServlet {
             getBlogRequestValidator validator = initValidator(currentUserId, userDAO, currentBlog, followApi);
             if(validator.shouldBeShown()){
                 responseJson.append("status", BlogStatusCodes.SHOW);
-                response.getWriter().print(currentBlog);
-               // response.getWriter().print(responseJson);
-                //request.getRequestDispatcher(BLOGPAGE).forward(request, response);
+                request.setAttribute("blog", currentBlog);
+                System.out.println("ss");
+                request.getRequestDispatcher(BLOGPAGE).forward(request, response);
             } else {
                 responseJson.append("status", BlogStatusCodes.NOTSHOW);
                 response.getWriter().print(responseJson);
