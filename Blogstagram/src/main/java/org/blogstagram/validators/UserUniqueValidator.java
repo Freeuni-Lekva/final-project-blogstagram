@@ -21,10 +21,10 @@ public class UserUniqueValidator implements Validator{
     private static final String NICKNAME_QUERY = "SELECT * FROM " + TABLE_NAME + " where nickname = ? AND id != ?";
 
 
-    private Connection connection;
-    private Integer userID;
-    private String email;
-    private String nickname;
+    private final Connection connection;
+    private final Integer userID;
+    private final String email;
+    private final String nickname;
     private List<GeneralError> errors;
 
     public UserUniqueValidator(Integer userID,String email,String nickname,Connection connection) {

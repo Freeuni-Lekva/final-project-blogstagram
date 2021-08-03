@@ -31,7 +31,7 @@ public class SqlFollowDao implements FollowDao {
         if(connection == null)
             throw new NullPointerException("Connection can't be null");
         if(usePurpose != TEST && usePurpose != REAL){
-            throw new IllegalArgumentException("use purmose must be TEST OR REAL implementation.");
+            throw new IllegalArgumentException("use purpose must be TEST OR REAL implementation.");
         }
         this.connection = connection;
         queries = new FollowQueries(usePurpose);
@@ -167,7 +167,7 @@ public class SqlFollowDao implements FollowDao {
         insertFields.add("from_user_id");
         insertFields.add("to_user_id");
         try {
-            String query = queries.getInsertQuery(insertFields);
+            String query = queries.getInsertQuery(insertFields, 1);
             PreparedStatement stm = connection.prepareStatement(query);
             stm.setInt(1, dFollow.getFromId());
             stm.setInt(2, dFollow.getToId());
@@ -179,6 +179,5 @@ public class SqlFollowDao implements FollowDao {
         }
 
     }
-
 
 }
