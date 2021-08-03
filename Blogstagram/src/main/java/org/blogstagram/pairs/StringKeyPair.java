@@ -2,8 +2,8 @@ package org.blogstagram.pairs;
 
 public class StringKeyPair<T> implements GeneralPair{
 
-    private String key;
-    private T value;
+    private final String key;
+    private final T value;
 
     public StringKeyPair(String key,T value){
         this.key = key;

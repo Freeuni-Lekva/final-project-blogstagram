@@ -16,7 +16,7 @@ public class RegisterValidator implements Validator{
 
     public static final String PASSWORDS_DO_NOT_MATCH_ERROR = "Passwords do not match";
 
-    private Connection connection;
+    private final Connection connection;
     private final String firstname;
     private final String lastname;
     private final String nickname;

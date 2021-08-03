@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="50c5ff1d-0e5a-4a9e-aa74-c09313ce28f1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/api/BlogStatusCodes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/edit/Edit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/edit/EditBlog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/edit/EditContent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/edit/EditHashtags.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/edit/EditModerators.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/edit/EditTitle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/servlets/BlogServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/servlets/addBlogServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/BlogDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/BlogModeratorDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/HashTagDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlBlogDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlBlogModeratorDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlHashTagDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/Blog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/HashTag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/BlogModeratorQueries.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/BlogQueries.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/HashTagQueries.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogContentValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogIdValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogModeratorsValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogTitleValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/EditRequestValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/RemoveRequestValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/getBlogRequestValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/blogPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlFollowDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlFollowDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/GeneralError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/GeneralError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/VariableError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/errors/VariableError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/followServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/followSystem/Servlets/followServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/sessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/sessionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/login/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/login/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/pairs/GeneralPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/pairs/GeneralPair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/pairs/StringKeyPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/pairs/StringKeyPair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/pairs/StringPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/pairs/StringPair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/register/RegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/register/RegisterServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/FollowQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/FollowQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/SqlQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/SqlQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/user/edit/EditProfilePageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/user/edit/EditProfilePageServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/CheckUserPasswordValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/CheckUserPasswordValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/CommentAddValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/CommentAddValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/EditGeneralValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/EditGeneralValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/EditPasswordValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/EditPasswordValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/EmailFormatValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/EmailFormatValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/GenderValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/GenderValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/IllegalCharactersValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/IllegalCharactersValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/NewPasswordDifferentValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/NewPasswordDifferentValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/PasswordFormatValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/PasswordFormatValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/PrivacyValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/PrivacyValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/RegisterValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/RegisterValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/UserUniqueValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/UserUniqueValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/VariableLengthValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/VariableLengthValidator.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1wDQ4zwDN5Q0oZj5bTjueNn45nz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Blogstagram [tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="tomcat7:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="50c5ff1d-0e5a-4a9e-aa74-c09313ce28f1" name="Default Changelist" comment="" />
+      <created>1627990495396</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1627990495396</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

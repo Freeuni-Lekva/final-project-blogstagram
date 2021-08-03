@@ -12,7 +12,7 @@ public class GenderValidator implements Validator{
     public static final String GENDER_ERROR = "Gender must be " + User.MALE + " (Male) or " + User.FEMALE + " (Female)";
 
     private List<GeneralError> errors;
-    private Integer gender;
+    private final Integer gender;
 
 
     public GenderValidator(Integer gender){

@@ -13,11 +13,11 @@ public class EditPasswordValidator implements Validator{
 
     public static final String OLD_AND_NEW_PASSWORDS_ARE_SAME_ERROR = "New password must be different from current password";
 
-    private Integer userID;
-    private String old_password;
-    private String new_password;
-    private String new_password_confirmation;
-    private Connection connection;
+    private final Integer userID;
+    private final String old_password;
+    private final String new_password;
+    private final String new_password_confirmation;
+    private final Connection connection;
 
     private List<GeneralError> errors;
 
