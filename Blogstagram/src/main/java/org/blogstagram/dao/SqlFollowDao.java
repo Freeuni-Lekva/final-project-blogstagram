@@ -1,6 +1,5 @@
 package org.blogstagram.dao;
 
-import org.blogstagram.blogs.edit.EditBlog;
 import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.DirectionalFollowNotAdded;
 import org.blogstagram.errors.InvalidSQLQueryException;
