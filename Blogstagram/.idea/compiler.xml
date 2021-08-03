@@ -9,5 +9,8 @@
         <module name="Blogstagram" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Blogstagram" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

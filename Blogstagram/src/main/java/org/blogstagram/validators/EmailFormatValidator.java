@@ -12,7 +12,7 @@ public class EmailFormatValidator implements Validator{
 
     public static final String EMAIL_SYNTAX_ERROR_MESSAGE = "Email syntax is incorrect";
 
-    private String email;
+    private final String email;
     private List<GeneralError> errors;
 
     public EmailFormatValidator(String email){

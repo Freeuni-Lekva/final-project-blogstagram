@@ -17,9 +17,9 @@ public class NewPasswordDifferentValidator implements Validator{
 
     private static final String GET_USER_PASSWORD_QUERY = "SELECT password FROM users WHERE id = ?";
 
-    private Integer userID;
-    private String password;
-    private Connection connection;
+    private final Integer userID;
+    private final String password;
+    private final Connection connection;
     private List<GeneralError> errors;
 
     public NewPasswordDifferentValidator(Integer userID,String password,Connection connection){

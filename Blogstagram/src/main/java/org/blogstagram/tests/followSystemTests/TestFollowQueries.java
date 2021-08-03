@@ -56,7 +56,12 @@ public class TestFollowQueries {
         assertNotNull(queries);
         List <String> updateClause = new ArrayList<>();
         List <String> whereCluase = new ArrayList<>();
-        String query = queries.getUpdateQuery(updateClause, whereCluase);
+        String query = null;
+        try {
+            query = queries.getUpdateQuery(updateClause, whereCluase);
+        } catch (InvalidSQLQueryException e) {
+            e.printStackTrace();
+        }
         assertNull(query);
     }
 
@@ -65,7 +70,7 @@ public class TestFollowQueries {
         assertNotNull(queries);
         List <String> insertClause = Arrays.asList("id", "to_user_id", "from_user_id", "created_at");
         try {
-            String query = queries.getInsertQuery(insertClause);
+            String query = queries.getInsertQuery(insertClause, 1);
             assertEquals("insert into follows_test_t (id, to_user_id, from_user_id, created_at)values(?, ?, ?, ?);", query.toLowerCase(Locale.ROOT));
         } catch (InvalidSQLQueryException e) {
             e.printStackTrace();
@@ -94,7 +99,7 @@ public class TestFollowQueries {
         assertThrows(InvalidSQLQueryException.class, new ThrowingRunnable() {
             @Override
             public void run() throws Throwable {
-                queries.getInsertQuery(insertFields);
+                queries.getInsertQuery(insertFields, 1);
             }
         });
     }

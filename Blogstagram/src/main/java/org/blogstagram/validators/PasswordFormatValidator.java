@@ -18,7 +18,7 @@ public class PasswordFormatValidator implements Validator {
     public static final String PASSWORD_DIGIT_ERROR = "Password must containt at least 1 digit";
 
 
-    private String password;
+    private final String password;
     private List<GeneralError> errors;
 
     public PasswordFormatValidator(String password){
