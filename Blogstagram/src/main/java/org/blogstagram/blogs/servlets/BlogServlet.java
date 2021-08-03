@@ -96,8 +96,6 @@ public class BlogServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.getSession().setAttribute("currentUserId", 1);
-
 
         StringPair pair = getPathIdentificator(request);
         if(pair == null || pair.getKey() == null) {
