@@ -62,7 +62,7 @@ public class addBlogServlet extends HttpServlet {
 
         // dao objects
         UserDAO userDAO = (UserDAO) session.getAttribute("UserDAO");
-        SqlBlogDAO blogDAO = (SqlBlogDAO) session.getAttribute("BlogDao");
+        SqlBlogDAO blogDAO = (SqlBlogDAO) session.getAttribute("blogDao");
 
         //logged in user
         Integer currentUserId = (Integer) session.getAttribute("currentUserId");
