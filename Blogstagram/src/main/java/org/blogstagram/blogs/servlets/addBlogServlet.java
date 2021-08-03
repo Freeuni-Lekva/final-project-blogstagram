@@ -52,8 +52,6 @@ public class addBlogServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getSession().setAttribute("currentUserId", 5);
-
         // session
         HttpSession session = getSession(request);
 
