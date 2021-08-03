@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2dd6a10e-f2ca-496e-8f8a-91d308f21f11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/tests/commentDAOTests/prepareData.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/tests/commentDAOTests/prepareData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/Blogstagram.war" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/Blogstagram.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/listeners/contextListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/listeners/contextListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/listeners/contextListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/listeners/contextListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/Blogstagram.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/Blogstagram.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/listeners/SessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/listeners/SessionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/untitled.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/untitled.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +41,6 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/validators" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -59,91 +56,22 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn compile" />
-      <command value="mvn clean" />
       <command value="mvn install" />
+      <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CommentTests">
+  <component name="RunManager" selected="Maven.Blogstagram [tomcat7:run]">
     <configuration name="CommentTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.blogstagram.tests.commentDAOTests.*" />
-          <option name="ENABLED" value="false" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="org.blogstagram.dao.CommentDAO" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.tests.commentDAOTests" />
       <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.commentDAOTests.CommentTests" />
-      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CommentTests.testEditCommentException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="untitled" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.blogstagram.tests.commentDAOTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.blogstagram.tests.commentDAOTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.commentDAOTests.CommentTests" />
-      <option name="METHOD_NAME" value="testEditCommentException" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CommentTests.testLikeCommentCyclic" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="untitled" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.blogstagram.tests.commentDAOTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.blogstagram.tests.commentDAOTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.commentDAOTests.CommentTests" />
-      <option name="METHOD_NAME" value="testLikeCommentCyclic" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CommentTests.testLikeCommentException2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="untitled" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.blogstagram.tests.commentDAOTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.blogstagram.tests.commentDAOTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.commentDAOTests.CommentTests" />
-      <option name="METHOD_NAME" value="testLikeCommentException2" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CommentTests.testUnlikeCommentException2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="untitled" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.blogstagram.tests.commentDAOTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.blogstagram.tests.commentDAOTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.commentDAOTests.CommentTests" />
-      <option name="METHOD_NAME" value="testUnlikeCommentException2" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -174,20 +102,12 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JUnit.CommentTests" />
-      <item itemvalue="JUnit.CommentTests.testEditCommentException" />
-      <item itemvalue="JUnit.CommentTests.testLikeCommentCyclic" />
-      <item itemvalue="JUnit.CommentTests.testLikeCommentException2" />
-      <item itemvalue="JUnit.CommentTests.testUnlikeCommentException2" />
       <item itemvalue="Maven.Blogstagram [tomcat7:run]" />
+      <item itemvalue="JUnit.CommentTests" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.CommentTests" />
-        <item itemvalue="JUnit.CommentTests.testLikeCommentException2" />
-        <item itemvalue="JUnit.CommentTests.testUnlikeCommentException2" />
-        <item itemvalue="JUnit.CommentTests.testEditCommentException" />
-        <item itemvalue="JUnit.CommentTests.testLikeCommentCyclic" />
       </list>
     </recent_temporary>
   </component>
