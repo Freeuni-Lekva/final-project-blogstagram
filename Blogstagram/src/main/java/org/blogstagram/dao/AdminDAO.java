@@ -4,7 +4,9 @@ import org.blogstagram.models.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdminDAO {
@@ -14,8 +16,9 @@ public class AdminDAO {
     private static final String DELETE_COMMENT = "DELETE FROM comments WHERE id = ?";
     private static final String DELETE_BLOG = "DELETE FROM blogs WHERE id = ?";
     private static final String CHANGE_ROLE = "UPDATE users SET role = ? WHERE id = ?";
-
-
+    private static final String GET_BLOG_REPORTS = "SELECT comment FROM reports WHERE on_blog_id = ?";
+    private static final String GET_USER_REPORTS = "SELECT comment FROM reports WHERE on_user_id = ?";
+    private static final String GET_USER_ROLE = "SELECT role FROM users WHERE id = ?";
     /*
      Receives connection in constructor
      */
@@ -64,7 +67,7 @@ public class AdminDAO {
      */
     public void makeUserModer(int user_id) throws SQLException {
         PreparedStatement ps = connection.prepareStatement(CHANGE_ROLE);
-        ps.setString(1, "Moderator");
+        ps.setString(1, User.MODERATOR_ROLE);
         ps.setInt(2, user_id);
         int numRows = ps.executeUpdate();
         if(numRows != 1){
@@ -77,7 +80,7 @@ public class AdminDAO {
      */
     public void makeModerUser(int user_id) throws SQLException {
         PreparedStatement ps = connection.prepareStatement(CHANGE_ROLE);
-        ps.setString(1, "User");
+        ps.setString(1, User.DEFAULT_ROLE);
         ps.setInt(2, user_id);
         int numRows = ps.executeUpdate();
         if(numRows != 1){
@@ -85,8 +88,48 @@ public class AdminDAO {
         }
     }
     /*
-
+    Receives blog unique id in parameters
+    returns list of report ids of the blog
      */
-//    public List<Integer>
+    public List<String> getBlogReports(int blog_id) throws SQLException {
+        List<String> resultList = new ArrayList<>();
+        PreparedStatement preparedStatement = connection.prepareStatement(GET_BLOG_REPORTS);
+        preparedStatement.setInt(1, blog_id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+            String reportComment = resultSet.getString(1);
+            resultList.add(reportComment);
+        }
+        return resultList;
+    }
+    /*
+    Receives user unique id in parameters
+    returns list of report ids of the user
+     */
+    public List<String> getUserReports(int comment_id) throws SQLException {
+        List<String> resultList = new ArrayList<>();
+        PreparedStatement preparedStatement = connection.prepareStatement(GET_USER_REPORTS);
+        preparedStatement.setInt(1, comment_id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+            String reportComment = resultSet.getString(1);
+            resultList.add(reportComment);
+        }
+        return resultList;
+    }
+    /*
+    Receives user id in parameters
+    returns if it is moderator or admin
+     */
+    public boolean isEligible(int user_id) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement(GET_USER_ROLE);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        String user_role = "";
+        if(resultSet.next()){
+            user_role = resultSet.getString(1);
+            return user_role.equals(User.ADMIN_ROLE) || user_role.equals(User.MODERATOR_ROLE);
+        }
+        throw new SQLException("User with that ID does not exist");
+    }
 
 }
