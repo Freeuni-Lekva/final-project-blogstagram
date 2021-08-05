@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2dd6a10e-f2ca-496e-8f8a-91d308f21f11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/Blogstagram.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/Blogstagram.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/admin/AdminServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/dao/AdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/dao/AdminDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/listeners/SessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/listeners/SessionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/untitled.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/untitled.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/SESSIONS.ser" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/SESSIONS.ser" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,8 +105,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Maven.Blogstagram [tomcat7:run]" />
       <item itemvalue="JUnit.CommentTests" />
+      <item itemvalue="Maven.Blogstagram [tomcat7:run]" />
     </list>
     <recent_temporary>
       <list>

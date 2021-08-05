@@ -35,6 +35,7 @@
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/GenderValidator.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/sql/SqlQueries.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/tests/followSystemTests/FollowDaoTests.java
+/home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/AdminCommentValidator.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/user/UserServlet.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/GetUserConnectionsValidator.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/CommentDeleteValidator.java
@@ -49,6 +50,7 @@
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/CommentSystemValidator.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/pairs/GeneralPair.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/CommentExistsValidator.java
+/home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/AdminValidator.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/models/Comment.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/UserIdValidator.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/login/LoginServlet.java
@@ -65,7 +67,9 @@
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/errors/NotValidUserIdException.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/followSystem/Servlets/followResponseServlet.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/followSystem/api/StatusCodes.java
+/home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/dao/AdminDAO.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/sql/FollowQueries.java
+/home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/admin/AdminServlet.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/tests/followSystemTests/FollowDaoDummy.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/listeners/contextListener.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/EmailFormatValidator.java

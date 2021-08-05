@@ -123,6 +123,7 @@ public class AdminDAO {
      */
     public boolean isEligible(int user_id) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement(GET_USER_ROLE);
+        preparedStatement.setInt(1, user_id);
         ResultSet resultSet = preparedStatement.executeQuery();
         String user_role = "";
         if(resultSet.next()){

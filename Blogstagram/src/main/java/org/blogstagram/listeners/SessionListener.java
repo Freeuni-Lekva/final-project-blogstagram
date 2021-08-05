@@ -1,6 +1,7 @@
 package org.blogstagram.listeners;
 
 
+import org.blogstagram.dao.AdminDAO;
 import org.blogstagram.dao.CommentDAO;
 import org.blogstagram.dao.SqlFollowDao;
 import org.blogstagram.dao.UserDAO;
@@ -24,7 +25,8 @@ public class SessionListener implements HttpSessionListener {
         httpSessionEvent.getSession().setAttribute("UserDAO", userDao);
         CommentDAO commentDAO = new CommentDAO(dbConnection);
         httpSessionEvent.getSession().getServletContext().setAttribute("CommentDAO", commentDAO);
-
+        AdminDAO adminDAO = new AdminDAO(dbConnection);
+        httpSessionEvent.getSession().setAttribute("AdminDAO", adminDAO);
     }
 
     @Override

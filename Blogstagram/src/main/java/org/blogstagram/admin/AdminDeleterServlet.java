@@ -9,6 +9,7 @@ import org.blogstagram.errors.VariableError;
 import org.blogstagram.validators.*;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +19,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminServlet extends HttpServlet{
+@WebServlet("/adminDeleteServlet")
+public class AdminDeleterServlet extends HttpServlet{
     private AdminDAO adminDAO;
     private static final String DELETE_USER = "DeleteUser";
     private static final String DELETE_BLOG = "DeleteBlog";
@@ -36,12 +38,12 @@ public class AdminServlet extends HttpServlet{
             return;
         }
         Connection connection = (Connection) request.getServletContext().getAttribute("dbConnection");
-        if(adminDAO == null){
-            adminDAO = new AdminDAO(connection);
-        }
+
+        adminDAO = (AdminDAO) request.getSession().getAttribute("AdminDAO");;
+
         List<VariableError> errorList = new ArrayList<>();
         String requestType = request.getParameter("OperationType");
-        if(isCorrect(requestType)){
+        if(!isCorrect(requestType)){
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson("{ request: 'request incorrect' }"));
             return;
@@ -74,8 +76,6 @@ public class AdminServlet extends HttpServlet{
 
             } else if (requestType.equals(DELETE_COMMENT)) {
                 int comment_id = Integer.parseInt(request.getParameter("comment_id"));
-                CommentExistsValidator commentValidator = new CommentExistsValidator();
-                commentValidator.setConnection(connection);
                 AdminCommentValidator adminCommentValidator = new AdminCommentValidator();
                 adminCommentValidator.setConnectionComment(connection, comment_id);
                 if(adminCommentValidator.validate()) {
