@@ -185,13 +185,13 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
                 PreparedStatement prpStm = connection.prepareStatement(query);
                 prpStm.setInt(1, id);
                 ResultSet resultSet = prpStm.executeQuery();
-                assertTrue(resultSet.next());
+                if(!resultSet.next()) return null;
                 initBlogObject(blog, resultSet);
                 return blog;
             } catch (SQLException exception) {
                 exception.printStackTrace();
             }
-        return null;
+            return null;
     }
 
     /*
