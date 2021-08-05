@@ -1,5 +1,6 @@
 package org.blogstagram.blogs.servlets;
 
+import com.google.gson.Gson;
 import org.blogstagram.dao.SqlBlogDAO;
 import org.blogstagram.dao.UserDAO;
 import org.blogstagram.errors.DatabaseError;
@@ -24,11 +25,12 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 @WebServlet("/addBlog")
 public class addBlogServlet extends HttpServlet {
-
+    private final static String BLOGPAGE = "/jsp/blog/blogPage.jsp";
     private HttpSession getSession(HttpServletRequest request){ return request.getSession(); }
 
 
@@ -50,10 +52,14 @@ public class addBlogServlet extends HttpServlet {
         return moderators;
     }
 
+
+    @Override
+    protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
+        httpServletRequest.getRequestDispatcher(BLOGPAGE).forward(httpServletRequest, httpServletResponse);
+    }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getSession().setAttribute("currentUserId", 5);
-
         // session
         HttpSession session = getSession(request);
 
@@ -62,14 +68,12 @@ public class addBlogServlet extends HttpServlet {
 
         // dao objects
         UserDAO userDAO = (UserDAO) session.getAttribute("UserDAO");
-        SqlBlogDAO blogDAO = (SqlBlogDAO) session.getAttribute("BlogDao");
-
+        SqlBlogDAO blogDAO = (SqlBlogDAO) session.getAttribute("blogDao");
         //logged in user
-        Integer currentUserId = (Integer) session.getAttribute("currentUserId");
+        Integer currentUserId = (Integer) session.getAttribute("currentUserID");
 
         //connection
         Connection conenction = (Connection) context.getAttribute("dbConnection");
-
         // response json
         JSONObject responseJson = new JSONObject();
         if(currentUserId != null) {
@@ -86,16 +90,18 @@ public class addBlogServlet extends HttpServlet {
             BlogValidator validator = new BlogValidator(newBlog, blogDAO);
             try {
                 validator.validate();
-                List <GeneralError> errors = validator.getErrors();
-                if(errors.size() != 0){
-                    responseJson.append("status", BlogStatusCodes.error);
-                    response.getWriter().print(errors);
-                    return;
+                List<GeneralError> errors = validator.getErrors();
+                if (errors.size() != 0) {
+                    Gson gson = new Gson();
+                    responseJson.put("status", BlogStatusCodes.error);
+                    responseJson.put("errors", gson.toJson(errors));
+                } else {
+                    blogDAO.addBlog(newBlog);
+                    responseJson.put("blogId", newBlog.getId());
+                    responseJson.put("status", BlogStatusCodes.ADDED);
                 }
-                blogDAO.addBlog(newBlog);
-                responseJson.append("status", BlogStatusCodes.ADDED);
             } catch (InvalidSQLQueryException | DatabaseError | SQLException e) {
-                responseJson.append("status", BlogStatusCodes.error);
+                responseJson.put("status", BlogStatusCodes.error);
             } finally {
                 response.getWriter().print(responseJson);
             }

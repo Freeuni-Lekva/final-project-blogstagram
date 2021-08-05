@@ -115,7 +115,7 @@ public class BlogServlet extends HttpServlet {
         String edited = request.getParameter("edited");
 
         // dao objects
-        SqlBlogDAO blogDAO = (SqlBlogDAO) session.getAttribute("BlogDao");
+        SqlBlogDAO blogDAO = (SqlBlogDAO) session.getAttribute("blogDao");
         UserDAO userDAO = (UserDAO) session.getAttribute("UserDAO");
 
         // operation type
@@ -223,7 +223,7 @@ public class BlogServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+           request.getSession().setAttribute("currentUserId", 1);
            StringPair urlPair = getPathIdentificator(request);
            if(urlPair == null || urlPair.getKey() == null || urlPair.getValue() != null){
                response.sendError(response.SC_NOT_FOUND);
@@ -240,7 +240,8 @@ public class BlogServlet extends HttpServlet {
            // dao objects and followApi
            UserDAO userDAO = (UserDAO) session.getAttribute("UserDAO");
            SqlFollowDao followDao = (SqlFollowDao) session.getAttribute("SqlFollowDao");
-           SqlBlogDAO blogDAO = (SqlBlogDAO) session.getAttribute("BlogDao");
+           SqlBlogDAO blogDAO = (SqlBlogDAO) session.getAttribute("blogDao");
+
            FollowApi followApi = initFollowApi(userDAO, followDao);
 
            // response json
@@ -262,7 +263,6 @@ public class BlogServlet extends HttpServlet {
             if(validator.shouldBeShown()){
                 responseJson.append("status", BlogStatusCodes.SHOW);
                 request.setAttribute("blog", currentBlog);
-                System.out.println("ss");
                 request.getRequestDispatcher(BLOGPAGE).forward(request, response);
             } else {
                 responseJson.append("status", BlogStatusCodes.NOTSHOW);

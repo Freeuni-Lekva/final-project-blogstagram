@@ -33,6 +33,7 @@ public class SqlHashTagDao implements HashTagDao {
 
     @Override
     public void addHashTags(int blogId, List<HashTag> hashTags) throws InvalidSQLQueryException, DatabaseError {
+        if(hashTags.size() == 0) return;
         String query = hashTagQueries.getInsertQuery(Arrays.asList("blog_id", "hashtag"), hashTags.size());
         PreparedStatement prpStm = null;
         try {
@@ -74,7 +75,7 @@ public class SqlHashTagDao implements HashTagDao {
             PreparedStatement prpStm = connection.prepareStatement(query);
             prpStm.setInt(1, blogId);
             ResultSet res = prpStm.executeQuery();
-            while(!res.next()){
+            while(res.next()){
                HashTag tag = new HashTag(res.getString(3));
                tag.setId(res.getInt(1));
                tag.setBlogId(res.getInt(2));
