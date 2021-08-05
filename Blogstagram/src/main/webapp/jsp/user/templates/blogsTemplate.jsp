@@ -1,6 +1,7 @@
 <%@ page import="org.blogstagram.models.User" %>
 <%@ page import="java.util.List" %>
-<%@ page import="org.blogstagram.followSystem.api.StatusCodes" %><%--
+<%@ page import="org.blogstagram.followSystem.api.StatusCodes" %>
+<%@ page import="org.blogstagram.models.Blog" %><%--
   Created by IntelliJ IDEA.
   User: Gigi
   Date: 16/07/2021
@@ -11,7 +12,7 @@
 
 <%
     User user = (User)request.getAttribute("User");
-    List<Object> blogs = (List<Object>)request.getAttribute("Blogs");
+    List<Blog> blogs = (List<Blog>)request.getAttribute("Blogs");
     Integer status = (Integer)request.getAttribute("FollowStatus");
     boolean canBlogsBeShown = (user.getPrivacy().equals(User.PUBLIC) || (status != null && status.equals(StatusCodes.followed)) || (status != null && status == -1));
 %>
@@ -20,14 +21,16 @@
 
         <% if(canBlogsBeShown) {%>
             <div class="container-fluid d-flex flex-wrap">
-                <% for(Object blog: blogs) { %>
-                    <div class="card bg-light blog-card">
-                        <div class="card-body text-center">
-                            <p class="card-text">
-                                <span class="text-info font-weight-bold">Some text inside the sixth card</span>
-                            </p>
+                <% for(Blog blog: blogs) { %>
+                    <a href="<%= blog.getId() %>">
+                        <div class="card bg-light blog-card">
+                            <div class="card-body text-center">
+                                <p class="card-text">
+                                    <span class="text-info font-weight-bold"><%= blog.getTitle()%></span>
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 <% } %>
 
                 <% if(blogs.size() == 0) { %>

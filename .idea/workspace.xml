@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2dd6a10e-f2ca-496e-8f8a-91d308f21f11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/listeners/SessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/listeners/SessionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/Blogstagram.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/Blogstagram.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/user/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/user/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/blogsTemplate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/blogsTemplate.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +42,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Blogstagram" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -59,19 +64,6 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Blogstagram [tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -106,8 +98,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1625303469937</updated>
+      <workItem from="1628192545664" duration="714000" />
+      <workItem from="1628193292511" duration="894000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
