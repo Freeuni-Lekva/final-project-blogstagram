@@ -223,7 +223,6 @@ public class BlogServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-           request.getSession().setAttribute("currentUserId", 1);
            StringPair urlPair = getPathIdentificator(request);
            if(urlPair == null || urlPair.getKey() == null || urlPair.getValue() != null){
                response.sendError(response.SC_NOT_FOUND);
@@ -234,7 +233,7 @@ public class BlogServlet extends HttpServlet {
            HttpSession session = getSession(request);
 
            // user and blog id's
-           Integer currentUserId = (Integer) session.getAttribute("currentUserId");
+           Integer currentUserId = (Integer) session.getAttribute("currentUserID");
            int blogId = Integer.parseInt(urlPair.getKey());
 
            // dao objects and followApi
