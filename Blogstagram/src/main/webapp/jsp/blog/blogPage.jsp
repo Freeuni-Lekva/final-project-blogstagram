@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import = "org.blogstagram.models.Blog" %>
 <%@ page import = "org.blogstagram.models.User" %>
+<%@ page import = "org.blogstagram.dao.UserDAO" %>
 <%@ page import = "java.util.List" %>
 
 <%!
@@ -19,6 +20,8 @@
    Blog blog = (Blog) request.getAttribute("blog");
    Integer currentUserId = (Integer)request.getSession().getAttribute("currentUserID");
    Boolean canEdit = canBeEdited(currentUserId, blog);
+   UserDAO userdao = (UserDAO) request.getSession().getAttribute("UserDAO");
+   User currentUser = userdao.getUserByID(currentUserId);
 %>
 
 <html>
@@ -53,6 +56,12 @@
                 <% } else if(blog == null) { %>
                     <div class = "container mt-2 cols-sm-1">
                         <button id="Add" class ="btn btn-info form-control" onclick="addBlog()">Add Blog</button>
+                    </div>
+                <% } %>
+
+                <% if(blog != null && (currentUser.getId() == blog.getUser_id() || currentUser.getRole() == User.MODERATOR_ROLE || currentUser.getRole() == User.ADMIN_ROLE)) { %>
+                    <div class = "container mt-2">
+                        <button id = "remove" class = "btn btn-info form-control" onclick="removeBlog()">removeBlog</button>
                     </div>
                 <% } %>
             </div>

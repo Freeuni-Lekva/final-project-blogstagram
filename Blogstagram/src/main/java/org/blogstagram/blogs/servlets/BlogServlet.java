@@ -109,6 +109,7 @@ public class BlogServlet extends HttpServlet {
 
         //blog and current user id
         Integer currentUserId = (Integer) session.getAttribute("currentUserId");
+
         Integer blogId = Integer.parseInt(pair.getKey());
 
         // edited content

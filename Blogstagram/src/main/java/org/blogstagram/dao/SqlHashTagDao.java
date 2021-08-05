@@ -47,7 +47,6 @@ public class SqlHashTagDao implements HashTagDao {
             int affectedRows = prpStm.executeUpdate();
             assertEquals(affectedRows, hashTags.size());
         } catch (SQLException exception) {
-            System.out.println(exception);
             throw new DatabaseError("Can't Connect to database");
         }
     }

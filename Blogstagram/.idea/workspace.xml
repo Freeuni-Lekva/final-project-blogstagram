@@ -5,24 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50c5ff1d-0e5a-4a9e-aa74-c09313ce28f1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/javascript/buttons.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/templates/content.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/templates/hashtags.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/templates/moderators.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/templates/title.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/servlets/BlogServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/servlets/BlogServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/servlets/addBlogServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/servlets/addBlogServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlBlogModeratorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlBlogModeratorDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlHashTagDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlHashTagDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogContentValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogContentValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogModeratorsValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogModeratorsValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogTitleValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogTitleValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/UserConnectionsServlet.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/blog/blogPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/blogPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/testFollowResponseServlet.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/blog/javascript/buttons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/javascript/buttons.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

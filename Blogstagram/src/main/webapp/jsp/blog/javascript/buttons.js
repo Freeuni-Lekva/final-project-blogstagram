@@ -28,6 +28,10 @@ function s(){
     console.log("sda");
 }
 
+function removeBlog(){
+
+}
+
 function rollback(){
     removeButton("submit");
     removeButton("cancel");
@@ -35,11 +39,13 @@ function rollback(){
     removeButton("removeModerators");
     let blogContainer = document.getElementById("button_container");
     blogContainer.innerHTML = "";
-    addButton("Edit", blogContainer, changeToEdit)
+    addButton("Edit", blogContainer, changeToEdit);
+    addButton("remove", blogContainer, removeBlog);
 }
 
 function changeToEdit(){
     removeButton("Edit");
+    removeButton("remove");
     let blogContainer = document.getElementById("button_container");
     blogContainer.innerHTML = "";
     addButton("submit", blogContainer, s);
