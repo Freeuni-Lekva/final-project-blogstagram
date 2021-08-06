@@ -1,6 +1,8 @@
 const addBlogLink = "localhost:8000/addBlog";
 const errors = -1;
 const added = 4;
+const removed = 3;
+const edited = 2;
 
 function buttonHtml(buttonId, onClickFunc){
     return `<div class = "container mt-2">
@@ -28,8 +30,31 @@ function s(){
     console.log("sda");
 }
 
-function removeBlog(){
+function removeBlog(blogId, userNickname){
+    $.post(`/blog/${blogId}/remove`).then(response => {
+        console.log(response);
+        let fields = JSON.parse(response);
+        let status = fields["status"];
+        if(status === removed){
+            window.location.href = `/user/${userNickname}`;
+        }
+    }).catch(errors => {
+        console.log(errors);
+    });
+}
 
+function addAttributes(){
+    let title = document.getElementById("title");
+    let content = document.getElementById("content");
+    title.setAttribute("readonly", "");
+    content.setAttribute("readonly", "");
+}
+
+function rollBackValues(){
+    document.getElementById("title").value = localStorage.getItem("title");
+    document.getElementById("content").value = localStorage.getItem("content");
+    document.getElementById("hashtags").value = localStorage.getItem("hashtags");
+    document.getElementById("blogModerators").value = localStorage.getItem("moderators");
 }
 
 function rollback(){
@@ -38,19 +63,44 @@ function rollback(){
     removeButton("addModerator");
     removeButton("removeModerators");
     let blogContainer = document.getElementById("button_container");
+    let remove = document.getElementById("remove_container");
     blogContainer.innerHTML = "";
     addButton("Edit", blogContainer, changeToEdit);
-    addButton("remove", blogContainer, removeBlog);
+    blogContainer.appendChild(remove);
+    rollBackValues();
+    addAttributes();
+}
+
+function removeAttributes(){
+    let title = document.getElementById("title");
+    let content = document.getElementById("content");
+    title.removeAttribute("readonly");
+    content.removeAttribute("readonly");
+}
+
+function setUpLocalStorage(){
+    let title = document.getElementById("title").value;
+    let content = document.getElementById("content").value;
+    let hashtag = document.getElementById("hashtags").value;
+    let moderators = document.getElementById("blogModerators").value;
+    localStorage.setItem("title", title);
+    localStorage.setItem("content", content);
+    localStorage.setItem("hashtags", hashtag);
+    localStorage.setItem("moderators", moderators);
 }
 
 function changeToEdit(){
     removeButton("Edit");
-    removeButton("remove");
     let blogContainer = document.getElementById("button_container");
+    let remove = document.getElementById("remove_container");
+    console.log(remove);
     blogContainer.innerHTML = "";
-    addButton("submit", blogContainer, s);
+    addButton("submit", blogContainer, submit);
+    blogContainer.appendChild(remove);
     addButton("cancel", blogContainer, rollback);
     addModeratorButtons();
+    setUpLocalStorage();
+    removeAttributes();
 }
 
 function getModerators(){
@@ -140,3 +190,46 @@ function addBlog(){
         console.log(errors);
     });
 }
+
+
+function resetStorage(){
+    localStorage.clear();
+}
+
+function submit(){
+    resetStorage();
+    const url = window.location.href;
+    const arr = url.split("/");
+    let blogId = parseInt(arr[arr.length - 1]);
+    let currentTitle = document.getElementById("title").value;
+    let currentContent = document.getElementById("content").value;
+    let moderatorsJson = getModerators();
+    let hashtagsJson = getHashtags();
+    let editedContent = {};
+
+    $.post(`/blog/${blogId}/edit`, {
+        title: currentTitle,
+        content: currentContent,
+        moderators: JSON.stringify(moderatorsJson),
+        hashtags: JSON.stringify(hashtagsJson)
+    }).then(response => {
+        let fields = JSON.parse(response);
+        let status = fields["status"];
+        if(status == edited){
+            window.location.href = `/blog/${blogId}`;
+        } else if(status == errors){
+            let errors = fields["errors"];
+            let errorsJson = JSON.parse(errors);
+            for(let k = 0; k < errorsJson.length; k++){
+                let error = errorsJson[k];
+                let {variableName, errorMessage} = error;
+                let errContainer = document.getElementById(`err-${variableName}`);
+                errContainer.innerText += errorMessage + "\n";
+            }
+        }
+    }).catch(errors => {
+        console.lof(errors);
+    });
+}
+
+

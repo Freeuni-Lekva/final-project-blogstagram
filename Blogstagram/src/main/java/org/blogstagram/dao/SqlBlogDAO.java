@@ -185,13 +185,13 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
                 PreparedStatement prpStm = connection.prepareStatement(query);
                 prpStm.setInt(1, id);
                 ResultSet resultSet = prpStm.executeQuery();
-                assertTrue(resultSet.next());
+                if(!resultSet.next()) return null;
                 initBlogObject(blog, resultSet);
                 return blog;
             } catch (SQLException exception) {
                 exception.printStackTrace();
             }
-        return null;
+            return null;
     }
 
     /*
@@ -235,7 +235,6 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
      */
     @Override
     public void editTitle(int blogId, String newTitle) throws DatabaseError, InvalidSQLQueryException {
-        System.out.println("sdasd");
         String query = blogQueries.getUpdateQuery(Collections.singletonList("title"), Collections.singletonList("id"));
         try {
             PreparedStatement prpStm = connection.prepareStatement(query);
