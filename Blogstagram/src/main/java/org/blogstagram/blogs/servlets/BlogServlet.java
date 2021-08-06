@@ -36,10 +36,10 @@ public class BlogServlet extends HttpServlet {
     private final static String BLOGPAGE = "/jsp/blog/blogPage.jsp";
     private static final String TITLE = "title";
     private static final String CONTENT = "content";
-    private static final String MODERATORS = "moderators";
+    private static final String MODERATORS = "users";
     private static final String EDIT = "edit";
     private static final String REMOVE = "remove";
-    private static final String HASHTAGS = "hashtags";
+    private static final String HASHTAGS = "hashTags";
 
     private HttpSession getSession(HttpServletRequest request){
         return request.getSession();
@@ -63,7 +63,7 @@ public class BlogServlet extends HttpServlet {
 
     private List<User> getModerators(JSONObject json, UserDAO userDAO){
         List <User> moderators = new ArrayList<>();
-        final JSONArray moderatorArray = json.getJSONArray("moderators");
+        final JSONArray moderatorArray = json.getJSONArray("users");
         for(int k = 0; k < moderatorArray.length(); k++){
             final JSONObject moderatorJson = moderatorArray.getJSONObject(k);
             try {
@@ -150,7 +150,7 @@ public class BlogServlet extends HttpServlet {
                 validator.validate();
                 List<GeneralError> errs = validator.getErrors();
                 if (errs.size() != 0) {
-                    responseJson.put("errors", gson.toJson(errors));
+                    responseJson.put("errors", gson.toJson(errs));
                     response.sendError(response.SC_BAD_REQUEST);
                     return;
                 }
@@ -159,7 +159,8 @@ public class BlogServlet extends HttpServlet {
                 blogValidator.validate();
                 List<GeneralError> blogErrs = blogValidator.getErrors();
                 if (blogErrs.size() != 0) {
-                    responseJson.put("errors", gson.toJson(errors));
+                    responseJson.put("status", BlogStatusCodes.error);
+                    responseJson.put("errors", gson.toJson(blogErrs));
                     return;
                 }
                 blogDAO.editBlog(editedBlog);
@@ -219,9 +220,9 @@ public class BlogServlet extends HttpServlet {
 
     private List<HashTag> getHashTags(JSONObject json, int blogId) {
         List <HashTag> hashTagList = new ArrayList<>();
-        JSONArray hashTagArr = json.getJSONArray("hashtags");
+        JSONArray hashTagArr = json.getJSONArray("hashTags");
         for(int k = 0; k < hashTagArr.length(); k++){
-            HashTag newHashTag = new HashTag(hashTagArr.getJSONObject(k).getString("hashtag"));
+            HashTag newHashTag = new HashTag(hashTagArr.getJSONObject(k).getString("hashTag"));
             hashTagList.add(newHashTag);
         }
         return hashTagList;

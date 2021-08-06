@@ -31,6 +31,7 @@
         <jsp:include page="/jsp/templates/bootstrap.jsp" />
         <title>Blogstagram</title>
         <script src = "/jsp/blog/javascript/buttons.js"></script>
+        <script src = "/jsp/blog/javascript/search.js"></script>
     </head>
 
     <body>
@@ -50,6 +51,7 @@
                     <script>addModeratorButtons();</script>
                 <% } %>
             </div>
+            <jsp:include page = "/jsp/blog/templates/search.jsp"/>
             <div id = "button_container" class = "container mt-2">
                 <% if(canEdit) {%>
                     <div class = "container mt-2 cols-sm-1">

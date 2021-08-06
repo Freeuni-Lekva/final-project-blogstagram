@@ -15,10 +15,27 @@ function addButton(buttonId, place, onClickFunc){
     place.innerHTML += add;
 }
 
+function modalButton(){
+    return `
+        <div class = "container mt-2">
+            <button id = "addModerator" class = "btn btn-info form-control" data-toggle = "modal" data-target = "#searchModeratorsModal">addModerator</button>
+        </div>
+    `
+}
+
+function removeModeratorsButton(){
+    return `
+        <div class = "container mt-2">
+            <button id = "removeModerator" class = "btn btn-info form-control" data-toggle = "modal" data-target = "#removeModerators">removeModerator</button>
+        </div>
+    `
+}
+
+
 function addModeratorButtons(){
     let moderatorsContainer = document.getElementById("moderators_container");
-    addButton("addModerator", moderatorsContainer, s);
-    addButton("removeModerators", moderatorsContainer, s);
+    moderatorsContainer.innerHTML += modalButton();
+    moderatorsContainer.innerHTML += removeModeratorsButton();
 }
 
 function removeButton(buttonId){
@@ -61,7 +78,7 @@ function rollback(){
     removeButton("submit");
     removeButton("cancel");
     removeButton("addModerator");
-    removeButton("removeModerators");
+    removeButton("removeModerator");
     let blogContainer = document.getElementById("button_container");
     let remove = document.getElementById("remove_container");
     blogContainer.innerHTML = "";
@@ -205,20 +222,20 @@ function submit(){
     let currentContent = document.getElementById("content").value;
     let moderatorsJson = getModerators();
     let hashtagsJson = getHashtags();
-    let editedContent = {};
+    let editedContentJson = {"title" : currentTitle, "content" : currentContent,
+                        "users" : moderatorsJson["users"],"hashTags" : hashtagsJson["hashTags"]};
 
     $.post(`/blog/${blogId}/edit`, {
-        title: currentTitle,
-        content: currentContent,
-        moderators: JSON.stringify(moderatorsJson),
-        hashtags: JSON.stringify(hashtagsJson)
+       edited : JSON.stringify(editedContentJson)
     }).then(response => {
         let fields = JSON.parse(response);
         let status = fields["status"];
+        console.log(response);
         if(status == edited){
             window.location.href = `/blog/${blogId}`;
         } else if(status == errors){
             let errors = fields["errors"];
+            console.log(errors);
             let errorsJson = JSON.parse(errors);
             for(let k = 0; k < errorsJson.length; k++){
                 let error = errorsJson[k];
@@ -227,8 +244,8 @@ function submit(){
                 errContainer.innerText += errorMessage + "\n";
             }
         }
-    }).catch(errors => {
-        console.lof(errors);
+    }).catch(errs => {
+        console.log(errs);
     });
 }
 
