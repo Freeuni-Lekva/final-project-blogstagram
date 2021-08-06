@@ -146,7 +146,7 @@ public class UserServlet extends HttpServlet {
             Integer followingCount = null;
             Integer blogsCount = null;
             Integer followStatus = null;
-            List<Blog> blogs = null;
+            List<Blog> blogs = new ArrayList<>();
 
             try {
                 if(currentUserID != null)
@@ -160,7 +160,7 @@ public class UserServlet extends HttpServlet {
                 followersCount = followApi.getFollowersCount(userID);
                 followingCount = followApi.getFollowingCount(userID);
                 blogsCount = blogDAO.getAmountOfBlogsByUser(userID);
-                blogs = blogDAO.getBlogsOfUser(user.getId());
+                blogs = blogDAO.getBlogsOfUser(userID);
 
             } catch (NotValidUserIdException | DatabaseError | InvalidSQLQueryException e) {
                 e.printStackTrace();

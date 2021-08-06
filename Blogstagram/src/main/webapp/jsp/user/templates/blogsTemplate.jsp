@@ -20,13 +20,14 @@
     <div class="container border" style="width:80%;">
 
         <% if(canBlogsBeShown) {%>
-            <div class="container-fluid d-flex flex-wrap">
+            <div class="container-fluid d-flex justify-content-around flex-wrap">
                 <% for(Blog blog: blogs) { %>
-                    <a href="<%= blog.getId() %>">
-                        <div class="card bg-light blog-card">
+                    <a href="/blog/<%= blog.getId() %>">
+                        <div class="card bg-light blog-card m-3" style="height:100px;">
                             <div class="card-body text-center">
                                 <p class="card-text">
-                                    <span class="text-info font-weight-bold"><%= blog.getTitle()%></span>
+                                    <span class="text-info font-weight-bold"><%= blog.getTitle()%></span><br/>
+                                    <span class="text-muted"><%= blog.getContent().substring(0,20) %>...</span><br/>
                                 </p>
                             </div>
                         </div>

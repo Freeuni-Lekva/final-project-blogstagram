@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2dd6a10e-f2ca-496e-8f8a-91d308f21f11" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/Blogstagram.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/Blogstagram.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/dao/SqlBlogDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/dao/SqlBlogDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/user/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/user/UserServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/blogsTemplate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/blogsTemplate.jsp" afterDir="false" />
     </list>
@@ -99,7 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1625303469937</updated>
       <workItem from="1628192545664" duration="714000" />
-      <workItem from="1628193292511" duration="894000" />
+      <workItem from="1628193292511" duration="3490000" />
     </task>
     <servers />
   </component>
