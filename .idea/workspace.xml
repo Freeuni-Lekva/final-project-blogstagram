@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2dd6a10e-f2ca-496e-8f8a-91d308f21f11" name="Default Changelist" comment="" />
+    <list default="true" id="2dd6a10e-f2ca-496e-8f8a-91d308f21f11" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/Blogstagram.war" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/Blogstagram.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/listeners/SessionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/listeners/SessionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/CommentTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/CommentTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/prepareData.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/prepareData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/admin/AdminServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/dao/AdminDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/dao/AdminDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/listeners/SessionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/listeners/SessionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/listeners/contextListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/listeners/contextListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,11 +62,11 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn compile" />
-      <command value="mvn install" />
       <command value="mvn clean" />
+      <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Maven.Blogstagram [tomcat7:run]">
+  <component name="RunManager" selected="JUnit.TestAdminDAO">
     <configuration name="CommentTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled" />
       <extension name="coverage">
@@ -66,6 +77,26 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.tests.commentDAOTests" />
       <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.commentDAOTests.CommentTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestAdminDAO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="untitled" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.blogstagram.tests.AdminDAOTests.*" />
+          <option name="ENABLED" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="org.blogstagram.dao.AdminDAO" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.blogstagram.tests.AdminDAOTests" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.AdminDAOTests.TestAdminDAO" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -98,10 +129,12 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.CommentTests" />
+      <item itemvalue="JUnit.TestAdminDAO" />
       <item itemvalue="Maven.Blogstagram [tomcat7:run]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestAdminDAO" />
         <item itemvalue="JUnit.CommentTests" />
       </list>
     </recent_temporary>
