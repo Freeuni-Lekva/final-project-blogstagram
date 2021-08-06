@@ -234,7 +234,20 @@ public class TestAdminDAO extends TestCase {
         assertThrows(SQLException.class, new ThrowingRunnable() {
             @Override
             public void run() throws Throwable {
-                adminDAO.deleteUser(-1);
+                adminDAO.makeModerUser(-1);
+            }
+        });
+    }
+
+    public void testEligibility() throws SQLException {
+        assertTrue(adminDAO.isEligible(admin.getId()));
+        for(int i = 0; i < NUM_USERS; i++){
+            assertFalse(adminDAO.isEligible(users[i].getId()));
+        }
+        assertThrows(SQLException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                adminDAO.isEligible(-1);
             }
         });
     }

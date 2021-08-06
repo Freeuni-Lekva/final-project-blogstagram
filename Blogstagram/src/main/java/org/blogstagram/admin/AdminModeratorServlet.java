@@ -47,7 +47,7 @@ public class AdminModeratorServlet extends HttpServlet {
             return;
         }
         AdminValidator adminValidator = new AdminValidator();
-        adminValidator.setAdminDAOUser(adminDAO, Integer.parseInt(user_id));
+        adminValidator.setAdminDAOUser(adminDAO, Integer.parseInt(user_id), true);
         // validate that current user id is admin or moderator
         try {
             if(!adminValidator.validate()){

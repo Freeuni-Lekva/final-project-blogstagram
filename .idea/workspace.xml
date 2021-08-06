@@ -6,14 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2dd6a10e-f2ca-496e-8f8a-91d308f21f11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/admin/AdminDeleterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/admin/AdminDeleterServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/admin/AdminModeratorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/admin/AdminModeratorServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/dao/AdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/dao/AdminDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/tests/AdminDAOTests/TestAdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/tests/AdminDAOTests/TestAdminDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/validators/AdminValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/validators/AdminValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blogstagram/target/Blogstagram.war" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/Blogstagram.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/listeners/SessionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/listeners/SessionListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/CommentTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/CommentTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/prepareData.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/prepareData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/admin/AdminServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/dao/AdminDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/dao/AdminDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/listeners/SessionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/listeners/SessionListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/listeners/contextListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/listeners/contextListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Blogstagram/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -167,6 +165,9 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/final_project_blogstagram$TestAdminDAO.ic" NAME="TestAdminDAO Coverage Results" MODIFIED="1628245026208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.blogstagram.dao.AdminDAO</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/final_project_blogstagram$CommentTests.ic" NAME="CommentTests Coverage Results" MODIFIED="1627757207608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>org.blogstagram.dao.CommentDAO</FILTER>
     </SUITE>

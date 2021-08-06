@@ -38,7 +38,6 @@ public class AdminDeleterServlet extends HttpServlet{
             return;
         }
         Connection connection = (Connection) request.getServletContext().getAttribute("dbConnection");
-
         adminDAO = (AdminDAO) request.getSession().getAttribute("AdminDAO");;
 
         List<VariableError> errorList = new ArrayList<>();
@@ -49,7 +48,7 @@ public class AdminDeleterServlet extends HttpServlet{
             return;
         }
         AdminValidator adminValidator = new AdminValidator();
-        adminValidator.setAdminDAOUser(adminDAO, Integer.parseInt(user_id));
+        adminValidator.setAdminDAOUser(adminDAO, Integer.parseInt(user_id), false);
         // validate that current user id is admin or moderator
         try {
             if(!adminValidator.validate()){
@@ -78,6 +77,7 @@ public class AdminDeleterServlet extends HttpServlet{
                 int comment_id = Integer.parseInt(request.getParameter("comment_id"));
                 AdminCommentValidator adminCommentValidator = new AdminCommentValidator();
                 adminCommentValidator.setConnectionComment(connection, comment_id);
+
                 if(adminCommentValidator.validate()) {
                     adminDAO.deleteComment(comment_id);
                 }else{
@@ -90,6 +90,7 @@ public class AdminDeleterServlet extends HttpServlet{
                 UserDAO userDao = (UserDAO)request.getSession().getAttribute("UserDAO");
                 UserIdValidator userIdValidator = new UserIdValidator();
                 userIdValidator.setUserDao(userDao);
+
                 if(userIdValidator.validate(to_delete_user_id)) {
                     adminDAO.deleteUser(to_delete_user_id);
                 }else{

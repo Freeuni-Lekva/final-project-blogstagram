@@ -119,8 +119,23 @@ public class AdminDAO {
     }
     /*
     Receives user id in parameters
-    returns if it is moderator or admin
+    returns if it is admin
      */
+    public boolean isEligibleToChangeRole(int user_id) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement(GET_USER_ROLE);
+        preparedStatement.setInt(1, user_id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        String user_role = "";
+        if(resultSet.next()){
+            user_role = resultSet.getString(1);
+            return user_role.equals(User.ADMIN_ROLE);
+        }
+        throw new SQLException("User with that ID does not exist");
+    }
+    /*
+    Receives user id in parameters
+    returns if it is moderator or admin
+    */
     public boolean isEligible(int user_id) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement(GET_USER_ROLE);
         preparedStatement.setInt(1, user_id);
