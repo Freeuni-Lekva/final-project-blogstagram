@@ -11,6 +11,9 @@
 
 <%
     List<UserProvidedBlog> blogs = (List<UserProvidedBlog>)request.getAttribute("Blogs");
+    Integer currentUserID = (Integer)request.getSession().getAttribute("currentUserID");
+    if(currentUserID == null)
+        currentUserID = -1;
 %>
 
 <html>
@@ -33,10 +36,16 @@
                         <h5 class="mt-0">
                             <%= blog.getTitle()%>
                             <span class="text-muted">
-                                    (<span class="text-info">Author:</span>
+                                    (
+                                    <span class="text-info">Author:</span>
                                     <a href="/user/<%= blog.getUser_id()%>">
-                                        <%= blog.getUserFirstname()%> <%= blog.getUserLastname() %>)
+                                        <% if(blog.getUser_id() == currentUserID) { %>
+                                            Me
+                                        <% } else { %>
+                                            <%= blog.getUserFirstname()%> <%= blog.getUserLastname()%>
+                                        <% } %>
                                     </a>
+                                    )
                             </span>
                             <a class="btn btn-outline-primary" href="/blog/<%= blog.getId() %>">Checkout the blog!</a>
 

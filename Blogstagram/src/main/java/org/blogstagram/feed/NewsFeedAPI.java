@@ -12,9 +12,13 @@ import java.util.List;
 
 public class NewsFeedAPI {
 
-    public static final String GET_NEWS_FEED_QUERY = "SELECT blogs.id,users.firstname,users.lastname,users.image FROM blogs INNER JOIN follows ON follows.to_user_id = blogs.user_id INNER \tJOIN users ON follows.from_user_id = users.id WHERE users.id = ?\n" +
-            "\tUNION\n" +
-            "SELECT blogs.id,users.firstname,users.lastname,users.image FROM blogs INNER JOIN users ON blogs.user_id = users.id;";
+    public static final String GET_NEWS_FEED_QUERY = "SELECT blogs.id,users.firstname,users.lastname,users.image FROM blogs\n" +
+            "\tINNER JOIN follows ON blogs.user_id = follows.to_user_id\n" +
+            "    INNER JOIN users ON follows.to_user_id = users.id\n" +
+            "    WHERE follows.from_user_id = ?\n" +
+            "\t\tUNION\n" +
+            "SELECT blogs.id,users.firstname,users.lastname,users.image FROM blogs\n" +
+            "\tINNER JOIN users ON blogs.user_id = users.id;";
 
     private static final Integer NO_USER_ID = -1;
 
