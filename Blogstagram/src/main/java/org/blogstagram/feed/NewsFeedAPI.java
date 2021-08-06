@@ -4,6 +4,7 @@ import org.blogstagram.dao.SqlBlogDAO;
 import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.InvalidSQLQueryException;
 import org.blogstagram.models.Blog;
+import org.blogstagram.models.UserProvidedBlog;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,9 +12,9 @@ import java.util.List;
 
 public class NewsFeedAPI {
 
-    public static final String GET_NEWS_FEED_QUERY = "SELECT blogs.id FROM blogs INNER JOIN follows ON follows.to_user_id = blogs.user_id INNER \tJOIN users ON follows.from_user_id = users.id WHERE users.id = ?\n" +
+    public static final String GET_NEWS_FEED_QUERY = "SELECT blogs.id,users.firstname,users.lastname,users.image FROM blogs INNER JOIN follows ON follows.to_user_id = blogs.user_id INNER \tJOIN users ON follows.from_user_id = users.id WHERE users.id = ?\n" +
             "\tUNION\n" +
-            "SELECT blogs.id FROM blogs INNER JOIN users ON blogs.user_id = users.id;";
+            "SELECT blogs.id,users.firstname,users.lastname,users.image FROM blogs INNER JOIN users ON blogs.user_id = users.id;";
 
     private static final Integer NO_USER_ID = -1;
 
@@ -35,8 +36,8 @@ public class NewsFeedAPI {
         this(NO_USER_ID,blogDAO,connection);
     }
 
-    public List<Blog> getNewsFeed() throws SQLException, DatabaseError, InvalidSQLQueryException {
-        List<Blog> blogs = new ArrayList<>();
+    public List<UserProvidedBlog> getNewsFeed() throws SQLException, DatabaseError, InvalidSQLQueryException {
+        List<UserProvidedBlog> blogs = new ArrayList<>();
         PreparedStatement stm = connection.prepareStatement(GET_NEWS_FEED_QUERY);
         stm.setInt(1,currentUserID);
 
@@ -44,7 +45,15 @@ public class NewsFeedAPI {
         while(result.next()){
             int blogID = result.getInt(1);
             Blog blog = blogDAO.getBlog(blogID);
-            blogs.add(blog);
+
+            String userFirstname = result.getString(2);
+            String userLastname = result.getString(3);
+            String userImage = result.getString(4);
+
+
+            UserProvidedBlog userProvidedBlog = new UserProvidedBlog(userFirstname,userLastname,userImage,blog);
+
+            blogs.add(userProvidedBlog);
         }
 
 

@@ -5,6 +5,7 @@ import org.blogstagram.dao.SqlFollowDao;
 import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.InvalidSQLQueryException;
 import org.blogstagram.models.Blog;
+import org.blogstagram.models.UserProvidedBlog;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,7 +39,7 @@ public class NewsFeedServlet extends HttpServlet {
 
         NewsFeedAPI newsFeedAPI = new NewsFeedAPI(currentUserID,blogDAO,connection);
         try {
-            List<Blog> blogs = newsFeedAPI.getNewsFeed();
+            List<UserProvidedBlog> blogs = newsFeedAPI.getNewsFeed();
             req.setAttribute("Blogs",blogs);
         } catch (SQLException exception) {
             exception.printStackTrace();
