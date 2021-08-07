@@ -10,6 +10,7 @@ import org.blogstagram.dao.UserDAO;
 import org.blogstagram.errors.*;
 import org.blogstagram.followSystem.api.FollowApi;
 import org.blogstagram.models.Blog;
+import org.blogstagram.models.Comment;
 import org.blogstagram.models.HashTag;
 import org.blogstagram.models.User;
 
@@ -267,6 +268,7 @@ public class BlogServlet extends HttpServlet {
             Blog currentBlog = blogDAO.getBlog(blogId);
             getBlogRequestValidator validator = initValidator(currentUserId, userDAO, currentBlog, followApi);
             if(validator.shouldBeShown()){
+                Gson gson = new Gson();
                 responseJson.append("status", BlogStatusCodes.SHOW);
                 request.setAttribute("blog", currentBlog);
                 request.getRequestDispatcher(BLOGPAGE).forward(request, response);

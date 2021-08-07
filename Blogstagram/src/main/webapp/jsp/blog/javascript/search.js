@@ -1,4 +1,6 @@
 function addModerator(nickname){
     console.log("here");
-    document.getElementById("blogModerators").value += nickname + "\n";
+    let activeModerators = document.getElementById("blogModerators").value.split("\n");
+    if(!activeModerators.includes(nickname))
+        document.getElementById("blogModerators").value += nickname + "\n";
 }

@@ -43,9 +43,7 @@ function removeButton(buttonId){
     edit.parentNode.removeChild(edit);
 }
 
-function s(){
-    console.log("sda");
-}
+
 
 function removeBlog(blogId, userNickname){
     $.post(`/blog/${blogId}/remove`).then(response => {

@@ -8,6 +8,8 @@ import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.NotValidUserIdException;
 import org.blogstagram.errors.VariableError;
 import org.blogstagram.models.Comment;
+import org.json.JSONObject;
+
 import javax.servlet.ServletContext;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,7 +27,7 @@ public class CommentServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)  throws IOException {
-        String user_id = (String) request.getSession().getAttribute("currentUserID");
+        Integer user_id = (Integer) request.getSession().getAttribute("currentUserID");
         if(user_id == null){
             response.sendError(response.SC_UNAUTHORIZED);
             return;
@@ -37,7 +39,7 @@ public class CommentServlet extends HttpServlet {
         String blog_id = request.getParameter("blog_id");
         String comment = request.getParameter("Comment");
         int comment_id;
-        if (!request.getParameter("comment_id").equals("")){
+        if (request.getParameter("comment_id") != null){
             comment_id = Integer.parseInt(request.getParameter("comment_id"));
         }else{
             comment_id = -1;
@@ -49,13 +51,16 @@ public class CommentServlet extends HttpServlet {
         userVal.setUserDao(userDao);
 
         List<VariableError> errorList = new ArrayList<>();
+        Gson gson = new Gson();
+        JSONObject responseJson = new JSONObject();
         try {
             if(userVal.validate(user_id) && requestType.equals("AddComment") && blogValidator.validate(blog_id,"")){
                 CommentAddValidator commAddValidator = new CommentAddValidator();
                 if(commAddValidator.validate(comment, "")) {
-                    Comment newComment = new Comment(Integer.parseInt(user_id), Integer.parseInt(blog_id),
+                    Comment newComment = new Comment(user_id, Integer.parseInt(blog_id),
                             comment, new Date(System.currentTimeMillis()));
                     commentDAO.addComment(newComment);
+                    responseJson.put("comment", gson.toJson(newComment));
                 }
             }else if(userVal.validate(user_id) && requestType.equals("DeleteComment") && blogValidator.validate(blog_id,"")) {
                 CommentDeleteValidator commDeleteValidator = new CommentDeleteValidator();
@@ -82,11 +87,9 @@ public class CommentServlet extends HttpServlet {
         } catch (SQLException | DatabaseError | NotValidUserIdException throwables) {
             throwables.printStackTrace();
         }
+        responseJson.put("errors", gson.toJson(errorList));
+        response.getWriter().print(responseJson);
 
-        if(errorList.size() != 0) {
-            Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(errorList));
-        }
     }
 
     @Override

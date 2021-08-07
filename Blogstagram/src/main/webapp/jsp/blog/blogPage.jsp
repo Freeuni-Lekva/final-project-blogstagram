@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import = "org.blogstagram.models.Blog" %>
 <%@ page import = "org.blogstagram.models.User" %>
+<%@ page import = "org.blogstagram.models.Comment" %>
 <%@ page import = "org.blogstagram.dao.UserDAO" %>
 <%@ page import = "java.util.List" %>
 
@@ -32,6 +33,8 @@
         <title>Blogstagram</title>
         <script src = "/jsp/blog/javascript/buttons.js"></script>
         <script src = "/jsp/blog/javascript/search.js"></script>
+        <script src = "/jsp/blog/javascript/removeModerators.js"></script>
+        <script src = "/jsp/blog/javascript/comments.js"></script>
     </head>
 
     <body>
@@ -52,6 +55,7 @@
                 <% } %>
             </div>
             <jsp:include page = "/jsp/blog/templates/search.jsp"/>
+            <jsp:include page = "/jsp/blog/templates/removeModerators.jsp" />
             <div id = "button_container" class = "container mt-2">
                 <% if(canEdit) {%>
                     <div class = "container mt-2 cols-sm-1">
@@ -71,7 +75,12 @@
             </div>
 
         </div>
-
+           <%if(blog != null) { %>
+                 <div class = "container">
+                    <jsp:include page = "/jsp/blog/templates/comments.jsp" />
+                    <jsp:include page = "/jsp/blog/templates/interaction.jsp" />
+                </div>
+           <% } %>
         </br>
             <jsp:include page="/jsp/templates/footer.jsp" />
     </body>
