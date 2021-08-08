@@ -1,13 +1,13 @@
-package org.blogstagram.postLike.postLikeServlet;
+package org.blogstagram.blogLike.blogLikeServlets;
 
 import com.google.gson.Gson;
-import org.blogstagram.dao.PostLikeDao;
+import org.blogstagram.dao.BlogLikeDao;
 import org.blogstagram.dao.UserDAO;
 import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.GeneralError;
 import org.blogstagram.errors.NotValidUserIdException;
 import org.blogstagram.errors.VariableError;
-import org.blogstagram.validators.PostLikeValidator;
+import org.blogstagram.validators.BlogLikeValidator;
 import org.blogstagram.validators.UserIdValidator;
 
 import javax.servlet.ServletException;
@@ -20,17 +20,17 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-@WebServlet("/postLike")
-public class PostLikeServlet extends HttpServlet {
+@WebServlet("/blogLike")
+public class BlogLikeServlet extends HttpServlet {
 
     private Connection getConnectionFromContext(HttpServletRequest req){
         Connection connection = (Connection)req.getServletContext().getAttribute("dbConnection");
         return connection;
     }
 
-    private PostLikeDao getPostLikeDaoFromSession(HttpServletRequest req){
-        PostLikeDao postLikeDao = (PostLikeDao) req.getSession().getAttribute("PostLikeDao");
-        return postLikeDao;
+    private BlogLikeDao getBlogLikeDaoFromSession(HttpServletRequest req){
+        BlogLikeDao blogLikeDao = (BlogLikeDao) req.getSession().getAttribute("BlogLikeDao");
+        return blogLikeDao;
     }
 
     private UserDAO getUserDaoFromSession(HttpServletRequest req){
@@ -46,30 +46,30 @@ public class PostLikeServlet extends HttpServlet {
             return;
         }
         Connection connection = getConnectionFromContext(request);
-        PostLikeDao postLikeDao = getPostLikeDaoFromSession(request);
+        BlogLikeDao blogLikeDao = getBlogLikeDaoFromSession(request);
         UserDAO userDAO = getUserDaoFromSession(request);
-        PostLikeValidator postLikeValidator = new PostLikeValidator();
-        postLikeValidator.setConnection(connection);
+        BlogLikeValidator blogLikeValidator = new BlogLikeValidator();
+        blogLikeValidator.setConnection(connection);
         UserIdValidator userIdValidator = new UserIdValidator();
         userIdValidator.setUserDao(userDAO);
-        String postId = request.getParameter("post_id");
+        String blogId = request.getParameter("blog_id");
         ArrayList<GeneralError> errors = new ArrayList<>();
         String requestType = request.getParameter("Like");
 
         try{
-            if(userIdValidator.validate(userId) && !postLikeValidator.validate(postId, userId) && requestType.equals("Like")){
-                postLikeDao.likePost( Integer.parseInt(postId), Integer.parseInt(userId));
-            } else if(userIdValidator.validate(userId) && postLikeValidator.validate(postId, userId) && requestType.equals("Unlike")){
-                postLikeDao.unlikePost(Integer.parseInt(postId), Integer.parseInt(userId));
+            if(userIdValidator.validate(userId) && !blogLikeValidator.validate(blogId, userId) && requestType.equals("Like")){
+                blogLikeDao.likeBlog( Integer.parseInt(blogId), Integer.parseInt(userId));
+            } else if(userIdValidator.validate(userId) && blogLikeValidator.validate(blogId, userId) && requestType.equals("Unlike")){
+                blogLikeDao.unlikeBlog(Integer.parseInt(blogId), Integer.parseInt(userId));
             } else {
-                if(postLikeValidator.validate(postId, userId) && requestType.equals("Like")) {
-                    VariableError varError = new VariableError("PostLike", "Can not like already liked post");
+                if(blogLikeValidator.validate(blogId, userId) && requestType.equals("Like")) {
+                    VariableError varError = new VariableError("BlogLike", "Can not like already liked blog");
                     errors.add(varError);
-                } else if(!postLikeValidator.validate(postId, userId) && requestType.equals("Unlike")){
-                    VariableError varError = new VariableError("PostLike", "Can not unlike non liked post");
+                } else if(!blogLikeValidator.validate(blogId, userId) && requestType.equals("Unlike")){
+                    VariableError varError = new VariableError("BlogLike", "Can not unlike non liked blog");
                     errors.add(varError);
                 } else if(!userIdValidator.validate(userId)){
-                    VariableError varError = new VariableError("PostLike", "User ID trying to like is not valid");
+                    VariableError varError = new VariableError("BlogLike", "User ID trying to like is not valid");
                     errors.add(varError);
                 }
             }

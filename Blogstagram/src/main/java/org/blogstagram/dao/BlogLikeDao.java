@@ -5,34 +5,35 @@ import org.blogstagram.models.User;
 import java.sql.*;
 import java.util.ArrayList;
 
-import static org.blogstagram.postLike.postLikeConstants.PostLikeQueries.*;
+import static org.blogstagram.blogLike.blogLikeConstants.BlogLikeQueries.*;
 
-public class PostLikeDao {
+
+public class BlogLikeDao {
     private final static int UNNECESSARY_INFO = -1;
     Connection connection;
 
-    public PostLikeDao(Connection connection) {
+    public BlogLikeDao(Connection connection) {
         this.connection = connection;
     }
 
-    public void likePost(int blog_id, int user_id) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement(LIKE_POST, Statement.RETURN_GENERATED_KEYS);
+    public void likeBlog(int blog_id, int user_id) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement(LIKE_BLOG, Statement.RETURN_GENERATED_KEYS);
         statement.setInt(1, user_id);
         statement.setInt(2, blog_id);
         statement.setDate(3, new Date(System.currentTimeMillis()));
         statement.executeUpdate();
     }
 
-    public void  unlikePost(int blog_id, int user_id) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement(UNLIKE_POST);
+    public void  unlikeBlog(int blog_id, int user_id) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement(UNLIKE_BLOG);
         statement.setInt(1, blog_id);
         statement.setInt(2, user_id);
         statement.executeUpdate();
     }
 
-    public ArrayList<User> getPostLikers(int blog_id) throws SQLException {
+    public ArrayList<User> getBlogLikers(int blog_id) throws SQLException {
         ArrayList<User> users = new ArrayList<>();
-        PreparedStatement statement = connection.prepareStatement(POST_LIKES);
+        PreparedStatement statement = connection.prepareStatement(BLOG_LIKES);
         statement.setInt(1, blog_id);
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
@@ -65,7 +66,7 @@ public class PostLikeDao {
 
 
     public int getLikeCount(int blog_id) throws SQLException{
-        return getPostLikers(blog_id).size();
+        return getBlogLikers(blog_id).size();
     }
 }
 

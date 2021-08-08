@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PostLikeValidator {
+public class BlogLikeValidator {
     Connection connection;
 
     private static final String POST_LIKED_QUERY = "SELECT * from likes where post_id = ? and user_id = ?";
