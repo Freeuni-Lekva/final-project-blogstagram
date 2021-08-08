@@ -56,6 +56,7 @@ public class SqlBlogModeratorDao implements BlogModeratorDao{
 
 
     public void addModerators(int blogId, List <User> moderators) throws InvalidSQLQueryException, DatabaseError {
+        if (moderators.size() == 0) return;
         String query = moderatorQueries.getInsertQuery(Arrays.asList("blog_id", "user_id"), moderators.size());
         int paramIndex = 1;
         try {
