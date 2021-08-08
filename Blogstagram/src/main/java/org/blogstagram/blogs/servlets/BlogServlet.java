@@ -96,6 +96,7 @@ public class BlogServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        
 
         StringPair pair = getPathIdentificator(request);
         if(pair == null || pair.getKey() == null) {
@@ -106,7 +107,8 @@ public class BlogServlet extends HttpServlet {
         HttpSession session = getSession(request);
 
         //blog and current user id
-        Integer currentUserId = (Integer) session.getAttribute("currentUserId");
+        Integer currentUserId = (Integer) session.getAttribute("currentUserID");
+
         Integer blogId = Integer.parseInt(pair.getKey());
 
         // edited content
@@ -221,7 +223,6 @@ public class BlogServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
            StringPair urlPair = getPathIdentificator(request);
            if(urlPair == null || urlPair.getKey() == null || urlPair.getValue() != null){
                response.sendError(response.SC_NOT_FOUND);
@@ -232,13 +233,14 @@ public class BlogServlet extends HttpServlet {
            HttpSession session = getSession(request);
 
            // user and blog id's
-           Integer currentUserId = (Integer) session.getAttribute("currentUserId");
+           Integer currentUserId = (Integer) session.getAttribute("currentUserID");
            int blogId = Integer.parseInt(urlPair.getKey());
 
            // dao objects and followApi
            UserDAO userDAO = (UserDAO) session.getAttribute("UserDAO");
            SqlFollowDao followDao = (SqlFollowDao) session.getAttribute("SqlFollowDao");
            SqlBlogDAO blogDAO = (SqlBlogDAO) session.getAttribute("blogDao");
+
            FollowApi followApi = initFollowApi(userDAO, followDao);
 
            // response json
@@ -260,7 +262,6 @@ public class BlogServlet extends HttpServlet {
             if(validator.shouldBeShown()){
                 responseJson.append("status", BlogStatusCodes.SHOW);
                 request.setAttribute("blog", currentBlog);
-                System.out.println("ss");
                 request.getRequestDispatcher(BLOGPAGE).forward(request, response);
             } else {
                 responseJson.append("status", BlogStatusCodes.NOTSHOW);
