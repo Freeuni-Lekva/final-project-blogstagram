@@ -27,7 +27,7 @@
                             <div class="card-body text-center">
                                 <p class="card-text">
                                     <span class="text-info font-weight-bold"><%= blog.getTitle()%></span><br/>
-                                    <span class="text-muted"><%= blog.getContent().substring(0,20) %>...</span><br/>
+                                    <span class="text-muted"><%= blog.getContent().substring(0,blog.getContent().length()/4) %>...</span><br/>
                                 </p>
                             </div>
                         </div>
