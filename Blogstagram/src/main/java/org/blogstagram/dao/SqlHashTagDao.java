@@ -75,10 +75,10 @@ public class SqlHashTagDao implements HashTagDao {
             prpStm.setInt(1, blogId);
             ResultSet res = prpStm.executeQuery();
             while(res.next()){
-               HashTag tag = new HashTag(res.getString(3));
-               tag.setId(res.getInt(1));
-               tag.setBlogId(res.getInt(2));
-               hashTags.add(tag);
+                HashTag tag = new HashTag(res.getString(3));
+                tag.setId(res.getInt(1));
+                tag.setBlogId(res.getInt(2));
+                hashTags.add(tag);
             }
 
         } catch (SQLException exception) {

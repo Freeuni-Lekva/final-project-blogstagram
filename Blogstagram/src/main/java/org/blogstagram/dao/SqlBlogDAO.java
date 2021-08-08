@@ -29,11 +29,12 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
     private final Connection connection;
     private final List <Edit> editable;
     private final SqlHashTagDao hashTagDao;
+    private final CommentDAO commentDAO;
     private final UserDAO userDAO;
 
 
 
-    public SqlBlogDAO(Connection connection, UserDAO userDAO, int usePurpose){
+    public SqlBlogDAO(Connection connection, UserDAO userDAO, int usePurpose, CommentDAO commentDAO){
         if(connection == null)
             throw new NullPointerException("Connection object can't be null.");
         else if(usePurpose != TEST && usePurpose != REAL){
@@ -43,6 +44,7 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
         this.connection = connection;
         blogQueries = new BlogQueries(usePurpose);
         this.userDAO = userDAO;
+        this.commentDAO = commentDAO;
         moderatorDao = new SqlBlogModeratorDao(connection);
         moderatorDao.setUserDao(userDAO);
         hashTagDao = new SqlHashTagDao(connection);
@@ -148,6 +150,8 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
         blog.setCreated_at(resultSet.getDate(5));
         blog.setBlogModerators(moderatorDao.getModerators(blog.getId()));
         blog.setHashTagList(hashTagDao.getHashTags(blog.getId()));
+        blog.setComments(commentDAO.getComments(blog.getId()));
+        blog.setNumLikes(0);
     }
 
     /*
@@ -178,20 +182,20 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
      */
     @Override
     public Blog getBlog(int id) throws InvalidSQLQueryException, DatabaseError {
-            Blog blog = new Blog();
-            String query = blogQueries.getSelectQuery(Arrays.asList("id", "user_id", "title", "content", "created_at"),
-                    Collections.singletonList("id"));
-            try {
-                PreparedStatement prpStm = connection.prepareStatement(query);
-                prpStm.setInt(1, id);
-                ResultSet resultSet = prpStm.executeQuery();
-                if(!resultSet.next()) return null;
-                initBlogObject(blog, resultSet);
-                return blog;
-            } catch (SQLException exception) {
-                exception.printStackTrace();
-            }
-            return null;
+        Blog blog = new Blog();
+        String query = blogQueries.getSelectQuery(Arrays.asList("id", "user_id", "title", "content", "created_at"),
+                Collections.singletonList("id"));
+        try {
+            PreparedStatement prpStm = connection.prepareStatement(query);
+            prpStm.setInt(1, id);
+            ResultSet resultSet = prpStm.executeQuery();
+            if(!resultSet.next()) return null;
+            initBlogObject(blog, resultSet);
+            return blog;
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+        return null;
     }
 
     /*
@@ -235,7 +239,6 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
      */
     @Override
     public void editTitle(int blogId, String newTitle) throws DatabaseError, InvalidSQLQueryException {
-        System.out.println("sdasd");
         String query = blogQueries.getUpdateQuery(Collections.singletonList("title"), Collections.singletonList("id"));
         try {
             PreparedStatement prpStm = connection.prepareStatement(query);
