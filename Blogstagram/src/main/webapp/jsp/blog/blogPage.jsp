@@ -28,7 +28,7 @@
 %>
 
 <html>
-    <head
+    <head>
         <jsp:include page="/jsp/templates/bootstrap.jsp" />
         <title>Blogstagram</title>
         <script src = "/jsp/blog/javascript/buttons.js"></script>
