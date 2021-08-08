@@ -1,6 +1,7 @@
 <%@ page import="org.blogstagram.models.User" %>
 <%@ page import="java.util.List" %>
-<%@ page import="org.blogstagram.followSystem.api.StatusCodes" %><%--
+<%@ page import="org.blogstagram.followSystem.api.StatusCodes" %>
+<%@ page import="org.blogstagram.models.Blog" %><%--
   Created by IntelliJ IDEA.
   User: Gigi
   Date: 16/07/2021
@@ -11,7 +12,7 @@
 
 <%
     User user = (User)request.getAttribute("User");
-    List<Object> blogs = (List<Object>)request.getAttribute("Blogs");
+    List<Blog> blogs = (List<Blog>)request.getAttribute("Blogs");
     Integer status = (Integer)request.getAttribute("FollowStatus");
     boolean canBlogsBeShown = (user.getPrivacy().equals(User.PUBLIC) || (status != null && status.equals(StatusCodes.followed)) || (status != null && status == -1));
 %>
@@ -19,15 +20,18 @@
     <div class="container border" style="width:80%;">
 
         <% if(canBlogsBeShown) {%>
-            <div class="container-fluid d-flex flex-wrap">
-                <% for(Object blog: blogs) { %>
-                    <div class="card bg-light blog-card">
-                        <div class="card-body text-center">
-                            <p class="card-text">
-                                <span class="text-info font-weight-bold">Some text inside the sixth card</span>
-                            </p>
+            <div class="container-fluid d-flex justify-content-around flex-wrap">
+                <% for(Blog blog: blogs) { %>
+                    <a href="/blog/<%= blog.getId() %>">
+                        <div class="card bg-light blog-card m-3" style="height:100px;">
+                            <div class="card-body text-center">
+                                <p class="card-text">
+                                    <span class="text-info font-weight-bold"><%= blog.getTitle()%></span><br/>
+                                    <span class="text-muted"><%= blog.getContent().substring(0,blog.getContent().length()/4) %>...</span><br/>
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 <% } %>
 
                 <% if(blogs.size() == 0) { %>

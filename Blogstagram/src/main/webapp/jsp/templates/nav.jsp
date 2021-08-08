@@ -11,7 +11,7 @@
     String currentUserNickname = (String)request.getSession().getAttribute("currentUserNickname");
 %>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Blogstagram</a>
+    <a class="navbar-brand" href="/">Blogstagram</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -20,10 +20,7 @@
 
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Blogs</a>
+                <a class="nav-link" href="/">Home</a>
             </li>
 
             <jsp:include page="searchModal.jsp" />
