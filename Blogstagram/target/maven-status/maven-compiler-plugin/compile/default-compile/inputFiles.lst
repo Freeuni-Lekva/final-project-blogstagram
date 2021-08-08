@@ -18,6 +18,7 @@
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/tests/commentDAOTests/CommentTests.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/UserNotModeratorValidator.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/VariableLengthValidator.java
+/home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/user/search/UserSearchAPI.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/user/edit/EditProfile.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/dao/SqlFollowDao.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/followSystem/Servlets/UserConnectionsServlet.java
@@ -28,6 +29,7 @@
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/register/RegisterServlet.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/dao/UserDAO.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/logout/LogoutServlet.java
+/home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/user/delete/UserDeleteServlet.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/user/edit/EditProfilePageServlet.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/EditGeneralValidator.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/tests/followSystemTests/TestFollowQueries.java
@@ -55,6 +57,7 @@
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/tests/AdminDAOTests/TestAdminDAO.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/CommentExistsValidator.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/AdminValidator.java
+/home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/DeleteUserValidator.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/models/Comment.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/UserIdValidator.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/login/LoginServlet.java
@@ -65,6 +68,7 @@
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/PrivacyValidator.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/UserModeratorValidator.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/BlogExistsValidator.java
+/home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/models/SearchedUser.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/currentUser/CurrentUserServlet.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/pairs/StringPair.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/listeners/followNotificationSender.java
@@ -74,6 +78,7 @@
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/followSystem/api/StatusCodes.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/dao/AdminDAO.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/sql/FollowQueries.java
+/home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/user/search/UserSearchServlet.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/tests/followSystemTests/FollowDaoDummy.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/listeners/contextListener.java
 /home/luka/Desktop/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/EmailFormatValidator.java

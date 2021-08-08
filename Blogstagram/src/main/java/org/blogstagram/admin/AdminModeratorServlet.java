@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/AdminChangeRole")
+@WebServlet("/changeRole/user")
 public class AdminModeratorServlet extends HttpServlet {
     AdminDAO adminDAO;
     private static final String MAKE_MODERATOR = "MakeModer";
@@ -38,7 +38,7 @@ public class AdminModeratorServlet extends HttpServlet {
             return;
         }
         Connection connection = (Connection) request.getServletContext().getAttribute("dbConnection");
-
+        System.out.println("Poti city");
         adminDAO = (AdminDAO) request.getSession().getAttribute("AdminDAO");;
         String requestType = request.getParameter("OperationType");
         if(!isCorrect(requestType)){
@@ -46,6 +46,7 @@ public class AdminModeratorServlet extends HttpServlet {
             response.getWriter().print(gson.toJson("{ request: 'request incorrect' }"));
             return;
         }
+        System.out.println("Poti city 1");
         AdminValidator adminValidator = new AdminValidator();
         adminValidator.setAdminDAOUser(adminDAO, Integer.parseInt(user_id), true);
         // validate that current user id is admin or moderator
@@ -60,7 +61,7 @@ public class AdminModeratorServlet extends HttpServlet {
         }
 
         List<VariableError> errorList = new ArrayList<>();
-
+        System.out.println("Poti city 2");
         try{
             int current_user_id = Integer.parseInt(request.getParameter("user_id"));
             if(requestType.equals(MAKE_MODERATOR)){

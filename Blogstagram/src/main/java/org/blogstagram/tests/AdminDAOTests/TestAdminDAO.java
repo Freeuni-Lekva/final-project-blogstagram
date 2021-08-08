@@ -39,8 +39,8 @@ public class TestAdminDAO extends TestCase {
         source.setUrl("jdbc:mysql://localhost:3306/blogstagramdb_test");
         try {
             this.connection = source.getConnection();
-            adminDAO = new AdminDAO(connection);
             userDAO = new UserDAO(connection);
+            adminDAO = new AdminDAO(connection, userDAO);
             commentDAO = new CommentDAO(connection);
         } catch (SQLException exception) {
             exception.printStackTrace();

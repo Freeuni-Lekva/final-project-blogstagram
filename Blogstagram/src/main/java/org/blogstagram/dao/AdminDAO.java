@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminDAO {
-    Connection connection;
-
+    private Connection connection;
+    private UserDAO userDAO;
     private static final String DELETE_USER = "DELETE FROM users WHERE  id = ?";
     private static final String DELETE_COMMENT = "DELETE FROM comments WHERE id = ?";
     private static final String DELETE_BLOG = "DELETE FROM blogs WHERE id = ?";
@@ -22,7 +22,8 @@ public class AdminDAO {
     /*
      Receives connection in constructor
      */
-    public AdminDAO(Connection connection){
+    public AdminDAO(Connection connection, UserDAO userDAO){
+        this.userDAO = userDAO;
         this.connection = connection;
     }
     /*
@@ -30,12 +31,7 @@ public class AdminDAO {
      deletes user
     * */
     public void deleteUser(int user_id) throws SQLException {
-        PreparedStatement ps = connection.prepareStatement(DELETE_USER);
-        ps.setInt(1, user_id);
-        int numRows = ps.executeUpdate();
-        if(numRows != 1){
-            throw new SQLException("Deleting user failed");
-        }
+        userDAO.deleteUserByID(user_id);
     }
     /*
     Receives comment unique id in parameters
@@ -144,6 +140,21 @@ public class AdminDAO {
         if(resultSet.next()){
             user_role = resultSet.getString(1);
             return user_role.equals(User.ADMIN_ROLE) || user_role.equals(User.MODERATOR_ROLE);
+        }
+        throw new SQLException("User with that ID does not exist");
+    }
+    /*
+    Receives user id in parameters
+    returns if it is moderator
+    */
+    public boolean isModerator(int user_id) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement(GET_USER_ROLE);
+        preparedStatement.setInt(1, user_id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        String user_role = "";
+        if(resultSet.next()){
+            user_role = resultSet.getString(1);
+            return user_role.equals(User.MODERATOR_ROLE);
         }
         throw new SQLException("User with that ID does not exist");
     }

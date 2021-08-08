@@ -1,4 +1,8 @@
-<%@ page import="org.blogstagram.models.User" %><%--
+<%@ page import="org.blogstagram.models.User" %>
+<%@ page import="org.blogstagram.dao.AdminDAO" %>
+<%@ page import="org.blogstagram.validators.AdminValidator" %>
+
+<%--
   Created by IntelliJ IDEA.
   User: Gigi
   Date: 13/07/2021
@@ -13,6 +17,25 @@
     String currentUserNickname = (String)request.getSession().getAttribute("currentUserNickname");
     boolean isCurrentUser = currentUserNickname != null && (currentUserNickname.equals(user.getNickname()));
     boolean isUserLoggedIn = (currentUserNickname != null);
+
+    Integer user_id = (Integer)request.getSession().getAttribute("currentUserID");
+    AdminDAO adminDAO = (AdminDAO)request.getSession().getAttribute("AdminDAO");
+    AdminValidator adminValidator = new AdminValidator();
+
+    boolean isAdmin = false;
+    boolean isModerator = false;
+    boolean currentUserIsModerator = adminDAO.isModerator(user.getId());
+
+    adminValidator.setAdminDAOUser(adminDAO, user_id, true);
+    if(adminValidator.validate()){
+        isAdmin = true;
+        isModerator = true;
+    }else{
+        adminValidator.setAdminDAOUser(adminDAO, user_id, false);
+        if(adminValidator.validate()){
+            isModerator = true;
+        }
+    }
 %>
 
 <% if(isUserLoggedIn) { %>
@@ -43,7 +66,29 @@
                 <a href="/logout" class="modal-link">
                     <button type="button" class="btn btn-outline-secondary btn-block my-2">Logout</button>
                 </a>
+
                 <% } %>
+
+                <% if(isModerator){ %>
+                    <div class="modal-body">
+                        <div id="deleteUserID" style="display:none"><%= user.getId()%></div>
+                        <button type="button" class="btn btn-danger" id="userDeleteButton">Delete User</button>
+                    </div>
+                <% }%>
+
+                <% if(isAdmin && !currentUserIsModerator){ %>
+                  <div class="modal-body">
+                    <div id="OperationType" style="display:none"> "MakeModer" </div>
+                    <div id="deleteUserID" style="display:none"> user_id </div>
+                       <button type="button" class="btn btn-danger" id="userChangeRoleButton">Make Moderator</button>
+                  </div>
+                <% }else if(isAdmin && currentUserIsModerator){ %>
+                    <div class="modal-body">
+                      <div id="OperationType" style="display:none"> "MakeUser" </div>
+                      <div id="deleteUserID" style="display:none"> user_id </div>
+                        <button type="button" class="btn btn-danger" id="userChangeRoleButton">Take user privileges</button>
+                    </div>
+                <% }%>
 
             </div>
 
@@ -56,3 +101,24 @@
     </div>
 </div>
 <% } %>
+
+<script>
+    $("#userDeleteButton").click(function(e){
+        const deleteUserID = document.getElementById("deleteUserID").innerText;
+        $.post("/delete/user",{deleteUserID}).then(response => {
+            let responseJSON = JSON.parse(response);
+            location.reload();
+        })
+    })
+
+    $("#userChangeRoleButton").click(function(e){
+            const user_id = document.getElementById("user_id").innerText;
+            $.post("/changeRole/user",{user_id}).then(response => {
+                let responseJSON = JSON.parse(response);
+                location.reload();
+            })
+        })
+
+
+</script>
+
