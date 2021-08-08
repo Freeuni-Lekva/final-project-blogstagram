@@ -24,13 +24,13 @@
         </div>
     </div>
     <div class = "container mt-2">
+
         <div>
             <textarea id ="comment-text" class = "form-control"></textarea>
         </div>
     </div>
     <div id = "err-addComment" class = "text-danger alert">
     </div>
-<% } %>
 
 
 <script>
@@ -92,3 +92,4 @@
         });
     }
 </script>
+<% } %>
