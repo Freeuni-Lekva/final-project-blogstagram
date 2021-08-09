@@ -3,7 +3,18 @@
 <%@ page import = "org.blogstagram.models.User" %>
 <%@ page import = "org.blogstagram.models.Comment" %>
 <%@ page import = "org.blogstagram.dao.UserDAO" %>
+<%@ page import = "org.blogstagram.dao.BlogLikeDao" %>
 <%@ page import = "java.util.List" %>
+
+<%!
+    Boolean isLikedBy(List <User> likers, Integer currentUserId){
+        if(currentUserId == null) return false;
+        for(User u : likers){
+            if(u.getId() == currentUserId) return true;
+        }
+        return false;
+    }
+%>
 
 <%
    Blog blog = (Blog) request.getAttribute("blog");
@@ -12,12 +23,19 @@
    User currentUser = null;
    if(currentUserId != null)
         currentUser = userdao.getUserByID(currentUserId);
+   List <User> likers = blog.getLikes();
+   BlogLikeDao likedao = (BlogLikeDao) request.getSession().getAttribute("BlogLikeDao");
+   Boolean contains = isLikedBy(likers, currentUserId);
 %>
 
 <% if(currentUser != null) { %>
     <div class = "btn-group btn-group-lg">
-        <div class = "container">
-            <button class = "btn btn-info">like</button>
+        <div id = "like-button-container" class = "container">
+        <% if(currentUser != null && !contains) { %>
+           <button type = "button" class = "btn btn-info" onclick = "likeBlog()">like</button>
+        <% } else { %>
+            <button type = "button" class = "btn btn-info" onclick = "unlikeBlog()">unlike</button>
+        <% } %>
         </div>
         <div class = "container">
             <button class = "btn btn-info" onclick = "addComment()">addComment</button>
@@ -39,13 +57,13 @@
         comment = JSON.parse(commentInfo);
         return `
             <div id = "comment-${comment['comment_id']}" class = "row media border p-3">
-                           <img src="<%= currentUser.getImage() %>" alt="<%=currentUser.getFirstname() %> <%= currentUser.getLastname() %>" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                           <img src="/blogstagram/<%= currentUser.getImage() %>" alt="<%=currentUser.getFirstname() %> <%= currentUser.getLastname() %>" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                            <div class="media-body col">
                                <h4><%=currentUser.getFirstname() %> <%= currentUser.getLastname() %> <small><i> Posted on ${comment['comment_creation_date']}</i></small></h4>
                                <p> ${comment['comment']}</p>
                             </div>
                             <div class = "container col">
-                              <button type = "button" class = "btn btn-info" onclick = "like()">like</button>
+                                <button type = "button" class = "btn btn-info" onclick = "">like</button>
                             </div>
                             <div class = "container col">
                                 <button type = "button" class = "btn btn-info" onclick = "deleteComment(${comment['comment_id']}, this)">remove</button>
@@ -57,6 +75,72 @@
     }
 
 
+    function getUnlikeButton(){
+        return '<button type = "button" class = "btn btn-info" onclick = "unlikeBlog()">unlike</button>';
+    }
+
+    function getLikeButton(){
+        return '<button type = "button" class = "btn btn-info" onclick = "likeBlog()">like</button>';
+    }
+
+    function changeToUnlike(){
+        let buttonContainer = document.getElementById("like-button-container");
+        buttonContainer.innerHTML = "";
+        buttonContainer.innerHTML += getUnlikeButton();
+    }
+
+    function changeTolike(){
+        let buttonContainer = document.getElementById("like-button-container");
+        buttonContainer.innerHTML = "";
+        buttonContainer.innerHTML += getLikeButton();
+    }
+
+    function likeBlog(){
+        console.log("here");
+        $.post("/blogstagram/blogLike", {
+            blog_id: "<%= blog.getId() %>",
+            Like : "Like"
+        }).then(response => {
+            let fields = JSON.parse(response);
+            if(fields.length === 0){
+                let likes = document.getElementById("count");
+                likes.innerText = parseInt(likes.innerText) + 1;
+                changeToUnlike();
+            } else {
+                for(let k = 0; k < fields.length; k++){
+
+                    let {err, errm} = JSON.parse(fields[k]);
+                    let errms = document.getElementById("err-comment");
+                    errms.innerHTML = "";
+                    errms.innerHTML += errm;
+                }
+            }
+
+        }).catch(errs => {
+            console.log(errs);
+        });
+    }
+
+   function unlikeBlog(){
+        $.post("/blogstagram/blogLike", {
+            blog_id: "<%= blog.getId() %>",
+            Like : "Unlike"
+        }).then(response => {
+           let fields = JSON.parse(response);
+           if(fields.length === 0){
+              let likes = document.getElementById("count");
+              likes.innerText = parseInt(likes.innerText) - 1;
+              changeTolike();
+           } else {
+                let {err, errm} = JSON.parse(fields[k]);
+                let errms = document.getElementById("err-comment");
+                errms.innerHTML = "";
+                errms.innerHTML += errm;
+           }
+        }).catch(errs => {
+            console.log(errs);
+        });
+   }
 
     function addComment(){
         let text = document.getElementById("comment-text").value;

@@ -15,6 +15,16 @@ public class Blog {
     private List <HashTag> hashTagList;
     private List <Comment> comments;
     private int numLikes;
+    private List <User> likes;
+
+    public void setLikes(List<User> likes) {
+        if(likes == null) throw new NullPointerException("Likes can't be null");
+        this.likes = likes;
+    }
+
+    public List<User> getLikes() {
+        return likes;
+    }
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;

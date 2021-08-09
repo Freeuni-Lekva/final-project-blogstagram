@@ -37,12 +37,13 @@ public class BlogLikeDao {
         statement.setInt(1, blog_id);
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
-            String firstName = resultSet.getString(1);
-            String lastName = resultSet.getString(2);
-            String nickname = resultSet.getString(3);
-            String image = resultSet.getString(4);
+            Integer id = resultSet.getInt(1);
+            String firstName = resultSet.getString(2);
+            String lastName = resultSet.getString(3);
+            String nickname = resultSet.getString(4);
+            String image = resultSet.getString(5);
 
-            int userId = UNNECESSARY_INFO;
+            int userId = id;
             String email = null;
             String role = null;
             String password = null;

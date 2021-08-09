@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class BlogLikeValidator {
     Connection connection;
 
-    private static final String POST_LIKED_QUERY = "SELECT * from likes where post_id = ? and user_id = ?";
+    private static final String POST_LIKED_QUERY = "SELECT * from likes where blog_id = ? and user_id = ?";
 
 
     public void setConnection(Connection connection){
@@ -18,7 +18,7 @@ public class BlogLikeValidator {
 
     public boolean validate(Object obj1, Object obj2) throws SQLException {
         int post_id = Integer.parseInt((String)obj1);
-        int user_id = Integer.parseInt((String)obj2);
+        int user_id = (Integer)obj2;
         PreparedStatement statement = connection.prepareStatement(POST_LIKED_QUERY);
         statement.setInt(1, post_id);
         statement.setInt(2, user_id);
