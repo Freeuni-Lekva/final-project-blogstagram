@@ -53,9 +53,7 @@ public class LikersListServlet extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        if(errors.size() != 0) {
-            Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(errors));
-        }
+        Gson gson = new Gson();
+        response.getWriter().print(gson.toJson(errors));
     }
 }

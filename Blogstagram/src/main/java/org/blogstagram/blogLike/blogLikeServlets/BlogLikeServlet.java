@@ -76,9 +76,7 @@ public class BlogLikeServlet extends HttpServlet {
         } catch (SQLException | DatabaseError | NotValidUserIdException throwables) {
             throwables.printStackTrace();
         }
-        if(errors.size() != 0) {
-            Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(errors));
-        }
+        Gson gson = new Gson();
+        response.getWriter().print(gson.toJson(errors));
     }
 }
