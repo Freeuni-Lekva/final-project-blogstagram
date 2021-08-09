@@ -60,10 +60,10 @@
          function createSearchedUserField(user){
              return `
                  <div class="media border py-2 my-2">
-                     <img class="ml-2" width="70px" height="70px" style="object-fit:cover; border-radius:50%" src="${user.image}" alt="Generic placeholder image">
+                     <img class="ml-2" width="70px" height="70px" style="object-fit:cover; border-radius:50%" src="${/blogstagram/user.image}" alt="Generic placeholder image">
                      <div class="media-body text-center">
                          <h5 class="pt-4">
-                             <a href="/user/${user.nickname}">${user.firstname} ${user.lastname} ( ${user.nickname} )</a>
+                             <a href="/blogstagram/user/${user.nickname}">${user.firstname} ${user.lastname} ( ${user.nickname} )</a>
                          </h5>
                    </div>
                  </div>

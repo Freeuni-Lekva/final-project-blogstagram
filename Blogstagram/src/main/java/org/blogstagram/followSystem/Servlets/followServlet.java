@@ -48,7 +48,7 @@ public class followServlet extends HttpServlet {
         SqlFollowDao followSystem = (SqlFollowDao) session.getAttribute("SqlFollowDao");
         UserDAO userDao = (UserDAO) request.getSession().getAttribute("UserDAO");
         String toIdStr = request.getParameter("to_id");
-        String fromIdStr = String.valueOf((Integer) request.getSession().getAttribute("currentUserID"));
+        String fromIdStr = String.valueOf(request.getSession().getAttribute("currentUserID"));
         FollowRequestValidator validator = new FollowRequestValidator();
         validator.setUserDao(userDao);
         JSONObject responseJson = ResponseJson.initResponseJson();

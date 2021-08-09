@@ -18,7 +18,7 @@ public class EditGeneralValidator implements Validator{
 
     public static final String BIO_ERROR = "Bio shouldn't be longer than 255 symbols";
 
-    private Connection connection;
+    private final Connection connection;
     private final Integer userID;
     private final String firstname;
     private final String lastname;

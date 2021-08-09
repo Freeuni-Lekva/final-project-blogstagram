@@ -16,8 +16,8 @@ public class UserSearchAPI {
     private Connection connection;
 
     public static final String SEARCH_QUERY = " SELECT id,firstname,lastname,nickname,image,users.role FROM users WHERE users.role != \'" + User.ADMIN_ROLE + "\' AND( \n" +
-            "firstname LIKE ? OR lastname LIKE ? \n" +
-            "OR nickname LIKE ? OR CONCAT(firstname,' ',lastname) LIKE ?);";
+                        "firstname LIKE ? OR lastname LIKE ? \n" +
+                        "OR nickname LIKE ? OR CONCAT(firstname,' ',lastname) LIKE ?);";
 
     public static final String ALL_QUERY = "SELECT id,firstname,lastname,nickname,image,users.role FROM users WHERE users.role != \'"+User.ADMIN_ROLE+"\';";
 

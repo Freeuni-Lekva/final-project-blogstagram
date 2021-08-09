@@ -278,7 +278,7 @@
                             How you got here is a mystery. But you can click the button below
                             to go back to the homepage.
                         </p>
-                        <a href="/">Home Page</a>
+                        <a href="${pageContext.request.contextPath}/">Home Page</a>
                     </div>
                 </div>
             </div>

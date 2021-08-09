@@ -86,7 +86,7 @@
                 let new_password = document.getElementById("new_password").value;
                 let new_password_confirmation = document.getElementById("new_password_confirmation").value;
 
-                $.post("/edit/profile",{
+                $.post("/blogstagram/edit/profile",{
                     old_password,new_password,new_password_confirmation,status
                     }
                 ).then((rawResponse) => {

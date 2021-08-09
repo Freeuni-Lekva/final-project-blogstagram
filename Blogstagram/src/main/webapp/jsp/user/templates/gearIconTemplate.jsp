@@ -17,15 +17,12 @@
     String currentUserNickname = (String)request.getSession().getAttribute("currentUserNickname");
     boolean isCurrentUser = currentUserNickname != null && (currentUserNickname.equals(user.getNickname()));
     boolean isUserLoggedIn = (currentUserNickname != null);
-
     Integer user_id = (Integer)request.getSession().getAttribute("currentUserID");
     AdminDAO adminDAO = (AdminDAO)request.getSession().getAttribute("AdminDAO");
     AdminValidator adminValidator = new AdminValidator();
-
     boolean isAdmin = false;
     boolean isModerator = false;
     boolean currentUserIsModerator = adminDAO.isModerator(user.getId());
-
     adminValidator.setAdminDAOUser(adminDAO, user_id, true);
     if(adminValidator.validate()){
         isAdmin = true;
@@ -110,7 +107,6 @@
             location.reload();
         })
     })
-
     $("#makeModerButton").click(function(e){
         const user_id = document.getElementById("user_id").innerText;
         const OperationType = document.getElementById("OperationType").innerText;
@@ -119,7 +115,6 @@
             location.reload();
         })
     })
-
     $("#makeUserButton").click(function(e){
         const user_id = document.getElementById("user_id").innerText;
         const OperationType = document.getElementById("OperationType").innerText;
@@ -128,19 +123,14 @@
             location.reload();
         })
     })
-
     function deleteMakeUser() {
         var myobj = document.getElementById("makeUserButton");
         myobj.innerHTML = "Make Moderator";
         myobj.setAttribute("id","deleteMakeModer");
     }
-
     function deleteMakeModer() {
         var myobj = document.getElementById("makeModerButton");
         myobj.innerHTML = "Make User";
         myobj.setAttribute("id","deleteMakeUser");
-
     }
-
 </script>
-

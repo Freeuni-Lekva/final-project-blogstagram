@@ -25,9 +25,7 @@ public class RegisterServlet extends HttpServlet {
     private boolean isUserLoggedIn(HttpServletRequest req) {
         Integer userID = (Integer) req.getSession().getAttribute("currentUserID");
         String nickname = (String) req.getSession().getAttribute("currentUserNickname");
-        if(userID == null || nickname == null)
-            return false;
-        return true;
+        return userID != null && nickname != null;
     }
 
     private Connection getConnectionFromContext(HttpServletRequest req){
@@ -42,7 +40,7 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         if(isUserLoggedIn(req)) {
-            res.sendRedirect("/");
+            res.sendRedirect("/blogstagram/");
             return;
         }
         req.getRequestDispatcher(REGISTER_PAGE_PATH).forward(req,res);

@@ -13,7 +13,7 @@ public class PrivacyValidator implements Validator{
     public static final String PRIVACY_ERROR = "Privacy must be " + User.PUBLIC + " (Public) or " + User.PRIVATE + " (Private)";
 
     private List<GeneralError> errors;
-    private Integer privacy;
+    private final Integer privacy;
 
     public PrivacyValidator(Integer privacy){
         this.privacy = privacy;

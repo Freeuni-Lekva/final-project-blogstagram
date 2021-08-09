@@ -1,11 +1,14 @@
 package org.blogstagram.user;
 
+import org.blogstagram.dao.SqlBlogDAO;
 import org.blogstagram.dao.SqlFollowDao;
 import org.blogstagram.dao.UserDAO;
 import org.blogstagram.errors.DatabaseError;
+import org.blogstagram.errors.InvalidSQLQueryException;
 import org.blogstagram.errors.NotValidUserIdException;
 import org.blogstagram.followSystem.api.FollowApi;
 import org.blogstagram.followSystem.api.StatusCodes;
+import org.blogstagram.models.Blog;
 import org.blogstagram.models.User;
 import org.blogstagram.pairs.StringPair;
 
@@ -61,6 +64,10 @@ public class UserServlet extends HttpServlet {
         SqlFollowDao followDAO = (SqlFollowDao) req.getSession().getAttribute("SqlFollowDao");
         return followDAO;
     }
+    private SqlBlogDAO getBlogDAO(HttpServletRequest req){
+        SqlBlogDAO blogDAO = (SqlBlogDAO) req.getSession().getAttribute("blogDao");
+        return blogDAO;
+    }
 
     private User getUserByIdentificator(UserDAO userDAO,String userIdentificator){
         boolean isID = userIdentificator.matches("[0-9]+");
@@ -106,6 +113,7 @@ public class UserServlet extends HttpServlet {
         }
         /* DAO INITIALIZING */
         UserDAO userDAO = getUserDAO(req);
+        SqlBlogDAO blogDAO = getBlogDAO(req);
         SqlFollowDao followDAO = getSqlFollowDAO(req);
         followDAO.setUserDao(userDAO);
         FollowApi followApi = new FollowApi();
@@ -136,11 +144,9 @@ public class UserServlet extends HttpServlet {
              */
             Integer followersCount = null;
             Integer followingCount = null;
+            Integer blogsCount = null;
             Integer followStatus = null;
-            /* BLOGS COUNT */
-            /* BLOGS */
-            Integer blogsCount = 0;
-            List<Object> blogs = new ArrayList<>();
+            List<Blog> blogs = new ArrayList<>();
 
             try {
                 if(currentUserID != null)
@@ -153,7 +159,10 @@ public class UserServlet extends HttpServlet {
                 Integer userID = user.getId();
                 followersCount = followApi.getFollowersCount(userID);
                 followingCount = followApi.getFollowingCount(userID);
-            } catch (NotValidUserIdException | DatabaseError e) {
+                blogsCount = blogDAO.getAmountOfBlogsByUser(userID);
+                blogs = blogDAO.getBlogsOfUser(userID);
+
+            } catch (NotValidUserIdException | DatabaseError | InvalidSQLQueryException e) {
                 e.printStackTrace();
             }
 
@@ -175,7 +184,7 @@ public class UserServlet extends HttpServlet {
 
             try {
                 if(!canFollowListBeShown(currentUserID,user,followApi)){
-                    res.sendRedirect("/user/"+userIdentificator);
+                    res.sendRedirect("/blogstagram/user/"+userIdentificator);
                     return;
                 }
             } catch (DatabaseError databaseError) {
@@ -199,7 +208,7 @@ public class UserServlet extends HttpServlet {
         } else if (followIdentificator.equals(FOLLOWERS_URL_IDENTIFICATOR)){
             try {
                 if(!canFollowListBeShown(currentUserID,user,followApi)){
-                    res.sendRedirect("/user/"+userIdentificator);
+                    res.sendRedirect("/blogstagram/user/"+userIdentificator);
                     return;
                 }
             } catch (DatabaseError databaseError) {

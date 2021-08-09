@@ -50,7 +50,7 @@
                             <div class="col-md-4"></div>
                             <div class="col-md-6">
                                 <button class="btn btn-secondary w-100">
-                                    <a class="text-white" href="/register">Aren't Registered Yet? Sign Up!</a>
+                                    <a class="text-white" href="/blogstagram/register">Aren't Registered Yet? Sign Up!</a>
                                 </button>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
         e.preventDefault();
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
-        $.post("/login",{
+        $.post("/blogstagram/login",{
             email, password
         }).then(rawResponse => {
             refreshFieldMessages();
@@ -102,7 +102,7 @@
                 refreshFieldMessages();
                 document.getElementById("success").innerText = "You have been logged in successfully! You will be redirected to news feed in 5 seconds...";
                 setTimeout(() => {
-                    window.location.href = "/";
+                    window.location.href = "/blogstagram/";
                 },5000);
             } else {
                 let errors = JSON.parse(rawResponse);

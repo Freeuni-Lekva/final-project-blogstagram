@@ -19,9 +19,7 @@ public class LoginServlet extends HttpServlet {
     private boolean isUserLoggedIn(HttpServletRequest req) {
         Integer userID = (Integer) req.getSession().getAttribute("currentUserID");
         String nickname = (String) req.getSession().getAttribute("currentUserNickname");
-        if(userID == null || nickname == null)
-            return false;
-        return true;
+        return userID != null && nickname != null;
     }
 
     private Connection getConnectionFromContext(HttpServletRequest req){
@@ -37,7 +35,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(isUserLoggedIn(request)) {
-            response.sendRedirect("/");
+            response.sendRedirect("/blogstagram/");
             return;
         }
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/login/login.jsp");

@@ -31,7 +31,7 @@
         <% } %>
     </form>
 <% } else if(isCurrentUser && isUserLoggedIn){ %>
-    <a href="/edit/profile">
+    <a href="/blogstagram/edit/profile">
         <button type="button" class="btn btn-outline-primary">Edit profile</button>
     </a>
 <% } %>
@@ -43,13 +43,13 @@
         const followersTag = document.getElementById("followers-count");
         $("#follow-form").submit(function(e){
             e.preventDefault();
-            $.post("/current/user/id").then(rawCurrentUserResponse => {
+            $.post("/blogstagram/current/user/id").then(rawCurrentUserResponse => {
                 const currentUserID = JSON.parse(rawCurrentUserResponse);
                 if(currentUserID == null)
                     return;
 
                 const to_id = String(document.getElementById("follow-form").getAttribute("toID"));
-                $.post("/followSystem",
+                $.post("/blogstagram/followSystem",
                     {to_id}
                 ).then(rawFollowResponse => {
                     const followResponse = JSON.parse(rawFollowResponse);
