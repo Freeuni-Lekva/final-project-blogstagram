@@ -105,6 +105,7 @@ public class BlogServlet extends HttpServlet {
             response.sendError(response.SC_NOT_FOUND);
             return;
         }
+
         // session
         HttpSession session = getSession(request);
 
@@ -236,7 +237,6 @@ public class BlogServlet extends HttpServlet {
                response.sendError(response.SC_NOT_FOUND);
                return;
            }
-
            //session
            HttpSession session = getSession(request);
 
