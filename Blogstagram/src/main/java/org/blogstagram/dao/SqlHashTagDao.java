@@ -43,7 +43,6 @@ public class SqlHashTagDao implements HashTagDao {
                 prpStm.setInt(paramterIndex++, blogId);
                 prpStm.setString(paramterIndex++, hashTag.getHashTag());
             }
-            System.out.println(query);
             int affectedRows = prpStm.executeUpdate();
             assertEquals(affectedRows, hashTags.size());
         } catch (SQLException exception) {

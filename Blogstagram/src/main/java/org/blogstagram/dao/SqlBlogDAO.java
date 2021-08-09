@@ -88,7 +88,6 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
     public void removeBlog(Blog blog) throws InvalidSQLQueryException, DatabaseError {
         String removeBlogQuery = blogQueries.getDeleteQuery(Collections.singletonList("id"));
         try {
-            System.out.println(removeBlogQuery);
             PreparedStatement prpStm = connection.prepareStatement(removeBlogQuery);
             prpStm.setInt(1, blog.getId());
             int affectedRows = prpStm.executeUpdate();
