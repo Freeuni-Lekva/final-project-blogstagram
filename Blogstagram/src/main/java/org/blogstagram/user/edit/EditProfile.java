@@ -120,7 +120,7 @@ public class EditProfile {
         String path = "/images/"+nickname+"/"+fileName;
 
         userDAO.updateUserImageByNickname(nickname,path);
-        res.sendRedirect("/edit/profile");
+        res.sendRedirect("/blogstagram/edit/profile");
     }
     public static void editPassword(HttpServletRequest req, HttpServletResponse res) throws IOException {
         UserDAO userDAO = getUserDaoFromSession(req);
