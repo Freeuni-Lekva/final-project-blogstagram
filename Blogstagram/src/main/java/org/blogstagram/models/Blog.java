@@ -15,7 +15,6 @@ public class Blog {
     private List <HashTag> hashTagList;
 
 
-
     public Blog(){
         id = NO_BLOG_ID;
     }

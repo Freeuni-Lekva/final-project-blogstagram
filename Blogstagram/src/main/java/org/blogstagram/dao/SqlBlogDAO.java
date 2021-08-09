@@ -155,7 +155,7 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
      */
     @Override
     public List <Blog> getBlogsOfUser(int user_id) throws DatabaseError, InvalidSQLQueryException {
-        String query = blogQueries.getSelectQuery(Arrays.asList("id", "user_id", "title", "content", "created_At"),
+        String query = blogQueries.getSelectQuery(Arrays.asList("id", "user_id", "title", "content", "created_at"),
                 Collections.singletonList("user_id"));
         try {
             PreparedStatement prpStm = connection.prepareStatement(query);
@@ -185,13 +185,13 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
                 PreparedStatement prpStm = connection.prepareStatement(query);
                 prpStm.setInt(1, id);
                 ResultSet resultSet = prpStm.executeQuery();
-                assertTrue(resultSet.next());
+                if(!resultSet.next()) return null;
                 initBlogObject(blog, resultSet);
                 return blog;
             } catch (SQLException exception) {
                 exception.printStackTrace();
             }
-        return null;
+            return null;
     }
 
     /*

@@ -45,7 +45,7 @@ public class LikersListServlet extends HttpServlet {
         try {
             if(blogExistsValidator.validate(blogId, null)) {
                 ArrayList<User> likes = blogLikeDao.getBlogLikers(Integer.parseInt(blogId));
-                request.setAttribute("likes", likes);
+                request.getSession().setAttribute("likes", likes);
             } else {
                 VariableError variableError = new VariableError("BlogLikes", "Blog id doesn't exist");
                 errors.add(variableError);
