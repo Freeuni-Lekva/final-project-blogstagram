@@ -28,7 +28,7 @@
         function createSearchedUserField(user){
             return `
                 <div class="media border py-2 my-2">
-                    <img class="ml-2" width="70px" height="70px" style="object-fit:cover; border-radius:50%" src="${user.image}" alt="Generic placeholder image">
+                    <img class="ml-2" width="70px" height="70px" style="object-fit:cover; border-radius:50%" src="/blogstagram/${user.image}" alt="Generic placeholder image">
                     <div class="media-body text-center">
                         <h5 class="pt-4">
                             <div class = "container row">
@@ -48,7 +48,7 @@
             let inputField = document.getElementById("search-moderators-query");
             inputField.addEventListener("input",(e) => {
                 const query = inputField.value;
-                $.post("/search/user",{
+                $.post("/blogstagram/search/user",{
                     query
                 }).then(response => {
                     usersField.innerHTML = "";

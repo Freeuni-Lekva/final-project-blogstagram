@@ -61,7 +61,7 @@
     function addComment(){
         let text = document.getElementById("comment-text").value;
         if(text === "" || text === " ") return;
-        $.post("/commentServlet", {
+        $.post("/blogstagram/commentServlet", {
             CommentAction : "AddComment",
             blog_id : "<%= blog.getId() %>",
             Comment : text

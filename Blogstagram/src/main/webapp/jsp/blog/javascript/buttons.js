@@ -46,12 +46,12 @@ function removeButton(buttonId){
 
 
 function removeBlog(blogId, userNickname){
-    $.post(`/blog/${blogId}/remove`).then(response => {
+    $.post(`/blogstagram/blog/${blogId}/remove`).then(response => {
         console.log(response);
         let fields = JSON.parse(response);
         let status = fields["status"];
         if(status === removed){
-            window.location.href = `/user/${userNickname}`;
+            window.location.href = `/blogstagram/user/${userNickname}`;
         }
     }).catch(errors => {
         console.log(errors);
@@ -181,7 +181,7 @@ function addBlog(){
     let currentContent = document.getElementById("content").value;
     let moderatorsJson = getModerators();
     let hashtagsJson = getHashtags();
-    $.post("/addBlog", {
+    $.post("/blogstagram/addBlog", {
         title: currentTitle,
         content: currentContent,
         moderators: JSON.stringify(moderatorsJson),
@@ -190,7 +190,7 @@ function addBlog(){
         let fields = JSON.parse(response);
         let status = fields['status'];
         if(status === added){
-            window.location.href = `blogstagram/blog/${fields["blogId"]}`;
+            window.location.href = `/blogstagram/blog/${fields["blogId"]}`;
         } else if(status == errors){
             let errors = fields["errors"];
             let errorsJson = JSON.parse(errors);
@@ -223,14 +223,14 @@ function submit(){
     let editedContentJson = {"title" : currentTitle, "content" : currentContent,
                         "users" : moderatorsJson["users"],"hashTags" : hashtagsJson["hashTags"]};
 
-    $.post(`/blog/${blogId}/edit`, {
+    $.post(`/blogstagram/blog/${blogId}/edit`, {
        edited : JSON.stringify(editedContentJson)
     }).then(response => {
         let fields = JSON.parse(response);
         let status = fields["status"];
         console.log(response);
         if(status == edited){
-            window.location.href = `/blog/${blogId}`;
+            window.location.href = `/blogstagram/blog/${blogId}`;
         } else if(status == errors){
             let errors = fields["errors"];
             console.log(errors);

@@ -22,7 +22,7 @@
         <% User creator = userdao.getUserByID(current.getUser_id()); %>
         <% if(user != null && (current.getUser_id() == user.getId() || user.getRole() == User.MODERATOR_ROLE || user.getRole() == User.ADMIN_ROLE)){ %>
             <div id = "comment-<%= current.getComment_id()%>" class = "row media border p-3">
-               <img src="<%= creator.getImage() %>" alt="<%=creator.getFirstname() %> <%= creator.getLastname() %>" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+               <img src="/blogstagram/<%= creator.getImage() %>" alt="<%=creator.getFirstname() %> <%= creator.getLastname() %>" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                <div class="media-body col">
                    <h4><%=creator.getFirstname() %> <%= creator.getLastname() %> <small><i> Posted on <%= current.getCommentDate() %></i></small></h4>
                    <p> <%= current.getComment() %></p>
@@ -36,7 +36,7 @@
             </div>
         <% } else if (user != null) { %>
             <div id = "comment-<%= current.getComment_id() %>" class = "media border p-3">
-                <img src="<%= creator.getImage() %>" alt="<%=creator.getFirstname() %> <%= creator.getLastname() %>" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                <img src="/blogstagram/<%= creator.getImage() %>" alt="<%=creator.getFirstname() %> <%= creator.getLastname() %>" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                 <div class="media-body">
                     <h4><%=creator.getFirstname() %> <%= creator.getLastname() %><small><i>Posted on <%= current.getCommentDate() %></i></small></h4>
                     <p><%= current.getComment() %></p>
@@ -47,7 +47,7 @@
             </div>
         <% } else { %>
             <div id = "comment-<%= current.getComment_id() %>" class = "media border p-3">
-               <img src="<%= creator.getImage() %>" alt="<%=creator.getFirstname() %> <%= creator.getLastname() %>" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+               <img src="/blogstagram/<%= creator.getImage() %>" alt="<%=creator.getFirstname() %> <%= creator.getLastname() %>" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                <div class="media-body">
                    <h4><%=creator.getFirstname() %> <%= creator.getLastname() %><small><i>Posted on <%= current.getCommentDate() %></i></small></h4>
                    <p><%= current.getComment() %></p>
@@ -66,7 +66,7 @@
 
     }
     function deleteComment(commentId, tag){
-        $.post("/commentServlet", {
+        $.post("/blogstagram/commentServlet", {
             comment_id : commentId,
             CommentAction : "DeleteComment",
             blog_id : "<%= blog.getId() %>"
