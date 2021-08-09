@@ -13,7 +13,24 @@ public class Blog {
     public static final int NO_BLOG_ID = -1;
     private List <User> blogModerators;
     private List <HashTag> hashTagList;
+    private List <Comment> comments;
+    private int numLikes;
 
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public int getNumLikes() {
+        return numLikes;
+    }
+
+    public void setNumLikes(int numLikes) {
+        this.numLikes = numLikes;
+    }
 
     public Blog(){
         id = NO_BLOG_ID;

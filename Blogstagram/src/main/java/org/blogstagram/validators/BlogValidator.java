@@ -30,7 +30,8 @@ public class BlogValidator implements Validator {
         validators.add(new BlogContentValidator(currentBlog.getContent()));
         validators.add(new BlogModeratorsValidator(currentBlog.getBlogModerators(), currentBlog.getUser_id()));
         boolean result = true;
-        for(Validator validator : validators){
+        for(int k = 0; k < validators.size(); k++){
+            Validator validator = validators.get(k);
             result = result && validator.validate();
             errors.addAll(validator.getErrors());
         }

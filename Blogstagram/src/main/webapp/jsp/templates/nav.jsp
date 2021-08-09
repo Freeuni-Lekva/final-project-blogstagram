@@ -36,6 +36,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/blogstagram/notifications">Notifications</a>
                 </li>
+                <li class="nav-item">
+                   <a class="nav-link" href="/blogstagram/addBlog">addBlog</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <%= currentUserNickname %> </a>

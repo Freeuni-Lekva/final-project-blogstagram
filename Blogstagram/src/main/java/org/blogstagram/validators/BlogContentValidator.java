@@ -20,12 +20,13 @@ public class BlogContentValidator implements Validator{
 
     @Override
     public boolean validate() throws SQLException {
+        System.out.println("asdasdasd");
         if(content == null) {
             errors.add(new VariableError("content", "content can't be null"));
             return false;
         }
         if(content.length() < CONTENT_MIN_LENGTH || content.length() > CONTENT_MAX_LENGTH) {
-            errors.add(new VariableError("content", "Content's length must be between " + "[" + CONTENT_MIN_LENGTH + ", " + CONTENT_MAX_LENGTH + "] symbols."));
+            errors.add(new VariableError("content", "Content's length must be between " + "(" + CONTENT_MIN_LENGTH + " " + CONTENT_MAX_LENGTH + ") symbols."));
             return false;
         }
         return true;

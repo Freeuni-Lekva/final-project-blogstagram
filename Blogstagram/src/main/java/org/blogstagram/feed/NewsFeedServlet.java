@@ -17,7 +17,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/")
+@WebServlet(value = "/HomePage", loadOnStartup = 1)
 public class NewsFeedServlet extends HttpServlet {
 
     private static final String FEED_JSP_PATH = "/jsp/feed/newsFeed.jsp";
@@ -49,7 +49,6 @@ public class NewsFeedServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-
-        req.getRequestDispatcher(FEED_JSP_PATH).forward(req,res);
+        req.getRequestDispatcher(FEED_JSP_PATH).forward(req, res);
     }
 }
