@@ -71,7 +71,7 @@
 
                 <% if(isModerator){ %>
                     <div class="modal-body">
-                        <div id="deleteUserID" style="display:none"><%= user.getId()%></div>
+                        <div id="deleteUserID" style="display:none"><%=user.getId()%></div>
                         <button type="button" class="btn btn-danger" id="userDeleteButton">Delete User</button>
                     </div>
                 <% }%>
@@ -79,15 +79,15 @@
                 <% if(isAdmin && !currentUserIsModerator){ %>
                   <div class="modal-body">
                     <div id="OperationType" style="display:none"> "MakeModer" </div>
-                    <div id="deleteUserID" style="display:none"> user_id </div>
+                    <div id="user_id" style="display:none"><%=user.getId()%></div>
                        <button type="button" class="btn btn-danger" id="userChangeRoleButton">Make Moderator</button>
                   </div>
                 <% }else if(isAdmin && currentUserIsModerator){ %>
-                    <div class="modal-body">
-                      <div id="OperationType" style="display:none"> "MakeUser" </div>
-                      <div id="deleteUserID" style="display:none"> user_id </div>
-                        <button type="button" class="btn btn-danger" id="userChangeRoleButton">Take user privileges</button>
-                    </div>
+                  <div class="modal-body">
+                    <div id="OperationType" style="display:none"> "MakeUser" </div>
+                    <div id="user_id" style="display:none"><%=user.getId()%></div>
+                    <button type="button" class="btn btn-danger" id="userChangeRoleButton">Take user privileges</button>
+                  </div>
                 <% }%>
 
             </div>
@@ -112,12 +112,13 @@
     })
 
     $("#userChangeRoleButton").click(function(e){
-            const user_id = document.getElementById("user_id").innerText;
-            $.post("/changeRole/user",{user_id}).then(response => {
-                let responseJSON = JSON.parse(response);
-                location.reload();
-            })
+        const user_id = document.getElementById("user_id").innerText;
+        const OperationType = document.getElementById("OperationType").innerText;
+        $.post("/changeRole/user",{user_id, OperationType}).then(response => {
+            let responseJSON = JSON.parse(response);
+            location.reload();
         })
+    })
 
 
 </script>

@@ -12,7 +12,7 @@ import java.util.List;
 public class UserModeratorValidator implements Validator{
     private Connection connection;
     private int user_id;
-    private static final String GET_USER = "SELECT FROM users WHERE id = ? AND role = ?";
+    private static final String GET_USER = "SELECT * FROM users WHERE id = ? AND role = ?";
 
     public void setConnectionUser(Connection connection, int user_id){
         this.connection = connection;

@@ -32,23 +32,24 @@ public class AdminModeratorServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String user_id = (String) request.getSession().getAttribute("currentUserID");
+        Integer user_id = (Integer) request.getSession().getAttribute("currentUserID");
+        System.out.println("logged in user id " + user_id);
         if(user_id == null){
             response.sendError(response.SC_UNAUTHORIZED);
             return;
         }
         Connection connection = (Connection) request.getServletContext().getAttribute("dbConnection");
-        System.out.println("Poti city");
         adminDAO = (AdminDAO) request.getSession().getAttribute("AdminDAO");;
         String requestType = request.getParameter("OperationType");
+        requestType = requestType.substring(2, requestType.length() - 2);
+        System.out.println("Request Type: " + requestType);
         if(!isCorrect(requestType)){
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson("{ request: 'request incorrect' }"));
             return;
         }
-        System.out.println("Poti city 1");
         AdminValidator adminValidator = new AdminValidator();
-        adminValidator.setAdminDAOUser(adminDAO, Integer.parseInt(user_id), true);
+        adminValidator.setAdminDAOUser(adminDAO, user_id, true);
         // validate that current user id is admin or moderator
         try {
             if(!adminValidator.validate()){
@@ -61,9 +62,9 @@ public class AdminModeratorServlet extends HttpServlet {
         }
 
         List<VariableError> errorList = new ArrayList<>();
-        System.out.println("Poti city 2");
         try{
-            int current_user_id = Integer.parseInt(request.getParameter("user_id"));
+            String current_user_id_str = request.getParameter("user_id");
+            int current_user_id = Integer.parseInt(current_user_id_str);
             if(requestType.equals(MAKE_MODERATOR)){
                 UserNotModeratorValidator notModeratorValidator = new UserNotModeratorValidator();
                 notModeratorValidator.setConnectionUser(connection, current_user_id);
