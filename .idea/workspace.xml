@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2dd6a10e-f2ca-496e-8f8a-91d308f21f11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/blogLike/blogLikeServlets/LikersListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/blogLike/blogLikeServlets/LikersListServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/listeners/SessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/listeners/SessionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +115,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1625303469937</updated>
-      <workItem from="1628459373370" duration="8673000" />
+      <workItem from="1628459373370" duration="9616000" />
     </task>
     <servers />
   </component>

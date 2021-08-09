@@ -4,24 +4,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50c5ff1d-0e5a-4a9e-aa74-c09313ce28f1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="2dd6a10e-f2ca-496e-8f8a-91d308f21f11" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/SessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/SessionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/sessionListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/Blogstagram.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/Blogstagram.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/blogsTemplate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/blogsTemplate.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
-  <component name="ProjectId" id="1wDQ4zwDN5Q0oZj5bTjueNn45nz" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Jsp File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="JPA Structure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="JPA Structure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1unZmCgAu16jAZqSZLBsVPcWj5P" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -30,10 +54,28 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Blogstagram" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="shared-indexes" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/validators" />
+      <recent name="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn compile" />
+      <command value="mvn install" />
+      <command value="mvn clean" />
+      <command value="mvn clean install" />
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="Blogstagram [tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
@@ -55,7 +97,7 @@
               <map />
             </option>
             <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/Blogstagram" />
           </MavenRunnerParameters>
         </option>
       </MavenSettings>
@@ -65,13 +107,22 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="50c5ff1d-0e5a-4a9e-aa74-c09313ce28f1" name="Default Changelist" comment="" />
-      <created>1627990495396</created>
+      <changelist id="2dd6a10e-f2ca-496e-8f8a-91d308f21f11" name="Default Changelist" comment="" />
+      <created>1625303469937</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1627990495396</updated>
+      <updated>1625303469937</updated>
+      <workItem from="1628192545664" duration="714000" />
+      <workItem from="1628193292511" duration="3490000" />
+      <workItem from="1628421316993" duration="731000" />
+      <workItem from="1628422310490" duration="642000" />
+      <workItem from="1628423860513" duration="392000" />
+      <workItem from="1628424275742" duration="753000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -84,5 +135,14 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/final_project_blogstagram$CommentTests.ic" NAME="CommentTests Coverage Results" MODIFIED="1627757207608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.blogstagram.dao.CommentDAO</FILTER>
+    </SUITE>
   </component>
 </project>
