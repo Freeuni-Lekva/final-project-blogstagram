@@ -47,7 +47,7 @@
                                 <span class="text-muted">
                                         (
                                         <span class="text-info">Author:</span>
-                                        <a href="/user/<%= blog.getUser_id()%>">
+                                        <a href="/blogstagram/user/<%= blog.getUser_id()%>">
                                             <% if(blog.getUser_id() == currentUserID) { %>
                                                 Me
                                             <% } else { %>
@@ -56,7 +56,7 @@
                                         </a>
                                         )
                                 </span>
-                                <a class="btn btn-outline-primary" href="/blog/<%= blog.getId() %>">Checkout the blog!</a>
+                                <a class="btn btn-outline-primary" href="/blogstagram/blog/<%= blog.getId() %>">Checkout the blog!</a>
 
                                 <div class="m-0 p-0">
                                     <span style="font-size:15px;">

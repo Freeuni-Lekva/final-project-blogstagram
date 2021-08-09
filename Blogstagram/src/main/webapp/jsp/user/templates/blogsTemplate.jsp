@@ -22,7 +22,7 @@
         <% if(canBlogsBeShown) {%>
             <div class="container-fluid d-flex justify-content-around flex-wrap">
                 <% for(Blog blog: blogs) { %>
-                    <a href="/blog/<%= blog.getId() %>">
+                    <a href="/blogstagram/blog/<%= blog.getId() %>">
                         <div class="card bg-light blog-card m-3" style="height:100px;">
                             <div class="card-body text-center">
                                 <p class="card-text">
