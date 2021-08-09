@@ -31,10 +31,10 @@
     <head>
         <jsp:include page="/jsp/templates/bootstrap.jsp" />
         <title>Blogstagram</title>
-        <script src = "/jsp/blog/javascript/buttons.js"></script>
-        <script src = "/jsp/blog/javascript/search.js"></script>
-        <script src = "/jsp/blog/javascript/removeModerators.js"></script>
-        <script src = "/jsp/blog/javascript/comments.js"></script>
+        <script src = "/blogstagram/jsp/blog/javascript/buttons.js"></script>
+        <script src = "/blogstagram/jsp/blog/javascript/search.js"></script>
+        <script src = "/blogstagram/jsp/blog/javascript/removeModerators.js"></script>
+        <script src = "/blogstagram/jsp/blog/javascript/comments.js"></script>
     </head>
 
     <body>

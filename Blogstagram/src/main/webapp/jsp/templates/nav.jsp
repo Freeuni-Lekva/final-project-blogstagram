@@ -11,7 +11,7 @@
     String currentUserNickname = (String)request.getSession().getAttribute("currentUserNickname");
 %>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Blogstagram</a>
+    <a class="navbar-brand" href="/blogstagram/">Blogstagram</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -20,28 +20,28 @@
 
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/blogstagram/">Home</a>
             </li>
 
             <jsp:include page="searchModal.jsp" />
 
             <% if(currentUserNickname == null) { %>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
+                    <a class="nav-link" href="/blogstagram/login">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/register">Register</a>
+                    <a class="nav-link" href="/blogstagram/register">Register</a>
                 </li>
             <% } else { %>
                 <li class="nav-item">
-                    <a class="nav-link" href="/notifications">Notifications</a>
+                    <a class="nav-link" href="/blogstagram/notifications">Notifications</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <%= currentUserNickname %> </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-                        <a class="dropdown-item" href="/user/<%=currentUserNickname%>">My account</a>
-                        <form action="/logout" method="POST">
+                        <a class="dropdown-item" href="/blogstagram/user/<%=currentUserNickname%>">My account</a>
+                        <form action="/blogstagram/logout" method="POST">
                             <button type="submit" class="dropdown-item">Logout</button>
                         </form>
                     </div>

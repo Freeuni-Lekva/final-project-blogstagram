@@ -139,7 +139,7 @@
                                     <div class="col-md-4"></div>
                                     <div class="col-md-6">
                                         <button class="btn btn-secondary w-100">
-                                            <a class="text-white" href="/login">Already Signed Up? Log In!</a>
+                                            <a class="text-white" href="/blogstagram/login">Already Signed Up? Log In!</a>
                                         </button>
                                     </div>
                                 </div>
@@ -190,7 +190,7 @@
                 let privacy = document.getElementById("privacy").value;
                 let password = document.getElementById("password").value;
                 let password_confirmation = document.getElementById("password_confirmation").value;
-                $.post("/register",{
+                $.post("/blogstagram/register",{
                     firstname,lastname,nickname,email,birthday,gender,privacy,password,password_confirmation
                 }).then(rawResponse => {
                     refreshFieldMessages();
@@ -199,7 +199,7 @@
                         refreshFieldMessages();
                         document.getElementById("success").innerText = "You have been registered successfully! You will be redirected to news feed in 5 seconds...";
                         setTimeout(() => {
-                            window.location.href = "/";
+                            window.location.href = "/blogstagram/";
                         },5000);
                     } else {
                         let errors = JSON.parse(rawResponse);

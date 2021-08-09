@@ -41,14 +41,15 @@
             <div class="container">
                 <% for(UserProvidedBlog blog: blogs) {%>
                     <div class="media my-3 border border-3 border-info p-3">
-                        <img class="mr-3" style="width:100px; height:100px; border-radius: 50%; object-fit: cover;" src="<%= blog.getUserImage() %>" alt="Generic placeholder image">
+                        <img class="mr-3" style="width:100px; height:100px; border-radius: 50%; object-fit: cover;" src="/blogstagram/<%= blog.getUserImage() %>" alt="Generic placeholder image">
                         <div class="media-body">
                             <h5 class="mt-0">
                                 <%= blog.getTitle() %>
                                 <span class="text-muted">
                                         (
                                         <span class="text-info">Author:</span>
-                                        <a href="/user/<%= blog.getUser_id() %>">
+
+                                        <a href="/blogstagram/user/<%= blog.getUser_id()%>">
                                             <% if(blog.getUser_id() == currentUserID) { %>
                                                 Me
                                             <% } else { %>
@@ -57,7 +58,7 @@
                                         </a>
                                         )
                                 </span>
-                                <a class="btn btn-outline-primary" href="/blog/<%= blog.getId() %>">Checkout the blog!</a>
+                                <a class="btn btn-outline-primary" href="/blogstagram/blog/<%= blog.getId() %>">Checkout the blog!</a>
 
 
                                     <span style="font-size:15px;">

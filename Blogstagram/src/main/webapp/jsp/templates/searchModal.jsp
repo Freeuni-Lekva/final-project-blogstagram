@@ -36,7 +36,7 @@
                 <img class="ml-2" width="70px" height="70px" style="object-fit:cover; border-radius:50%" src="${user.image}" alt="Generic placeholder image">
                 <div class="media-body text-center">
                     <h5 class="pt-4">
-                        <a href="/user/${user.nickname}">${user.firstname} ${user.lastname} ( ${user.nickname} )</a>
+                        <a href="/blogstagram/user/${user.nickname}">${user.firstname} ${user.lastname} ( ${user.nickname} )</a>
                     </h5>
               </div>
             </div>
@@ -48,7 +48,7 @@
         let inputField = document.getElementById("search-query");
         inputField.addEventListener("input",(e) => {
             const query = inputField.value;
-            $.post("/search/user",{
+            $.post("/blogstagram/search/user",{
                 query
             }).then(response => {
                 usersField.innerHTML = "";

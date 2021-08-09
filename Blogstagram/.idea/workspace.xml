@@ -4,18 +4,62 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50c5ff1d-0e5a-4a9e-aa74-c09313ce28f1" name="Default Changelist" comment="">
+    <list default="true" id="1088048f-1b36-4f04-ac80-4f588eef8afc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_42.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_8_02.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_22.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogLike/blogLikeConstants/BlogLikeQueries.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogLike/blogLikeServlets/BlogLikeServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogLike/blogLikeServlets/LikersListServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/BlogLikeDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogLikeValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/el.gvaros/profile.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/servlets/BlogServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/servlets/BlogServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/feed/NewsFeedServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/feed/NewsFeedServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/SessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/SessionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/login/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/login/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/logout/LogoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/logout/LogoutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/register/RegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/register/RegisterServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/user/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/user/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/user/edit/EditProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/user/edit/EditProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/blog/blogPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/blogPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/blog/javascript/buttons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/javascript/buttons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/errors/custom404error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/errors/custom404error.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/feed/newsFeed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/feed/newsFeed.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/login/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/register/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/register/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/templates/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/templates/nav.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/templates/searchModal.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/templates/searchModal.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/user/edit/templates/deleteUserModal.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/user/edit/templates/deleteUserModal.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/user/edit/templates/editGeneral.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/user/edit/templates/editGeneral.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/user/edit/templates/editPassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/user/edit/templates/editPassword.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/user/edit/templates/editPicture.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/user/edit/templates/editPicture.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/user/followListPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/user/followListPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/user/templates/blogsTemplate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/user/templates/blogsTemplate.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/user/templates/followButtonTemplate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/user/templates/followButtonTemplate.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/user/templates/gearIconTemplate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/user/templates/gearIconTemplate.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/user/userPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/user/userPage.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Jsp File" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -28,7 +72,22 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="ProjectId" id="1wDQ4zwDN5Q0oZj5bTjueNn45nz" />
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="JPA Structure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="JPA Structure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1unZmCgAu16jAZqSZLBsVPcWj5P" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -37,10 +96,29 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="shared-indexes" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram/validators" />
+      <recent name="$PROJECT_DIR$/Blogstagram/target/classes/org/blogstagram" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn compile" />
+      <command value="mvn install" />
+      <command value="mvn clean" />
+      <command value="mvn clean install" />
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="Blogstagram [tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
@@ -72,13 +150,22 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="50c5ff1d-0e5a-4a9e-aa74-c09313ce28f1" name="Default Changelist" comment="" />
-      <created>1627990495396</created>
+      <changelist id="2dd6a10e-f2ca-496e-8f8a-91d308f21f11" name="Default Changelist" comment="" />
+      <created>1625303469937</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1627990495396</updated>
+      <updated>1625303469937</updated>
+      <workItem from="1628192545664" duration="714000" />
+      <workItem from="1628193292511" duration="3490000" />
+      <workItem from="1628421316993" duration="731000" />
+      <workItem from="1628422310490" duration="642000" />
+      <workItem from="1628423860513" duration="392000" />
+      <workItem from="1628424275742" duration="753000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -91,5 +178,14 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/final_project_blogstagram$CommentTests.ic" NAME="CommentTests Coverage Results" MODIFIED="1627757207608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.blogstagram.dao.CommentDAO</FILTER>
+    </SUITE>
   </component>
 </project>

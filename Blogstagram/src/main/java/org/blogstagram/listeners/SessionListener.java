@@ -1,10 +1,7 @@
 package org.blogstagram.listeners;
 
 
-import org.blogstagram.dao.CommentDAO;
-import org.blogstagram.dao.SqlBlogDAO;
-import org.blogstagram.dao.SqlFollowDao;
-import org.blogstagram.dao.UserDAO;
+import org.blogstagram.dao.*;
 
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
@@ -27,6 +24,8 @@ public class SessionListener implements HttpSessionListener {
         httpSessionEvent.getSession().setAttribute("blogDao", blogDAO);
         httpSessionEvent.getSession().setAttribute("UserDAO", userDao);
         httpSessionEvent.getSession().getServletContext().setAttribute("CommentDAO", commentDAO);
+        BlogLikeDao blogLikeDao = new BlogLikeDao(dbConnection);
+        httpSessionEvent.getSession().setAttribute("BlogLikeDao", blogLikeDao);
 
     }
 

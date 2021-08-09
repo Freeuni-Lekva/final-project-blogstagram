@@ -190,7 +190,7 @@ function addBlog(){
         let fields = JSON.parse(response);
         let status = fields['status'];
         if(status === added){
-            window.location.href = `/blog/${fields["blogId"]}`;
+            window.location.href = `blogstagram/blog/${fields["blogId"]}`;
         } else if(status == errors){
             let errors = fields["errors"];
             let errorsJson = JSON.parse(errors);

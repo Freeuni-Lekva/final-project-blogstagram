@@ -17,7 +17,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet(value = "/")
+@WebServlet(value = "/HomePage", loadOnStartup = 1)
 public class NewsFeedServlet extends HttpServlet {
 
     private static final String FEED_JSP_PATH = "/jsp/feed/newsFeed.jsp";
