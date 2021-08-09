@@ -10,7 +10,7 @@
 <%
     User user = (User)request.getAttribute("CurrentUser");
 %>
-<form id="edit-picture-form" action="/edit/profile" method="post" enctype="multipart/form-data">
+<form id="edit-picture-form" action="/blogstagram/edit/profile" method="post" enctype="multipart/form-data">
     <div class="container text-center">
         <img id="upload-picture-file" src="<%= user.getImage() %>" style="width: 200px; height: 200px; margin: 15px; border-radius:50%"/>
     </div>

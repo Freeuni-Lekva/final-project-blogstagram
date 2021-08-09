@@ -170,7 +170,7 @@
         let city = document.getElementById("city").value;
         let website = document.getElementById("website").value;
         let bio = document.getElementById("bio").value;
-        $.post("/edit/profile",{
+        $.post("/blogstagram/edit/profile",{
             firstname,lastname,nickname,email,birthday,gender,privacy,country,city,website,bio,status
         }).then(rawResponse => {
             refreshGeneralFieldMessages();
