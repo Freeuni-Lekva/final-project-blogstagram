@@ -33,7 +33,6 @@ public class AdminModeratorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Integer user_id = (Integer) request.getSession().getAttribute("currentUserID");
-        System.out.println("logged in user id " + user_id);
         if(user_id == null){
             response.sendError(response.SC_UNAUTHORIZED);
             return;
@@ -42,7 +41,6 @@ public class AdminModeratorServlet extends HttpServlet {
         adminDAO = (AdminDAO) request.getSession().getAttribute("AdminDAO");;
         String requestType = request.getParameter("OperationType");
         requestType = requestType.substring(2, requestType.length() - 2);
-        System.out.println("Request Type: " + requestType);
         if(!isCorrect(requestType)){
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson("{ request: 'request incorrect' }"));

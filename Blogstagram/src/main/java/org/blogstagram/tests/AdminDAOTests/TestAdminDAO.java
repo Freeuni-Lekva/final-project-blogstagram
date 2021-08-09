@@ -240,7 +240,7 @@ public class TestAdminDAO extends TestCase {
     }
 
     public void testEligibility() throws SQLException {
-        assertTrue(adminDAO.isEligible(admin.getId()));
+        assertTrue(adminDAO.isEligibleToChangeRole(admin.getId()));
         for(int i = 0; i < NUM_USERS; i++){
             assertFalse(adminDAO.isEligible(users[i].getId()));
         }

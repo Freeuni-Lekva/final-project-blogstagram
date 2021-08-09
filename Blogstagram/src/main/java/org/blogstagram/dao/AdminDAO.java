@@ -84,36 +84,6 @@ public class AdminDAO {
         }
     }
     /*
-    Receives blog unique id in parameters
-    returns list of report ids of the blog
-     */
-    public List<String> getBlogReports(int blog_id) throws SQLException {
-        List<String> resultList = new ArrayList<>();
-        PreparedStatement preparedStatement = connection.prepareStatement(GET_BLOG_REPORTS);
-        preparedStatement.setInt(1, blog_id);
-        ResultSet resultSet = preparedStatement.executeQuery();
-        while(resultSet.next()){
-            String reportComment = resultSet.getString(1);
-            resultList.add(reportComment);
-        }
-        return resultList;
-    }
-    /*
-    Receives user unique id in parameters
-    returns list of report ids of the user
-     */
-    public List<String> getUserReports(int comment_id) throws SQLException {
-        List<String> resultList = new ArrayList<>();
-        PreparedStatement preparedStatement = connection.prepareStatement(GET_USER_REPORTS);
-        preparedStatement.setInt(1, comment_id);
-        ResultSet resultSet = preparedStatement.executeQuery();
-        while(resultSet.next()){
-            String reportComment = resultSet.getString(1);
-            resultList.add(reportComment);
-        }
-        return resultList;
-    }
-    /*
     Receives user id in parameters
     returns if it is admin
      */

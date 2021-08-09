@@ -1,5 +1,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="org.blogstagram.models.User" %>
+<%@ page import="org.blogstagram.dao.AdminDAO" %>
+<%@ page import="org.blogstagram.validators.AdminValidator" %>
 
+<%
+    Integer user_id = (Integer)request.getSession().getAttribute("currentUserID");
+    boolean isNotLoggedIn = (user_id == null);
+    AdminDAO adminDAO;
+    AdminValidator adminValidator;
+    boolean currentUserIsModerator = false;
+    if(!isNotLoggedIn){
+        adminDAO = (AdminDAO)request.getSession().getAttribute("AdminDAO");
+        adminValidator = new AdminValidator();
+        adminValidator.setAdminDAOUser(adminDAO, user_id, false);
+        currentUserIsModerator = adminValidator.validate();
+    }
+
+%>
+
+<% if(isNotLoggedIn || !currentUserIsModerator) { %>
+ <p><a href="login.jsp">Only admins can enter this page!</a></p>
+<% }else{ %>
 <html>
     <head>
 
@@ -78,3 +99,4 @@
     </body>
 
 </html>
+<% } %>
