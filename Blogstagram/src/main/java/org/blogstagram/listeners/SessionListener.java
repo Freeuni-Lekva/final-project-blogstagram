@@ -24,7 +24,7 @@ public class SessionListener implements HttpSessionListener {
         httpSessionEvent.getSession().setAttribute("SqlFollowDao", followDao);
         httpSessionEvent.getSession().setAttribute("blogDao", blogDAO);
         httpSessionEvent.getSession().setAttribute("UserDAO", userDao);
-        httpSessionEvent.getSession().getServletContext().setAttribute("CommentDAO", commentDAO);
+        httpSessionEvent.getSession().setAttribute("CommentDAO", commentDAO);
 
         httpSessionEvent.getSession().setAttribute("BlogLikeDao", blogLikeDao);
 

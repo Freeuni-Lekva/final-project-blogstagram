@@ -44,7 +44,7 @@ public class CommentServlet extends HttpServlet {
         }else{
             comment_id = -1;
         }
-        CommentDAO commentDAO = (CommentDAO)context.getAttribute("CommentDAO");
+        CommentDAO commentDAO = (CommentDAO)request.getSession().getAttribute("CommentDAO");
         BlogExistsValidator blogValidator = new BlogExistsValidator();
         blogValidator.setConnection(connection);
         UserIdValidator userVal = new UserIdValidator();

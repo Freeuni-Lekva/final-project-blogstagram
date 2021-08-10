@@ -17,6 +17,7 @@ public class CommentDAO{
             "WHERE l.comment_id = ?";
     private static final String ADD_LIKE = "INSERT INTO likes(user_id, comment_id, created_at) values(?, ?, ?)";
     private static final String DELETE_LIKE = "DELETE FROM likes WHERE comment_id = ? AND user_id = ?";
+    private static final String ISLIKED = "SELECT * FROM likes WHERE comment_id = ? AND user_id = ?";
     Connection connection;
 
     public CommentDAO(Connection connection){
@@ -130,6 +131,15 @@ public class CommentDAO{
         }
 
         return resultList;
+    }
+
+
+    public Boolean isLikedByUser(int comment_id, int user_id) throws SQLException{
+        PreparedStatement ps = connection.prepareStatement(ISLIKED);
+        ps.setInt(1, comment_id);
+        ps.setInt(2, user_id);
+        ResultSet resultSet = ps.executeQuery();
+        return resultSet.next();
     }
 
     // receives comment id in parameter

@@ -60,10 +60,11 @@
                            <img src="/blogstagram/<%= currentUser.getImage() %>" alt="<%=currentUser.getFirstname() %> <%= currentUser.getLastname() %>" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                            <div class="media-body col">
                                <h4><%=currentUser.getFirstname() %> <%= currentUser.getLastname() %> <small><i> Posted on ${comment['comment_creation_date']}</i></small></h4>
-                               <p> ${comment['comment']}</p>
+                               <p> ${comment['comment']}</p
+                               <p>Likes: <p id = "likes-count-${comment['comment_id']}"><%= 0 %></p></p>
                             </div>
-                            <div class = "container col">
-                                <button type = "button" class = "btn btn-info" onclick = "">like</button>
+                            <div id = "like-container-${comment['comment_id']}" class = "container col">
+                                <button type = "button" class = "btn btn-info" onclick = "likeComment(${comment['comment_id']})">like</button>
                             </div>
                             <div class = "container col">
                                 <button type = "button" class = "btn btn-info" onclick = "deleteComment(${comment['comment_id']}, this)">remove</button>
@@ -108,11 +109,10 @@
                 changeToUnlike();
             } else {
                 for(let k = 0; k < fields.length; k++){
-
-                    let {err, errm} = JSON.parse(fields[k]);
+                    let {errorMessage, variableName} = fields[k];
                     let errms = document.getElementById("err-comment");
                     errms.innerHTML = "";
-                    errms.innerHTML += errm;
+                    errms.innerHTML += errorMessage;
                 }
             }
 
@@ -132,10 +132,10 @@
               likes.innerText = parseInt(likes.innerText) - 1;
               changeTolike();
            } else {
-                let {err, errm} = JSON.parse(fields[k]);
-                let errms = document.getElementById("err-comment");
-                errms.innerHTML = "";
-                errms.innerHTML += errm;
+               let {errorMessage, variableName} = fields[k];
+               let errms = document.getElementById("err-comment");
+               errms.innerHTML = "";
+               errms.innerHTML += errorMessage;
            }
         }).catch(errs => {
             console.log(errs);
