@@ -145,6 +145,7 @@ public class TestAdminDAO extends TestCase {
         });
     }
 
+    @Test
     public void testDeleteBlog() throws SQLException {
         blog_ids = new int[NUM_USERS];
         for(int i = 0; i < NUM_USERS; i++){
@@ -170,6 +171,7 @@ public class TestAdminDAO extends TestCase {
         }
     }
 
+    @Test
     public void testDeleteBlogException(){
         assertThrows(SQLException.class, new ThrowingRunnable() {
             @Override
@@ -178,7 +180,7 @@ public class TestAdminDAO extends TestCase {
             }
         });
     }
-
+    @Test
     public void testMakeUserModerator() throws SQLException{
         for(int i = 0; i < NUM_USERS; i++){
             adminDAO.makeUserModer(users[i].getId());
@@ -200,15 +202,7 @@ public class TestAdminDAO extends TestCase {
         }
     }
 
-    public void testMakeUserModeratorException() {
-        assertThrows(SQLException.class, new ThrowingRunnable() {
-            @Override
-            public void run() throws Throwable {
-                adminDAO.deleteUser(-1);
-            }
-        });
-    }
-
+    @Test
     public void testMakeModeratorUser() throws SQLException{
         for(int i = 0; i < NUM_USERS; i++){
             adminDAO.makeModerUser(users[i].getId());
@@ -229,7 +223,7 @@ public class TestAdminDAO extends TestCase {
             });
         }
     }
-
+    @Test
     public void testMakeModeratorUserException() {
         assertThrows(SQLException.class, new ThrowingRunnable() {
             @Override
@@ -238,7 +232,7 @@ public class TestAdminDAO extends TestCase {
             }
         });
     }
-
+    @Test
     public void testEligibility() throws SQLException {
         assertTrue(adminDAO.isEligibleToChangeRole(admin.getId()));
         for(int i = 0; i < NUM_USERS; i++){
@@ -251,5 +245,36 @@ public class TestAdminDAO extends TestCase {
             }
         });
     }
+
+    @Test
+    public void testIsModerator() throws SQLException {
+        for(int i = 100; i < 110; i++){
+            User moderator = createDummyUser(i, User.MODERATOR_ROLE);
+            assertTrue(adminDAO.isModerator(moderator.getId()));
+        }
+    }
+
+    @Test
+    public void testIsModeratorException() throws SQLException {
+        assertThrows(SQLException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                adminDAO.isModerator(-1);
+            }
+        });
+    }
+
+    @Test
+    public void testDeteleUser() throws SQLException {
+        for(int i = 110; i < 120; i++){
+            User moderator = createDummyUser(i, User.MODERATOR_ROLE);
+            adminDAO.deleteUser(moderator.getId());
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM users WHERE id = ?");
+            preparedStatement.setInt(1,moderator.getId());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            assertFalse(resultSet.next());
+        }
+    }
+
 
 }

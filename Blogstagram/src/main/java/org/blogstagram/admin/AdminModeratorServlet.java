@@ -32,6 +32,7 @@ public class AdminModeratorServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        System.out.println("First line");
         Integer user_id = (Integer) request.getSession().getAttribute("currentUserID");
         if(user_id == null){
             response.sendError(response.SC_UNAUTHORIZED);
@@ -40,7 +41,7 @@ public class AdminModeratorServlet extends HttpServlet {
         Connection connection = (Connection) request.getServletContext().getAttribute("dbConnection");
         adminDAO = (AdminDAO) request.getSession().getAttribute("AdminDAO");;
         String requestType = request.getParameter("OperationType");
-        requestType = requestType.substring(2, requestType.length() - 2);
+        System.out.println(requestType + "line 45");
         if(!isCorrect(requestType)){
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson("{ request: 'request incorrect' }"));
@@ -61,9 +62,12 @@ public class AdminModeratorServlet extends HttpServlet {
 
         List<VariableError> errorList = new ArrayList<>();
         try{
+            System.out.println("line 66");
+            System.out.println(requestType);
             String current_user_id_str = request.getParameter("user_id");
             int current_user_id = Integer.parseInt(current_user_id_str);
             if(requestType.equals(MAKE_MODERATOR)){
+                System.out.println("line 74");
                 UserNotModeratorValidator notModeratorValidator = new UserNotModeratorValidator();
                 notModeratorValidator.setConnectionUser(connection, current_user_id);
                 if(notModeratorValidator.validate()) {
@@ -73,6 +77,7 @@ public class AdminModeratorServlet extends HttpServlet {
                     errorList.add(error);
                 }
             }else if(requestType.equals(MAKE_USER)){
+                System.out.println("line 84");
                 UserModeratorValidator moderatorValidator = new UserModeratorValidator();
                 moderatorValidator.setConnectionUser(connection, current_user_id);
                 if(moderatorValidator.validate()){

@@ -137,7 +137,6 @@ org/blogstagram/tests/followSystemTests/FollowDaoTests.class
 org/blogstagram/feed/NewsFeedServlet.class
 org/blogstagram/tests/followSystemTests/FollowDaoTests$2.class
 org/blogstagram/dao/HashTagDao.class
-org/blogstagram/tests/AdminDAOTests/TestAdminDAO$9.class
 org/blogstagram/errors/DirectionalFollowNotAdded.class
 org/blogstagram/listeners/contextListener.class
 org/blogstagram/currentUser/CurrentUserServlet.class
