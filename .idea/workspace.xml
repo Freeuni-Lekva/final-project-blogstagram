@@ -6,27 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2dd6a10e-f2ca-496e-8f8a-91d308f21f11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/login/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/login/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/logout/LogoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/logout/LogoutServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/register/RegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/register/RegisterServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/user/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/user/UserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/user/edit/EditProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/user/edit/EditProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/errors/custom404error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/errors/custom404error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/feed/newsFeed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/feed/newsFeed.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/login/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/register/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/register/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/templates/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/templates/nav.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/templates/searchModal.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/templates/searchModal.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/edit/templates/deleteUserModal.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/edit/templates/deleteUserModal.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/edit/templates/editGeneral.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/edit/templates/editGeneral.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/edit/templates/editPassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/edit/templates/editPassword.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/edit/templates/editPicture.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/edit/templates/editPicture.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/followListPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/followListPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/blogsTemplate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/blogsTemplate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/followButtonTemplate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/followButtonTemplate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/gearIconTemplate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/gearIconTemplate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/userPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/userPage.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +53,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Blogstagram" />
+    <property name="last_opened_file_path" value="D:/Program Files/JetBrainsProjects/Untitled" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -137,6 +116,8 @@
       <workItem from="1628423860513" duration="392000" />
       <workItem from="1628424275742" duration="1271000" />
       <workItem from="1628509379663" duration="2686000" />
+      <workItem from="1628622627121" duration="243000" />
+      <workItem from="1628682412488" duration="486000" />
     </task>
     <servers />
   </component>
