@@ -23,7 +23,6 @@ public class BlogModeratorsValidator implements Validator{
 
     @Override
     public boolean validate() throws SQLException {
-        System.out.println("creator:" + creatorId);
         if(moderators == null) {
             errors.add(new VariableError("", ""));
             return false;
@@ -33,16 +32,16 @@ public class BlogModeratorsValidator implements Validator{
 
         for(User moderator : moderators){
            if(moderator == null) {
-               errors.add(new VariableError("User", "Blog moderator must be Real user."));
+               errors.add(new VariableError("moderator", "Blog moderator must be Real user."));
                return false;
            }
            else{
                if(used.contains(moderator.getId())) {
-                   errors.add(new VariableError("User", "Blog moderators list must be unique."));
+                   errors.add(new VariableError("moderator", "Blog moderators list must be unique."));
                    return false;
                }
                else if(moderator.getId().equals(creatorId)){
-                   errors.add(new VariableError("userId", "Blog creator can't be moderator"));
+                   errors.add(new VariableError("moderator", "Blog creator can't be moderator"));
                    return false;
                }
                used.add(moderator.getId());

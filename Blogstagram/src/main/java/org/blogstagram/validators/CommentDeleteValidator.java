@@ -20,7 +20,7 @@ public class CommentDeleteValidator implements CommentSystemValidator{
     @Override
     public boolean validate(Object obj1, Object obj2) throws SQLException {
         int comment_id = (int)obj1;
-        int user_id = Integer.parseInt((String)obj2);
+        int user_id = (Integer) obj2;
         PreparedStatement ps = connection.prepareStatement(COMMENT_EXISTS);
         ps.setInt(1, comment_id);
         ps.setInt(2, user_id);

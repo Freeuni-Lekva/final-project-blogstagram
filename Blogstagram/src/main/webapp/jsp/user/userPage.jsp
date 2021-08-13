@@ -35,7 +35,7 @@
             <div class="container border border-dark mt-2" style="width:80%;">
                 <div class="row m-2">
                     <div class="col-2">
-                        <img src="<%= user.getImage() %>" class="user-profile-picture mr-5"/>
+                        <img src="/blogstagram/<%= user.getImage() %>" class="user-profile-picture mr-5"/>
                     </div>
                     <div class="col-10">
                         <div class="d-flex ml-5 mt-4">

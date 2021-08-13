@@ -77,7 +77,7 @@ public class addBlogServlet extends HttpServlet {
         // response json
         JSONObject responseJson = new JSONObject();
         if(currentUserId != null) {
-            
+
             String title = request.getParameter("title");
             String content = request.getParameter("content");
             List <User> moderators = getModerators(request, userDAO);
