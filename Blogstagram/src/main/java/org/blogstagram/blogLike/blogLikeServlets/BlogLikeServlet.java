@@ -40,7 +40,7 @@ public class BlogLikeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String userId = (String) request.getSession().getAttribute("currentUserID");
+        Integer userId = (Integer) request.getSession().getAttribute("currentUserID");
         if(userId == null) {
             response.sendError(response.SC_UNAUTHORIZED);
             return;
@@ -58,9 +58,9 @@ public class BlogLikeServlet extends HttpServlet {
 
         try{
             if(userIdValidator.validate(userId) && !blogLikeValidator.validate(blogId, userId) && requestType.equals("Like")){
-                blogLikeDao.likeBlog( Integer.parseInt(blogId), Integer.parseInt(userId));
+                blogLikeDao.likeBlog( Integer.parseInt(blogId), userId);
             } else if(userIdValidator.validate(userId) && blogLikeValidator.validate(blogId, userId) && requestType.equals("Unlike")){
-                blogLikeDao.unlikeBlog(Integer.parseInt(blogId), Integer.parseInt(userId));
+                blogLikeDao.unlikeBlog(Integer.parseInt(blogId), userId);
             } else {
                 if(blogLikeValidator.validate(blogId, userId) && requestType.equals("Like")) {
                     VariableError varError = new VariableError("BlogLike", "Can not like already liked blog");
