@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1088048f-1b36-4f04-ac80-4f588eef8afc" name="Default Changelist" comment="" />
+    <list default="true" id="50c5ff1d-0e5a-4a9e-aa74-c09313ce28f1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_8_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/blog/blogPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/blogPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/blog/javascript/comments.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/blog/javascript/removeModerators.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/javascript/removeModerators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/blog/javascript/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/javascript/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/blog/templates/moderators.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/templates/moderators.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/blog/templates/removeModerators.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/templates/removeModerators.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/blog/templates/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/templates/search.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

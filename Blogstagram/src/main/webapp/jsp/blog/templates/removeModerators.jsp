@@ -7,9 +7,17 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div id = "modal-users" class="modal-body">
-                        <script>addModeratorsModal();</script>
                     </div>
                 </div>
     </div>
 
 </div>
+
+<script>
+
+    $("#removeModerators").on("show.bs.modal", function (event) {
+        addModeratorsModal();
+    });
+
+
+</script>

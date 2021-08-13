@@ -1,4 +1,12 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import = "org.blogstagram.models.Blog" %>
 
+<%
+    Blog blog = (Blog) request.getAttribute("blog");
+    Integer creatorId;
+    if(blog == null) creatorId = (Integer)request.getSession().getAttribute("currentUserID");
+    else creatorId = blog.getUser_id();
+%>
 <div id="searchModeratorsModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
@@ -26,6 +34,7 @@
     <script>
 
         function createSearchedUserField(user){
+            if(user.id == <%= creatorId %>) return "";
             return `
                 <div class="media border py-2 my-2">
                     <img class="ml-2" width="70px" height="70px" style="object-fit:cover; border-radius:50%" src="/blogstagram/${user.image}" alt="Generic placeholder image">
@@ -53,11 +62,16 @@
                 }).then(response => {
                     usersField.innerHTML = "";
                     response = JSON.parse(response);
+                    let moderators = document.getElementById("blogModerators");
+                    moderators.removeAttribute("readonly");
                     for(let i=0; i<response.length; i++){
                         let user = response[i];
                         console.log(user);
-                        usersField.innerHTML += createSearchedUserField(user);
+                        let field = createSearchedUserField(user);
+                        if(field === "") continue;
+                        usersField.innerHTML += field;
                     }
+                    moderators.setAttribute("readonly", "");
                 }).catch(error => {
                     console.log(error);
                 })
