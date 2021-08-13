@@ -7,6 +7,7 @@ import org.blogstagram.models.Blog;
 import org.blogstagram.models.HashTag;
 import org.blogstagram.models.User;
 
+import javax.xml.crypto.Data;
 import java.util.List;
 
 public interface BlogDAO {
@@ -22,4 +23,5 @@ public interface BlogDAO {
     int getAmountOfBlogsByUser(int id) throws DatabaseError, InvalidSQLQueryException;
     void addHashtags(int blogId, List <HashTag> hashTags) throws DatabaseError, InvalidSQLQueryException;
     void removeHashtags(int blogId, List <HashTag> hashTags) throws DatabaseError, InvalidSQLQueryException;
+    List<HashTag> getHashtags(int blogId) throws DatabaseError, InvalidSQLQueryException;
 }

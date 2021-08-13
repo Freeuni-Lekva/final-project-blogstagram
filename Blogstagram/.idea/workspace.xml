@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50c5ff1d-0e5a-4a9e-aa74-c09313ce28f1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/blogTests/testBlogDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/BlogDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/BlogDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlBlogDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlBlogDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlHashTagDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlHashTagDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/Blog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/models/Blog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/HashTagQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/sql/HashTagQueries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/blogTests/testHashTagQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/blogTests/testHashTagQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/blogTests/testBlogDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/blogTests/testBlogDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +42,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../spring/basics/spring-baics/spring-baics" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -57,7 +54,7 @@
       <command value="mvn compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.testBlogDao">
+  <component name="RunManager" selected="JUnit.testBlogDao.addHashtags">
     <configuration name="testBlogDao" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Blogstagram" />
       <extension name="coverage">
@@ -73,7 +70,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testBlogDao.testGetBlogsOfUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="testBlogDao.addHashtags" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Blogstagram" />
       <extension name="coverage">
         <pattern>
@@ -83,13 +80,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.tests.blogTests" />
       <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.blogTests.testBlogDao" />
-      <option name="METHOD_NAME" value="testGetBlogsOfUser" />
+      <option name="METHOD_NAME" value="addHashtags" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testBlogDao.testGetNumBlogs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="testBlogDao.testAddGetModerators" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Blogstagram" />
       <extension name="coverage">
         <pattern>
@@ -99,13 +96,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.tests.blogTests" />
       <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.blogTests.testBlogDao" />
-      <option name="METHOD_NAME" value="testGetNumBlogs" />
+      <option name="METHOD_NAME" value="testAddGetModerators" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testBlogDao.testRemoveBlog" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="testBlogDao.testBlogExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Blogstagram" />
       <extension name="coverage">
         <pattern>
@@ -115,13 +112,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.tests.blogTests" />
       <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.blogTests.testBlogDao" />
-      <option name="METHOD_NAME" value="testRemoveBlog" />
+      <option name="METHOD_NAME" value="testBlogExists" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testBlogDao.testRemoveBlogMultiple" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="testBlogDao.testRemoveModerators" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Blogstagram" />
       <extension name="coverage">
         <pattern>
@@ -131,7 +128,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.tests.blogTests" />
       <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.blogTests.testBlogDao" />
-      <option name="METHOD_NAME" value="testRemoveBlogMultiple" />
+      <option name="METHOD_NAME" value="testRemoveModerators" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -163,20 +160,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Maven.Blogstagram [tomcat7:run]" />
-      <item itemvalue="JUnit.testBlogDao.testRemoveBlog" />
-      <item itemvalue="JUnit.testBlogDao.testRemoveBlogMultiple" />
-      <item itemvalue="JUnit.testBlogDao.testGetBlogsOfUser" />
-      <item itemvalue="JUnit.testBlogDao.testGetNumBlogs" />
       <item itemvalue="JUnit.testBlogDao" />
+      <item itemvalue="JUnit.testBlogDao.testBlogExists" />
+      <item itemvalue="JUnit.testBlogDao.testAddGetModerators" />
+      <item itemvalue="JUnit.testBlogDao.testRemoveModerators" />
+      <item itemvalue="JUnit.testBlogDao.addHashtags" />
+      <item itemvalue="Maven.Blogstagram [tomcat7:run]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.testBlogDao.addHashtags" />
+        <item itemvalue="JUnit.testBlogDao.testRemoveModerators" />
         <item itemvalue="JUnit.testBlogDao" />
-        <item itemvalue="JUnit.testBlogDao.testGetNumBlogs" />
-        <item itemvalue="JUnit.testBlogDao.testGetBlogsOfUser" />
-        <item itemvalue="JUnit.testBlogDao.testRemoveBlogMultiple" />
-        <item itemvalue="JUnit.testBlogDao.testRemoveBlog" />
+        <item itemvalue="JUnit.testBlogDao.testAddGetModerators" />
+        <item itemvalue="JUnit.testBlogDao.testBlogExists" />
       </list>
     </recent_temporary>
   </component>

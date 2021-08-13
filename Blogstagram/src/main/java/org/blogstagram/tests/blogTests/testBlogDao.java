@@ -239,5 +239,110 @@ public class testBlogDao {
     }
 
 
+    @Test
+    public void testBlogExists(){
+        Blog blog = new Blog();
+        blog.setUser_id(1);
+        blog.setTitle("title");
+        blog.setContent("content");
+        blog.setHashTagList(Arrays.asList(new HashTag("1"), new HashTag("2"), new HashTag("3")));
+        try {
+            blog.setBlogModerators(Arrays.asList(userDAO.getUserByID(1), userDAO.getUserByID(2), userDAO.getUserByID(3)));
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+        blog.setNumLikes(5);
+        try {
+            assertFalse(sqlBlogDAO.blogExists(blog.getId()));
+            sqlBlogDAO.addBlog(blog);
+            assertTrue(sqlBlogDAO.blogExists(blog.getId()));
+            sqlBlogDAO.removeBlog(blog);
+            assertFalse(sqlBlogDAO.blogExists(blog.getId()));
+        } catch (InvalidSQLQueryException | DatabaseError e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Test
+    public void testAddGetModerators(){
+        Blog blog = new Blog();
+        blog.setUser_id(4);
+        blog.setTitle("title");
+        blog.setContent("content");
+        blog.setHashTagList(Arrays.asList(new HashTag("1"), new HashTag("2"), new HashTag("3")));
+        try {
+            blog.setBlogModerators(Arrays.asList(userDAO.getUserByID(1), userDAO.getUserByID(2), userDAO.getUserByID(3)));
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+        try {
+            sqlBlogDAO.addBlog(blog);
+            List <User> actual = sqlBlogDAO.getModerators(blog.getId());
+            List <User> expected = blog.getBlogModerators();
+            assertEquals(actual.size(), expected.size());
+            for(int k = 0; k < actual.size(); k++){
+                assertEquals(actual.get(k).getId(), expected.get(k).getId());
+            }
+            sqlBlogDAO.addModerators(blog.getId(), Arrays.asList((userDAO.getUserByID(5)), userDAO.getUserByID(6)));
+            expected = sqlBlogDAO.getBlog(blog.getId()).getBlogModerators();
+            actual = sqlBlogDAO.getModerators(blog.getId());
+            assertEquals(actual.size(), expected.size());
+            for(int k = 0; k < actual.size(); k++) {
+                assertEquals(actual.get(k).getId(), expected.get(k).getId());
+            }
+            sqlBlogDAO.removeBlog(blog);
+        } catch (InvalidSQLQueryException | DatabaseError | SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    @Test
+    public void testRemoveModerators(){
+        Blog blog = new Blog();
+        blog.setUser_id(4);
+        blog.setTitle("title");
+        blog.setContent("content");
+        blog.setHashTagList(Arrays.asList(new HashTag("1"), new HashTag("2"), new HashTag("3")));
+        try {
+            blog.setBlogModerators(Arrays.asList(userDAO.getUserByID(1), userDAO.getUserByID(2), userDAO.getUserByID(3), userDAO.getUserByID(5), userDAO.getUserByID(6)));
+            sqlBlogDAO.addBlog(blog);
+            List <User> moderators = Arrays.asList(userDAO.getUserByID(2), userDAO.getUserByID(1));
+            sqlBlogDAO.removeModerators(blog.getId(), moderators);
+            List <User> currentModerators = sqlBlogDAO.getModerators(blog.getId());
+            List <User> expected  = sqlBlogDAO.getBlog(blog.getId()).getBlogModerators();
+            assertEquals(expected.size(), currentModerators.size());
+            for(int k = 0; k < expected.size(); k++){
+                assertEquals(expected.get(k).getId(), currentModerators.get(k).getId());
+            }
+            sqlBlogDAO.removeBlog(blog);
+        } catch (SQLException | InvalidSQLQueryException | DatabaseError exception) {
+            exception.printStackTrace();
+        }
+
+    }
+
+
+    @Test
+    public void addHashtags(){
+        Blog blog = new Blog();
+        blog.setUser_id(4);
+        blog.setTitle("title");
+        blog.setContent("content");
+        blog.setHashTagList(Arrays.asList(new HashTag("1"), new HashTag("2"), new HashTag("3")));
+        blog.setBlogModerators(new ArrayList<User>());
+        try {
+            sqlBlogDAO.addBlog(blog);
+            List <HashTag> hashTags = sqlBlogDAO.getHashtags(blog.getId());
+            for(int k = 0; k < hashTags.size(); k++){
+                assertEquals(hashTags.get(k).getHashTag(), blog.getHashTagList().get(k).getHashTag());
+            }
+            sqlBlogDAO.removeBlog(blog);
+        } catch (InvalidSQLQueryException | DatabaseError e) {
+            e.printStackTrace();
+        }
+    }
 
 }

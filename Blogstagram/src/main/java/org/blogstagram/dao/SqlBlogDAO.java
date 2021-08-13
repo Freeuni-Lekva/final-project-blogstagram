@@ -229,6 +229,11 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
         hashTagDao.removeHashTags(blogId, hashTags);
     }
 
+    @Override
+    public List<HashTag> getHashtags(int blogId) throws DatabaseError, InvalidSQLQueryException {
+        return hashTagDao.getHashTags(blogId);
+    }
+
     // EditBlog interface
 
 
