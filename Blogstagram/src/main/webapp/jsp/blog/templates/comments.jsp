@@ -77,7 +77,7 @@
         <% } %>
     <% } %>
 </div>
-<span class = "text-center bg-info text-white form-control"><h3 id = "likers-lst" >Likes: <span id = "count"><%= blog.getNumLikes() %></span></h3> <a href = "/blogstagram/likes">See all</a></span>
+<span class = "text-center bg-info text-white form-control"><h3 id = "likers-lst" >Likes: <span id = "count"><%= blog.getNumLikes() %></span></h3> <a href = "/blogstagram/jsp/likes/blogLike.jsp">See all</a></span>
 <div id = "err-comment" class = "text-alert alert">
 </div>
 </div>
