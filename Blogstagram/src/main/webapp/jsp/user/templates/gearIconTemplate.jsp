@@ -23,16 +23,20 @@
     boolean isAdmin = false;
     boolean isModerator = false;
     boolean currentUserIsModerator = adminDAO.isModerator(user.getId());
-    adminValidator.setAdminDAOUser(adminDAO, user_id, true);
-    if(adminValidator.validate()){
-        isAdmin = true;
-        isModerator = true;
-    }else{
-        adminValidator.setAdminDAOUser(adminDAO, user_id, false);
+
+    if(user_id != null){
+        adminValidator.setAdminDAOUser(adminDAO, user_id, true);
         if(adminValidator.validate()){
+            isAdmin = true;
             isModerator = true;
+        }else{
+            adminValidator.setAdminDAOUser(adminDAO, user_id, false);
+            if(adminValidator.validate()){
+                isModerator = true;
+            }
         }
     }
+
 %>
 
 <% if(isUserLoggedIn) { %>
@@ -57,10 +61,10 @@
                     <button type="button" class="btn btn-outline-danger btn-block my-2">Report</button>
                 </a>
                 <% } else { %>
-                <a href="/edit/profile" class="modal-link">
+                <a href="/blogstagram/edit/profile" class="modal-link">
                     <button type="button" class="btn btn-outline-info btn-block my-2">Edit Profile</button>
                 </a>
-                <a href="/logout" class="modal-link">
+                <a href="/blogstagram/logout" class="modal-link">
                     <button type="button" class="btn btn-outline-secondary btn-block my-2">Logout</button>
                 </a>
 

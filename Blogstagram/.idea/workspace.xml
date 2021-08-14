@@ -4,71 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4af2644a-600c-4e2b-a7c4-328a1c2fb02f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Blogstagram_war.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Blogstagram_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/admin/AdminDeleterServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/admin/AdminModeratorServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/AdminDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/AdminDAOTests/TestAdminDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/AdminCommentValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/AdminValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/UserModeratorValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/UserNotModeratorValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/adminPage.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/comment.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/Blogstagram.war" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/Blogstagram/WEB-INF/classes/org/blogstagram/listeners/SessionListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/CommentTests$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/CommentTests$10.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/CommentTests$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/CommentTests$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/CommentTests$4.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/CommentTests$5.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/CommentTests$6.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/CommentTests$7.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/CommentTests$8.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/CommentTests$9.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/CommentTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/Blogstagram/WEB-INF/classes/org/blogstagram/tests/commentDAOTests/prepareData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/dao/AdminDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/dao/UserDAO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/SessionListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/contextListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/commentDAOTests/CommentTests$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/commentDAOTests/CommentTests$10.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/commentDAOTests/CommentTests$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/commentDAOTests/CommentTests$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/commentDAOTests/CommentTests$4.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/commentDAOTests/CommentTests$5.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/commentDAOTests/CommentTests$6.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/commentDAOTests/CommentTests$7.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/commentDAOTests/CommentTests$8.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/commentDAOTests/CommentTests$9.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/commentDAOTests/CommentTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/tests/commentDAOTests/prepareData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/validators/AdminCommentValidator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/validators/AdminValidator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/tomcat/conf/logging.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/tomcat/conf/tomcat-users.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/tomcat/conf/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_8_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_42.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_8_02.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_22.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="1088048f-1b36-4f04-ac80-4f588eef8afc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/SessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/SessionListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/user/search/UserSearchServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/user/search/UserSearchServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/user/templates/gearIconTemplate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/user/templates/gearIconTemplate.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/contextListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/contextListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
