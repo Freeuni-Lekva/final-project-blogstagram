@@ -90,7 +90,7 @@
                         <button type="button" style="display: none;" class="btn btn-danger" onclick="switchTwo()" id="makeUserButton">Take user privileges</button>
                     </div>
 
-                    <% if(!isModerator){ %>
+                    <% if(currentUserIsModerator){ %>
                         <script>
                             document.getElementById("makeModerButton").style.display = "none";
                             document.getElementById("makeUserButton").style.display = "block";
