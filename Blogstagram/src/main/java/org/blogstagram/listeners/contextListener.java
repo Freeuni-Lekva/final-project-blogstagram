@@ -16,7 +16,9 @@ public class contextListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         source = new BasicDataSource();
         source.setUsername("root");
+
         source.setPassword("rootroot"); // local password
+
         source.setUrl("jdbc:mysql://localhost:3306/blogstagramdb");
         try {
             Connection dbConnection = source.getConnection();
