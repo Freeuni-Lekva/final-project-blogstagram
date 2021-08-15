@@ -21,6 +21,7 @@
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/FollowRequestValidator.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/VariableLengthValidator.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/errors/DirectionalFollowNotAdded.java
+/home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/notifications/NotificationConstants/SeenStatus.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/login/LoginServlet.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/StringHasher.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/admin/AdminDeleterServlet.java
@@ -47,12 +48,15 @@
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/blogs/edit/EditHashtags.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/blogs/servlets/BlogServlet.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/user/UserServlet.java
+/home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/notifications/NotificationConstants/NotificationQueries.java
+/home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/models/Notification.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/errors/NotValidUserIdException.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/dao/AdminDAO.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/models/HashTag.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/user/search/UserSearchServlet.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/blogLike/blogLikeServlets/LikersListServlet.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/followSystem/api/FollowApi.java
+/home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/notifications/NotificationConstants/NotificationTypes.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/BlogExistsValidator.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/register/RegisterServlet.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/BlogModeratorsValidator.java
@@ -75,6 +79,7 @@
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/blogs/edit/EditBlog.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/models/User.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/pairs/GeneralPair.java
+/home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/dao/NotificationDao.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/dao/BlogDAO.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/PasswordFormatValidator.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/GenderValidator.java
@@ -86,6 +91,7 @@
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/RegisterValidator.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/logout/LogoutServlet.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/DeleteUserValidator.java
+/home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/models/NotificationUser.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/errors/InvalidSQLQueryException.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/validators/UserNotModeratorValidator.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/tests/followSystemTests/DirectedFollowTests.java
@@ -116,5 +122,6 @@
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/dao/SqlBlogModeratorDao.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/followSystem/Servlets/followServlet.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/listeners/contextListener.java
+/home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/notifications/servlets/NotificationsServlet.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/sql/SqlQueries.java
 /home/tazo/workspace/OOP Project/MergeNotifications/final-project-blogstagram/Blogstagram/src/main/java/org/blogstagram/user/edit/EditProfile.java
