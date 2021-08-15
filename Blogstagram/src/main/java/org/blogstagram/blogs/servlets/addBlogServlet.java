@@ -2,10 +2,12 @@ package org.blogstagram.blogs.servlets;
 
 import com.google.gson.Gson;
 import org.blogstagram.dao.SqlBlogDAO;
+import org.blogstagram.dao.SqlFollowDao;
 import org.blogstagram.dao.UserDAO;
 import org.blogstagram.errors.DatabaseError;
 import org.blogstagram.errors.GeneralError;
 import org.blogstagram.errors.InvalidSQLQueryException;
+import org.blogstagram.followSystem.api.FollowApi;
 import org.blogstagram.models.Blog;
 import org.blogstagram.models.HashTag;
 import org.blogstagram.models.User;
@@ -14,6 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.blogstagram.blogs.api.BlogStatusCodes;
 
+import javax.management.Notification;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -69,6 +72,7 @@ public class addBlogServlet extends HttpServlet {
         // dao objects
         UserDAO userDAO = (UserDAO) session.getAttribute("UserDAO");
         SqlBlogDAO blogDAO = (SqlBlogDAO) session.getAttribute("blogDao");
+        SqlFollowDao followDao = (SqlFollowDao) session.getAttribute("SqlFollowDao");
         //logged in user
         Integer currentUserId = (Integer) session.getAttribute("currentUserID");
 
@@ -76,6 +80,12 @@ public class addBlogServlet extends HttpServlet {
         Connection conenction = (Connection) context.getAttribute("dbConnection");
         // response json
         JSONObject responseJson = new JSONObject();
+
+        FollowApi api = new FollowApi();
+        api.setUserDao(userDAO);
+        api.setFollowDao(followDao);
+        //api.registerFollowRequestSender();
+
         if(currentUserId != null) {
 
             String title = request.getParameter("title");
@@ -88,7 +98,7 @@ public class addBlogServlet extends HttpServlet {
             newBlog.setContent(content);
             newBlog.setBlogModerators(moderators);
             newBlog.setHashTagList(hashTags);
-            BlogValidator validator = new BlogValidator(newBlog, blogDAO);
+            BlogValidator validator = new BlogValidator(newBlog, blogDAO, api);
             try {
                 validator.validate();
                 List<GeneralError> errors = validator.getErrors();

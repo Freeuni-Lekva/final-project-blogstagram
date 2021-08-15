@@ -32,6 +32,7 @@ function addModeratorsModal(){
     console.log(document.getElementById("blogModerators").value);
     if(currentModerators.length == 0 || (currentModerators.length ==  1 && currentModerators[0] === "")) return;
     let modalBody = document.getElementById("modal-users");
+    modalBody.innerHTML = "";
     for(let k = 0; k < currentModerators.length; k++){
         if(currentModerators[k] === "" || currentModerators[k] === " ") continue;
         modalBody.innerHTML += getModeratorDiv(currentModerators[k]);

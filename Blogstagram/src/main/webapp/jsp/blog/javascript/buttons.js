@@ -72,6 +72,8 @@ function rollBackValues(){
 }
 
 function rollback(){
+    let errors = ["moderator", "content", "title", "comment"];
+    for(let k = 0;  k < errors.length; k++) document.getElementById(`err-${errors[k]}`).innerText = "";
     let remove = document.getElementById("remove_container");
     removeButton("submit");
     removeButton("cancel");
@@ -237,7 +239,7 @@ function submit(){
                 let error = errorsJson[k];
                 let {variableName, errorMessage} = error;
                 let errContainer = document.getElementById(`err-${variableName}`);
-                errContainer.innerText += errorMessage + "\n";
+                errContainer.innerText = errorMessage + "\n";
             }
         }
     }).catch(errs => {
