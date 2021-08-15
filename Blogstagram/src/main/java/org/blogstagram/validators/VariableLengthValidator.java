@@ -12,7 +12,7 @@ public class VariableLengthValidator implements Validator{
     public static final Integer UPPER_BOUND_LENGTH = 15;
     public static final String LENGTH_ERROR = "length must be between " + LOWER_BOUND_LENGTH + " and " + UPPER_BOUND_LENGTH;
 
-    private List<StringPair> pairs;
+    private final List<StringPair> pairs;
     private List<GeneralError> errors;
 
     public VariableLengthValidator(List<StringPair> pairs){

@@ -2,6 +2,7 @@ package org.blogstagram.dao;
 
 import org.blogstagram.models.User;
 
+import javax.ws.rs.DELETE;
 import java.sql.*;
 
 public class UserDAO {
@@ -9,7 +10,10 @@ public class UserDAO {
 
 
     private static final String ADD_USER_QUERY = "INSERT INTO users(firstname,lastname,nickname,users.role,email,password,birthday,gender,privacy,image,country,city,website,bio) " +
-                                                                "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+    private static final String DELETE_USER_QUERY = "DELETE FROM users WHERE users.id = ? OR users.nickname = ? OR users.email = ?";
+
     private static final String UPDATE_USER_GENERAL_INFO_QUERY = "UPDATE users SET firstname = ?,lastname = ?,nickname = ?,users.role = ?,email = ?,birthday = ?,gender = ?,privacy = ?,country = ?,city = ?,website = ?,bio = ? " +
             "WHERE id = ? OR nickname = ? OR email = ?";
     private static final String UPDATE_USER_PICTURE_QUERY = "UPDATE users SET image = ? WHERE id = ? OR nickname = ? OR email = ?";
@@ -197,6 +201,31 @@ public class UserDAO {
     }
     public void updateUserImageByEmail(String userEmail,String image) throws SQLException {
         updateUserImage(null,null,userEmail,image);
+    }
+
+    private void deleteUser(Integer userID,String userNickname,String userEmail) throws SQLException {
+        if(userID == null && userNickname == null && userEmail == null)
+            throw new RuntimeException(USER_KEYS_NULL_ERROR);
+        if(userID == null)
+            userID = NO_USER_ID;
+
+        PreparedStatement stm = connection.prepareStatement(DELETE_USER_QUERY);
+        stm.setInt(1,userID);
+        stm.setString(2,userNickname);
+        stm.setString(3,userEmail);
+
+        stm.executeUpdate();
+
+    }
+
+    public void deleteUserByID(Integer userID) throws SQLException {
+        deleteUser(userID,null, null);
+    }
+    public void deleteUserByNickname(String userNickname) throws SQLException {
+        deleteUser(null,userNickname, null);
+    }
+    public void deleteUserByEmail(String email) throws SQLException {
+        deleteUser(null, null, email);
     }
 
 }

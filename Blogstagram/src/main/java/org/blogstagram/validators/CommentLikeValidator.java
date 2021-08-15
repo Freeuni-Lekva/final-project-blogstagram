@@ -15,7 +15,7 @@ public class CommentLikeValidator{
 
     public boolean validate(Object obj1, Object obj2) throws SQLException {
         int comment_id = Integer.parseInt((String)obj1);
-        int user_id = Integer.parseInt((String)obj2);
+        int user_id = (Integer) obj2;
         PreparedStatement ps = connection.prepareStatement(COMMENT_LIKED_QUERY);
         ps.setInt(1, comment_id);
         ps.setInt(2, user_id);

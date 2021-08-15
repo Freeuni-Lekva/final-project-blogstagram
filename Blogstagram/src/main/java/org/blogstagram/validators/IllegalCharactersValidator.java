@@ -11,10 +11,10 @@ import java.util.List;
 
 public class IllegalCharactersValidator implements Validator{
 
-    private static final String ILLEGAL_CHARACTERS = "\\/:*?\"<> |~#%&+{}-";
+    public static final String ILLEGAL_CHARACTERS = "\\/:*?\"<> |~#%&+{}-";
     private static final String ILLEGAL_CHARACTERS_ERROR = "must not contain illegal characters";
 
-    private List<StringPair> pairs;
+    private final List<StringPair> pairs;
     private List<GeneralError> errors;
 
     public IllegalCharactersValidator(List<StringPair> pairs){

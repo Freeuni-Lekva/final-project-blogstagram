@@ -57,7 +57,9 @@
                         <div class="card-footer">
                             <div class="row text-center">
                                 <div class="col-4"><hr /></div>
-                                <div class="col-4"><button type="button" class="btn btn-danger">Delete Profile</button></div>
+                                <div class="col-4">
+                                    <jsp:include page="./templates/deleteUserModal.jsp" />
+                                </div>
                                 <div class="col-4"><hr /></div>
                             </div>
                         </div>

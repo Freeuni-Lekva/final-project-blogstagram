@@ -8,13 +8,13 @@ public class Comment {
     // unique comment id
     private int comment_id;
     // unique user id who posted comment
-    private int user_id;
+    private final int user_id;
     // unique blog_id
-    private int blog_id;
+    private final int blog_id;
     // comment
-    private String comment;
+    private final String comment;
     // comment creation date
-    private Date comment_creation_date;
+    private final Date comment_creation_date;
 
     public Comment(int user_id, int blog_id, String comment, Date comment_creation_date){
         this.comment_id = NO_ID;

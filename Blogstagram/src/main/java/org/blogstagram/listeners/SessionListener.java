@@ -1,9 +1,6 @@
 package org.blogstagram.listeners;
 
-
-import org.blogstagram.dao.CommentDAO;
-import org.blogstagram.dao.SqlFollowDao;
-import org.blogstagram.dao.UserDAO;
+import org.blogstagram.dao.*;
 
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
@@ -18,12 +15,18 @@ public class SessionListener implements HttpSessionListener {
         Connection dbConnection = (Connection) httpSessionEvent.getSession().getServletContext().getAttribute("dbConnection");
         UserDAO userDao = new UserDAO(dbConnection);
         SqlFollowDao followDao = new SqlFollowDao(dbConnection, SqlFollowDao.REAL);
+        CommentDAO commentDAO = new CommentDAO(dbConnection);
+        BlogLikeDao blogLikeDao = new BlogLikeDao(dbConnection);
+        SqlBlogDAO blogDAO = new SqlBlogDAO(dbConnection, userDao, SqlBlogDAO.REAL, commentDAO, blogLikeDao);
         followDao.setUserDao(userDao);
         // set follow request sender to followDao. when implemented
         httpSessionEvent.getSession().setAttribute("SqlFollowDao", followDao);
+        httpSessionEvent.getSession().setAttribute("blogDao", blogDAO);
         httpSessionEvent.getSession().setAttribute("UserDAO", userDao);
-        CommentDAO commentDAO = new CommentDAO(dbConnection);
-        httpSessionEvent.getSession().getServletContext().setAttribute("CommentDAO", commentDAO);
+        httpSessionEvent.getSession().setAttribute("CommentDAO", commentDAO);
+        AdminDAO adminDAO = new AdminDAO(dbConnection, userDao);
+        httpSessionEvent.getSession().setAttribute("AdminDAO", adminDAO);
+        httpSessionEvent.getSession().setAttribute("BlogLikeDao", blogLikeDao);
 
     }
 

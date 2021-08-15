@@ -1,19 +1,17 @@
 package org.blogstagram.models;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Notification {
-    private int id;
-    private int type;
-    private int fromUserId;
-    private int toUserId;
-    private int blogId;
-    private int hasSeen;
+    private Integer id;
+    private Integer type;
+    private Integer fromUserId;
+    private Integer toUserId;
+    private Integer blogId;
+    private Integer hasSeen;
     private Date createdAt;
 
-    private static final int SEEN = 1;
-
-    public Notification(int id, int type, int fromUserId, int toUserId, int blogId, int hasSeen, Date createdAt) {
+    public Notification(Integer id, Integer type, Integer fromUserId, Integer toUserId, Integer blogId, Integer hasSeen, Date createdAt) {
         this.id = id;
         this.type = type;
         this.fromUserId = fromUserId;
@@ -23,32 +21,46 @@ public class Notification {
         this.createdAt = createdAt;
     }
 
-    public int getNotificationId() {
+    public Notification(Notification other) {
+        this.id = other.getNotificationId();
+        this.type = other.getNotificationType();
+        this.fromUserId = other.getFromUserId();
+        this.toUserId = other.getToUserId();
+        this.blogId = other.getBlogId();
+        this.hasSeen = other.hasSeen();
+        this.createdAt = other.getCreationDate();
+    }
+
+    public Integer getNotificationId() {
         return id;
     }
 
-    public int getNotificationType() {
+    public Integer getNotificationType() {
         return type;
     }
 
-    public int getFromUserId() {
+    public Integer getFromUserId() {
         return fromUserId;
     }
 
-    public int getToUserId() {
+    public Integer getToUserId() {
         return toUserId;
     }
 
-    public int getBlogId() {
+    public Integer getBlogId() {
         return blogId;
     }
 
-    public boolean hasSeen() {
-        return hasSeen == SEEN;
+    public Integer hasSeen() {
+        return hasSeen;
     }
 
     public Date getCreationDate() {
         return createdAt;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
 }
