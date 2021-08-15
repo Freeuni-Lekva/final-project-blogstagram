@@ -1,14 +1,15 @@
 package org.blogstagram.servlets;
 
 import com.google.gson.Gson;
+import org.blogstagram.dao.BlogDAO;
+import org.blogstagram.dao.NotificationDao;
+import org.blogstagram.errors.*;
+import org.blogstagram.models.Blog;
+import org.blogstagram.models.Notification;
 import org.blogstagram.validators.CommentLikeValidator;
 import org.blogstagram.validators.UserIdValidator;
 import org.blogstagram.dao.CommentDAO;
 import org.blogstagram.dao.UserDAO;
-import org.blogstagram.errors.DatabaseError;
-import org.blogstagram.errors.GeneralError;
-import org.blogstagram.errors.NotValidUserIdException;
-import org.blogstagram.errors.VariableError;
 
 import javax.servlet.ServletContext;
 import javax.servlet.annotation.WebServlet;
@@ -17,9 +18,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.blogstagram.notifications.NotificationConstants.NotificationTypes.COMMENT_LIKE_NOTIFICATION;
+import static org.blogstagram.notifications.NotificationConstants.NotificationTypes.POST_LIKE_NOTIFICATION;
+import static org.blogstagram.notifications.NotificationConstants.SeenStatus.NOT_SEEN;
 
 @WebServlet("/commentLike")
 public class CommentLikeServlet extends HttpServlet {
@@ -35,11 +41,17 @@ public class CommentLikeServlet extends HttpServlet {
         ServletContext context = request.getServletContext();
         CommentDAO commentDAO = (CommentDAO)request.getSession().getAttribute("CommentDAO");
         UserDAO userDao = (UserDAO)request.getSession().getAttribute("UserDAO");
+//        BlogDAO blogDAO = (BlogDAO)request.getSession().getAttribute("blogDao");
+
+        NotificationDao notificationDao = (NotificationDao)request.getSession().getAttribute("NotificationDao");
 
         CommentLikeValidator val = new CommentLikeValidator();
         val.setConnection(connection);
         UserIdValidator userVal = new UserIdValidator();
         userVal.setUserDao(userDao);
+
+//        String blogId = request.getParameter("blog_id");
+
 
         String comment_id = request.getParameter("comment_id");
         List<GeneralError> errorList = new ArrayList<>();
@@ -47,7 +59,10 @@ public class CommentLikeServlet extends HttpServlet {
         try{
             // if comment is not liked and user wants to like
             if(userVal.validate(user_id) && !val.validate(comment_id, user_id) && requestType.equals("Like")){
-                commentDAO.likeComment( Integer.parseInt(comment_id), user_id);
+//                Blog blog = blogDAO.getBlog(Integer.parseInt(blogId));
+//                commentDAO.likeComment( Integer.parseInt(comment_id), user_id);
+//                Notification notification = new Notification(null, COMMENT_LIKE_NOTIFICATION, user_id, blog.getUser_id(), blog.getId(), NOT_SEEN, new Date(System.currentTimeMillis()));
+//                notificationDao.addNotification(notification);
                 // if comment is liked and user wants to unlike
             }else if(userVal.validate(user_id) && val.validate(comment_id, user_id) && requestType.equals("Unlike")){
                 commentDAO.unlikeComment(Integer.parseInt(comment_id), user_id);

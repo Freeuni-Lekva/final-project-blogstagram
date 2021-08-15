@@ -3,7 +3,6 @@ package org.blogstagram.dao;
 import org.blogstagram.listeners.followNotificationSender;
 import org.blogstagram.models.Notification;
 import org.blogstagram.models.NotificationUser;
-import org.mockito.internal.matchers.Not;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,6 +14,8 @@ import static org.blogstagram.notifications.NotificationConstants.NotificationTy
 import static org.blogstagram.notifications.NotificationConstants.SeenStatus.*;
 
 public class NotificationDao implements followNotificationSender {
+
+    private static final int NO_NOTIFICATION = 0;
 
     Connection connection;
 
@@ -44,7 +45,18 @@ public class NotificationDao implements followNotificationSender {
             throw new SQLException("ID generation failed");
     }
 
-
+    public boolean notificationExists(int fromUserId, int toUserId, int notificationType) throws SQLException{
+        PreparedStatement statement = connection.prepareStatement(NOTIFICATION_EXISTENCE);
+        statement.setInt(1, fromUserId);
+        statement.setInt(2, toUserId);
+        statement.setInt(3, notificationType);
+        ResultSet resultSet = statement.executeQuery();
+        resultSet.next();
+        int notificationCount = resultSet.getInt(1);
+        if(notificationCount == NO_NOTIFICATION)
+            return false;
+        return true;
+    }
 
     private List<Notification> getNotificationsHelper(ResultSet resultSet) throws SQLException{
         ArrayList<Notification> notifications = new ArrayList<>();

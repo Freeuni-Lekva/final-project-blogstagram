@@ -12,4 +12,5 @@ public class NotificationQueries {
             "JOIN users ON notifications.from_user_id = users.id\n" +
             "WHERE notifications.to_user_id = ?\n" +
             "ORDER BY notifications.id DESC;";
+    public static final String NOTIFICATION_EXISTENCE = "SELECT COUNT(id) FROM notifications WHERE from_user_id = ? AND to_user_id = ? AND type = ?;";
 }
