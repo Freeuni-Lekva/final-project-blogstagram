@@ -4,6 +4,7 @@ import org.blogstagram.models.User;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.blogstagram.blogLike.blogLikeConstants.BlogLikeQueries.*;
 
@@ -31,8 +32,8 @@ public class BlogLikeDao {
         statement.executeUpdate();
     }
 
-    public ArrayList<User> getBlogLikers(int blog_id) throws SQLException {
-        ArrayList<User> users = new ArrayList<>();
+    public List<User> getBlogLikers(int blog_id) throws SQLException {
+        List<User> users = new ArrayList<>();
         PreparedStatement statement = connection.prepareStatement(BLOG_LIKES);
         statement.setInt(1, blog_id);
         ResultSet resultSet = statement.executeQuery();

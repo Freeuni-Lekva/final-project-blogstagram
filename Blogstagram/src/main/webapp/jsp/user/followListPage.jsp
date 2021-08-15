@@ -32,7 +32,7 @@
             <% for(User user: users) { %>
 
                 <div class="media border p-3">
-                    <img src="<%= user.getImage() %>" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:100px;height:100px;">
+                    <img src="/blogstagram/<%= user.getImage() %>" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:100px;height:100px;">
                     <div class="media-body mt-4">
                         <h4> <a href="/blogstagram/user/<%= user.getNickname() %>"> <%= user.getFirstname() %> <%= user.getLastname() %> </a> <small><i>Joined <%= user.getCreatedAt() %></i></small></h4>
                         <p><%=user.getPrivacy().equals(User.PRIVATE) ? "Private" : "Public" %> account</p>

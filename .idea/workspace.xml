@@ -4,61 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2dd6a10e-f2ca-496e-8f8a-91d308f21f11" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/admin/AdminModeratorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/admin/AdminModeratorServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/login/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/login/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/logout/LogoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/logout/LogoutServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/register/RegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/register/RegisterServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/tests/AdminDAOTests/TestAdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/tests/AdminDAOTests/TestAdminDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/user/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/user/UserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/user/edit/EditProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/java/org/blogstagram/user/edit/EditProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/errors/custom404error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/errors/custom404error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/feed/newsFeed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/feed/newsFeed.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/login/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/register/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/register/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/templates/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/templates/nav.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/templates/searchModal.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/templates/searchModal.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/edit/templates/deleteUserModal.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/edit/templates/deleteUserModal.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/edit/templates/editGeneral.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/edit/templates/editGeneral.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/edit/templates/editPassword.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/edit/templates/editPassword.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/edit/templates/editPicture.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/edit/templates/editPicture.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/followListPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/followListPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/blogsTemplate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/blogsTemplate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/followButtonTemplate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/followButtonTemplate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/gearIconTemplate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/templates/gearIconTemplate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/userPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/src/main/webapp/jsp/user/userPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/Blogstagram.war" beforeDir="false" afterPath="$PROJECT_DIR$/Blogstagram/target/Blogstagram.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/logs/access_log.2021-08-01" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/logs/access_log.2021-08-05" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/errors/custom404error_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/errors/custom404error_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/login/login_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/login/login_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/register/register_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/register/register_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/bootstrap_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/bootstrap_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/footer_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/footer_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/nav_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/templates/nav_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/followListPage_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/followListPage_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/blogsTemplate_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/blogsTemplate_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/followButtonTemplate_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/followButtonTemplate_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/gearIconTemplate_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/gearIconTemplate_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/userBioTemplate_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/userBioTemplate_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/userGeneralInfoTemplate_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/templates/userGeneralInfoTemplate_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/userPage_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blogstagram/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/jsp/user/userPage_jsp.java" beforeDir="false" />
-    </list>
+    <list default="true" id="2dd6a10e-f2ca-496e-8f8a-91d308f21f11" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,7 +52,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/Program Files/JetBrainsProjects/Untitled" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -200,6 +146,10 @@
       <workItem from="1628509379663" duration="2686000" />
       <workItem from="1628622627121" duration="243000" />
       <workItem from="1628682412488" duration="486000" />
+      <workItem from="1628945207053" duration="11072000" />
+      <workItem from="1628970282237" duration="803000" />
+      <workItem from="1628974546146" duration="4938000" />
+      <workItem from="1628979994922" duration="1001000" />
     </task>
     <servers />
   </component>
