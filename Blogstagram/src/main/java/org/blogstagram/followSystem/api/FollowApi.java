@@ -1,5 +1,7 @@
 package org.blogstagram.followSystem.api;
 
+import org.blogstagram.dao.NotificationDao;
+import org.blogstagram.notifications.NotificationConstants.NotificationTypes;
 import org.blogstagram.validators.UserIdValidator;
 import org.blogstagram.dao.FollowDao;
 import org.blogstagram.dao.UserDAO;
@@ -22,6 +24,7 @@ public class FollowApi {
 
     private FollowDao followDao;
     private UserDAO userDao;
+    private NotificationDao notificationDao;
 
     public void setUserDao(UserDAO userDao) {
         if(userDao == null) throw new NullPointerException("userDao object can't be null.");
@@ -39,14 +42,13 @@ public class FollowApi {
         return dFollow;
     }
 
-    public int alreadyFollowed(Integer fromId, Integer toId) throws NullPointerException, DatabaseError {
+    public int alreadyFollowed(Integer fromId, Integer toId) throws NullPointerException, DatabaseError, SQLException {
         DirectedFollow dFollow = initializeDirectedFollowObj(fromId, toId);
         boolean isConnection = followDao.doesConnectionExist(dFollow);
         if(isConnection){
             return StatusCodes.followed;
         } else {
-            //check in the notification table
-            //if(is notification) return StatusCodes.requestSent;
+            if(notificationDao.notificationExists(fromId, toId, NotificationTypes.REQUESTED_FOLLOW_NOTIFICATION)) return StatusCodes.requestSent;
             return StatusCodes.notFollowed;
         }
     }
@@ -65,10 +67,11 @@ public class FollowApi {
            DirectedFollow dFollow = initializeDirectedFollowObj(fromId, toId);
            if(user.getPrivacy().equals(User.PRIVATE)){ // add if private account -----------
           // send follow request
+               sender.sendFollowRequest(fromId, toId);
                return StatusCodes.requestSent;
            }else{
                followDao.addDirectedFollow(dFollow);
-               //sender.sendFollowNotification();
+               sender.sendFollowNotification(fromId, toId);
                return StatusCodes.followed;
             }
         } catch (SQLException exception) {
@@ -141,5 +144,7 @@ public class FollowApi {
     }
 
 
-
+    public void setNotificationDao(NotificationDao dao) {
+        this.notificationDao = dao;
+    }
 }
