@@ -17,7 +17,7 @@ public class contextListener implements ServletContextListener {
         source = new BasicDataSource();
         source.setUsername("root");
 
-        source.setPassword(""); // local password
+        source.setPassword("Arqimede123@"); // local password
 
         source.setUrl("jdbc:mysql://localhost:3306/blogstagramdb");
         try {

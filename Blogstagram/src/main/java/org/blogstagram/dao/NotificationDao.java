@@ -32,7 +32,9 @@ public class NotificationDao implements followNotificationSender {
         statement.setInt(1, newNotification.getNotificationType());
         statement.setInt(2, newNotification.getFromUserId());
         statement.setInt(3, newNotification.getToUserId());
-        statement.setInt(4, newNotification.getBlogId());
+        if(newNotification.getBlogId() == null)
+            statement.setNull(4, Types.NULL);
+        else statement.setInt(4, newNotification.getBlogId());
         statement.setInt(5, newNotification.hasSeen());
         statement.setDate(6, newNotification.getCreationDate());
         int affectedRows = statement.executeUpdate();
