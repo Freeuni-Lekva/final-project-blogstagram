@@ -1,4 +1,3 @@
-const addBlogLink = "localhost:8000/addBlog";
 const errors = -1;
 const added = 4;
 const removed = 3;
@@ -73,15 +72,15 @@ function rollBackValues(){
 }
 
 function rollback(){
+    let remove = document.getElementById("remove_container");
     removeButton("submit");
     removeButton("cancel");
-    removeButton("addModerator");
-    removeButton("removeModerator");
+    if(remove != null) removeButton("addModerator");
+    if(remove != null) removeButton("removeModerator");
     let blogContainer = document.getElementById("button_container");
-    let remove = document.getElementById("remove_container");
     blogContainer.innerHTML = "";
     addButton("Edit", blogContainer, changeToEdit);
-    blogContainer.appendChild(remove);
+    if(remove != null) blogContainer.appendChild(remove);
     rollBackValues();
     addAttributes();
 }
@@ -108,12 +107,11 @@ function changeToEdit(){
     removeButton("Edit");
     let blogContainer = document.getElementById("button_container");
     let remove = document.getElementById("remove_container");
-    console.log(remove);
     blogContainer.innerHTML = "";
     addButton("submit", blogContainer, submit);
-    blogContainer.appendChild(remove);
+    if(remove != null) blogContainer.appendChild(remove);
     addButton("cancel", blogContainer, rollback);
-    addModeratorButtons();
+    if(remove != null) addModeratorButtons();
     setUpLocalStorage();
     removeAttributes();
 }

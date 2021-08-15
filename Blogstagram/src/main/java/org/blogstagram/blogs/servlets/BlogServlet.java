@@ -275,6 +275,7 @@ public class BlogServlet extends HttpServlet {
             } else {
                 responseJson.append("status", BlogStatusCodes.NOTSHOW);
                 response.getWriter().print(responseJson);
+                response.sendError(response.SC_BAD_REQUEST);
             }
         } catch (InvalidSQLQueryException | DatabaseError | SQLException e) {
             responseJson.append("status", BlogStatusCodes.error);
