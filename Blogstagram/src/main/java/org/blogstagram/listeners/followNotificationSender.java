@@ -1,6 +1,6 @@
 package org.blogstagram.listeners;
 
 public interface followNotificationSender {
-    void sendFollowRequest();
-    void sendFollowNotification();
+    void sendFollowRequest(int fromUserId, int toUserId);
+    void sendFollowNotification(int fromUserId, int toUserId);
 }

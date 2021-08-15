@@ -89,7 +89,7 @@ public class FollowApi {
     public Integer acceptFollowRequest(Integer fromId, Integer toId) throws DirectionalFollowNotAdded, DatabaseError {
         DirectedFollow directedFollow = initializeDirectedFollowObj(fromId, toId);
         followDao.addDirectedFollow(directedFollow);
-        sender.sendFollowNotification();
+        sender.sendFollowNotification(fromId, toId);
         return StatusCodes.requestApproved;
     }
 
