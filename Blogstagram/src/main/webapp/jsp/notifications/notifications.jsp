@@ -44,8 +44,13 @@
                                                     <a href="/blogstagram/user/<%= notification.getFromUserId()%>">
                                                     <%= notification.getFirstName() %> <%= notification.getLastName() %> sent you follow request.
                                                     </a>
+<<<<<<< HEAD
                                                     <button class="btn btn-outline-primary" onclick="AcceptRequest(<%= notification.getToUserId() %>, <%= notification.getFromUserId() %>, <%= notification.getNotificationId() %>)">Accept</button>
                                                     <button class="btn btn-outline-primary" onclick="DeclineRequest(<%= notification.getToUserId() %>, <%= notification.getFromUserId() %>, <%= notification.getNotificationId() %>)">Decline</button>
+=======
+                                                    <button type = "button" class = "btn btn-outline-primary" onclick = "acceptRequest(<%= notification.getFromUserId() %>)">Accept</button>
+                                                    <button type = "button" class = "btn btn-outline-primary" onclick = "declineRequest(<%= notification.getFromUserId() %>)">Decline</button>
+>>>>>>> bc0834a0ff89bc2cb922d525160fc03adb878fb2
                                             <% } else if(notification.getNotificationType() == ACCEPTED_FOLLOW_NOTIFICATION) { %>
                                                 <a href="/blogstagram/user/<%= notification.getFromUserId()%>">
                                                 <%= notification.getFirstName() %> <%= notification.getLastName() %> accepted your follow request.
@@ -121,6 +126,7 @@
          });
     }
 </script>
+
 
 
 <jsp:include page="/jsp/templates/footer.jsp" />

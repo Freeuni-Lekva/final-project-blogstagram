@@ -16,10 +16,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.transform.Result;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +28,15 @@ import static org.blogstagram.notifications.NotificationConstants.SeenStatus.NOT
 
 @WebServlet("/commentLike")
 public class CommentLikeServlet extends HttpServlet {
+
+    private Blog getBlog(Connection connection, BlogDAO blogDAO, String comment_id) throws SQLException, DatabaseError, InvalidSQLQueryException {
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT blog_id FROM comments WHERE id = " + Integer.parseInt(comment_id));
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
+        int blogId = resultSet.getInt(1);
+        Blog blog = blogDAO.getBlog(blogId);
+        return blog;
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -41,7 +49,7 @@ public class CommentLikeServlet extends HttpServlet {
         ServletContext context = request.getServletContext();
         CommentDAO commentDAO = (CommentDAO)request.getSession().getAttribute("CommentDAO");
         UserDAO userDao = (UserDAO)request.getSession().getAttribute("UserDAO");
-//        BlogDAO blogDAO = (BlogDAO)request.getSession().getAttribute("blogDao");
+        BlogDAO blogDAO = (BlogDAO)request.getSession().getAttribute("blogDao");
 
         NotificationDao notificationDao = (NotificationDao)request.getSession().getAttribute("NotificationDao");
 
@@ -50,19 +58,26 @@ public class CommentLikeServlet extends HttpServlet {
         UserIdValidator userVal = new UserIdValidator();
         userVal.setUserDao(userDao);
 
-//        String blogId = request.getParameter("blog_id");
-
-
         String comment_id = request.getParameter("comment_id");
         List<GeneralError> errorList = new ArrayList<>();
         String requestType = request.getParameter("Like");
+        Blog blog = null;
+        try {
+            blog = getBlog(connection, blogDAO, comment_id);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (DatabaseError databaseError) {
+            databaseError.printStackTrace();
+        } catch (InvalidSQLQueryException e) {
+            e.printStackTrace();
+        }
+
         try{
             // if comment is not liked and user wants to like
             if(userVal.validate(user_id) && !val.validate(comment_id, user_id) && requestType.equals("Like")){
-//                Blog blog = blogDAO.getBlog(Integer.parseInt(blogId));
-//                commentDAO.likeComment( Integer.parseInt(comment_id), user_id);
-//                Notification notification = new Notification(null, COMMENT_LIKE_NOTIFICATION, user_id, blog.getUser_id(), blog.getId(), NOT_SEEN, new Date(System.currentTimeMillis()));
-//                notificationDao.addNotification(notification);
+                commentDAO.likeComment( Integer.parseInt(comment_id), user_id);
+                Notification notification = new Notification(null, COMMENT_LIKE_NOTIFICATION, user_id, blog.getUser_id(), blog.getId(), NOT_SEEN, new Date(System.currentTimeMillis()));
+                notificationDao.addNotification(notification);
                 // if comment is liked and user wants to unlike
             }else if(userVal.validate(user_id) && val.validate(comment_id, user_id) && requestType.equals("Unlike")){
                 commentDAO.unlikeComment(Integer.parseInt(comment_id), user_id);
