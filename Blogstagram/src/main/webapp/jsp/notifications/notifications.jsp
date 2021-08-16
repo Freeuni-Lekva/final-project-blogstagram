@@ -42,8 +42,8 @@
                                                     <a href="/blogstagram/user/<%= notification.getFromUserId()%>">
                                                     <%= notification.getFirstName() %> <%= notification.getLastName() %> sent you follow request.
                                                     </a>
-                                                    <a class="btn btn-outline-primary">Accept</a>
-                                                    <a class="btn btn-outline-primary">Decline</a>
+                                                    <button type = "button" class = "btn btn-outline-primary" onclick = "acceptRequest(<%= notification.getFromUserId() %>)">Accept</button>
+                                                    <button type = "button" class = "btn btn-outline-primary" onclick = "declineRequest(<%= notification.getFromUserId() %>)">Decline</button>
                                             <% } else if(notification.getNotificationType() == ACCEPTED_FOLLOW_NOTIFICATION) { %>
                                                 <a href="/blogstagram/user/<%= notification.getFromUserId()%>">
                                                 <%= notification.getFirstName() %> <%= notification.getLastName() %> accepted your follow request.
@@ -85,6 +85,11 @@
         <% } %>
     </div>
 </div>
+
+<script>
+
+
+</script>
 
 <jsp:include page="/jsp/templates/footer.jsp" />
 </body>
