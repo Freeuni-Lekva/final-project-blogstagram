@@ -120,6 +120,7 @@ public class BlogServlet extends HttpServlet {
         // dao objects
         SqlBlogDAO blogDAO = (SqlBlogDAO) session.getAttribute("blogDao");
         UserDAO userDAO = (UserDAO) session.getAttribute("UserDAO");
+        SqlFollowDao followDao = (SqlFollowDao) session.getAttribute("SqlFollowDao");
 
         // operation type
         String operationType = pair.getValue();
@@ -156,8 +157,12 @@ public class BlogServlet extends HttpServlet {
                     response.sendError(response.SC_BAD_REQUEST);
                     return;
                 }
+
+                FollowApi api = new FollowApi();
+                api.setUserDao(userDAO);
+                api.setFollowDao(followDao);
                 Blog editedBlog = getEdittedContent(edited, current, request, userDAO);
-                Validator blogValidator = new BlogValidator(editedBlog, blogDAO);
+                Validator blogValidator = new BlogValidator(editedBlog, blogDAO, api);
                 blogValidator.validate();
                 List<GeneralError> blogErrs = blogValidator.getErrors();
                 if (blogErrs.size() != 0) {
@@ -275,6 +280,7 @@ public class BlogServlet extends HttpServlet {
             } else {
                 responseJson.append("status", BlogStatusCodes.NOTSHOW);
                 response.getWriter().print(responseJson);
+                response.sendError(response.SC_BAD_REQUEST);
             }
         } catch (InvalidSQLQueryException | DatabaseError | SQLException e) {
             responseJson.append("status", BlogStatusCodes.error);

@@ -54,15 +54,14 @@ public class TestFollowQueries {
     @Test
     public void testFollowQueries4(){
         assertNotNull(queries);
-        List <String> updateClause = new ArrayList<>();
-        List <String> whereCluase = new ArrayList<>();
-        String query = null;
+        List <String> updateClause = Arrays.asList("to_user_id", "from_user_id");
+        List <String> whereClause = Arrays.asList("id");
         try {
-            query = queries.getUpdateQuery(updateClause, whereCluase);
+            String query = queries.getUpdateQuery(updateClause, whereClause);
+            assertEquals(query.toLowerCase(Locale.ROOT), "update follows_test_t\r\nset to_user_id = ?, from_user_id = ?where id = ?;");
         } catch (InvalidSQLQueryException e) {
             e.printStackTrace();
         }
-        assertNull(query);
     }
 
     @Test

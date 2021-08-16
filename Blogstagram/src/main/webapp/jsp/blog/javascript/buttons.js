@@ -1,4 +1,3 @@
-const addBlogLink = "localhost:8000/addBlog";
 const errors = -1;
 const added = 4;
 const removed = 3;
@@ -73,15 +72,17 @@ function rollBackValues(){
 }
 
 function rollback(){
+    let errors = ["moderator", "content", "title", "comment"];
+    for(let k = 0;  k < errors.length; k++) document.getElementById(`err-${errors[k]}`).innerText = "";
+    let remove = document.getElementById("remove_container");
     removeButton("submit");
     removeButton("cancel");
-    removeButton("addModerator");
-    removeButton("removeModerator");
+    if(remove != null) removeButton("addModerator");
+    if(remove != null) removeButton("removeModerator");
     let blogContainer = document.getElementById("button_container");
-    let remove = document.getElementById("remove_container");
     blogContainer.innerHTML = "";
     addButton("Edit", blogContainer, changeToEdit);
-    blogContainer.appendChild(remove);
+    if(remove != null) blogContainer.appendChild(remove);
     rollBackValues();
     addAttributes();
 }
@@ -108,12 +109,11 @@ function changeToEdit(){
     removeButton("Edit");
     let blogContainer = document.getElementById("button_container");
     let remove = document.getElementById("remove_container");
-    console.log(remove);
     blogContainer.innerHTML = "";
     addButton("submit", blogContainer, submit);
-    blogContainer.appendChild(remove);
+    if(remove != null) blogContainer.appendChild(remove);
     addButton("cancel", blogContainer, rollback);
-    addModeratorButtons();
+    if(remove != null) addModeratorButtons();
     setUpLocalStorage();
     removeAttributes();
 }
@@ -239,7 +239,7 @@ function submit(){
                 let error = errorsJson[k];
                 let {variableName, errorMessage} = error;
                 let errContainer = document.getElementById(`err-${variableName}`);
-                errContainer.innerText += errorMessage + "\n";
+                errContainer.innerText = errorMessage + "\n";
             }
         }
     }).catch(errs => {

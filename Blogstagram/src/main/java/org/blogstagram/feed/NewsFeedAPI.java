@@ -18,7 +18,7 @@ public class NewsFeedAPI {
             "    WHERE follows.from_user_id = ?\n" +
             "\t\tUNION\n" +
             "SELECT blogs.id,users.firstname,users.lastname,users.image FROM blogs\n" +
-            "\tINNER JOIN users ON blogs.user_id = users.id;";
+            "\tINNER JOIN users ON blogs.user_id = users.id where users.privacy = 0;";
 
     private static final Integer NO_USER_ID = -1;
 

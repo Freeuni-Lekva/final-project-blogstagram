@@ -2,6 +2,7 @@ package org.blogstagram.validators;
 
 import org.blogstagram.dao.SqlBlogDAO;
 import org.blogstagram.errors.GeneralError;
+import org.blogstagram.followSystem.api.FollowApi;
 import org.blogstagram.models.Blog;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,13 +14,15 @@ public class BlogValidator implements Validator {
     private final List <GeneralError> errors;
     private final SqlBlogDAO blogDAO;
 
+    private final FollowApi api;
 
-    public BlogValidator(Blog blog, SqlBlogDAO blogDAO){
+    public BlogValidator(Blog blog, SqlBlogDAO blogDAO, FollowApi api){
         if(blog == null) throw new NullPointerException("blog object can't be null.");
         if(blogDAO == null) throw new NullPointerException("BlogDao object can't be null.");
         currentBlog = blog;
         errors = new ArrayList<>();
         this.blogDAO = blogDAO;
+        this.api = api;
     }
 
     @Override
@@ -28,7 +31,7 @@ public class BlogValidator implements Validator {
         validators.add(new BlogIdValidator(currentBlog.getId(), blogDAO));
         validators.add(new BlogTitleValidator(currentBlog.getTitle()));
         validators.add(new BlogContentValidator(currentBlog.getContent()));
-        validators.add(new BlogModeratorsValidator(currentBlog.getBlogModerators(), currentBlog.getUser_id()));
+        validators.add(new BlogModeratorsValidator(currentBlog.getBlogModerators(), currentBlog.getUser_id(), api));
         boolean result = true;
         for(int k = 0; k < validators.size(); k++){
             Validator validator = validators.get(k);

@@ -8,11 +8,13 @@ org/blogstagram/validators/DeleteUserValidator.class
 org/blogstagram/dao/BlogLikeDao.class
 org/blogstagram/tests/AdminDAOTests/TestAdminDAO$3.class
 org/blogstagram/errors/VariableError.class
+org/blogstagram/tests/blogTests/testBlogQueries$2.class
 org/blogstagram/tests/followSystemTests/FollowDaoTests$1.class
 org/blogstagram/validators/RegisterValidator.class
 org/blogstagram/validators/BlogLikeValidator.class
 org/blogstagram/user/search/UserSearchServlet.class
 org/blogstagram/user/edit/EditProfile.class
+org/blogstagram/tests/blogTests/testBlog$1.class
 org/blogstagram/models/DirectedFollow.class
 org/blogstagram/tests/commentDAOTests/CommentTests$3.class
 org/blogstagram/followSystem/Servlets/UserConnectionsServlet.class
@@ -22,8 +24,10 @@ org/blogstagram/validators/BlogIdValidator.class
 org/blogstagram/tests/followSystemTests/FollowDaoTests$4.class
 org/blogstagram/dao/BlogDAO.class
 org/blogstagram/errors/InvalidSQLQueryException.class
+org/blogstagram/tests/blogTests/BlogModeratorQueriesTest.class
 org/blogstagram/login/LoginServlet.class
 org/blogstagram/tests/followSystemTests/FollowDaoDummy.class
+org/blogstagram/tests/blogTests/testHashTagQueries$3.class
 org/blogstagram/blogLike/blogLikeConstants/BlogLikeQueries.class
 org/blogstagram/tests/commentDAOTests/prepareData.class
 org/blogstagram/notifications/NotificationConstants/NotificationTypes.class
@@ -36,6 +40,7 @@ org/blogstagram/validators/BlogModeratorsValidator.class
 org/blogstagram/errors/NotValidUserIdException.class
 org/blogstagram/followSystem/api/StatusCodes.class
 org/blogstagram/tests/AdminDAOTests/TestAdminDAO$5.class
+org/blogstagram/tests/blogTests/testBlogQueries$3.class
 org/blogstagram/logout/LogoutServlet.class
 org/blogstagram/blogs/edit/EditModerators$1.class
 org/blogstagram/tests/commentDAOTests/CommentTests$6.class
@@ -52,10 +57,12 @@ org/blogstagram/blogs/edit/EditHashtags.class
 org/blogstagram/tests/followSystemTests/TestFollowQueries$1.class
 org/blogstagram/blogs/edit/EditModerators.class
 org/blogstagram/dao/NotificationDao.class
+org/blogstagram/tests/blogTests/testBlogQueries$4.class
 org/blogstagram/tests/followSystemTests/FollowApiTests.class
 org/blogstagram/validators/EmailFormatValidator.class
 org/blogstagram/validators/RemoveRequestValidator.class
 org/blogstagram/models/HashTag.class
+org/blogstagram/tests/blogTests/testHashtag.class
 org/blogstagram/validators/UserModeratorValidator.class
 org/blogstagram/validators/GetUserConnectionsValidator.class
 org/blogstagram/tests/commentDAOTests/CommentTests$5.class
@@ -65,6 +72,7 @@ org/blogstagram/followSystem/api/FollowApi.class
 org/blogstagram/blogs/edit/Edit.class
 org/blogstagram/tests/AdminDAOTests/TestAdminDAO$6.class
 org/blogstagram/validators/UserNotModeratorValidator.class
+org/blogstagram/tests/blogTests/testHashTagQueries$4.class
 org/blogstagram/user/search/UserSearchAPI.class
 org/blogstagram/sql/HashTagQueries.class
 org/blogstagram/validators/CommentAddValidator.class
@@ -82,6 +90,7 @@ org/blogstagram/validators/IllegalCharactersValidator.class
 org/blogstagram/tests/followSystemTests/TestFollowQueries$3.class
 org/blogstagram/tests/AdminDAOTests/TestAdminDAO$7.class
 org/blogstagram/validators/GenderValidator.class
+org/blogstagram/tests/blogTests/testBlogQueries.class
 org/blogstagram/validators/BlogExistsValidator.class
 org/blogstagram/models/UserProvidedBlog.class
 org/blogstagram/notifications/NotificationConstants/NotificationQueries.class
@@ -94,12 +103,14 @@ org/blogstagram/admin/AdminDeleterServlet.class
 org/blogstagram/blogs/servlets/BlogServlet.class
 org/blogstagram/validators/NewPasswordDifferentValidator.class
 org/blogstagram/validators/CommentSystemValidator.class
+org/blogstagram/tests/blogTests/testHashTagQueries$2.class
 org/blogstagram/tests/commentDAOTests/CommentTests$4.class
 org/blogstagram/blogLike/blogLikeServlets/BlogLikeServlet.class
 org/blogstagram/validators/CommentExistsValidator.class
 org/blogstagram/dao/CommentDAO.class
 org/blogstagram/validators/UserUniqueValidator.class
 org/blogstagram/tests/followSystemTests/FollowApiTests$1.class
+org/blogstagram/tests/blogTests/testHashTagQueries.class
 org/blogstagram/blogs/edit/EditTitle.class
 org/blogstagram/dao/SqlFollowDao.class
 org/blogstagram/tests/AdminDAOTests/TestAdminDAO$1.class
@@ -133,9 +144,11 @@ org/blogstagram/listeners/followNotificationSender.class
 org/blogstagram/validators/EditRequestValidator.class
 org/blogstagram/validators/LoginValidator.class
 org/blogstagram/user/UserServlet.class
+org/blogstagram/tests/blogTests/testBlog.class
 org/blogstagram/dao/SqlBlogModeratorDao.class
 org/blogstagram/StringHasher.class
 org/blogstagram/notifications/servlets/NotificationsServlet.class
+org/blogstagram/tests/blogTests/testBlogQueries$1.class
 org/blogstagram/validators/BlogContentValidator.class
 org/blogstagram/tests/AdminDAOTests/TestAdminDAO$2.class
 org/blogstagram/feed/NewsFeedServlet.class
@@ -146,6 +159,7 @@ org/blogstagram/tests/followSystemTests/FollowDaoTests$2.class
 org/blogstagram/models/Notification.class
 org/blogstagram/tests/AdminDAOTests/TestAdminDAO$9.class
 org/blogstagram/errors/DirectionalFollowNotAdded.class
+org/blogstagram/tests/blogTests/testHashTagQueries$1.class
 org/blogstagram/currentUser/CurrentUserServlet.class
 org/blogstagram/validators/EditGeneralValidator.class
 org/blogstagram/listeners/contextListener.class

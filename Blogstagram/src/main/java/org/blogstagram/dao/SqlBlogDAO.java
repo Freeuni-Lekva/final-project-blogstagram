@@ -35,6 +35,7 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
 
 
 
+
     public SqlBlogDAO(Connection connection, UserDAO userDAO, int usePurpose, CommentDAO commentDAO, BlogLikeDao likeDao){
         if(connection == null)
             throw new NullPointerException("Connection object can't be null.");
@@ -90,7 +91,6 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
     public void removeBlog(Blog blog) throws InvalidSQLQueryException, DatabaseError {
         String removeBlogQuery = blogQueries.getDeleteQuery(Collections.singletonList("id"));
         try {
-            System.out.println(removeBlogQuery);
             PreparedStatement prpStm = connection.prepareStatement(removeBlogQuery);
             prpStm.setInt(1, blog.getId());
             int affectedRows = prpStm.executeUpdate();
@@ -185,20 +185,20 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
      */
     @Override
     public Blog getBlog(int id) throws InvalidSQLQueryException, DatabaseError {
-            Blog blog = new Blog();
-            String query = blogQueries.getSelectQuery(Arrays.asList("id", "user_id", "title", "content", "created_at"),
-                    Collections.singletonList("id"));
-            try {
-                PreparedStatement prpStm = connection.prepareStatement(query);
-                prpStm.setInt(1, id);
-                ResultSet resultSet = prpStm.executeQuery();
-                if(!resultSet.next()) return null;
-                initBlogObject(blog, resultSet);
-                return blog;
-            } catch (SQLException exception) {
-                exception.printStackTrace();
-            }
-            return null;
+        Blog blog = new Blog();
+        String query = blogQueries.getSelectQuery(Arrays.asList("id", "user_id", "title", "content", "created_at"),
+                Collections.singletonList("id"));
+        try {
+            PreparedStatement prpStm = connection.prepareStatement(query);
+            prpStm.setInt(1, id);
+            ResultSet resultSet = prpStm.executeQuery();
+            if(!resultSet.next()) return null;
+            initBlogObject(blog, resultSet);
+            return blog;
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+        return null;
     }
 
     /*
@@ -231,6 +231,11 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
     @Override
     public void removeHashtags(int blogId, List<HashTag> hashTags) throws DatabaseError, InvalidSQLQueryException {
         hashTagDao.removeHashTags(blogId, hashTags);
+    }
+
+    @Override
+    public List<HashTag> getHashtags(int blogId) throws DatabaseError, InvalidSQLQueryException {
+        return hashTagDao.getHashTags(blogId);
     }
 
     // EditBlog interface
