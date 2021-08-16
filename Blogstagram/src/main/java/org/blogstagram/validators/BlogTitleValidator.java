@@ -28,7 +28,7 @@ public class BlogTitleValidator implements Validator{
         }
 
         if(title.length() > TITLE_MAX || title.length() < TITLE_MIN) {
-            list.add(new VariableError("title", "Blog Title must be between [" + TITLE_MIN + ", " + TITLE_MAX + "] symbols." ));
+            list.add(new VariableError("title", "Blog Title must be between (" + TITLE_MIN + " " + TITLE_MAX + ") symbols." ));
             return false;
         }
         return true;

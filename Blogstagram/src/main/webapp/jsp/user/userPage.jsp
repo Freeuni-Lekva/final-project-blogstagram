@@ -35,7 +35,7 @@
             <div class="container border border-dark mt-2" style="width:80%;">
                 <div class="row m-2">
                     <div class="col-2">
-                        <img src="<%= user.getImage() %>" class="user-profile-picture mr-5"/>
+                        <img src="/blogstagram/<%= user.getImage() %>" class="user-profile-picture mr-5"/>
                     </div>
                     <div class="col-10">
                         <div class="d-flex ml-5 mt-4">
@@ -62,11 +62,11 @@
                     </div>
                     <div class="col-4 border text-center p-2">
                         <span class="font-weight-bold mr-1" id="followers-count"><%= request.getAttribute("FollowersCount") %></span>
-                        <a href="/user/<%= user.getNickname() %>/followers" class="text-dark">followers</a>
+                        <a href="/blogstagram/user/<%= user.getNickname() %>/followers" class="text-dark">followers</a>
                     </div>
                     <div class="col-4 border text-center p-2">
                         <span class="font-weight-bold mr-1" id="following-count"><%= request.getAttribute("FollowingCount") %></span>
-                        <a href="/user/<%= user.getNickname() %>/following" class="text-dark">following</a>
+                        <a href="/blogstagram/user/<%= user.getNickname() %>/following" class="text-dark">following</a>
                     </div>
                 </div>
             </div>

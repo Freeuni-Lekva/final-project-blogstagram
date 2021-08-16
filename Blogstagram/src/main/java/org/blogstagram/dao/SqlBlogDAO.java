@@ -31,10 +31,12 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
     private final SqlHashTagDao hashTagDao;
     private final CommentDAO commentDAO;
     private final UserDAO userDAO;
+    private final BlogLikeDao likeDao;
 
 
 
-    public SqlBlogDAO(Connection connection, UserDAO userDAO, int usePurpose, CommentDAO commentDAO){
+
+    public SqlBlogDAO(Connection connection, UserDAO userDAO, int usePurpose, CommentDAO commentDAO, BlogLikeDao likeDao){
         if(connection == null)
             throw new NullPointerException("Connection object can't be null.");
         else if(usePurpose != TEST && usePurpose != REAL){
@@ -49,6 +51,7 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
         moderatorDao.setUserDao(userDAO);
         hashTagDao = new SqlHashTagDao(connection);
         editable = new ArrayList<>();
+        this.likeDao = likeDao;
         editable.add(new EditTitle(this));
         editable.add(new EditContent(this));
         editable.add(new EditModerators(this));
@@ -150,7 +153,8 @@ public class SqlBlogDAO implements BlogDAO, EditBlog {
         blog.setBlogModerators(moderatorDao.getModerators(blog.getId()));
         blog.setHashTagList(hashTagDao.getHashTags(blog.getId()));
         blog.setComments(commentDAO.getComments(blog.getId()));
-        blog.setNumLikes(0);
+        blog.setLikes(likeDao.getBlogLikers(blog.getId()));
+        blog.setNumLikes(blog.getLikes().size());
     }
 
     /*

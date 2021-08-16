@@ -184,7 +184,7 @@ public class UserServlet extends HttpServlet {
 
             try {
                 if(!canFollowListBeShown(currentUserID,user,followApi)){
-                    res.sendRedirect("/user/"+userIdentificator);
+                    res.sendRedirect("/blogstagram/user/"+userIdentificator);
                     return;
                 }
             } catch (DatabaseError databaseError) {
@@ -208,7 +208,7 @@ public class UserServlet extends HttpServlet {
         } else if (followIdentificator.equals(FOLLOWERS_URL_IDENTIFICATOR)){
             try {
                 if(!canFollowListBeShown(currentUserID,user,followApi)){
-                    res.sendRedirect("/user/"+userIdentificator);
+                    res.sendRedirect("/blogstagram/user/"+userIdentificator);
                     return;
                 }
             } catch (DatabaseError databaseError) {

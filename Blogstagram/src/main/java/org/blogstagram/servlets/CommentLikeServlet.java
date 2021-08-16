@@ -26,14 +26,14 @@ public class CommentLikeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String user_id = (String) request.getSession().getAttribute("currentUserID");
+        Integer user_id = (Integer) request.getSession().getAttribute("currentUserID");
         if(user_id == null){
             response.sendError(response.SC_UNAUTHORIZED);
             return;
         }
         Connection connection = (Connection) request.getServletContext().getAttribute("dbConnection");
         ServletContext context = request.getServletContext();
-        CommentDAO commentDAO = (CommentDAO)context.getAttribute("CommentDAO");
+        CommentDAO commentDAO = (CommentDAO)request.getSession().getAttribute("CommentDAO");
         UserDAO userDao = (UserDAO)request.getSession().getAttribute("UserDAO");
 
         CommentLikeValidator val = new CommentLikeValidator();
@@ -47,10 +47,10 @@ public class CommentLikeServlet extends HttpServlet {
         try{
             // if comment is not liked and user wants to like
             if(userVal.validate(user_id) && !val.validate(comment_id, user_id) && requestType.equals("Like")){
-                commentDAO.likeComment( Integer.parseInt(comment_id), Integer.parseInt(user_id));
+                commentDAO.likeComment( Integer.parseInt(comment_id), user_id);
                 // if comment is liked and user wants to unlike
             }else if(userVal.validate(user_id) && val.validate(comment_id, user_id) && requestType.equals("Unlike")){
-                commentDAO.unlikeComment(Integer.parseInt(comment_id), Integer.parseInt(user_id));
+                commentDAO.unlikeComment(Integer.parseInt(comment_id), user_id);
             }else{
                 // if comment is liked and user wants to like again
                 if(val.validate(comment_id, user_id) && requestType.equals("Like")) {
@@ -68,10 +68,9 @@ public class CommentLikeServlet extends HttpServlet {
             throwables.printStackTrace();
         }
 
-        if(errorList.size() != 0) {
-            Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(errorList));
-        }
+        Gson gson = new Gson();
+        response.getWriter().print(gson.toJson(errorList));
+
     }
 
     @Override

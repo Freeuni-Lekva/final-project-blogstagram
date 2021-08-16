@@ -40,7 +40,7 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         if(isUserLoggedIn(req)) {
-            res.sendRedirect("/");
+            res.sendRedirect("/blogstagram/");
             return;
         }
         req.getRequestDispatcher(REGISTER_PAGE_PATH).forward(req,res);

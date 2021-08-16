@@ -37,9 +37,9 @@
 <script>
     $("#userDeleteButton").click(function(e){
         const deleteUserID = document.getElementById("deleteUserID").innerText;
-        $.post("/delete/user",{deleteUserID}).then(response => {
+        $.post("/blogstagram/delete/user",{deleteUserID}).then(response => {
             let responseJSON = JSON.parse(response);
-            location.reload();
+            window.location.href = "/blogstagram";
         })
     })
 </script>

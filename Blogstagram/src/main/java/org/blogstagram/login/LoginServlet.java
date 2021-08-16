@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(isUserLoggedIn(request)) {
-            response.sendRedirect("/");
+            response.sendRedirect("/blogstagram/");
             return;
         }
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/login/login.jsp");
