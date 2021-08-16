@@ -137,6 +137,24 @@ public class NotificationDao implements followNotificationSender {
         return result;
     }
 
+    public int getNotificationId(int fromUserId, int toUserId, int type) throws SQLException{
+        PreparedStatement statement = connection.prepareStatement(GET_NOTIFICATION_ID);
+        statement.setInt(1, fromUserId);
+        statement.setInt(2, toUserId);
+        statement.setInt(3, type);
+        ResultSet resultSet = statement.executeQuery();
+        int id = -1;
+        while (resultSet.next())
+            id = resultSet.getInt(1);
+        return id;
+    }
+
+    public void deleteNotification(int notificationId) throws SQLException{
+        PreparedStatement statement = connection.prepareStatement(DELETE_NOTIFICATION);
+        statement.setInt(1, notificationId);
+        statement.executeUpdate();
+    }
+
     @Override
     public void sendFollowRequest(int fromUserId, int toUserId) {
         Notification notification = new Notification(null, REQUESTED_FOLLOW_NOTIFICATION, fromUserId, toUserId, null, NOT_SEEN, new Date(System.currentTimeMillis()));
@@ -156,5 +174,6 @@ public class NotificationDao implements followNotificationSender {
             throwables.printStackTrace();
         }
     }
+
 }
 
