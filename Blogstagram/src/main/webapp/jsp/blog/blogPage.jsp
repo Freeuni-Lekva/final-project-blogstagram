@@ -66,7 +66,7 @@
                     </div>
                 <% } %>
 
-                <% if(blog != null && currentUser != null && (currentUser.getId() == blog.getUser_id() || currentUser.getRole() == User.MODERATOR_ROLE || currentUser.getRole() == User.ADMIN_ROLE)) { %>
+                <% if(blog != null && currentUser != null && (currentUser.getId() == blog.getUser_id() || currentUser.getRole().equals(User.MODERATOR_ROLE) || currentUser.getRole().equals(User.ADMIN_ROLE)) { %>
                     <div id="remove_container" class = "container mt-2">
                         <button id = "remove" class = "btn btn-info form-control" onclick='removeBlog(<%= blog.getId() %>, "<%= currentUser.getNickname() %>")'>removeBlog</button>
                     </div>
