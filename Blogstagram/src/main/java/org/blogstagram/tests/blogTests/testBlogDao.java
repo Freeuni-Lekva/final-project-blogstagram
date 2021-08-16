@@ -1,6 +1,7 @@
 package org.blogstagram.tests.blogTests;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.blogstagram.dao.BlogLikeDao;
 import org.blogstagram.dao.CommentDAO;
 import org.blogstagram.dao.SqlBlogDAO;
 import org.blogstagram.dao.UserDAO;
@@ -27,21 +28,23 @@ public class testBlogDao {
     private static SqlBlogDAO sqlBlogDAO;
     private static SqlQueries queries;
     private static UserDAO userDAO;
+    private static BlogLikeDao blogLikeDao;
 
     @BeforeClass
     public static void init(){
         source = new BasicDataSource();
         source.setUrl("jdbc:mysql://localhost:3306/blogstagramdb_test");
         source.setUsername("root");
-        source.setPassword("Arqimede123@");
+        source.setPassword("rootroot");
         try {
             conn = source.getConnection();
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
         userDAO = new UserDAO(conn);
+        blogLikeDao = new BlogLikeDao(conn);
         CommentDAO commentDAO = new CommentDAO(conn);
-        sqlBlogDAO = new SqlBlogDAO(conn, userDAO, SqlBlogDAO.REAL, commentDAO);
+        sqlBlogDAO = new SqlBlogDAO(conn, userDAO, SqlBlogDAO.REAL, commentDAO, blogLikeDao);
         queries = new BlogQueries(SqlBlogDAO.REAL);
         setUpUsers();
     }
