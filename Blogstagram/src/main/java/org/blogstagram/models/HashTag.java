@@ -32,7 +32,6 @@ public class HashTag {
     }
 
 
-
     public String getHashTag(){
         return hashTag;
     }

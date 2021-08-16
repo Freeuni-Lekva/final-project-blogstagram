@@ -1,5 +1,6 @@
 package org.blogstagram.user;
 
+import org.blogstagram.dao.NotificationDao;
 import org.blogstagram.dao.SqlBlogDAO;
 import org.blogstagram.dao.SqlFollowDao;
 import org.blogstagram.dao.UserDAO;
@@ -69,6 +70,11 @@ public class UserServlet extends HttpServlet {
         return blogDAO;
     }
 
+    private NotificationDao getNotificationDao(HttpServletRequest req){
+        NotificationDao notificationDao = (NotificationDao) req.getSession().getAttribute("NotificationDao");
+        return notificationDao;
+     }
+
     private User getUserByIdentificator(UserDAO userDAO,String userIdentificator){
         boolean isID = userIdentificator.matches("[0-9]+");
         User user = null;
@@ -89,7 +95,7 @@ public class UserServlet extends HttpServlet {
         return user;
     }
 
-    private boolean canFollowListBeShown(Integer currentUserID,User user,FollowApi followApi) throws DatabaseError {
+    private boolean canFollowListBeShown(Integer currentUserID,User user,FollowApi followApi) throws DatabaseError, SQLException {
         // If user is private
         if(user.getPrivacy().equals(User.PUBLIC))
             return true;
@@ -115,10 +121,14 @@ public class UserServlet extends HttpServlet {
         UserDAO userDAO = getUserDAO(req);
         SqlBlogDAO blogDAO = getBlogDAO(req);
         SqlFollowDao followDAO = getSqlFollowDAO(req);
+        NotificationDao notificationDao = getNotificationDao(req);
+
         followDAO.setUserDao(userDAO);
         FollowApi followApi = new FollowApi();
         followApi.setFollowDao(followDAO);
         followApi.setUserDao(userDAO);
+        followApi.setNotificationDao(notificationDao);
+        followApi.registerFollowRequestSender(notificationDao);
 
         /* GETTING CURRENT USER */
         String userIdentificator = urlPair.getKey();
@@ -151,7 +161,7 @@ public class UserServlet extends HttpServlet {
             try {
                 if(currentUserID != null)
                     followStatus = (currentUserID.equals(user.getId())) ? (-1) :  (followApi.alreadyFollowed(currentUserID,user.getId()));
-            } catch (DatabaseError databaseError) {
+            } catch (DatabaseError | SQLException databaseError) {
                 databaseError.printStackTrace();
             }
 
@@ -187,7 +197,7 @@ public class UserServlet extends HttpServlet {
                     res.sendRedirect("/blogstagram/user/"+userIdentificator);
                     return;
                 }
-            } catch (DatabaseError databaseError) {
+            } catch (DatabaseError | SQLException databaseError) {
                 databaseError.printStackTrace();
             }
 
@@ -211,7 +221,7 @@ public class UserServlet extends HttpServlet {
                     res.sendRedirect("/blogstagram/user/"+userIdentificator);
                     return;
                 }
-            } catch (DatabaseError databaseError) {
+            } catch (DatabaseError | SQLException databaseError) {
                 databaseError.printStackTrace();
             }
 

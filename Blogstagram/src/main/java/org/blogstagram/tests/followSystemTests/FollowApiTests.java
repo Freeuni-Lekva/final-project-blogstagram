@@ -227,7 +227,7 @@ public class FollowApiTests {
             res = followApi.sendFollowRequest(2, 1);
             assertEquals(StatusCodes.followed, res);
 
-        }catch(DatabaseError | DirectionalFollowNotAdded e){
+        }catch(DatabaseError | DirectionalFollowNotAdded | SQLException e){
             e.printStackTrace();
         }
     }
@@ -275,7 +275,7 @@ public class FollowApiTests {
             followings = followApi.getAllFollowing(4);
             ids = Collections.singletonList(1);
             for(int k = 0; k < followings.size(); k++) assertEquals(followings.get(k).getId(), ids.get(k));
-        } catch (DatabaseError | DirectionalFollowNotAdded | NotValidUserIdException e){
+        } catch (DatabaseError | DirectionalFollowNotAdded | NotValidUserIdException | SQLException e){
             e.printStackTrace();
         }
     }

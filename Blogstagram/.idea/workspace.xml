@@ -5,6 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1088048f-1b36-4f04-ac80-4f588eef8afc" name="Default Changelist" comment="">
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/listeners/contextListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/notifications/NotificationConstants/NotificationQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/notifications/NotificationConstants/NotificationQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/servlets/CommentLikeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/servlets/CommentLikeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/notifications/notifications.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/notifications/notifications.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/contextListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/listeners/contextListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/blogstagram/servlets/CommentLikeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/blogstagram/servlets/CommentLikeServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/servlets/BlogServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/servlets/BlogServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/servlets/addBlogServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/blogs/servlets/addBlogServlet.java" afterDir="false" />
@@ -13,13 +23,17 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/validators/BlogValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/blog/javascript/buttons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/javascript/buttons.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/blog/javascript/removeModerators.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/blog/javascript/removeModerators.js" afterDir="false" />
+>>>>>>> origin/master
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/master
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
@@ -36,7 +50,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/master
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
@@ -48,10 +65,17 @@
         <entry key="JPA Structure" value="false" />
       </map>
     </option>
+<<<<<<< HEAD
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
+=======
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+>>>>>>> origin/master
   <component name="ProjectId" id="1unZmCgAu16jAZqSZLBsVPcWj5P" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -86,6 +110,9 @@
       <command value="mvn install" />
     </option>
   </component>
+<<<<<<< HEAD
+  <component name="RunManager">
+=======
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean" />
@@ -172,6 +199,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+>>>>>>> origin/master
     <configuration name="Blogstagram [tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />

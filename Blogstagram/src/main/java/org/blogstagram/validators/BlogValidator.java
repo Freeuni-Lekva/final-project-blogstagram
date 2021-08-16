@@ -13,6 +13,7 @@ public class BlogValidator implements Validator {
     private final Blog currentBlog;
     private final List <GeneralError> errors;
     private final SqlBlogDAO blogDAO;
+
     private final FollowApi api;
 
     public BlogValidator(Blog blog, SqlBlogDAO blogDAO, FollowApi api){
