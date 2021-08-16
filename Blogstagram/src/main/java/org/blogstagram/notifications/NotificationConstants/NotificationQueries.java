@@ -15,7 +15,5 @@ public class NotificationQueries {
     public static final String GET_NOTIFICATION_ID = "SELECT id FROM notifications WHERE from_user_id = ? AND to_user_id = ? AND type = ?";
     public static final String DELETE_NOTIFICATION = "DELETE FROM notifications WHERE id = ?";
     public static final String NOTIFICATION_EXISTENCE = "SELECT COUNT(id) FROM notifications WHERE from_user_id = ? AND to_user_id = ? AND type = ?;";
-    public static final String DELETE_NOTIFICATION = "DELETE FROM notifications WHERE id = ?";
-    public static final String GET_NOTIFICATION_ID = "SELECT id FROM notifications WHERE from_user_id = ? AND to_user_id = ? AND type = ?";
 }
 

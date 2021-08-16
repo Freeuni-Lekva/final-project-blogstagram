@@ -1,6 +1,11 @@
 package org.blogstagram.servlets;
 
 import com.google.gson.Gson;
+import org.blogstagram.dao.BlogDAO;
+import org.blogstagram.dao.NotificationDao;
+import org.blogstagram.errors.InvalidSQLQueryException;
+import org.blogstagram.models.Blog;
+import org.blogstagram.models.Notification;
 import org.blogstagram.validators.*;
 import org.blogstagram.dao.CommentDAO;
 import org.blogstagram.dao.UserDAO;
@@ -22,6 +27,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.blogstagram.notifications.NotificationConstants.NotificationTypes.POST_COMMENT_NOTIFICATION;
+import static org.blogstagram.notifications.NotificationConstants.NotificationTypes.POST_LIKE_NOTIFICATION;
+import static org.blogstagram.notifications.NotificationConstants.SeenStatus.NOT_SEEN;
+
 @WebServlet("/commentServlet")
 public class CommentServlet extends HttpServlet {
 
@@ -35,6 +44,8 @@ public class CommentServlet extends HttpServlet {
         ServletContext context = request.getServletContext();
         Connection connection = (Connection) context.getAttribute("dbConnection");
         UserDAO userDao = (UserDAO)request.getSession().getAttribute("UserDAO");
+        BlogDAO blogDAO = (BlogDAO) request.getSession().getAttribute("blogDao");
+        NotificationDao notificationDao = (NotificationDao) request.getSession().getAttribute("NotificationDao");
         String requestType = request.getParameter("CommentAction");
         String blog_id = request.getParameter("blog_id");
         String comment = request.getParameter("Comment");
@@ -60,6 +71,9 @@ public class CommentServlet extends HttpServlet {
                     Comment newComment = new Comment(user_id, Integer.parseInt(blog_id),
                             comment, new Date(System.currentTimeMillis()));
                     commentDAO.addComment(newComment);
+                    Blog blog = blogDAO.getBlog(Integer.parseInt(blog_id));
+                    Notification notification = new Notification(null, POST_COMMENT_NOTIFICATION, user_id, blog.getUser_id(), blog.getId(), NOT_SEEN, new Date(System.currentTimeMillis()));
+                    notificationDao.addNotification(notification);
                     responseJson.put("comment", gson.toJson(newComment));
                 }
             }else if(userVal.validate(user_id) && requestType.equals("DeleteComment") && blogValidator.validate(blog_id,"")) {
@@ -84,7 +98,7 @@ public class CommentServlet extends HttpServlet {
                 VariableError varError = new VariableError("Comment System", "comment action not valid");
                 errorList.add(varError);
             }
-        } catch (SQLException | DatabaseError | NotValidUserIdException throwables) {
+        } catch (SQLException | DatabaseError | NotValidUserIdException | InvalidSQLQueryException throwables) {
             throwables.printStackTrace();
         }
         responseJson.put("errors", gson.toJson(errorList));
