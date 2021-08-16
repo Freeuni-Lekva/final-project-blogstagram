@@ -61,6 +61,8 @@ public class Blog {
     }
 
     public void setId(int id) {
+        if(id < 0)
+            throw new IllegalArgumentException("id can't be less than zero");
         this.id = id;
     }
 
@@ -123,4 +125,10 @@ public class Blog {
         this.blogModerators = blogModerators;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Blog)) return false;
+        Blog current = (Blog) obj;
+        return current.getId() == this.getId();
+    }
 }
