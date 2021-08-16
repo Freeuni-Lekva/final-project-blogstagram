@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="50c5ff1d-0e5a-4a9e-aa74-c09313ce28f1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/BlogDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/BlogDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlBlogDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/dao/SqlBlogDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blogstagram.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/blogTests/testBlogDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blogstagram/tests/blogTests/testBlogDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +53,22 @@
       <command value="mvn compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.testBlogDao.addHashtags">
+  <component name="RunManager" selected="JUnit.testBlogDao.testEditBlog2">
+    <configuration name="BlogModeratorQueriesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Blogstagram" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.blogstagram.tests.blogTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.blogstagram.tests.blogTests" />
+      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.blogTests.BlogModeratorQueriesTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="testBlogDao" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Blogstagram" />
       <extension name="coverage">
@@ -86,7 +100,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testBlogDao.testAddGetModerators" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="testBlogDao.testEditBlog2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Blogstagram" />
       <extension name="coverage">
         <pattern>
@@ -96,23 +110,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.blogstagram.tests.blogTests" />
       <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.blogTests.testBlogDao" />
-      <option name="METHOD_NAME" value="testAddGetModerators" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="testBlogDao.testBlogExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Blogstagram" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.blogstagram.tests.blogTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.blogstagram.tests.blogTests" />
-      <option name="MAIN_CLASS_NAME" value="org.blogstagram.tests.blogTests.testBlogDao" />
-      <option name="METHOD_NAME" value="testBlogExists" />
+      <option name="METHOD_NAME" value="testEditBlog2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -161,19 +159,19 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.testBlogDao" />
-      <item itemvalue="JUnit.testBlogDao.testBlogExists" />
-      <item itemvalue="JUnit.testBlogDao.testAddGetModerators" />
       <item itemvalue="JUnit.testBlogDao.testRemoveModerators" />
       <item itemvalue="JUnit.testBlogDao.addHashtags" />
       <item itemvalue="Maven.Blogstagram [tomcat7:run]" />
+      <item itemvalue="JUnit.BlogModeratorQueriesTest" />
+      <item itemvalue="JUnit.testBlogDao.testEditBlog2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.testBlogDao.testEditBlog2" />
+        <item itemvalue="JUnit.testBlogDao" />
+        <item itemvalue="JUnit.BlogModeratorQueriesTest" />
         <item itemvalue="JUnit.testBlogDao.addHashtags" />
         <item itemvalue="JUnit.testBlogDao.testRemoveModerators" />
-        <item itemvalue="JUnit.testBlogDao" />
-        <item itemvalue="JUnit.testBlogDao.testAddGetModerators" />
-        <item itemvalue="JUnit.testBlogDao.testBlogExists" />
       </list>
     </recent_temporary>
   </component>
