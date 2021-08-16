@@ -1,7 +1,9 @@
 <%@ page import="java.util.*" %>
 <%@ page import="org.blogstagram.models.NotificationUser" %>
 <%@ page import="static org.blogstagram.notifications.NotificationConstants.NotificationTypes.*" %>
-<%@ page import="static org.blogstagram.notifications.NotificationConstants.SeenStatus.*" %><%--
+<%@ page import="static org.blogstagram.notifications.NotificationConstants.SeenStatus.*" %>
+<%@ page import="org.blogstagram.followSystem.api.StatusCodes" %>
+<%--
   Created by IntelliJ IDEA.
   User: tazo
   Date: 12.08.21
@@ -28,11 +30,11 @@
     <div class="container">
         <% for(NotificationUser notification : notifications) {%>
         <div class="media my-3 border border-3 border-info p-3">
-            <img class="mr-3" style="width:100px; height:100px; border-radius: 50%; object-fit: cover;" src="/blogstagram/<%= notification.getImage() %>" alt="Generic placeholder image">
-            <div class="media-body">
+            <img id="notification-image-<%= notification.getNotificationId() %>" class="mr-3" style="width:100px; height:100px; border-radius: 50%; object-fit: cover;" src="/blogstagram/<%= notification.getImage() %>" alt="Generic placeholder image">
+            <div id = "notification-<%= notification.getNotificationId() %>" class="media-body">
                 <h5 class="mt-0">
 <%--                    <%= notification.getTitle() %>--%>
-                    <span class="text-muted">
+                    <span  class="text-muted">
 
                                             <% if(notification.getNotificationType() == FOLLOW_NOTIFICATION) { %>
                                                 <a href="/blogstagram/user/<%= notification.getFromUserId()%>">
@@ -42,8 +44,8 @@
                                                     <a href="/blogstagram/user/<%= notification.getFromUserId()%>">
                                                     <%= notification.getFirstName() %> <%= notification.getLastName() %> sent you follow request.
                                                     </a>
-                                                    <a class="btn btn-outline-primary">Accept</a>
-                                                    <a class="btn btn-outline-primary">Decline</a>
+                                                    <button class="btn btn-outline-primary" onclick="AcceptRequest(<%= notification.getToUserId() %>, <%= notification.getFromUserId() %>, <%= notification.getNotificationId() %>)">Accept</button>
+                                                    <button class="btn btn-outline-primary" onclick="DeclineRequest(<%= notification.getToUserId() %>, <%= notification.getFromUserId() %>, <%= notification.getNotificationId() %>)">Decline</button>
                                             <% } else if(notification.getNotificationType() == ACCEPTED_FOLLOW_NOTIFICATION) { %>
                                                 <a href="/blogstagram/user/<%= notification.getFromUserId()%>">
                                                 <%= notification.getFirstName() %> <%= notification.getLastName() %> accepted your follow request.
@@ -86,6 +88,46 @@
     </div>
 </div>
 
+
+<script>
+    function AcceptRequest(toId, fromId, notificationId){
+        $.post("/blogstagram/followResponse", {
+            from_id : String(fromId),
+            Type : "Accept"
+        }).then(response => {
+            let fields = JSON.parse(response);
+             console.log(fields);
+            if(fields["status"][0] === <%= StatusCodes.requestApproved %>){
+
+                window.location.href = "/blogstagram/notifications";
+            }
+        }).catch(errs => {
+            console.log(errs);
+        });
+    }
+
+    function DeclineRequest(toId, fromId, notificationId){
+         $.post("/blogstagram/followResponse", {
+                    from_id : String(fromId),
+                    Type : "Decline"
+         }).then(response => {
+             let fields = JSON.parse(response);
+             if(fields["status"][0] === <%= StatusCodes.requestDeclined %>){
+                console.log(fields);
+                window.location.href = "/blogstagram/notifications";
+             }
+         }).catch(errs => {
+            console.log(errs);
+         });
+    }
+</script>
+
+
 <jsp:include page="/jsp/templates/footer.jsp" />
 </body>
+
+
+
 </html>
+
+

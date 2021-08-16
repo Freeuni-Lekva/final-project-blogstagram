@@ -10,7 +10,6 @@ import org.blogstagram.errors.NotValidUserIdException;
 import org.blogstagram.followSystem.api.FollowApi;
 import org.blogstagram.followSystem.api.StatusCodes;
 import org.blogstagram.models.Blog;
-import org.blogstagram.models.Notification;
 import org.blogstagram.models.User;
 import org.blogstagram.pairs.StringPair;
 
